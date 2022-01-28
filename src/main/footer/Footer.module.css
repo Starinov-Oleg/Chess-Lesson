@@ -1,0 +1,8 @@
+.footer{
+    background-color: rgba(15, 221, 236, 0.171);
+    background-image:url('/src/assets/footer/footer.jpg');
+    /*<a href='https://www.freepik.com/vectors/design'>Design vector created by macrovector - www.freepik.com</a>*/
+    background-position: center;
+    background-size:  cover;
+    background-repeat: no-repeat;
+}

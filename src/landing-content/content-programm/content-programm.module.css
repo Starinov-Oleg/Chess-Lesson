@@ -1,0 +1,27 @@
+.title{
+    font-size: 4rem;
+}
+@media (max-width: 767px) {
+    .title{
+        font-size: 1rem;
+    }
+}
+.subtitle{
+    font-size: 2rem;
+    padding-top:2rem;
+}
+
+.color{
+    color:#2aa3d3;
+}
+
+.list{
+    font-size: 2rem;
+    text-align: left;
+    color:#51504b;
+}
+
+.img{
+    width:70%;
+    padding-bottom: 2rem;
+}

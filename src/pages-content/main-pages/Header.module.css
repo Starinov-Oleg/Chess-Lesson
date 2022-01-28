@@ -1,0 +1,21 @@
+.logo{
+    width:159px;
+}
+.link{
+    font-family: 'Mochiy';
+    font-size: 1.2rem;
+    color:white;
+}
+.icon{
+    width:2rem;
+}
+.active{
+    color:red;
+    background-color: red;
+}
+
+.link:hover{
+    color:gold
+}
+
+

@@ -1,0 +1,71 @@
+.learn{
+    background-image: url('/src/assets/section-learn/cess.png'),url('/src/assets/section-learn/land3.jpg');
+    /*<a href='https://www.freepik.com/vectors/design'>Design vector created by macrovector - www.freepik.com</a>*/
+    background-position: center;
+    background-size: contain, cover;
+    background-repeat: no-repeat;
+    height:100vh;
+}
+
+.logo{
+  width:45%;
+}
+.title{
+    color:gold;
+    font-size: 3rem;
+    text-shadow: 2px 2px black;
+    font-weight: bold;
+}
+.subtitles{
+    color:red;
+    font-size:3rem;
+}
+
+.button{
+    border-radius:8px;	
+    display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family: 'Mochiy';
+	font-size:28px;
+	padding:10px 50px;
+	text-decoration:none;
+    margin:20px;
+    width:16rem;
+}
+.login {
+    box-shadow: 0px 0px 0px 0px #c25e1b;
+	background-color:#ff6b08;
+	border:1px solid #f2bd9f;
+	text-shadow:0px 1px 0px #662828;
+}
+.login:hover {
+	background-color:#f2bd9f;
+    color:white;
+}
+.login:active {
+	position:relative;
+	top:1px;
+    color:white;
+}
+
+.register {
+	box-shadow: 0px 0px 0px 0px #141112;
+	background-color:#4d4444;
+	border:1px solid #8f8f8f;
+	text-shadow:0px 1px 0px #0a0406;
+}
+.register:hover {
+	background-color:#858284;
+    color:white;
+}
+.register:active {
+	position:relative;
+	top:1px;
+    color:white;
+}
+
+
+.promo{
+    margin-top:10%;
+}

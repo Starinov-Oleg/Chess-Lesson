@@ -1,0 +1,20 @@
+.baner{
+    background-image: url('/src/assets/section-baner/baner.jpg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height:100vh;
+}
+.title{
+    font-size: 4rem;
+}
+
+.subtitle{
+    font-size: 2rem;
+    padding-top:2rem;
+     font-family: 'Mochiy';
+}
+
+.color{
+    color:#2aa3d3;
+}

@@ -1,0 +1,25 @@
+.couch{
+    background-image: url('/src/assets/section-couch/back.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height:100vh;
+}
+.title{
+    font-size: 4rem;
+    padding-top:2rem;
+
+}
+    @media screen and (max-width: 480px) {
+        .title{
+            font-size:1rem;
+        }
+    }
+.list{
+    font-size: 2rem;
+    text-align: left;
+    color:white;
+}
+.color{
+    color:white;
+}
