@@ -1,21 +1,17 @@
 .logo{
-    width:159px;
+    width:140px;
 }
 .link{
     font-family: 'Mochiy';
     font-size: 1.2rem;
     color:white;
+    text-align:left;
 }
 .icon{
     width:2rem;
 }
-.active{
-    color:red;
-    background-color: red;
+
+
+.sticky-top{
+    position: sticky;
 }
-
-.link:hover{
-    color:gold
-}
-
-

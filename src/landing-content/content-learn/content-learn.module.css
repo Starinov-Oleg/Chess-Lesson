@@ -4,9 +4,8 @@
     background-position: center;
     background-size: contain, cover;
     background-repeat: no-repeat;
-    height:100vh;
+    padding-bottom: 20%;
 }
-
 .logo{
   width:45%;
 }

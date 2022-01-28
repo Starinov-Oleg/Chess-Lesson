@@ -7,11 +7,24 @@ import connect_icon from '../../assets/pages/header-pages/connect.png';
 import event_icon from '../../assets/pages/header-pages/event.png';
 import learn_icon from '../../assets/pages/header-pages/learn.png'
 import { NavLink } from 'react-router-dom';
-import  logo from '../../assets/section-learn/logo.png'
+import  logo from '../../assets/section-learn/logo.png';
+
+const MenuItem=(props)=>{
+    return (
+        <div className="navigation-item">
+            <NavLink to={props.href}  className={`nav-link py-3  ${header.link} ${header.color_white} `}
+                style={({ isActive }) => ({
+                    color: isActive ? 'gold' : 'white',
+                 })}>  
+                <img  src={props.icon} alt="home" className={header.icon}/> {props.name}               
+            </NavLink>
+        </div>        
+    )
+}
+
 function HeaderPage(){    
     return(
-
-            <div className="d-flex flex-sm-column flex-row flex-nowrap  sticky-top text-left">
+            <div className="d-flex flex-sm-column flex-row flex-nowrap  sticky-top align">
                 <NavLink to="/" className="d-block p-3  text-decoration-none" >
                   <i className={header.icon}></i>
                 </NavLink>
@@ -19,13 +32,10 @@ function HeaderPage(){
                     <img  src={logo} alt="home" className={header.logo}/>
                 </NavLink>
                 <div className="navigation">
+                    <MenuItem  href="home" name="Home" icon={home_icon}/>
+
                     <div className="navigation-item">
-                        <NavLink to="/pages"  className={`nav-link py-3  ${header.link} `}>   
-                           <img  src={home_icon} alt="home" className={header.icon}/> Home                
-                        </NavLink>
-                    </div>
-                    <div className="navigation-item">
-                        <NavLink to="whatis"  className={`nav-link py-3  ${header.link}`}   
+                        <NavLink to="play"  className={`nav-link py-3  ${header.link}`}   
                         style={({ isActive }) => ({
                                   color: isActive ? 'gold' : 'white',
                                 })}>
@@ -33,7 +43,7 @@ function HeaderPage(){
                         </NavLink>
                     </div>
                     <div className="navigation-item">
-                        <NavLink to="learn" className={`nav-link py-3  ${header.link}`} 
+                        <NavLink to="chesslearn" className={`nav-link py-3  ${header.link}`} 
                         style={({ isActive }) => ({
                                   color: isActive ? 'gold' : 'white',
                                 })}>
@@ -41,7 +51,7 @@ function HeaderPage(){
                         </NavLink>
                     </div>
                     <div className="navigation-item">
-                        <NavLink to="coach" className={`nav-link py-3 ${header.link}`} 
+                        <NavLink to="chesslandcoaches" className={`nav-link py-3 ${header.link}`} 
                         style={({ isActive }) => ({
                                   color: isActive ? 'gold' : 'white',
                                 })}>                        
@@ -49,7 +59,7 @@ function HeaderPage(){
                         </NavLink>
                     </div>
                     <div className="navigation-item">
-                        <NavLink to="connect" className={`nav-link py-3 ${header.link}`} 
+                        <NavLink to="contact" className={`nav-link py-3 ${header.link}`} 
                         style={({ isActive }) => ({
                                   color: isActive ? 'gold' : 'white',
                                 })}>                       
@@ -69,7 +79,7 @@ function HeaderPage(){
                         style={({ isActive }) => ({
                                   color: isActive ? 'gold' : 'white',
                                 })}>
-                           <img  src={adventure_icon} alt="adventure" className={header.icon}/> Play
+                           <img  src={adventure_icon} alt="adventure" className={header.icon}/> Adventure
                         </NavLink>
                     </div>
                 </div>

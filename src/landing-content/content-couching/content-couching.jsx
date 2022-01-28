@@ -5,7 +5,7 @@ function SectionCouching(){
         <div className={couch.couch}>
             <div className='container'>
                 <div className='row'>
-                    <div className='col-lg-12 col-12'>
+                    <div className='col-md-12 col-12'>
                         <h1 className={`${couch.title} ${couch.color}`}>COACHING FOR KIDS</h1>
                     </div>
                     <div className='col-lg-6 col-12'>

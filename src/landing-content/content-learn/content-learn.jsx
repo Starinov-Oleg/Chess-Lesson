@@ -6,7 +6,7 @@ function SectionLearn() {
       <div className={learn.learn}>
         <div className="container">
           <div className="row">
-            <div className="col-lg-12 col-12">
+            <div className="col-md-12 col-12">
               <div className={learn.promo}>
                 <img src={logo} alt="chess-land" className={learn.logo}/>
                 <div className="titles">

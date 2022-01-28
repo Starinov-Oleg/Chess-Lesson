@@ -3,7 +3,7 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    height:100vh;
+    padding-bottom: 20%;
 }
 .title{
     font-size: 4rem;
