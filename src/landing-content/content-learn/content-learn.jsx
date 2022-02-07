@@ -1,5 +1,6 @@
-import  learn from './content-learn.module.css'
-import  logo from '../../assets/section-learn/logo.png'
+import  learn from './content-learn.module.css';
+import  logo from '../../assets/section-learn/logo.png';
+import { NavLink } from 'react-router-dom';
 function SectionLearn() {
  return(
     <section className='section-learn'>
@@ -13,8 +14,8 @@ function SectionLearn() {
                     <h1 className={learn.title}>Kids Learn and Play Chess</h1>
                 </div>
                 <div className="buttons ">
-                    <a className={`${learn.login} ${learn.button}`} >LOGIN</a>
-                    <a className={`${learn.register} ${learn.button}`}>SIGN UP</a>
+                    <NavLink to="login" className={`${learn.login} ${learn.button}`} >LOGIN</NavLink>
+                    <NavLink to="register" className={`${learn.register} ${learn.button}`}>SIGN UP</NavLink>
                 </div>
               </div>
             </div>

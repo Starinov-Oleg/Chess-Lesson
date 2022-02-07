@@ -8,19 +8,7 @@ import event_icon from '../../assets/pages/header-pages/event.png';
 import learn_icon from '../../assets/pages/header-pages/learn.png'
 import { NavLink } from 'react-router-dom';
 import  logo from '../../assets/section-learn/logo.png';
-
-const MenuItem=(props)=>{
-    return (
-        <div className="navigation-item">
-            <NavLink to={props.href}  className={`nav-link py-3  ${header.link} ${header.color_white} `}
-                style={({ isActive }) => ({
-                    color: isActive ? 'gold' : 'white',
-                 })}>  
-                <img  src={props.icon} alt="home" className={header.icon}/> {props.name}               
-            </NavLink>
-        </div>        
-    )
-}
+import MenuItem from './menu-list/menu-item';
 
 function HeaderPage(){    
     return(
@@ -32,58 +20,14 @@ function HeaderPage(){
                     <img  src={logo} alt="home" className={header.logo}/>
                 </NavLink>
                 <div className="navigation">
-                    <MenuItem  href="home" name="Home" icon={home_icon}/>
-
-                    <div className="navigation-item">
-                        <NavLink to="play"  className={`nav-link py-3  ${header.link}`}   
-                        style={({ isActive }) => ({
-                                  color: isActive ? 'gold' : 'white',
-                                })}>
-                           <img  src={play_icon} alt="play" className={header.icon}/> Play
-                        </NavLink>
-                    </div>
-                    <div className="navigation-item">
-                        <NavLink to="chesslearn" className={`nav-link py-3  ${header.link}`} 
-                        style={({ isActive }) => ({
-                                  color: isActive ? 'gold' : 'white',
-                                })}>
-                           <img  src={learn_icon} alt="learn" className={header.icon}/> Learn
-                        </NavLink>
-                    </div>
-                    <div className="navigation-item">
-                        <NavLink to="chesslandcoaches" className={`nav-link py-3 ${header.link}`} 
-                        style={({ isActive }) => ({
-                                  color: isActive ? 'gold' : 'white',
-                                })}>                        
-                           <img  src={coach_icon} alt="coach" className={header.icon}/> Coaching
-                        </NavLink>
-                    </div>
-                    <div className="navigation-item">
-                        <NavLink to="contact" className={`nav-link py-3 ${header.link}`} 
-                        style={({ isActive }) => ({
-                                  color: isActive ? 'gold' : 'white',
-                                })}>                       
-                           <img  src={connect_icon} alt="connect" className={header.icon}/> Connect
-                        </NavLink>
-                    </div>
-                    <div className="navigation-item">
-                        <NavLink to="events" className={`nav-link py-3 ${header.link}`} 
-                        style={({ isActive }) => ({
-                                  color: isActive ? 'gold' : 'white',
-                                })}>
-                           <img  src={event_icon} alt="events" className={header.icon}/> Events
-                        </NavLink>
-                    </div>
-                    <div className="navigation-item">
-                        <NavLink to="adventure"  className={`nav-link py-3  ${header.link}`} title="" 
-                        style={({ isActive }) => ({
-                                  color: isActive ? 'gold' : 'white',
-                                })}>
-                           <img  src={adventure_icon} alt="adventure" className={header.icon}/> Adventure
-                        </NavLink>
-                    </div>
+                    <MenuItem  href="home" name="Home" icon={home_icon} alt/>
+                    <MenuItem  href="play" name="Play" icon={play_icon}/>
+                    <MenuItem  href="chesslearn" name="Learn" icon={learn_icon}/>
+                    <MenuItem  href="chesslandcoaches" name="Coaching" icon={coach_icon}/>
+                    <MenuItem  href="contact" name="Connect" icon={connect_icon}/>
+                    <MenuItem  href="events" name="Events" icon={event_icon}/>
+                    <MenuItem  href="adventure" name="Adventure" icon={adventure_icon}/>
                 </div>
-
             </div>
     )
 }
