@@ -1,0 +1,40 @@
+/*rival interface - same like rival-interface*/
+.playprofile {
+  background-color: aliceblue;
+  margin: 1rem 0rem 1rem;
+  border-radius: 10px;
+}
+.flex {
+  display: flex;
+  text-align: left;
+  padding: 1rem;
+}
+.flex_item_user_avatar {
+  width: 30%;
+}
+
+.flex_item_user_body {
+  width: 70%;
+}
+.photo_pacage {
+  background-color: rgba(0, 0, 0, 0);
+  position: absolute;
+  width: 170px;
+  height: 170px;
+}
+.photo {
+  height: 170px;
+  width: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ff6b08;
+  border-radius: 10px;
+}
+.font {
+  font-size: 1rem;
+  font-family: 'Mochiy';
+}
+.user_victories_caunt {
+  padding: 1rem;
+}

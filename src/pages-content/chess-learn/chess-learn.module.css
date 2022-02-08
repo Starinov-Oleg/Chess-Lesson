@@ -1,0 +1,16 @@
+.subtitles {
+  font-size: 1.5rem;
+  font-family: 'Mochiy';
+  padding: 1rem 1rem;
+}
+.about {
+  font-size: 1rem;
+  padding: 1rem;
+  font-family: 'Mochiy';
+}
+.start {
+  text-align: left;
+  background-color: aliceblue;
+  margin: 1rem 0rem 1rem;
+  border-radius: 10px;
+}
