@@ -12,12 +12,16 @@ import Play from './pages-content/chess-play/play';
 import Contact from './pages-content/chess-contact/contact';
 import Events from './pages-content/chess-events/events';
 import Adventure from './pages-content/chess-adventure/adventure';
+import Login from './user-content/login/login';
+import Register from './user-content/register/register';
 function App() {
   return (
     <BrowserRouter> 
       <div className="App">
       <Routes>
         <Route path="/" element={<Landing/>} />
+        <Route path="/login" element={<Login/>}></Route>
+        <Route path="/register" element={<Register/>}></Route>
         <Route  path="/pages" element={<Pages />} >
           <Route path="home" element={<Home/>} ></Route>
           <Route path="whatis" element={<WhatIsChessland/>}/>

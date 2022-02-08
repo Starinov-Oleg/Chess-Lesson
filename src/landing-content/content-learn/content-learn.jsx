@@ -14,8 +14,8 @@ function SectionLearn() {
                     <h1 className={learn.title}>Kids Learn and Play Chess</h1>
                 </div>
                 <div className="buttons ">
-                    <NavLink to="login" className={`${learn.login} ${learn.button}`} >LOGIN</NavLink>
-                    <NavLink to="register" className={`${learn.register} ${learn.button}`}>SIGN UP</NavLink>
+                    <NavLink to="Login" className={`${learn.login} ${learn.button}`} >LOGIN</NavLink>
+                    <NavLink to="Register" className={`${learn.register} ${learn.button}`}>SIGN UP</NavLink>
                 </div>
               </div>
             </div>
