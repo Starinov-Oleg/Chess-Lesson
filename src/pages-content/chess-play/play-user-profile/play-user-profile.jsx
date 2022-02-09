@@ -1,6 +1,6 @@
 import playprofile from './play-user-profile.module.css'
 import logo from '../../../assets/user/login.jpg'
-import Button from '../../../ui-library/button/button'
+import Button from '../../../ui-library/button-link/button-link'
 function PlayProfile(props) {
   return (
     <section className='playprofile'>

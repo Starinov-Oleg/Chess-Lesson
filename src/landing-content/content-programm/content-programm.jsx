@@ -1,6 +1,6 @@
 import programm from './content-programm.module.css';
 import school from '../../assets/section-programm/school.jpg';
-import Button from '../../ui-library/button/button'
+import Button from '../../ui-library/button-link/button-link'
 
 function SectionProgramm(){
     return(<section className='school-programm'>

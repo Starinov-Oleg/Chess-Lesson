@@ -1,5 +1,5 @@
 import safe from './content-safe.module.css'
-import Button from '../../ui-library/button/button'
+import Button from '../../ui-library/button-link/button-link'
 
 function SectionSafe (){
     return(

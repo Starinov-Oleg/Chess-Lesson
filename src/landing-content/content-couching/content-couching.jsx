@@ -1,5 +1,5 @@
 import couch from'./content-couching.module.css';
-import Button from '../../ui-library/button/button'
+import Button from '../../ui-library/button-link/button-link'
 function SectionCouching(){
     return(<section className='school-couching'>
         <div className={couch.couch}>
