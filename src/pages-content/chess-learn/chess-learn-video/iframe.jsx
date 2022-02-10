@@ -1,7 +1,11 @@
 import iframe from './iframe.module.css'
 
 function Iframe(props) {
-  return <div className={iframe.iframe} dangerouslySetInnerHTML={{ __html: props.iframe ? props.iframe : '' }} />
+  return (
+    <div className={iframe.iframe}>
+      <iframe src={props.src} height={props.height} width={props.width} title={props.title} />
+    </div>
+  )
 }
 
 export default Iframe

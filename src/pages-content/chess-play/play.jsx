@@ -9,7 +9,7 @@ function Play() {
     <section className='play'>
       <div className={play.play}>
         <div className='row'>
-          <div className='col-md-6 col-12'>
+          <div className='col-md-7 col-12'>
             <PlayProfile name={value.chessplay.name_rival} />
           </div>
           <div className='col-md-2 col-12'>
@@ -26,7 +26,7 @@ function Play() {
           </div>
         </div>
         <div className='row'>
-          <div className='col-md-6 col-12'>
+          <div className='col-md-7 col-12'>
             <PlayProfile name={value.chessplay.name_you} />
           </div>
         </div>

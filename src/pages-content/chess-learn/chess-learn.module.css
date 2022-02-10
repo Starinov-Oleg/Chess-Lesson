@@ -14,3 +14,13 @@
   margin: 1rem 0rem 1rem;
   border-radius: 10px;
 }
+.title {
+  font-size: 2rem;
+  font-family: 'Mochiy';
+  padding: 1rem 1rem;
+  color: #2aa3d3;
+}
+
+.picture {
+  width: 100%;
+}

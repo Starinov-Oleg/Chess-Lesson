@@ -10,11 +10,11 @@
   padding: 1rem;
 }
 .flex_item_user_avatar {
-  width: 30%;
+  width: 40%;
 }
 
 .flex_item_user_body {
-  width: 70%;
+  width: 60%;
 }
 .photo_pacage {
   background-color: rgba(0, 0, 0, 0);

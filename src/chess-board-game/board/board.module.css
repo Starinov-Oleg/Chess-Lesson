@@ -8,7 +8,7 @@
 .chess_board td {
   border: 1px solid;
   width: 10rem;
-  height: 10rem;
+  height: 5rem;
 }
 .chess_board .light {
   background: #eee;
