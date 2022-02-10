@@ -1,29 +1,29 @@
 import page from './user-page.module.css'
-
+import Logo from '../../ui-library/logo/logo'
+import Statistic from '../../ui-library/statistic/statistic'
 function UserPage() {
   return (
     <section>
       <div className={page.page}>
         <div className='row'>
           <div className='col-md-12 col-12'>
-            <div className={page.cover}>cover</div>
-            <div className={page.avatar}>logo</div>
+            <div className={page.profile_display}>
+              <div className={page.profile_cover}></div>
+              <div className={page.logo_info}>
+                <Logo />
+              </div>
+            </div>
           </div>
           <div className='col-md-6 col-12'>
+            <div className={page.profile}>
+              <div className={page.chessstatistic}>
+                <Statistic />
+              </div>
+              <div className={page.settings}></div>
+            </div>
             <div className={page.people}>
               <div className={page.friends}>friends items</div>
               <div className={page.coaches}>coaches items</div>
-            </div>
-            <div className={page.profile}>
-              <div className={page.chessstatistic}>
-                <p>
-                  Win: <span>10</span>
-                </p>
-                <p>
-                  Lose: <span>10</span>
-                </p>
-              </div>
-              <div className={page.settings}></div>
             </div>
           </div>
           <div className='col-md-6 col-12'>

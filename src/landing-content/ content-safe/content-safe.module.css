@@ -1,29 +1,6 @@
-.safe{
-    background-image: url('/src/assets/section-safe/back.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    
+.safe {
+  background-image: url('/src/assets/section-safe/back.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
-
-.title{
-    font-size: 4rem;
-    padding-top:2rem;
-}
-@media (max-width: 767px) {
-    .title{
-        font-size: 1rem;
-    }
-}
-
-.subtitle{
-    font-size: 2rem;
-    text-align: left;
-    color:white;
-}
-
-.color{
-    color:#2aa3d3;
-}
-
-
