@@ -3,20 +3,21 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Input from '../../../ui-library/input/input'
 import Label from '../../../ui-library/label/label'
+function handleSubmit(e, history) {
+  e.preventDefault()
+
+  history('/')
+}
 function Form(props) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const history = useNavigate()
-  function handleSubmit(e) {
-    e.preventDefault()
-    alert(`${password}`)
-    history('/')
-  }
+
   return (
     <form
       className={form.form}
       onSubmit={e => {
-        handleSubmit(e)
+        handleSubmit(e, history)
       }}>
       <div className='mb-3'>
         <Label message='Email address' />

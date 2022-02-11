@@ -1,10 +1,11 @@
 import home from './home.module.css'
-
+import H1 from '../../ui-library/h1/h1'
 function Home() {
+  const style_h1 = { color: '#2aa3d3' }
   return (
     <section className='home'>
       <div className={`${home.color}  ${home.link}`}>
-        <h1 className={home.title}>CHESSLAND - CHESS CLUB</h1>
+        <H1 message='CHESSLAND - CHESS CLUB' style={style_h1} />
       </div>
       <div className={home.body}>
         <p>

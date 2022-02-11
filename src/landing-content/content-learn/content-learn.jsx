@@ -1,21 +1,27 @@
-import  learn from './content-learn.module.css';
-import  logo from '../../assets/section-learn/logo.png';
-import { NavLink } from 'react-router-dom';
+import learn from './content-learn.module.css'
+import logo from '../../assets/section-learn/logo.png'
+import { NavLink } from 'react-router-dom'
+import H1 from '../../ui-library/h1/h1'
 function SectionLearn() {
- return(
+  const style = { color: 'gold', fontSize: '3rem', textShadow: '2px 2px black', fontWeight: 'bold' }
+  return (
     <section className='section-learn'>
       <div className={learn.learn}>
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12 col-12">
+        <div className='container'>
+          <div className='row'>
+            <div className='col-md-12 col-12'>
               <div className={learn.promo}>
-                <img src={logo} alt="chess-land" className={learn.logo}/>
-                <div className="titles">
-                    <h1 className={learn.title}>Kids Learn and Play Chess</h1>
+                <img src={logo} alt='chess-land' className={learn.logo} />
+                <div className='titles'>
+                  <H1 message='Kids Learn and Play Chess' style={style} />
                 </div>
-                <div className="buttons ">
-                    <NavLink to="Login" className={`${learn.login} ${learn.button}`} >LOGIN</NavLink>
-                    <NavLink to="Register" className={`${learn.register} ${learn.button}`}>SIGN UP</NavLink>
+                <div className='buttons '>
+                  <NavLink to='Login' className={`${learn.login} ${learn.button}`}>
+                    LOGIN
+                  </NavLink>
+                  <NavLink to='Register' className={`${learn.register} ${learn.button}`}>
+                    SIGN UP
+                  </NavLink>
                 </div>
               </div>
             </div>
@@ -23,6 +29,6 @@ function SectionLearn() {
         </div>
       </div>
     </section>
-  );
+  )
 }
-export default SectionLearn;
+export default SectionLearn

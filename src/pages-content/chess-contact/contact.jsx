@@ -5,6 +5,7 @@ import Button from '../../ui-library/button-link/button-link'
 import value from '../../backend/value'
 import picturecoaches from '../../assets/pages/chess-contact/coaches.jpg'
 import picturestudent from '../../assets/pages/chess-contact/friend.jpg'
+import H3 from '../../ui-library/h3/h3'
 function Contact() {
   return (
     <section className='contact'>
@@ -12,7 +13,7 @@ function Contact() {
         <div className={contact.club}>
           <div className='row justify-content-center'>
             <div className='col-md-12 col-12 '>
-              <h3 className={contact.title}>Introduce With Club</h3>
+              <H3 message='Introduce With Club' />
             </div>
             <div className='col-md-3 col-12 '>
               <Card
@@ -35,7 +36,7 @@ function Contact() {
         <div className={contact.coaches}>
           <div className='row'>
             <div className='col-md-12 col-12 '>
-              <h3 className={contact.title}>Introduce With Coaches</h3>
+              <H3 message='Introduce With Coaches' />
               <img
                 src={picturecoaches}
                 className={contact.picture}
@@ -46,7 +47,7 @@ function Contact() {
           </div>
         </div>
         <div className={contact.friend}>
-          <h3 className={contact.title}>Your Friends</h3>
+          <H3 message='Your Friends' />
           <img
             src={picturestudent}
             className={contact.picture}

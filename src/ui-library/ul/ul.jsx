@@ -1,12 +1,12 @@
 import ul from './ul.module.css'
 
 function Ul(props) {
+  const lists = props.lists
+
+  const listItems = lists.map(list => <li key={list.toString()}>{list}</li>)
   return (
-    <ul className={ul.list}>
-      <li>{props.li0}</li>
-      <li>{props.li1}</li>
-      <li>{props.li2}</li>
-      <li>{props.li3}</li>
+    <ul className={`${ul.list}`} style={props.style}>
+      {listItems}
     </ul>
   )
 }

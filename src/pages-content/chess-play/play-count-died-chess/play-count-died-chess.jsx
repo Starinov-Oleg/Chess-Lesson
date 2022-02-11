@@ -1,12 +1,11 @@
 import diedchess from './play-count-died-chess.module.css'
-
+import H3 from '../../../ui-library/h3/h3'
 function DiedChess(props) {
   return (
     <section>
       <div className={diedchess.diedchess}>
-        <h3 className={diedchess.subtitles}>
-          Died Chess <span className={diedchess.color}>{props.name}</span>:
-        </h3>
+        <H3 message='Died Chess' />
+        <span className={diedchess.color}>{props.name}</span>:
         <hr className={diedchess.line} />
       </div>
     </section>

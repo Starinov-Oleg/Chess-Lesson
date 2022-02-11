@@ -7,7 +7,7 @@ function Events() {
       <div className={events.events}>
         <div className='row'>
           <div className='col-md-12 col-12'>
-            <Item title={value.events[0].title} body={value.events[0].text} data={value.events[0].data} />
+            <Item events={value.events} />
           </div>
         </div>
       </div>
