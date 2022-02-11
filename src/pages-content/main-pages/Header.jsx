@@ -11,6 +11,15 @@ import logo from '../../assets/section-learn/logo.png'
 import MenuItem from './menu-list/menu-item'
 
 function HeaderPage() {
+  const navlinkItems = [
+    { id: 0, href: 'home', name: 'home', icon: home_icon },
+    { id: 1, href: 'play', name: 'Play', icon: play_icon },
+    { id: 2, href: 'chesslearn', name: 'Learn', icon: adventure_icon },
+    { id: 3, href: 'chesslandcoaches', name: 'Coaching', icon: coach_icon },
+    { id: 4, href: 'contact', name: 'Connect', icon: connect_icon },
+    { id: 5, href: 'events', name: 'Events', icon: event_icon },
+    { id: 6, href: 'adventure', name: 'Adventure', icon: learn_icon },
+  ]
   return (
     <div className='d-flex flex-sm-column flex-row flex-nowrap  sticky-top align'>
       <NavLink to='/' className='d-block p-3  text-decoration-none'>
@@ -20,13 +29,7 @@ function HeaderPage() {
         <img src={logo} alt='home' className={header.logo} />
       </NavLink>
       <div className='navigation'>
-        <MenuItem href='home' name='Home' icon={home_icon} alt />
-        <MenuItem href='play' name='Play' icon={play_icon} />
-        <MenuItem href='chesslearn' name='Learn' icon={learn_icon} />
-        <MenuItem href='chesslandcoaches' name='Coaching' icon={coach_icon} />
-        <MenuItem href='contact' name='Connect' icon={connect_icon} />
-        <MenuItem href='events' name='Events' icon={event_icon} />
-        <MenuItem href='adventure' name='Adventure' icon={adventure_icon} />
+        <MenuItem navlinkItems={navlinkItems} />
       </div>
     </div>
   )

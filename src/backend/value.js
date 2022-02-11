@@ -28,7 +28,28 @@ let value = {
       'Attention to every child',
     ],
   },
+  /**value ul list*/
+  contentCouching: {
+    lists: ['School manage', 'Report student progress', 'Organize tournaments', 'Couching education material'],
+  },
+  /**value ul list*/
+  contentProgramm: {
+    lists: [
+      'Student study material',
+      'Chess report cards',
+      'Organize tournaments',
+      'Individual and foreigner chess programm',
+    ],
+  },
+  navlinkItems: [
+    { id: 0, href: 'home', name: 'home', icon: '/assets/header-pages/home.png' },
+    { id: 1, href: 'play', name: 'Play', icon: '/assets/header-pages/play.png' },
+    { id: 2, href: 'chesslearn', name: 'Learn', icon: '/assets/header-pages/adventure.png' },
+    { id: 3, href: 'chesslandcoaches', name: 'Coaching', icon: '/assets/header-pages/coach.png' },
+    { id: 4, href: 'contact', name: 'Connect', icon: '/assets/header-pages/connect.png' },
+    { id: 5, href: 'events', name: 'Events', icon: '/assets/header-pages/event.png' },
+    { id: 6, href: 'adventure', name: 'Adventure', icon: '/assets/header-pages/learn.png' },
+  ],
 }
 
 export default value
-/** TODO: teacher object need in array; pass item from array */

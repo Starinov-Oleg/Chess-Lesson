@@ -7,11 +7,12 @@
   display: flex;
   text-align: left;
   padding: 1rem;
+  flex-wrap: wrap;
 }
 .flex_item_user_avatar {
-  width: 50%;
+  width: 30%;
 }
 
 .flex_item_user_body {
-  width: 50%;
+  width: 70%;
 }

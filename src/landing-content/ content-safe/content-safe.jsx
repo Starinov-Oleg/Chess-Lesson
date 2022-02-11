@@ -4,13 +4,6 @@ import H1 from '../../ui-library/h1/h1'
 import Ul from '../../ui-library/ul/ul'
 import value from '../../backend/value'
 function SectionSafe() {
-  const lists = [
-    'Activity report',
-    'Non stop contact with cauch and teacher',
-    'Only kids content',
-    'Attention to every child',
-  ]
-
   return (
     <section className='safe'>
       <div className={safe.safe}>
