@@ -1,11 +1,12 @@
-import buttonplay from './button-play.module.css';
-import { NavLink } from "react-router-dom";
+import buttonplay from './button-play.module.css'
+import { NavLink } from 'react-router-dom'
 
- function Button(props){
-     return(
-         <NavLink to={props.href} className={buttonplay.play}>{props.message}</NavLink>
-     )
-     
+function Button(props) {
+  return (
+    <div className={buttonplay.play}>
+      <NavLink to={props.href}>{props.message}</NavLink>
+    </div>
+  )
 }
 
 export default Button
