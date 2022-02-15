@@ -1,9 +1,9 @@
-import buttonplay from './button-play.module.css'
+import buttonlogin from './button-register.module.css'
 import { NavLink } from 'react-router-dom'
 
 function Button(props) {
   return (
-    <NavLink to={props.href} className={buttonplay.play}>
+    <NavLink to={'/Register'} className={buttonlogin.button}>
       {props.message}
     </NavLink>
   )

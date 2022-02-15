@@ -1,47 +1,48 @@
 import form from './form-register.module.css'
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useForm } from 'react-hook-form'
 import Input from '../../../ui-library/input/input'
 import Label from '../../../ui-library/label/label'
-function handleSubmit(e, history) {
-  e.preventDefault()
+import Button from '../../../ui-library/button-click/button'
+import { ErrorMessage } from '@hookform/error-message'
 
-  history('/')
+function onSubmit(data) {
+  alert(JSON.stringify(data))
+  let url = '/'
+  window.location.replace(url)
 }
-function Form() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const history = useNavigate()
 
+function Form() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm()
+  const button = { fontSize: '1.8rem', marginTop: '1rem' }
   return (
-    <form
-      className={form.form}
-      onSubmit={e => {
-        handleSubmit(e, history)
-      }}>
+    <form className={form.form} onSubmit={handleSubmit(onSubmit)}>
       <div className='row'>
         <div className='col-md-6'>
           <Label message='Email address' />
           <Input
-            type='email'
-            value={email}
-            placeholder='Here e-mail type: email@email.com'
-            aria_describedby='email Help'
-            onChange={e => setEmail(e.target.value)}
+            name='email'
+            register={register}
+            rules={{
+              required: true,
+              pattern:
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+            }}
           />
+          <ErrorMessage errors={errors} name='email' render={() => <p className={form.errors}>Email not Correct</p>} />
         </div>
         <div className='col-md-6'>
           <Label message='Password' />
-          <Input
-            type='password'
-            value={password}
-            placeholder=''
-            aria_describedby='email Help'
-            onChange={e => setPassword(e.target.value)}
-          />
+          <Input type='password' name='password' register={register} rules={{ required: true }} />
+          <ErrorMessage errors={errors} name='password' render={() => <p className={form.errors}>Empty Field</p>} />
         </div>
       </div>
-      <button className={form.button}>REGISTER</button>
+      <div className={form.align_button}>
+        <Button message='REGISTER' style={button} />
+      </div>
     </form>
   )
 }

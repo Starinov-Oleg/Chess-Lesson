@@ -35,6 +35,7 @@ function App() {
             <Route path='adventure' element={<Adventure />} />
             <Route path='user' element={<User />}></Route>
           </Route>
+          <Route path='*' element={<Landing />}></Route>
         </Routes>
       </div>
     </BrowserRouter>
