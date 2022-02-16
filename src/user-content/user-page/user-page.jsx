@@ -1,42 +1,43 @@
 import page from './user-page.module.css'
-import Logo from '../../ui-library/logo/logo'
 import Statistic from '../../ui-library/statistic/statistic'
+import UserHeader from './user-header-block/user-header'
+import ActionItem from './user-actionline-item/action-line'
+import Settings from './user-settings/user-settings'
+import Friend from './user-friends/friend-item'
+import Couch from './user-couches/couch-item'
+import H3 from '../../ui-library/h3/h3'
 function UserPage() {
+  const h3 = { paddingTop: '1rem' }
   return (
     <section>
       <div className={page.page}>
         <div className='row'>
           <div className='col-md-12 col-12'>
-            <div className={page.profile_display}>
-              <div className={page.profile_cover}></div>
-              <div className={page.logo_info}>
-                <Logo />
-              </div>
-            </div>
+            <UserHeader />
           </div>
           <div className='col-md-6 col-12'>
             <div className={page.profile}>
               <div className={page.chessstatistic}>
                 <Statistic />
               </div>
-              <div className={page.settings}></div>
+              <div className={page.settings}>
+                <Settings />
+              </div>
             </div>
             <div className={page.people}>
-              <div className={page.friends}>friends items</div>
-              <div className={page.coaches}>coaches items</div>
+              <div className={page.friends}>
+                <H3 message='Friends' style={h3} />
+                <Friend />
+              </div>
+              <div className={page.coaches}>
+                <H3 message='Couches' />
+                <Couch />
+              </div>
             </div>
           </div>
-          <div className='col-md-6 col-12'>
+          <div className='col-md-6 col-12 '>
             <div className={page.actionsline}>
-              <div className={page.line_item}>
-                <div className={page.line_header}>header here</div>
-                <hr />
-                <div className={page.line_body}>body here</div>
-                <hr />
-                <div className={page.line_footer}>
-                  footer here <span>data action here</span>
-                </div>
-              </div>
+              <ActionItem />
             </div>
           </div>
         </div>
