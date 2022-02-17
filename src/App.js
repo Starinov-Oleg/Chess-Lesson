@@ -15,27 +15,45 @@ import Adventure from './pages-content/chess-adventure/adventure'
 import Login from './user-content/login/login'
 import Register from './user-content/register/register'
 import User from './user-content/user-page/user-page'
-function App() {
+function App(props) {
   return (
     <BrowserRouter>
       <div className='App'>
         <Routes>
-          <Route path='/' element={<Landing />} />
+          <Route
+            path='/'
+            element={
+              <Landing
+                contentSafe={props.state.landing.contentSafe.lists}
+                contentCouching={props.state.landing.contentCouching.lists}
+                contentProgramm={props.state.landing.contentProgramm.lists}
+              />
+            }
+          />
           <Route path='/login' element={<Login />}></Route>
           <Route path='/register' element={<Register />}></Route>
-          <Route path='/pages' element={<Pages />}>
+          <Route path='/pages' element={<Pages navlinkItems={props.state.navlinkItems} />}>
             <Route path='home' element={<Home />}></Route>
             <Route path='whatis' element={<WhatIsChessland />} />
             <Route path='chesslandschool' element={<ChessLandSchool />} />
             <Route path='chesslandcoaches' element={<ChessLandCoaches />} />
-            <Route path='chesslearn' element={<ChessLearn />} />
-            <Route path='play' element={<Play />} />
-            <Route path='contact' element={<Contact />} />
-            <Route path='events' element={<Events />} />
+            <Route path='chesslearn' element={<ChessLearn learn={props.state.learn} />} />
+
+            <Route path='contact' element={<Contact contact={props.state.contact} />} />
+            <Route path='events' element={<Events events={props.state.events} />} />
             <Route path='adventure' element={<Adventure />} />
             <Route path='user' element={<User />}></Route>
           </Route>
-          <Route path='*' element={<Landing />}></Route>
+          <Route path='/play' element={<Play chessplay={props.state.chessplay} />} />
+          <Route
+            path='*'
+            element={
+              <Landing
+                contentSafe={props.state.landing.contentSafe.lists}
+                contentCouching={props.state.landing.contentCouching.lists}
+                contentProgramm={props.state.landing.contentProgramm.lists}
+              />
+            }></Route>
         </Routes>
       </div>
     </BrowserRouter>

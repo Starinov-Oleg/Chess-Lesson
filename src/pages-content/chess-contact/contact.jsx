@@ -2,57 +2,35 @@ import contact from './contact.module.css'
 import Card from '../../ui-library/card/card'
 import picture from '../../assets/pages/chess-play/user.png'
 import Button from '../../ui-library/button-link/button-link'
-import value from '../../backend/value'
-import picturecoaches from '../../assets/pages/chess-contact/coaches.jpg'
-import picturestudent from '../../assets/pages/chess-contact/friend.jpg'
+
 import H3 from '../../ui-library/h3/h3'
-function Contact() {
+function Contact(props) {
+  const cardItems = props.contact.map(contact => (
+    <div className='col-md-3 col-12 '>
+      <Card title={contact.name} text={contact.text} alt='picture' src={picture} key={contact.id} />
+    </div>
+  ))
   return (
     <section className='contact'>
       <div className={contact.contact}>
         <div className={contact.club}>
-          <div className='row justify-content-center'>
+          <div className='row'>
             <div className='col-md-12 col-12 '>
               <H3 message='Introduce With Club' />
             </div>
-            <div className='col-md-3 col-12 '>
-              <Card
-                title={value.contact.teacher1.name}
-                text={value.contact.teacher1.text}
-                alt='picture'
-                src={picture}
-              />
-            </div>
-            <div className='col-md-3 col-12 '>
-              <Card
-                title={value.contact.teacher2.name}
-                text={value.contact.teacher2.text}
-                alt='picture'
-                src={picture}
-              />
-            </div>
+            <div className='row justify-content-center '>{cardItems}</div>
           </div>
         </div>
-        <div className={contact.coaches}>
+        <div className={`${contact.align}`}>
           <div className='row'>
             <div className='col-md-12 col-12 '>
               <H3 message='Introduce With Coaches' />
-              <img
-                src={picturecoaches}
-                className={contact.picture}
-                alt='coaches-logo <a href=https://www.freepik.com/vectors/business>Business vector created by katemangostar - www.freepik.com</a>'
-              />
               <Button href='/Login' message='LOGIN' />
             </div>
           </div>
         </div>
-        <div className={contact.friend}>
+        <div className={`${contact.align}`}>
           <H3 message='Your Friends' />
-          <img
-            src={picturestudent}
-            className={contact.picture}
-            alt='friend-logo <a href=https://www.freepik.com/vectors/school>School vector created by felicities - www.freepik.com</a>'
-          />
           <Button href='/Login' message='LOGIN' />
         </div>
       </div>

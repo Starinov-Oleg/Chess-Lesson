@@ -2,7 +2,7 @@ import chesslearn from './chess-learn.module.css'
 import Iframe from './chess-learn-video/iframe'
 import Button from '../../ui-library/button-click/button'
 import { useState } from 'react'
-import value from '../../backend/value'
+
 import picture from '../../assets/pages/chess-learn/learn-video.jpg'
 import H3 from '../../ui-library/h3/h3'
 import H1 from '../../ui-library/h1/h1'
@@ -17,7 +17,7 @@ function toggle2(setShow, setShowPic, setShow2) {
   setShowPic(showpic => showpic == null)
   setShow(show => show == null)
 }
-function ChessLearn() {
+function ChessLearn(props) {
   const [show, setShow] = useState(false)
   const [show2, setShow2] = useState(false)
   const [showpic, setShowPic] = useState(true)
@@ -29,21 +29,20 @@ function ChessLearn() {
       <div className={chesslearn.chesslearn}>
         <div className='row'>
           <div className='col-md-8 col-12'>
-            {showpic ? (
-              <div>
-                <H1 message='Watch video' style={style_h1} />
-                <img
-                  src={picture}
-                  className={chesslearn.picture}
-                  alt='video here <a href=https://www.freepik.com/vectors/background>Background vector created by pch.vector - www.freepik.com</a>'
-                />
-              </div>
-            ) : null}
             <div className={chesslearn.video}>
-              {show ? <Iframe src={value.learn.video1} height='500' width='100%' /> : null}
-            </div>
-            <div className={chesslearn.video}>
-              {show2 ? <Iframe src={value.learn.video2} height='500' width='100%' /> : null}
+              {showpic ? (
+                <div>
+                  <H1 message='Watch video' style={style_h1} />
+                  <img
+                    src={picture}
+                    className={chesslearn.picture}
+                    alt='video here <a href=https://www.freepik.com/vectors/background>Background vector created by pch.vector - www.freepik.com</a>'
+                  />
+                </div>
+              ) : null}
+              {show ? <Iframe src={props.learn.video1} height='500' width='100%' /> : null}
+
+              {show2 ? <Iframe src={props.learn.video2} height='500' width='100%' /> : null}
             </div>
           </div>
           <div className={`col-md-4 col-12 ${chesslearn.background_color}`}>

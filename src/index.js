@@ -4,10 +4,13 @@ import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import 'bootstrap/dist/css/bootstrap.css'
+import store from './redux/store'
+import state from './redux/state'
 
 ReactDOM.render(
+  
   <React.StrictMode>
-    <App />
+    <App store={store} state={state} />
   </React.StrictMode>,
   document.getElementById('root')
 )

@@ -1,3 +1,7 @@
+.chesslearn {
+  min-height: 100vh;
+}
+
 .about {
   font-size: 1rem;
   padding: 1rem;
@@ -5,7 +9,7 @@
 }
 .start {
   text-align: left;
-
+  height: 100vh;
   margin: 1rem 0rem 1rem;
   border-radius: 10px;
 }
@@ -16,8 +20,4 @@
 
 .background_color {
   background-color: aliceblue;
-}
-
-.video {
-  padding-top: 3.5rem;
 }
