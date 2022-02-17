@@ -1,11 +1,10 @@
 import login from './login.module.css'
 import logo from '../../assets/user/login.jpg'
-import home from '../../assets/pages/header-pages/home.png'
-import { NavLink } from 'react-router-dom'
 import Form from './form/form-login'
 import H1 from '../../ui-library/h1/h1'
 import H3 from '../../ui-library/h3/h3'
 import Button from '../../ui-library/button-register/button-register'
+import HomeLink from '../../ui-library/home-link/home-link'
 function Login() {
   const h1 = { color: '#2aa3d3' }
   const h3 = { fontSize: '1.3rem', color: 'black' }
@@ -15,9 +14,7 @@ function Login() {
         <div className='container'>
           <div className={`row ${login.color}`}>
             <div className='col-md-6 col-12'>
-              <NavLink to='/'>
-                <img src={home} alt='chess-land' className={login.icon} />
-              </NavLink>
+              <HomeLink />
               <H1 message='LOGIN' style={h1} />
               <Form />
             </div>

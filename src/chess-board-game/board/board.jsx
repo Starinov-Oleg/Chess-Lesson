@@ -1,9 +1,16 @@
 import board from './board.module.css'
-
+import Button from '../../ui-library/button-click/button'
+import { useState } from 'react'
 function Board() {
+  const button = { position: 'absolute', top: '70%', left: '45%' }
+  const [showButton, setShowButton] = useState(true)
+  function start() {
+    setShowButton(false)
+  }
   return (
     <section className='board'>
       <div className={board.board}>
+        {showButton ? <Button message='START' style={button} onClick={start} /> : null}
         <table className={board.chess_board}>
           <tbody>
             <tr>

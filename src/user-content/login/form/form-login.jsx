@@ -11,13 +11,7 @@ function onSubmit(data) {
   window.location.replace(url)
 }
 
-function Form() {
-  /*
-  const history = useNavigate()
-   const onSubmit = data => {
-    alert(JSON.stringify(data))
-    history('/')
-  }*/
+function Form(props) {
   const {
     register,
     handleSubmit,

@@ -3,31 +3,27 @@ import ChessBoard from '../../chess-board-game/chess-board'
 import PlayClockTimer from './play-clock-timer/play-clock-timer'
 import PlayProfile from './play-user-profile/play-user-profile'
 import DiedChess from './play-count-died-chess/play-count-died-chess'
+import HomeLink from '../../ui-library/home-link/home-link'
 
 function Play(props) {
   return (
     <section className='play'>
       <div className={play.play}>
-        <div className='row'>
-          <div className='col-md-7 col-12'>
-            <PlayProfile name={props.chessplay.name_rival} />
-          </div>
-          <div className='col-md-2 col-12'>
-            <PlayClockTimer />
-          </div>
-        </div>
-        <div className='row'>
-          <div className='col-md-8 col-12'>
-            <ChessBoard />
-          </div>
-          <div className='col-md-4 col-12'>
-            <DiedChess name={props.chessplay.name_rival} />
-            <DiedChess name={props.chessplay.name_you} />
-          </div>
-        </div>
-        <div className='row'>
-          <div className='col-md-7 col-12'>
-            <PlayProfile name={props.chessplay.name_you} />
+        <div className='container-fluid'>
+          <div className='row'>
+            <div className='col-md-3 col-12'>
+              <PlayProfile name={props.chessplay.name_rival} />
+              <PlayProfile name={props.chessplay.name_you} />
+            </div>
+            <div className='col-md-6 col-12'>
+              <ChessBoard />
+            </div>
+            <div className={`col-md-3 col-12 ${play.margin_top}`}>
+              <HomeLink />
+              <PlayClockTimer />
+              <DiedChess name={props.chessplay.name_rival} />
+              <DiedChess name={props.chessplay.name_you} />
+            </div>
           </div>
         </div>
       </div>

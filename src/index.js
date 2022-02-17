@@ -5,10 +5,9 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import 'bootstrap/dist/css/bootstrap.css'
 import store from './redux/store'
-import state from './redux/state'
+import state, { onSubmit } from './redux/state'
 
 ReactDOM.render(
-  
   <React.StrictMode>
     <App store={store} state={state} />
   </React.StrictMode>,

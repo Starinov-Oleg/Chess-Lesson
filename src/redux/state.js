@@ -56,5 +56,9 @@ const state = {
     { id: 6, href: 'adventure', name: 'Adventure', icon: '/assets/header-pages/learn.png' },
   ],
 }
-
+export const toggle = (setShow, setShow2, setShowPic) => {
+  setShow(show => (show = true))
+  setShowPic(showpic => showpic == null)
+  setShow2(show2 => show2 == null)
+}
 export default state
