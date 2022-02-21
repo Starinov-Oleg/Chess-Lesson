@@ -1,9 +1,7 @@
-import { createStore } from 'redux'
-import { combineReducers } from 'redux'
+import { configureStore } from '@reduxjs/toolkit'
 import eventReducer from './reducer/event-reducer'
-const reducer = combineReducers({
-  eventReducer,
-})
-const store = createStore(reducer)
+import contactReducer from './reducer/contact-reducer'
 
-export default store
+export default configureStore({
+  reducer: { events: eventReducer, contacts: contactReducer },
+})

@@ -39,8 +39,8 @@ function App(props) {
             <Route path='chesslandcoaches' element={<ChessLandCoaches />} />
             <Route path='chesslearn' element={<ChessLearn learn={props.state.learn} />} />
 
-            <Route path='contact' element={<Contact contact={props.state.contact} />} />
-            <Route path='events' element={<Events events={props.state.events} />} />
+            <Route path='contact' element={<Contact />} />
+            <Route path='events' element={<Events />} />
             <Route path='adventure' element={<Adventure />} />
             <Route path='user' element={<User />}></Route>
           </Route>

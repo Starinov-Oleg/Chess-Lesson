@@ -6,10 +6,12 @@ import reportWebVitals from './reportWebVitals'
 import 'bootstrap/dist/css/bootstrap.css'
 import store from './redux/store'
 import state from './redux/state'
-
+import { Provider } from 'react-redux'
 ReactDOM.render(
   <React.StrictMode>
-    <App store={store} state={state} />
+    <Provider store={store}>
+      <App state={state} />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 )

@@ -1,12 +1,13 @@
-const init = {
-  events: [
-    { id: 0, title: 'Develop', text: 'here first text', data: '10.02.22' },
-    { id: 1, title: 'Develop1', text: 'here first text', data: '10.02.22' },
-  ],
-}
+import { createSlice } from '@reduxjs/toolkit'
+const initialState = [
+  { id: 0, title: 'Develop', text: 'here first text', data: '10.02.22' },
+  { id: 1, title: 'Develop1', text: 'here first text', data: '10.02.22' },
+]
 
-function eventReducer(state = init, action) {
-  return state
-}
+const eventsSlice = createSlice({
+  name: 'events',
+  initialState,
+  reducers: {},
+})
 
-export default eventReducer
+export default eventsSlice.reducer
