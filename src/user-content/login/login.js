@@ -5,6 +5,13 @@ import H1 from '../../ui-library/h1/h1'
 import H3 from '../../ui-library/h3/h3'
 import Button from '../../ui-library/button-register/button-register'
 import HomeLink from '../../ui-library/home-link/home-link'
+
+function onSubmit(data) {
+  alert(JSON.stringify(data))
+  let url = '/'
+  window.location.replace(url)
+}
+
 function Login() {
   const h1 = { color: '#2aa3d3' }
   const h3 = { fontSize: '1.3rem', color: 'black' }
@@ -16,7 +23,7 @@ function Login() {
             <div className='col-md-6 col-12'>
               <HomeLink />
               <H1 message='LOGIN' style={h1} />
-              <Form />
+              <Form onSubmit={onSubmit} />
             </div>
             <div className='col-md-6 col-12'>
               <img

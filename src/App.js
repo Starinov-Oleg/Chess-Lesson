@@ -9,13 +9,13 @@ import ChessLandCoaches from './pages-content/chess-land-coaches/chess-land-coac
 import ChessLearn from './pages-content/chess-learn/chess-land-school'
 import Home from './pages-content/chess-page-home/home'
 import Play from './pages-content/chess-play/play'
-import Contact from './pages-content/chess-contact/contact'
-import Events from './pages-content/chess-events/events'
 import Adventure from './pages-content/chess-adventure/adventure'
 import Login from './user-content/login/login'
 import Register from './user-content/register/register'
 import User from './user-content/user-page/user-page'
 import RegisterCouch from './pages-content/chess-land-coaches/coaches-register/register'
+import EventsContainer from './pages-content/chess-events/events-container'
+import ContactContainer from './pages-content/chess-contact/contact-container'
 function App(props) {
   return (
     <BrowserRouter>
@@ -40,8 +40,8 @@ function App(props) {
             <Route path='chesslandschool' element={<ChessLandSchool />} />
             <Route path='chesslandcoaches' element={<ChessLandCoaches />} />
             <Route path='chesslearn' element={<ChessLearn learn={props.state.learn} />} />
-            <Route path='contact' element={<Contact />} />
-            <Route path='events' element={<Events />} />
+            <Route path='contact' element={<ContactContainer />} />
+            <Route path='events' element={<EventsContainer />} />
             <Route path='adventure' element={<Adventure />} />
             <Route path='user' element={<User />}></Route>
           </Route>

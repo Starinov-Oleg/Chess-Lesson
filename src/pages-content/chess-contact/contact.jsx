@@ -1,16 +1,7 @@
 import contact from './contact.module.css'
-import Card from '../../ui-library/card/card'
-import picture from '../../assets/pages/chess-play/user.png'
 import Button from '../../ui-library/button-link/button-link'
-import { useSelector } from 'react-redux'
 import H3 from '../../ui-library/h3/h3'
-function Contact() {
-  const contacts = useSelector(state => state.contacts)
-  const cardItems = contacts.map(contact => (
-    <div className='col-md-3 col-12 ' key={contact.id}>
-      <Card title={contact.name} text={contact.text} alt='picture' src={picture} />
-    </div>
-  ))
+function Contact({ cardItems }) {
   return (
     <section className='contact'>
       <div className={contact.contact}>
@@ -23,12 +14,8 @@ function Contact() {
           </div>
         </div>
         <div className={`${contact.align}`}>
-          <div className='row'>
-            <div className='col-md-12 col-12 '>
-              <H3 message='Introduce With Coaches' />
-              <Button href='/Login' message='LOGIN' />
-            </div>
-          </div>
+          <H3 message='Introduce With Coaches' />
+          <Button href='/Login' message='LOGIN' />
         </div>
         <div className={`${contact.align}`}>
           <H3 message='Your Friends' />

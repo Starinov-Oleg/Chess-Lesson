@@ -5,13 +5,8 @@ import Label from '../../../ui-library/label/label'
 import { useForm } from 'react-hook-form'
 import Button from '../../../ui-library/button-click/button'
 import { ErrorMessage } from '@hookform/error-message'
-function onSubmit(data) {
-  alert(JSON.stringify(data))
-  let url = '/'
-  window.location.replace(url)
-}
 
-function Form(props) {
+function Form({ onSubmit }) {
   const {
     register,
     handleSubmit,

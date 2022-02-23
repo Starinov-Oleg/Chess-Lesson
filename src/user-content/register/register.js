@@ -2,6 +2,13 @@ import register from './register.module.css'
 import Form from './form/form-register'
 import H1 from '../../ui-library/h1/h1'
 import HomeLink from '../../ui-library/home-link/home-link'
+
+function onSubmit(data) {
+  alert(JSON.stringify(data))
+  let url = '/'
+  window.location.replace(url)
+}
+
 function Register() {
   const h1 = { color: '#2aa3d3' }
   return (
@@ -16,7 +23,7 @@ function Register() {
               <H1 message='REGISTER' style={h1} />
             </div>
           </div>
-          <Form />
+          <Form onSubmit={onSubmit} />
         </div>
       </div>
     </section>

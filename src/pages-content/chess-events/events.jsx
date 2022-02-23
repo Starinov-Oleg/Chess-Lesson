@@ -1,12 +1,6 @@
 import eventsitems from './events.module.css'
-import Item from './events/events-item'
-import { useSelector } from 'react-redux'
 
-function Events() {
-  const events = useSelector(state => state.events)
-  const eventsItems = events.map(event => (
-    <Item title={event.title} text={event.text} data={event.data} key={event.id} />
-  ))
+function Events({ eventsItems }) {
   return (
     <section className='events'>
       <div className={eventsitems.events}>
