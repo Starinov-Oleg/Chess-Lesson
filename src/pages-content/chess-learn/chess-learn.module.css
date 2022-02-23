@@ -2,20 +2,12 @@
   min-height: 100vh;
 }
 
-.about {
-  font-size: 1rem;
-  padding: 1rem;
-  font-family: 'Mochiy';
-}
+
 .start {
   text-align: left;
   height: 100vh;
   margin: 1rem 0rem 1rem;
   border-radius: 10px;
-}
-
-.picture {
-  width: 100%;
 }
 
 .background_color {

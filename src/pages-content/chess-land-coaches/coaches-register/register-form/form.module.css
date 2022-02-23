@@ -1,0 +1,8 @@
+form {
+  text-align: left;
+  padding: 2rem 1rem;
+}
+
+.errors {
+  color: #c25e1b;
+}

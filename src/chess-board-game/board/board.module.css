@@ -18,3 +18,7 @@
 .chess_board .dark {
   background: black;
 }
+
+.step {
+  background: #ff6b08;
+}

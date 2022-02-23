@@ -1,45 +1,31 @@
 import chesslearn from './chess-learn.module.css'
 import Iframe from './chess-learn-video/iframe'
-import Button from '../../ui-library/button-click/button'
 import { useState } from 'react'
-
-import picture from '../../assets/pages/chess-learn/learn-video.jpg'
-import H3 from '../../ui-library/h3/h3'
-import H1 from '../../ui-library/h1/h1'
+import Cover from './chess-learn-cover-video/learn-cover-video'
+import About from './chess-learn-about-video/learn-about-video'
 
 function toggle(setShow, setShowPic, setShow2) {
-  setShow(show => (show = true))
-  setShowPic(showpic => showpic == null)
-  setShow2(show2 => show2 == null)
+  setShow(true)
+  setShowPic(null)
+  setShow2(null)
 }
 function toggle2(setShow, setShowPic, setShow2) {
-  setShow2(show2 => (show2 = true))
-  setShowPic(showpic => showpic == null)
-  setShow(show => show == null)
+  setShow2(true)
+  setShowPic(null)
+  setShow(null)
 }
 function ChessLearn(props) {
   const [show, setShow] = useState(false)
   const [show2, setShow2] = useState(false)
   const [showpic, setShowPic] = useState(true)
 
-  const style_h3 = { fontSize: '1.5rem', padding: '1rem 1rem', color: 'black' }
-  const style_h1 = { color: '#2aa3d3' }
   return (
     <section className='chessland'>
       <div className={chesslearn.chesslearn}>
         <div className='row'>
           <div className='col-md-8 col-12'>
             <div className={chesslearn.video}>
-              {showpic ? (
-                <div>
-                  <H1 message='Watch video' style={style_h1} />
-                  <img
-                    src={picture}
-                    className={chesslearn.picture}
-                    alt='video here <a href=https://www.freepik.com/vectors/background>Background vector created by pch.vector - www.freepik.com</a>'
-                  />
-                </div>
-              ) : null}
+              {showpic ? <Cover /> : null}
               {show ? <Iframe src={props.learn.video1} height='500' width='100%' /> : null}
 
               {show2 ? <Iframe src={props.learn.video2} height='500' width='100%' /> : null}
@@ -47,18 +33,16 @@ function ChessLearn(props) {
           </div>
           <div className={`col-md-4 col-12 ${chesslearn.background_color}`}>
             <div className={`sticky-top ${chesslearn.start}`}>
-              <H3 message='An Introduce to Chess:' style={style_h3} />
-              <p className={chesslearn.about}>Explain why Chess so awesome.</p>
-              <Button
-                message='WATCH VIDEO'
+              <About
+                message='An Introduce to Chess:'
+                textMessage='Explain why Chess so awesome.'
                 onClick={() => {
                   toggle(setShow, setShowPic, setShow2)
                 }}
               />
-              <H3 message='An Introduce to Chess Land:' style={style_h3} />
-              <p className={chesslearn.about}>What special in Chess Land.</p>
-              <Button
-                message='WATCH VIDEO'
+              <About
+                message='An Introduce to Chess Land:'
+                textMessage='What special in Chess Land.'
                 onClick={() => {
                   toggle2(setShow, setShowPic, setShow2)
                 }}

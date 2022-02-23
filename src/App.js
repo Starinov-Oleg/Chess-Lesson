@@ -15,6 +15,7 @@ import Adventure from './pages-content/chess-adventure/adventure'
 import Login from './user-content/login/login'
 import Register from './user-content/register/register'
 import User from './user-content/user-page/user-page'
+import RegisterCouch from './pages-content/chess-land-coaches/coaches-register/register'
 function App(props) {
   return (
     <BrowserRouter>
@@ -32,13 +33,13 @@ function App(props) {
           />
           <Route path='/login' element={<Login />}></Route>
           <Route path='/register' element={<Register />}></Route>
+          <Route path='/regcouching' element={<RegisterCouch/>}></Route>
           <Route path='/pages' element={<Pages navlinkItems={props.state.navlinkItems} />}>
             <Route path='home' element={<Home />}></Route>
             <Route path='whatis' element={<WhatIsChessland />} />
             <Route path='chesslandschool' element={<ChessLandSchool />} />
             <Route path='chesslandcoaches' element={<ChessLandCoaches />} />
-            <Route path='chesslearn' element={<ChessLearn learn={props.state.learn} />} />
-
+            <Route path='chesslearn' element={<ChessLearn learn={props.state.learn} toogle={props.state.toogle}/>} />
             <Route path='contact' element={<Contact />} />
             <Route path='events' element={<Events />} />
             <Route path='adventure' element={<Adventure />} />

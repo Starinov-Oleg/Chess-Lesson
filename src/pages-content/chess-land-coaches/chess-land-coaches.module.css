@@ -1,26 +1,10 @@
 .chesscoaches {
   min-height: 100vh;
 }
-.about {
-  font-size: 1rem;
-  padding: 1rem;
-  font-family: 'Mochiy';
-}
+
 .start {
   text-align: left;
   background-color: aliceblue;
   margin: 1rem 0rem 1rem;
   border-radius: 10px;
-}
-
-.logo {
-  width: 100%;
-}
-
-.body {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  text-align: left;
-  font-size: 1rem;
-  font-family: 'Mochiy';
 }
