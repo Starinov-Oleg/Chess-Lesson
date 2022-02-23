@@ -1,9 +1,9 @@
 import h1 from './h1.module.css'
 
-function Title(props) {
+function Title({ message, style }) {
   return (
-    <h1 className={`${h1.title} ${h1.color}`} style={props.style}>
-      {props.message}
+    <h1 className={`${h1.title} ${h1.color}`} style={style}>
+      {message}
     </h1>
   )
 }

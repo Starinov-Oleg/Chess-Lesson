@@ -1,10 +1,10 @@
 import button from './button-link.module.css'
 import { NavLink } from 'react-router-dom'
 
-function Button(props) {
+function Button({ href, message }) {
   return (
-    <NavLink to={props.href} className={button.button}>
-      {props.message}
+    <NavLink to={href} className={button.button}>
+      {message}
     </NavLink>
   )
 }

@@ -1,9 +1,7 @@
-import label from './label.module.css';
+import label from './label.module.css'
 
-function Label(props){
-    return (
-        <label  className={label.label} >{props.message}</label>
-    )
+function Label({ message }) {
+  return <label className={label.label}>{message}</label>
 }
 
-export default Label;
+export default Label

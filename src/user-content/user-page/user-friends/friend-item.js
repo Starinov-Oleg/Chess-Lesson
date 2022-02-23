@@ -1,7 +1,7 @@
 import friend from './friend-item.module.css'
 import Logo from '../../../ui-library/logo/logo'
 import { NavLink } from 'react-router-dom'
-function Friend(props) {
+function Friend() {
   return (
     <div className={friend.friend}>
       <div className={friend.photo}>

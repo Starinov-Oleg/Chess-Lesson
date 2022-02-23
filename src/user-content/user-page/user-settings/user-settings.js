@@ -1,7 +1,7 @@
 import settings from './user-settings'
 
-function Settings(props) {
-  return <div className={settings.settings}>{props.img}</div>
+function Settings({ img }) {
+  return <div className={settings.settings}>{img}</div>
 }
 
 export default Settings

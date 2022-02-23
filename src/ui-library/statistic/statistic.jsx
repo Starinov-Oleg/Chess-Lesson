@@ -1,11 +1,11 @@
 import statistic from './statistic.module.css'
 import Button from '../../ui-library/button-link/button-link'
-function Statistic(props) {
+function Statistic({ name }) {
   return (
     <div className={statistic.statistic}>
       <p className={statistic.font}>
         Name:
-        <span className={statistic.font}>{props.name}</span>
+        <span className={statistic.font}>{name}</span>
       </p>
       <p className={`${statistic.user_victories} ${statistic.font}`}>
         Victories:

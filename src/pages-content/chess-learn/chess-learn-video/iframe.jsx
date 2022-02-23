@@ -1,9 +1,9 @@
 import iframe from './iframe.module.css'
 
-function Iframe(props) {
+function Iframe({ src, height, width, title }) {
   return (
     <div className={iframe.iframe}>
-      <iframe src={props.src} height={props.height} width={props.width} title={props.title} />
+      <iframe src={src} height={height} width={width} title={title} />
     </div>
   )
 }

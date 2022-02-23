@@ -1,10 +1,10 @@
 import buttonplay from './button-play.module.css'
 import { NavLink } from 'react-router-dom'
 
-function Button(props) {
+function Button({ href, message }) {
   return (
-    <NavLink to={props.href} className={buttonplay.play}>
-      {props.message}
+    <NavLink to={href} className={buttonplay.play}>
+      {message}
     </NavLink>
   )
 }

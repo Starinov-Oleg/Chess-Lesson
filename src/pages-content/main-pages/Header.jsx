@@ -10,7 +10,7 @@ import { NavLink } from 'react-router-dom'
 import logo from '../../assets/section-learn/logo.png'
 import MenuItem from './menu-list/menu-item'
 
-function HeaderPage(props) {
+function HeaderPage({ navlinkItems }) {
   /*  const navlinkItems = [
     { id: 0, href: 'home', name: 'home', icon: home_icon },
     { id: 1, href: 'play', name: 'Play', icon: play_icon },
@@ -29,7 +29,7 @@ function HeaderPage(props) {
         <img src={logo} alt='home' className={header.logo} />
       </NavLink>
       <div className='navigation'>
-        <MenuItem navlinkItems={props.navlinkItems} />
+        <MenuItem navlinkItems={navlinkItems} />
       </div>
     </div>
   )

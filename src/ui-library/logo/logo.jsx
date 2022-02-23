@@ -1,6 +1,6 @@
 import logo from './logo.module.css'
 import photo from '../../assets/pages/chess-play/user.png'
-function Logo(props) {
+function Logo() {
   return (
     <div className={logo.photo_pacage}>
       <img

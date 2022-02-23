@@ -5,7 +5,7 @@ import Ul from '../../ui-library/ul/ul'
 import H1 from '../../ui-library/h1/h1'
 import H3 from '../../ui-library/h3/h3'
 
-function SectionProgramm(props) {
+function SectionProgramm({ contentProgramm }) {
   const style = { color: '#51504b' }
   const style_h3 = { paddingTop: '2rem' }
   const style_h1 = { color: '#2aa3d3' }
@@ -26,7 +26,7 @@ function SectionProgramm(props) {
               />
             </div>
             <div className='col-lg-6 col-12'>
-              <Ul lists={props.contentProgramm} style={style} />
+              <Ul lists={contentProgramm} style={style} />
               <Button message='CHESS LAND SCHOOL' href='/pages/chesslandschool' />
             </div>
           </div>

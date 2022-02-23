@@ -1,15 +1,15 @@
 import actionline from './action-line.module.css'
 
-function ActionItem(props) {
+function ActionItem({ header, body, footer, data }) {
   return (
     <div className={actionline.line_item}>
-      <div className={actionline.line_header}>{props.header}</div>
+      <div className={actionline.line_header}>{header}</div>
       <hr />
-      <div className={actionline.line_body}>{props.body}</div>
+      <div className={actionline.line_body}>{body}</div>
       <hr />
       <div className={actionline.line_footer}>
-        {props.footer}
-        <span>{props.data}</span>
+        {footer}
+        <span>{data}</span>
       </div>
     </div>
   )

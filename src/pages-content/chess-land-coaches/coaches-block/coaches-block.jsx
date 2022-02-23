@@ -1,11 +1,11 @@
 import coachesblock from './coaches-block.module.css'
 import H3 from '../../../ui-library/h3/h3'
-function CoachBlock(props) {
+function CoachBlock({ message, textMessage }) {
   return (
     <div className={coachesblock.coachesblock}>
-      <H3 message={props.message} />
+      <H3 message={message} />
       <div className={coachesblock.body}>
-        <p>{props.textMessage}</p>
+        <p>{textMessage}</p>
       </div>
     </div>
   )

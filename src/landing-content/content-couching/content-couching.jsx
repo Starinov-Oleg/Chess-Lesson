@@ -3,7 +3,7 @@ import Button from '../../ui-library/button-link/button-link'
 import H1 from '../../ui-library/h1/h1'
 import Ul from '../../ui-library/ul/ul'
 
-function SectionCouching(props) {
+function SectionCouching({ contentCouching }) {
   return (
     <section className='school-couching'>
       <div className={couch.couch}>
@@ -13,7 +13,7 @@ function SectionCouching(props) {
               <H1 message='COACHING FOR KIDS' />
             </div>
             <div className='col-lg-6 col-12'>
-              <Ul lists={props.contentCouching} />
+              <Ul lists={contentCouching} />
               <Button message='CHESS LAND COACHES' href='/pages/chesslandcoaches' />
             </div>
           </div>

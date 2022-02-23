@@ -1,10 +1,10 @@
 import buttonlogin from './button-login.module.css'
 import { NavLink } from 'react-router-dom'
 
-function ButtonLogin(props) {
+function ButtonLogin({ message }) {
   return (
     <NavLink to={'/Login'} className={buttonlogin.button}>
-      {props.message}
+      {message}
     </NavLink>
   )
 }

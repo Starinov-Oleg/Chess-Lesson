@@ -1,7 +1,7 @@
 import couch from './couch-item.module.css'
 import Logo from '../../../ui-library/logo/logo'
 import { NavLink } from 'react-router-dom'
-function Couch(props) {
+function Couch() {
   return (
     <div className={couch.couch}>
       <div className={couch.friend}>
