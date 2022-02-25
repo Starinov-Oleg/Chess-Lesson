@@ -1,0 +1,82 @@
+import { createSlice } from '@reduxjs/toolkit'
+const initialState = [
+  { id: 1, key: 'a1', style: { background: 'white' } },
+  { id: 2, key: 'b1', style: { background: 'black' } },
+  { id: 3, key: 'c1', style: { background: 'white' } },
+  { id: 4, key: 'd1', style: { background: 'black' } },
+  { id: 5, key: 'e1', style: { background: 'white' } },
+  { id: 6, key: 'f1', style: { background: 'black' } },
+  { id: 7, key: 'g1', style: { background: 'white' } },
+  { id: 8, key: 'h1', style: { background: 'black' } },
+
+  { id: 9, key: 'a2', style: { background: 'black' } },
+  { id: 10, key: 'b2', style: { background: 'white' } },
+  { id: 11, key: 'c2', style: { background: 'black' } },
+  { id: 12, key: 'd2', style: { background: 'white' } },
+  { id: 13, key: 'e2', style: { background: 'black' } },
+  { id: 14, key: 'f2', style: { background: 'white' } },
+  { id: 15, key: 'g2', style: { background: 'black' } },
+  { id: 16, key: 'h2', style: { background: 'white' } },
+
+  { id: 17, key: 'a3', style: { background: 'white' } },
+  { id: 18, key: 'b3', style: { background: 'black' } },
+  { id: 19, key: 'c3', style: { background: 'white' } },
+  { id: 20, key: 'd3', style: { background: 'black' } },
+  { id: 22, key: 'e3', style: { background: 'white' } },
+  { id: 23, key: 'f3', style: { background: 'black' } },
+  { id: 24, key: 'g3', style: { background: 'white' } },
+  { id: 25, key: 'h3', style: { background: 'black' } },
+
+  { id: 26, key: 'a4', style: { background: 'black' } },
+  { id: 27, key: 'b4', style: { background: 'white' } },
+  { id: 28, key: 'c4', style: { background: 'black' } },
+  { id: 29, key: 'd4', style: { background: 'white' } },
+  { id: 30, key: 'e4', style: { background: 'black' } },
+  { id: 31, key: 'f4', style: { background: 'white' } },
+  { id: 32, key: 'g4', style: { background: 'black' } },
+  { id: 33, key: 'h4', style: { background: 'white' } },
+
+  { id: 34, key: 'a5', style: { background: 'white' } },
+  { id: 35, key: 'b5', style: { background: 'black' } },
+  { id: 36, key: 'c5', style: { background: 'white' } },
+  { id: 37, key: 'd5', style: { background: 'black' } },
+  { id: 38, key: 'e5', style: { background: 'white' } },
+  { id: 39, key: 'f5', style: { background: 'black' } },
+  { id: 40, key: 'g5', style: { background: 'white' } },
+  { id: 41, key: 'h5', style: { background: 'black' } },
+
+  { id: 42, key: 'a6', style: { background: 'black' } },
+  { id: 43, key: 'b6', style: { background: 'white' } },
+  { id: 44, key: 'c6', style: { background: 'black' } },
+  { id: 45, key: 'd6', style: { background: 'white' } },
+  { id: 46, key: 'e6', style: { background: 'black' } },
+  { id: 47, key: 'f6', style: { background: 'white' } },
+  { id: 48, key: 'g6', style: { background: 'black' } },
+  { id: 49, key: 'h6', style: { background: 'white' } },
+
+  { id: 50, key: 'a7', style: { background: 'white' } },
+  { id: 51, key: 'b7', style: { background: 'black' } },
+  { id: 52, key: 'c7', style: { background: 'white' } },
+  { id: 53, key: 'd7', style: { background: 'black' } },
+  { id: 54, key: 'e7', style: { background: 'white' } },
+  { id: 55, key: 'f7', style: { background: 'black' } },
+  { id: 56, key: 'g7', style: { background: 'white' } },
+  { id: 57, key: 'h7', style: { background: 'black' } },
+
+  { id: 58, key: 'a8', style: { background: 'black' } },
+  { id: 59, key: 'b8', style: { background: 'white' } },
+  { id: 60, key: 'c8', style: { background: 'black' } },
+  { id: 61, key: 'd8', style: { background: 'white' } },
+  { id: 62, key: 'e8', style: { background: 'black' } },
+  { id: 63, key: 'f8', style: { background: 'white' } },
+  { id: 64, key: 'g8', style: { background: 'black' } },
+  { id: 65, key: 'h8', style: { background: 'white' } },
+]
+
+const boardSlice = createSlice({
+  name: 'board',
+  initialState,
+  reducers: {},
+})
+
+export default boardSlice.reducer

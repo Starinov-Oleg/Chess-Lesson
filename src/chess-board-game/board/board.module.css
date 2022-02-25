@@ -18,7 +18,13 @@
 .chess_board .dark {
   background: black;
 }
+.square:focus {
+  background: #c25e1b;
+}
 
-.step {
-  background: #ff6b08;
+.square:hover {
+  background: #f2bd9f;
+}
+.active {
+  background: red;
 }

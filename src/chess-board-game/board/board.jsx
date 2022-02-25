@@ -1,20 +1,52 @@
-import board from './board.module.css'
+import boardcss from './board.module.css'
 import Button from '../../ui-library/button-click/button'
 import { useState } from 'react'
-
+import Square from '../square/square'
+import { useSelector } from 'react-redux'
 function start(setShowButton) {
   setShowButton(false)
 }
 function handleClick(value) {
   alert('Hi ' + value)
 }
+
 function Board() {
   const button = { position: 'absolute', top: '70%', left: '45%' }
   const [showButton, setShowButton] = useState(true)
 
+  const board = useSelector(state => state.board)
+  const [color, setColor] = useState(false)
+
+  const eventsItems8 = board
+    .slice(0, 8)
+    .map(square => (
+      <Square onClick={() => handleClick(square.key, setColor(true))} key={square.id} style={square.style} />
+    ))
+  const eventsItems7 = board
+    .slice(8, 16)
+    .map(square => <Square onClick={() => handleClick(square.key)} key={square.id} style={square.style} />)
+  const eventsItems6 = board
+    .slice(16, 24)
+    .map(square => <Square onClick={() => handleClick(square.key)} key={square.id} style={square.style} />)
+  const eventsItems5 = board
+    .slice(24, 32)
+    .map(square => <Square onClick={() => handleClick(square.key)} key={square.id} style={square.style} />)
+  const eventsItems4 = board
+    .slice(32, 40)
+    .map(square => <Square onClick={() => handleClick(square.key)} key={square.id} style={square.style} />)
+  const eventsItems3 = board
+    .slice(40, 48)
+    .map(square => <Square onClick={() => handleClick(square.key)} key={square.id} style={square.style} />)
+  const eventsItems2 = board
+    .slice(48, 56)
+    .map(square => <Square onClick={() => handleClick(square.key)} key={square.id} style={square.style} />)
+  const eventsItems1 = board
+    .slice(56, 64)
+    .map(square => <Square onClick={() => handleClick(square.key)} key={square.id} style={square.style} />)
+
   return (
     <section className='board'>
-      <div className={board.board}>
+      <div className={boardcss.board}>
         {showButton ? (
           <Button
             message='START'
@@ -24,7 +56,8 @@ function Board() {
             }}
           />
         ) : null}
-        <table className={board.chess_board}>
+
+        <table className={boardcss.chess_board}>
           <tbody>
             <tr>
               <th></th>
@@ -37,93 +70,38 @@ function Board() {
               <th>g</th>
               <th>h</th>
             </tr>
+
             <tr>
               <th>8</th>
-              <td onClick={() => handleClick('a1')} className={board.light}></td>
-              <td className={board.dark} onClick={() => handleClick('b1')}></td>
-              <td onClick={() => handleClick('c1')} className={board.light}></td>
-              <td className={board.dark} onClick={() => handleClick('d1')}></td>
-              <td className={board.light} onClick={() => handleClick('e1')}></td>
-              <td className={board.dark} onClick={() => handleClick('f1')}></td>
-              <td className={board.light} onClick={() => handleClick('g1')}></td>
-              <td className={board.dark} onClick={() => handleClick('h1')}></td>
+              {eventsItems8}
             </tr>
             <tr>
               <th>7</th>
-              <td className={board.dark}></td>
-              <td className={board.light}></td>
-              <td className={board.dark}></td>
-              <td className={board.light}></td>
-              <td className={board.dark}></td>
-              <td className={board.light}></td>
-              <td className={board.dark}></td>
-              <td className={board.light}></td>
+              {eventsItems7}
             </tr>
             <tr>
               <th>6</th>
-              <td className={board.light}></td>
-              <td className={board.dark}></td>
-              <td className={board.light}></td>
-              <td className={board.dark}></td>
-              <td className={board.light}></td>
-              <td className={board.dark}></td>
-              <td className={board.light}></td>
-              <td className={board.dark}></td>
+              {eventsItems6}
             </tr>
             <tr>
               <th>5</th>
-              <td className={board.dark}></td>
-              <td className={board.light}></td>
-              <td className={board.dark}></td>
-              <td className={board.light}></td>
-              <td className={board.dark}></td>
-              <td className={board.light}></td>
-              <td className={board.dark}></td>
-              <td className={board.light}></td>
+              {eventsItems5}
             </tr>
             <tr>
               <th>4</th>
-              <td className={board.light}></td>
-              <td className={board.dark}></td>
-              <td className={board.light}></td>
-              <td className={board.dark}></td>
-              <td className={board.light}></td>
-              <td className={board.dark}></td>
-              <td className={board.light}></td>
-              <td className={board.dark}></td>
+              {eventsItems4}
             </tr>
             <tr>
               <th>3</th>
-              <td className={board.dark}></td>
-              <td className={board.light}></td>
-              <td className={board.dark}></td>
-              <td className={board.light}></td>
-              <td className={board.dark}></td>
-              <td className={board.light}></td>
-              <td className={board.dark}></td>
-              <td className={board.light}></td>
+              {eventsItems3}
             </tr>
             <tr>
               <th>2</th>
-              <td className={board.light}></td>
-              <td className={board.dark}></td>
-              <td className={board.light}></td>
-              <td className={board.dark}></td>
-              <td className={board.light}></td>
-              <td className={board.dark}></td>
-              <td className={board.light}></td>
-              <td className={board.dark}></td>
+              {eventsItems2}
             </tr>
             <tr>
               <th>1</th>
-              <td className={board.dark}></td>
-              <td className={board.light}></td>
-              <td className={board.dark}></td>
-              <td className={board.light}></td>
-              <td className={board.dark}></td>
-              <td className={board.light}></td>
-              <td className={board.dark}></td>
-              <td className={board.light}></td>
+              {eventsItems1}
             </tr>
           </tbody>
         </table>
