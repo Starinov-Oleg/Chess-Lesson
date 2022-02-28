@@ -6,7 +6,7 @@ const initialState = {
     {
       id: 0,
       fullname: 'Oleg',
-      status: 'Couch',
+      position: 'Couch',
       location: 'city',
       contact: 'contact',
       win: '100',
