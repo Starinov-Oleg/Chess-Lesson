@@ -1,7 +1,7 @@
 import contact from './contact.module.css'
 import Button from '../../ui-library/button-link/button-link'
 import H3 from '../../ui-library/h3/h3'
-function Contact({ cardItems }) {
+function Contact({ cardItems, couchItems }) {
   return (
     <section className='contact'>
       <div className={contact.contact}>
@@ -15,6 +15,7 @@ function Contact({ cardItems }) {
         </div>
         <div className={`${contact.align}`}>
           <H3 message='Introduce With Coaches' />
+          <div className={contact.alignCouches}>{couchItems}</div>
           <Button href='/Login' message='LOGIN' />
         </div>
         <div className={`${contact.align}`}>

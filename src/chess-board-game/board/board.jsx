@@ -15,13 +15,10 @@ function Board() {
   const [showButton, setShowButton] = useState(true)
 
   const board = useSelector(state => state.board)
-  const [color, setColor] = useState(false)
 
   const eventsItems8 = board
     .slice(0, 8)
-    .map(square => (
-      <Square onClick={() => handleClick(square.key, setColor(true))} key={square.id} style={square.style} />
-    ))
+    .map(square => <Square onClick={() => handleClick(square.key)} key={square.id} style={square.style} />)
   const eventsItems7 = board
     .slice(8, 16)
     .map(square => <Square onClick={() => handleClick(square.key)} key={square.id} style={square.style} />)
@@ -73,35 +70,35 @@ function Board() {
 
             <tr>
               <th>8</th>
-              {eventsItems8}
+              {eventsItems1}
             </tr>
             <tr>
               <th>7</th>
-              {eventsItems7}
-            </tr>
-            <tr>
-              <th>6</th>
-              {eventsItems6}
-            </tr>
-            <tr>
-              <th>5</th>
-              {eventsItems5}
-            </tr>
-            <tr>
-              <th>4</th>
-              {eventsItems4}
-            </tr>
-            <tr>
-              <th>3</th>
-              {eventsItems3}
-            </tr>
-            <tr>
-              <th>2</th>
               {eventsItems2}
             </tr>
             <tr>
+              <th>6</th>
+              {eventsItems3}
+            </tr>
+            <tr>
+              <th>5</th>
+              {eventsItems4}
+            </tr>
+            <tr>
+              <th>4</th>
+              {eventsItems5}
+            </tr>
+            <tr>
+              <th>3</th>
+              {eventsItems6}
+            </tr>
+            <tr>
+              <th>2</th>
+              {eventsItems7}
+            </tr>
+            <tr>
               <th>1</th>
-              {eventsItems1}
+              {eventsItems8}
             </tr>
           </tbody>
         </table>

@@ -1,16 +1,22 @@
-import Card from '../../ui-library/card/card'
-import picture from '../../assets/pages/chess-play/user.png'
-import { useSelector } from 'react-redux'
-import Contact from './contact'
-function ContactContainer() {
-  const contacts = useSelector(state => state.contacts)
-  const cardItems = contacts.map(contact => (
-    <div className='col-md-3 col-12 ' key={contact.id}>
-      <Card title={contact.name} text={contact.text} alt='picture' src={picture} />
-    </div>
-  ))
-  return <Contact cardItems={cardItems} />
-}
-export default ContactContainer
+import { connect } from 'react-redux'
+import { followAC, setUsersAC, unfollowAC } from '../../redux/reducer/user.reducer'
 
-/**TODO guard for friedns and couches, add component for it */
+import ContactContainer from './contact-container-view'
+
+let mapStateToProps = state => {
+  return { users: state.usersPage.users }
+}
+let mapDispatchToProps = dispatch => {
+  return {
+    follow: userId => {
+      dispatch(followAC(userId))
+    },
+    unfollow: userId => {
+      dispatch(unfollowAC(userId))
+    },
+    setUsers: users => {
+      dispatch(setUsersAC(users))
+    },
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ContactContainer)

@@ -14,9 +14,9 @@ import Login from './user-content/login/login'
 import Register from './user-content/register/register'
 import User from './user-content/user-page/user-page'
 import RegisterCouch from './pages-content/chess-land-coaches/coaches-register/register'
-import ContactContainer from './pages-content/chess-contact/contact-container'
 
 import EventsContainer from './pages-content/chess-events/events-container'
+import ContactContainer from './pages-content/chess-contact/contact-container'
 function App(props) {
   return (
     <BrowserRouter>
