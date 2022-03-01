@@ -11,8 +11,9 @@
   border: 1px solid #f2bd9f;
   text-shadow: 0px 1px 0px #662828;
 }
-@media (max-width: 512px) {
+@media (max-width: 982px) {
   .button {
+    padding: 4% 16%;
     width: auto;
   }
 }

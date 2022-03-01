@@ -17,29 +17,35 @@ function CardSocial({
   message1,
   message2,
   followed,
+  showbutton,
+  showpassport,
 }) {
   return (
     <div className={`card text-center ${cardsocial.card}`} style={style}>
       <img src={src} className='card-img-top' alt={alt} />
-
+        
       <div className='card-body'>
         <h5 className='card-title'>{fullname}</h5>
         <p className='card-text'>{text}</p>
       </div>
-      <div className={cardsocial.passport}>
-        <h5>{location}</h5>
-        <h5>{contact}</h5>
-        <h5>{position}</h5>
-        <h5>Win: {win}</h5>
-        <h5>Lose: {lose}</h5>
-      </div>
-      <div className={cardsocial.socialactive}>
-        {followed ? (
-          <Button onClick={onClick1} style={style} message={message1} />
-        ) : (
-          <Button onClick={onClick2} style={style} message={message2} />
-        )}
-      </div>
+      {showpassport ? (
+        <div className={cardsocial.passport}>
+          <h5>Location:{location}</h5>
+          <h5>Contact: {contact}</h5>
+          <h5>Position: {position}</h5>
+          <h5>Win: {win}</h5>
+          <h5>Lose: {lose}</h5>
+        </div>
+      ) : null}
+      {showbutton ? (
+        <div className={cardsocial.socialactive}>
+          {followed ? (
+            <Button onClick={onClick1} style={style} message={message1} />
+          ) : (
+            <Button onClick={onClick2} style={style} message={message2} />
+          )}
+        </div>
+      ) : null}
     </div>
   )
 }
