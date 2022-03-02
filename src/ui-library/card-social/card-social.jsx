@@ -1,17 +1,14 @@
 import cardsocial from './card-social.module.css'
 import Button from '../button-click/button'
+import Statistic from './statistic-block/statistic-block'
+import Passport from './passport-block/passport-block'
 //import Logo from '../logo/logo'
 function CardSocial({
   style,
+  text,
   src,
   alt,
   fullname,
-  text,
-  location,
-  contact,
-  position,
-  win,
-  lose,
   onClick1,
   onClick2,
   message1,
@@ -19,26 +16,20 @@ function CardSocial({
   followed,
   showbutton,
   showpassport,
+  showstatistic,
 }) {
   return (
-    <div className={`card text-center ${cardsocial.card}`} style={style}>
-      <img src={src} className='card-img-top' alt={alt} />
-        
-      <div className='card-body'>
+    <div className={`card ${cardsocial.card}`} style={style}>
+      <img src={src} className={cardsocial.img} alt={alt} />
+      <div className='text-center'>
         <h5 className='card-title'>{fullname}</h5>
-        <p className='card-text'>{text}</p>
+        <h5 className='card-title'>{text}</h5>
       </div>
-      {showpassport ? (
-        <div className={cardsocial.passport}>
-          <h5>Location:{location}</h5>
-          <h5>Contact: {contact}</h5>
-          <h5>Position: {position}</h5>
-          <h5>Win: {win}</h5>
-          <h5>Lose: {lose}</h5>
-        </div>
-      ) : null}
+
+      {showpassport ? <Passport /> : null}
+      {showstatistic ? <Statistic /> : null}
       {showbutton ? (
-        <div className={cardsocial.socialactive}>
+        <div className={`text-center ${cardsocial.socialactive}`}>
           {followed ? (
             <Button onClick={onClick1} style={style} message={message1} />
           ) : (

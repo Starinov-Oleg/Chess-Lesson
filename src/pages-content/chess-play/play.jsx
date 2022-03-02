@@ -13,12 +13,11 @@ function Play(chessplay, name_rival, name_you) {
           <div className='row'>
             <div className='col-md-3 col-12'>
               <PlayProfile name={chessplay.name_rival} />
-              <PlayProfile name={chessplay.name_you} />
             </div>
             <div className='col-md-6 col-12'>
               <ChessBoard />
             </div>
-            <div className={`col-md-3 col-12 ${play.margin_top}`}>
+            <div className='col-md-3 col-12'>
               <HomeLink />
               <PlayClockTimer />
               <DiedChess name={chessplay.name_rival} />

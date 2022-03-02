@@ -1,17 +1,23 @@
 import playprofile from './play-user-profile.module.css'
-import Logo from '../../../ui-library/logo/logo'
-import Statistic from '../../../ui-library/statistic/statistic'
+
+import CardSocial from '../../../ui-library/card-social/card-social'
+import picture from '../../../assets/pages/chess-play/user.png'
+
 function PlayProfile() {
   return (
     <section className='playprofile'>
       <div className={playprofile.playprofile}>
         <div className={playprofile.flex}>
-          <div className={playprofile.flex_item_user_avatar}>
-            <Logo />
-          </div>
-          <div className={playprofile.flex_user_body}>
-            <Statistic />
-          </div>
+          <CardSocial
+            fullname='Rival'
+            message1='Unfollow'
+            followed='no'
+            message2='Follow'
+            alt='picture'
+            showbutton
+            showstatistic
+            src={picture}
+          />
         </div>
       </div>
     </section>

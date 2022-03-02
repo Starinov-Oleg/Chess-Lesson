@@ -1,12 +1,12 @@
 .playprofile {
   background-color: aliceblue;
-  margin: 1rem 0rem 1rem;
+
   border-radius: 10px;
 }
 .flex {
   display: flex;
   text-align: left;
-  padding: 1rem;
+
   flex-wrap: wrap;
 }
 .flex_item_user_avatar {
