@@ -17,9 +17,11 @@ import RegisterCouch from './pages-content/chess-land-coaches/coaches-register/r
 
 import EventsContainer from './pages-content/chess-events/events-container'
 import ContactContainer from './pages-content/chess-contact/contact-container'
+import ScrollToTop from './common/scroll-top/scroll'
 function App(props) {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <div className='App'>
         <Routes>
           <Route
