@@ -19,6 +19,8 @@ const initialState = {
       followed: true,
     },
   ],
+  pageSize: 9,
+  totalUsersCount: 0,
 }
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {

@@ -27,6 +27,12 @@ function UserPage() {
             <div className={page.people}>
               <div className={page.friends}>
                 <H3 message='Friends' style={h3} />
+                <div className={page.more}>
+                  <span>All friends</span>
+                </div>
+                <div className={page.totalcount}>
+                  Friends: <span>44</span>
+                </div>
                 <Friend />
               </div>
               <div className={page.coaches}>

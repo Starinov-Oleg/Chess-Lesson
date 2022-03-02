@@ -3,6 +3,13 @@ import { useSelector } from 'react-redux'
 import Contact from './contact'
 import CardSocial from '../../ui-library/card-social/card-social'
 function ContactContainerView(props) {
+  //const pageCount = Math.ceil(props.users.totalUserCount / props.users.pageSize) // for count friends on page
+  // const pages=[];
+  /**
+   * for (const i=1; i<=pageCount; i++){
+   *  pages.push(i);
+   * }
+   */
   const contacts = useSelector(state => state.contacts)
   const cardItems = contacts.map(contact => (
     <div className='col-md-3 col-12 ' key={contact.id}>

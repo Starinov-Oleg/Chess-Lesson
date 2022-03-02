@@ -4,7 +4,11 @@ import { followAC, setUsersAC, unfollowAC } from '../../redux/reducer/user.reduc
 import ContactContainer from './contact-container-view'
 
 let mapStateToProps = state => {
-  return { users: state.usersPage.users }
+  return {
+    users: state.usersPage.users,
+    pageSize: state.usersPage.pageSize,
+    totalUsersCount: state.usersPage.totalUsersCount,
+  }
 }
 let mapDispatchToProps = dispatch => {
   return {
