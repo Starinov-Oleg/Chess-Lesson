@@ -1,11 +1,12 @@
 import page from './user-page.module.css'
-import Statistic from '../../ui-library/statistic/statistic'
+
 import UserHeader from './user-header-block/user-header'
 import ActionItem from './user-actionline-item/action-line'
-import Settings from './user-settings/user-settings'
+
 import Friend from './user-friends/friend-item'
 import Couch from './user-couches/couch-item'
 import H3 from '../../ui-library/h3/h3'
+
 function UserPage() {
   const h3 = { paddingTop: '1rem' }
   return (
@@ -17,12 +18,8 @@ function UserPage() {
           </div>
           <div className='col-md-6 col-12'>
             <div className={page.profile}>
-              <div className={page.chessstatistic}>
-                <Statistic />
-              </div>
-              <div className={page.settings}>
-                <Settings />
-              </div>
+              <div className={page.chessstatistic}></div>
+              <div className={page.settings}></div>
             </div>
             <div className={page.people}>
               <div className={page.friends}>

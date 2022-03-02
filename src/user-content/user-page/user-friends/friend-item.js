@@ -1,13 +1,11 @@
 import friend from './friend-item.module.css'
-import Logo from '../../../ui-library/logo/logo'
-import { NavLink } from 'react-router-dom'
+
+import FriendsContainer from '../../../common/friends-block/friends-container'
 function Friend() {
   return (
     <div className={friend.friend}>
       <div className={friend.photo}>
-        <NavLink to='user'>
-          <Logo />
-        </NavLink>
+        <FriendsContainer />
       </div>
     </div>
   )

@@ -18,6 +18,21 @@ const initialState = {
       events: 'events',
       followed: true,
     },
+    {
+      id: 1,
+      fullname: 'Dung',
+      position: 'Friend',
+      location: 'city',
+      contact: 'contact',
+      win: '100',
+      lose: '100',
+      list_last_win: 'a1,b1',
+      list_last_lose: 'a1, b1',
+      friends: 'names',
+      couches: 'names',
+      events: 'events',
+      followed: true,
+    },
   ],
   pageSize: 9,
   totalUsersCount: 0,
@@ -54,7 +69,7 @@ const usersReducer = (state = initialState, action) => {
   }
 }
 
-export const followAC = userId => ({ type: FOLLOW, userId })
-export const unfollowAC = userId => ({ type: UNFOLLOW, userId })
-export const setUsersAC = users => ({ type: SET_USERS, users })
+export const follow = userId => ({ type: FOLLOW, userId })
+export const unfollow = userId => ({ type: UNFOLLOW, userId })
+export const setUsers = users => ({ type: SET_USERS, users })
 export default usersReducer

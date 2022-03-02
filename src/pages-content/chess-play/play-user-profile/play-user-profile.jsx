@@ -10,9 +10,9 @@ function PlayProfile() {
         <div className={playprofile.flex}>
           <CardSocial
             fullname='Rival'
-            message1='Unfollow'
+            message1='-'
             followed='no'
-            message2='Follow'
+            message2='+'
             alt='picture'
             showbutton
             showstatistic
