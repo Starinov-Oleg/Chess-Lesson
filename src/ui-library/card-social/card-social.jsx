@@ -19,12 +19,13 @@ function CardSocial({
   showbutton,
   showpassport,
   showstatistic,
+  user,
 }) {
   const stylebutton = { width: '3rem', height: '3rem', padding: '0px' }
   const styleimg = { width: '100%' }
   return (
     <div className={`card ${cardsocial.card}`} style={style}>
-      <NavLink to='user'>
+      <NavLink to={'/pages/user/' + user}>
         <img src={src} className={cardsocial.img} alt={alt} style={styleimg} />
       </NavLink>
       {showbutton ? (

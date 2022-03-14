@@ -1,3 +1,4 @@
+import React from 'react'
 import header from './Header.module.css'
 /*import home_icon from '../../assets/pages/header-pages/home.png'
 import play_icon from '../../assets/pages/header-pages/play.png'
@@ -34,4 +35,4 @@ function HeaderPage({ navlinkItems }) {
     </div>
   )
 }
-export default HeaderPage
+export default React.memo(HeaderPage)

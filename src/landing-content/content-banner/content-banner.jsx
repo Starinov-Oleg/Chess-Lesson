@@ -1,3 +1,4 @@
+import React from 'react'
 import baner from './content-banner.module.css'
 import ButtonPlay from '../../ui-library/button-play/button-play'
 import H1 from '../../ui-library/h1/h1'
@@ -22,4 +23,4 @@ function SectionBaner() {
   )
 }
 
-export default SectionBaner
+export default React.memo(SectionBaner)

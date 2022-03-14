@@ -1,3 +1,4 @@
+import React from 'react'
 import SectionLearn from './content-learn/content-learn'
 import SectionBaner from './content-banner/content-banner'
 import SectionProgramm from './content-programm/content-programm'
@@ -22,4 +23,4 @@ function Landing(props) {
   )
 }
 
-export default Landing
+export default React.memo(Landing)

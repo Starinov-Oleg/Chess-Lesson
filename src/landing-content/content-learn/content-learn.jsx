@@ -1,3 +1,4 @@
+import React from 'react'
 import learn from './content-learn.module.css'
 import logo from '../../assets/section-learn/logo.png'
 import H1 from '../../ui-library/h1/h1'
@@ -28,4 +29,4 @@ function SectionLearn() {
     </section>
   )
 }
-export default SectionLearn
+export default React.memo(SectionLearn)

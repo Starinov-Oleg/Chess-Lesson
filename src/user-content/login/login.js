@@ -8,7 +8,7 @@ import HomeLink from '../../ui-library/home-link/home-link'
 
 function onSubmit(data) {
   alert(JSON.stringify(data))
-  let url = '/'
+  let url = '/pages'
   window.location.replace(url)
 }
 

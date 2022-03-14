@@ -1,6 +1,7 @@
 import picture from '../../assets/pages/chess-play/user.png'
 import Couch from './couch'
 import CardSocial from '../../ui-library/card-social/card-social'
+import { Fragment } from 'react'
 function CouchContainerView(props) {
   //const pageCount = Math.ceil(props.users.totalUserCount / props.users.pageSize) // for count friends on page
   // const pages=[];
@@ -11,9 +12,9 @@ function CouchContainerView(props) {
    */
 
   const couchItems = props.users.map(user => (
-    <>
+    <Fragment key={user.id}>
       {user.position === 'Couch' ? (
-        <div className='col-md-3 col-12 ' key={user.id}>
+        <div className='col-md-3 col-12 '>
           <CardSocial
             fullname={user.fullname}
             message1='-'
@@ -28,10 +29,11 @@ function CouchContainerView(props) {
             onClick2={() => {
               props.follow(user.id)
             }}
+            user={user.id}
           />
         </div>
       ) : null}
-    </>
+    </Fragment>
   ))
   return <Couch couchItems={couchItems} />
 }

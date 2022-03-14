@@ -1,3 +1,4 @@
+import React from 'react'
 import menuitem from './menu-item.module.css'
 import { NavLink } from 'react-router-dom'
 
@@ -11,9 +12,10 @@ function MenuItem({ navlinkItems }) {
         color: isActive ? 'gold' : 'white',
       })}>
       <img src={navlinkItem.icon} className={menuitem.icon} alt={navlinkItem.name} /> {navlinkItem.name}
+      
     </NavLink>
   ))
   return <div className='navigation-item'>{DisplaynavlinkItems}</div>
 }
 
-export default MenuItem
+export default React.memo(MenuItem)

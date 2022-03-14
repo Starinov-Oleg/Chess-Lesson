@@ -1,3 +1,4 @@
+import React from 'react'
 import safe from './content-safe.module.css'
 import Button from '../../ui-library/button-link/button-link'
 import H1 from '../../ui-library/h1/h1'
@@ -22,4 +23,4 @@ function SectionSafe({ contentSafe }) {
     </section>
   )
 }
-export default SectionSafe
+export default React.memo(SectionSafe)

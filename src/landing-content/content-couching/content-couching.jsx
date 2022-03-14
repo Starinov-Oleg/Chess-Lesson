@@ -1,3 +1,4 @@
+import React from 'react'
 import couch from './content-couching.module.css'
 import Button from '../../ui-library/button-link/button-link'
 import H1 from '../../ui-library/h1/h1'
@@ -22,4 +23,4 @@ function SectionCouching({ contentCouching }) {
     </section>
   )
 }
-export default SectionCouching
+export default React.memo(SectionCouching)

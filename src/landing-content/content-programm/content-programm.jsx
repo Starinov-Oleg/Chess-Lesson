@@ -1,3 +1,4 @@
+import React from 'react'
 import programm from './content-programm.module.css'
 import school from '../../assets/section-programm/school.jpg'
 import Button from '../../ui-library/button-link/button-link'
@@ -35,4 +36,4 @@ function SectionProgramm({ contentProgramm }) {
     </section>
   )
 }
-export default SectionProgramm
+export default React.memo(SectionProgramm)
