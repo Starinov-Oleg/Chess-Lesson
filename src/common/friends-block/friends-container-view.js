@@ -40,4 +40,8 @@ function FriendsContainerView(props) {
 }
 export default FriendsContainerView
 
-/**TODO guard for friedns and couches, add component for it */
+/**TODO
+ * guard route for friedns and couches, add component for it
+ * onClick for use axios post - follow unfollow (post - follow, delete-unfollow)
+ * disbaled button when sent request to server - 64 example
+ */

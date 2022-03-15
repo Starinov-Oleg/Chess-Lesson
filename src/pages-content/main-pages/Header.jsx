@@ -10,10 +10,10 @@ import learn_icon from '../../assets/pages/header-pages/learn.png'*/
 import { NavLink } from 'react-router-dom'
 import logo from '../../assets/section-learn/logo.png'
 import MenuItem from './menu-list/menu-item'
-import Button from '../../ui-library/button-click/button'
+import Button from '../../ui-library/button-login/button-login'
 
-function HeaderPage({ navlinkItems }) {
-  const style = { padding: '0.5rem 1rem', margin: '1rem', display: 'block' }
+function Header({ navlinkItems, isAuth, login }) {
+  // const style = { padding: '0.5rem 1rem', margin: '1rem', display: 'block' }
   /* here if dont use state  const navlinkItems = [
     { id: 0, href: 'home', name: 'home', icon: home_icon },
     { id: 1, href: 'play', name: 'Play', icon: play_icon },
@@ -31,10 +31,10 @@ function HeaderPage({ navlinkItems }) {
       <div className='navigation'>
         <MenuItem navlinkItems={navlinkItems} />
       </div>
-      <div className={header.login_button}>
-        <Button message='LOG IN' style={style} />
-      </div>
+      <div className={header.login_button}>{isAuth ? login : <Button message='LOG IN' /*style={style}*/ />}</div>
     </div>
   )
 }
-export default React.memo(HeaderPage)
+export default React.memo(Header)
+
+/** TODO isAuth check auth... return or login or button for register */
