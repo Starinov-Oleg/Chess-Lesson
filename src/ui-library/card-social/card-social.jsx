@@ -25,7 +25,7 @@ function CardSocial({
   const styleimg = { width: '100%' }
   return (
     <div className={`card ${cardsocial.card}`} style={style}>
-      <NavLink to={'/pages/user/' + user}>
+      <NavLink to={'/user/' + user}>
         <img src={src} className={cardsocial.img} alt={alt} style={styleimg} />
       </NavLink>
       {showbutton ? (

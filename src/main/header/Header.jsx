@@ -5,7 +5,7 @@ function Header() {
   return (
     <header className='header'>
       <nav className={header.nav}>
-        <NavLink to='pages/home'>
+        <NavLink to='/home'>
           <div className={header.menu}>
             <i className={header.icon}></i>
           </div>

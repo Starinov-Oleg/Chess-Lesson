@@ -10,11 +10,6 @@ import ChessLearn from './pages-content/chess-learn/chess-land-school'
 import Home from './pages-content/chess-page-home/home'
 import Play from './pages-content/chess-play/play'
 import Adventure from './pages-content/chess-adventure/adventure'
-//import Login from './user-content/login/login'
-//import Register from './user-content/register/register'
-//import User from './user-content/user-page/user-page'
-//import RegisterCouch from './pages-content/chess-land-coaches/coaches-register/register'
-
 import EventsContainer from './pages-content/chess-events/events-container'
 import ContactContainer from './pages-content/chess-contact/contact-container'
 import ScrollToTop from './common/scroll-top/scroll'
@@ -44,7 +39,7 @@ function App(props) {
             <Route path='/login' element={<Login />}></Route>
             <Route path='/register' element={<Register />}></Route>
             <Route path='/regcouching' element={<RegisterCouch />}></Route>
-            <Route path='/pages' element={<Pages navlinkItems={props.state.navlinkItems} />}>
+            <Route element={<Pages navlinkItems={props.state.navlinkItems} />}>
               <Route path='home' element={<Home />}></Route>
               <Route path='whatis' element={<WhatIsChessland />} />
               <Route path='chesslandschool' element={<ChessLandSchool />} />
