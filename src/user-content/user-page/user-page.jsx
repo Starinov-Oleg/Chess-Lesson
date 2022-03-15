@@ -1,14 +1,16 @@
+import React from 'react'
 import page from './user-page.module.css'
-
 import UserHeader from './user-header-block/user-header'
 import ActionItem from './user-actionline-item/action-line'
-
 import Friend from './user-friends/friend-item'
 import Couch from './user-couches/couch-item'
 import H3 from '../../ui-library/h3/h3'
+import { useParams } from 'react-router-dom'
 
-function UserPage() {
+function UserPage(props) {
   const h3 = { paddingTop: '1rem' }
+  const { id } = useParams()
+  const user = props.users.find(p => p.id === Number(id))
   return (
     <section>
       <div className={page.page}>
@@ -18,7 +20,11 @@ function UserPage() {
           </div>
           <div className='col-md-6 col-12'>
             <div className={page.profile}>
-              <div className={page.chessstatistic}></div>
+              <div className={page.profiletext}>
+                <H3 message={user.fullname} />
+                <H3 message={`Win:${user.win}`} />
+                <H3 message={`Lose:${user.lose}`} />
+              </div>
               <div className={page.settings}></div>
             </div>
             <div className={page.people}>

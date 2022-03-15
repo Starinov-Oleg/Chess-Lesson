@@ -2,7 +2,6 @@ import { Outlet } from 'react-router-dom'
 import Footer from '../main/footer/Footer'
 import HeaderPage from './main-pages/Header'
 import pages from './pages.module.css'
-
 function Pages({ navlinkItems }) {
   return (
     <div className={`${pages.pages}`}>

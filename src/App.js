@@ -22,7 +22,7 @@ import ScrollToTop from './common/scroll-top/scroll'
 const Login = React.lazy(() => import('./user-content/login/login'))
 const Register = React.lazy(() => import('./user-content/register/register'))
 const RegisterCouch = React.lazy(() => import('./pages-content/chess-land-coaches/coaches-register/register'))
-const User = React.lazy(() => import('./user-content/user-page/user-page'))
+const User = React.lazy(() => import('./user-content/user-page/user-container'))
 
 function App(props) {
   return (

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { follow, setUsers, unfollow } from '../../redux/reducer/user.reducer'
 
-import CouchContainer from './couch-container-view'
+import CouchContainerView from './couch-container-view'
 
 let mapStateToProps = state => {
   return {
@@ -24,4 +24,4 @@ let mapDispatchToProps = dispatch => {
     },
   }
 }*/
-export default connect(mapStateToProps, { follow, unfollow, setUsers })(CouchContainer)
+export default connect(mapStateToProps, { follow, unfollow, setUsers })(CouchContainerView)

@@ -10,9 +10,11 @@ import learn_icon from '../../assets/pages/header-pages/learn.png'*/
 import { NavLink } from 'react-router-dom'
 import logo from '../../assets/section-learn/logo.png'
 import MenuItem from './menu-list/menu-item'
+import Button from '../../ui-library/button-click/button'
 
 function HeaderPage({ navlinkItems }) {
-  /*  const navlinkItems = [
+  const style = { padding: '0.5rem 1rem', margin: '1rem', display: 'block' }
+  /* here if dont use state  const navlinkItems = [
     { id: 0, href: 'home', name: 'home', icon: home_icon },
     { id: 1, href: 'play', name: 'Play', icon: play_icon },
     { id: 2, href: 'chesslearn', name: 'Learn', icon: adventure_icon },
@@ -23,14 +25,14 @@ function HeaderPage({ navlinkItems }) {
   ]*/
   return (
     <div className='d-flex flex-sm-column flex-row flex-nowrap  sticky-top align'>
-      <NavLink to='/' className='d-block p-3  text-decoration-none'>
-        <i className={header.icon}></i>
-      </NavLink>
       <NavLink to='/' className={`nav-link  text-decoration-none ${header.logo} `}>
         <img src={logo} alt='home' className={header.logo} />
       </NavLink>
       <div className='navigation'>
         <MenuItem navlinkItems={navlinkItems} />
+      </div>
+      <div className={header.login_button}>
+        <Button message='LOG IN' style={style} />
       </div>
     </div>
   )

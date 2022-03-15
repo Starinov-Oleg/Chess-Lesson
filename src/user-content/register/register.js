@@ -12,19 +12,17 @@ function onSubmit(data) {
 function Register() {
   const h1 = { color: '#2aa3d3' }
   return (
-    <section className='register'>
-      <div className={register.register}>
-        <div className={`container ${register.color}`}>
-          <div className='row'>
-            <div className='col-md-3 col-12'>
-              <HomeLink />
-            </div>
-            <div className='col-md-3 col-12'>
-              <H1 message='REGISTER' style={h1} />
-            </div>
+    <section className={register.register}>
+      <div className={`container ${register.color}`}>
+        <div className='row'>
+          <div className='col-md-3 col-12'>
+            <HomeLink />
           </div>
-          <Form onSubmit={onSubmit} />
+          <div className='col-md-3 col-12'>
+            <H1 message='REGISTER' style={h1} />
+          </div>
         </div>
+        <Form onSubmit={onSubmit} />
       </div>
     </section>
   )
