@@ -1,6 +1,7 @@
 import picture from '../../assets/pages/chess-play/user.png'
 import Couch from './couch'
 import CardSocial from '../../ui-library/card-social/card-social'
+
 import { Fragment } from 'react'
 function CouchContainerView(props) {
   //const pageCount = Math.ceil(props.users.totalUserCount / props.users.pageSize) // for count friends on page
@@ -35,6 +36,14 @@ function CouchContainerView(props) {
       ) : null}
     </Fragment>
   ))
+  if (!props.isAuth) {
+    return (
+      <div>
+        <p> For display friends you need login in club</p>
+      </div>
+    )
+  }
+
   return <Couch couchItems={couchItems} />
 }
 export default CouchContainerView

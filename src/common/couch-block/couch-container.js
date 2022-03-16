@@ -8,20 +8,8 @@ let mapStateToProps = state => {
     users: state.usersPage.users,
     pageSize: state.usersPage.pageSize,
     totalUsersCount: state.usersPage.totalUsersCount,
+    isAuth: state.auth.isAuth,
   }
 }
-/*
-let mapDispatchToProps = dispatch => {
-  return {
-    follow: userId => {
-      dispatch(followAC(userId))
-    },
-    unfollow: userId => {
-      dispatch(unfollowAC(userId))
-    },
-    setUsers: users => {
-      dispatch(setUsersAC(users))
-    },
-  }
-}*/
+
 export default connect(mapStateToProps, { follow, unfollow, setUsers })(CouchContainerView)
