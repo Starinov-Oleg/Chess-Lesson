@@ -1,12 +1,12 @@
 import picture from '../../assets/pages/chess-play/user.png'
 import { useSelector } from 'react-redux'
 import Contact from './contact'
-import CardSocial from '../../ui-library/card-social/card-social'
+import Card from '../../ui-library/card/card'
 function ContactContainerView() {
   const contacts = useSelector(state => state.contacts)
   const cardItems = contacts.map(contact => (
     <div className='col-md-3 col-12 ' key={contact.id}>
-      <CardSocial
+      <Card
         fullname={contact.name}
         text={contact.text}
         alt='picture'
