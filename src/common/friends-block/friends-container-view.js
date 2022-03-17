@@ -1,4 +1,4 @@
-import picture from '../../assets/pages/chess-play/user.png'
+import photo from '../../assets/pages/chess-play/user.png'
 import Friends from './friends'
 import CardSocial from '../../ui-library/card-social/card-social'
 
@@ -23,7 +23,7 @@ function FriendsContainerView(props) {
             message2='+'
             alt='picture'
             showbutton
-            src={user.picture != null ? user.picture : picture}
+            src={user.photo !== 0 ? user.photo : photo}
             onClick1={() => {
               props.unfollow(user.id)
             }}
@@ -50,6 +50,7 @@ function FriendsContainerView(props) {
 export default FriendsContainerView
 
 /**TODO
+
  * onClick for use axios post - follow unfollow (post - follow, delete-unfollow)
  * disbaled button when sent request to server - 64 example
  */

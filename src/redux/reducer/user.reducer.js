@@ -17,6 +17,8 @@ const initialState = {
       couches: 'names',
       events: 'events',
       followed: true,
+      cover: '/assets/header-pages/home.png',
+      photo: '/assets/header-pages/home.png',
     },
     {
       id: 1,
@@ -32,6 +34,8 @@ const initialState = {
       couches: 'names',
       events: 'events',
       followed: true,
+      cover: '/assets/header-pages/home.png',
+      photo: 0,
     },
   ],
   pageSize: 9,

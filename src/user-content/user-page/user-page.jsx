@@ -1,7 +1,7 @@
 import React from 'react'
 import page from './user-page.module.css'
 import UserHeader from './user-header-block/user-header'
-     import ActionItem from './user-actionline-item/action-line'
+import ActionItem from './user-actionline-item/action-line'
 import H3 from '../../ui-library/h3/h3'
 import { useParams } from 'react-router-dom'
 import FriendsContainer from '../../common/friends-block/friends-container'
@@ -15,7 +15,7 @@ function UserPage(props) {
       <div className={page.page}>
         <div className='row'>
           <div className='col-md-12 col-12'>
-            <UserHeader />
+            <UserHeader cover={user.cover} photo={user.logo} />
           </div>
           <div className='col-md-6 col-12'>
             <div className={page.profile}>

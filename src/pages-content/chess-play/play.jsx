@@ -5,7 +5,7 @@ import PlayProfile from './play-user-profile/play-user-profile'
 import DiedChess from './play-count-died-chess/play-count-died-chess'
 import HomeLink from '../../ui-library/home-link/home-link'
 
-function Play(chessplay, name_rival, name_you) {
+function Play(chessplay) {
   return (
     <section className='play'>
       <div className={play.play}>

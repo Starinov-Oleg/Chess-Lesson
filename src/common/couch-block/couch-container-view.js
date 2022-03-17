@@ -1,4 +1,4 @@
-import picture from '../../assets/pages/chess-play/user.png'
+import photo from '../../assets/pages/chess-play/user.png'
 import Couch from './couch'
 import CardSocial from '../../ui-library/card-social/card-social'
 
@@ -23,7 +23,7 @@ function CouchContainerView(props) {
             message2='+'
             alt='picture'
             showbutton
-            src={user.picture != null ? user.picture : picture}
+            src={user.photo !== 0 ? user.photo : photo}
             onClick1={() => {
               props.unfollow(user.id)
             }}
