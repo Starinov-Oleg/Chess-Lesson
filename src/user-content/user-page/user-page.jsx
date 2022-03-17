@@ -2,11 +2,10 @@ import React from 'react'
 import page from './user-page.module.css'
 import UserHeader from './user-header-block/user-header'
 import ActionItem from './user-actionline-item/action-line'
-import Friend from './user-friends/friend-item'
-import Couch from './user-couches/couch-item'
 import H3 from '../../ui-library/h3/h3'
 import { useParams } from 'react-router-dom'
-
+import FriendsContainer from '../../common/friends-block/friends-container'
+import CouchContainer from '../../common/couch-block/couch-container'
 function UserPage(props) {
   const h3 = { paddingTop: '1rem' }
   const { id } = useParams()
@@ -34,13 +33,13 @@ function UserPage(props) {
                   <span>All friends</span>
                 </div>
                 <div className={page.totalcount}>
-                  Friends: <span>44</span>
+                  Friends: <span>{props.totalcount}</span>
                 </div>
-                <Friend />
+                <FriendsContainer />
               </div>
               <div className={page.coaches}>
                 <H3 message='Couches' />
-                <Couch />
+                <CouchContainer />
               </div>
             </div>
           </div>
