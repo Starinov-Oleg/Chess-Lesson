@@ -11,11 +11,9 @@ function SectionSafe({ contentSafe }) {
         <div className='container'>
           <div className='row'>
             <div className='col-lg-6 col-12'>
-              <div className='titles'>
-                <H1 message='CARE FOR SAFE' />
-                <Ul lists={contentSafe} />
-                <Button message='WHAT IS CHESS LAND?' href='/pages/whatis' alt='Photo by Monstera from Pexels' />
-              </div>
+              <H1 message='CARE FOR SAFE' />
+              <Ul lists={contentSafe} />
+              <Button message='WHAT IS CHESS LAND?' href='/pages/whatis' alt='Photo by Monstera from Pexels' />
             </div>
           </div>
         </div>

@@ -3,7 +3,11 @@ import chessland from './chess-land-school.module.css'
 function ChessLandSchool() {
   return (
     <section className='chessland'>
-      <div className={chessland}>2222</div>
+      <div className={`container ${chessland}`}>
+        <div className='row'>
+          <div className='col-md-12 col-12'></div>
+        </div>
+      </div>
     </section>
   )
 }

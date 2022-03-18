@@ -11,8 +11,8 @@ import { NavLink } from 'react-router-dom'
 import logo from '../../assets/section-learn/logo.png'
 import MenuItem from './menu-list/menu-item'
 import Button from '../../ui-library/button-login/button-login'
-
-function Header({ navlinkItems, isAuth, login }) {
+import { Fragment } from 'react'
+function Header({ navlinkItems, isAuth }) {
   // const style = { padding: '0.5rem 1rem', margin: '1rem', display: 'block' }
   /* here if dont use state  const navlinkItems = [
     { id: 0, href: 'home', name: 'home', icon: home_icon },
@@ -23,16 +23,27 @@ function Header({ navlinkItems, isAuth, login }) {
     { id: 5, href: 'events', name: 'Events', icon: event_icon },
     { id: 6, href: 'adventure', name: 'Adventure', icon: learn_icon },
   ]*/
+
   return (
-    <div className='d-flex flex-sm-column flex-row flex-nowrap  sticky-top align'>
-      <NavLink to='/' className={`nav-link  text-decoration-none ${header.logo} `}>
-        <img src={logo} alt='home' className={header.logo} />
-      </NavLink>
-      <div className='navigation'>
-        <MenuItem navlinkItems={navlinkItems} />
+    <Fragment>
+      <div className='d-flex flex-sm-column flex-row flex-nowrap  sticky-top align'>
+        <NavLink to='/' className={`nav-link  text-decoration-none ${header.logo} `}>
+          <img src={logo} alt='home' className={header.logo} />
+        </NavLink>
+        <div className='navigation'>
+          <MenuItem navlinkItems={navlinkItems} />
+        </div>
       </div>
-      <div className={header.login_button}>{isAuth ? login : <Button message='LOG IN' /*style={style}*/ />}</div>
-    </div>
+      {isAuth ? (
+        <div className={header.login_button}>
+          <Button message='LOGOUT' />
+        </div>
+      ) : (
+        <div className={header.login_button}>
+          <Button message='LOG IN' />
+        </div>
+      )}
+    </Fragment>
   )
 }
 export default React.memo(Header)

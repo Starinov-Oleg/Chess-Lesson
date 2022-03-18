@@ -17,7 +17,7 @@ const initialState = {
       couches: 'names',
       events: 'events',
       followed: true,
-      cover: '/assets/header-pages/home.png',
+      cover: '/assets/pages/chess-play/user.png',
       photo: '/assets/header-pages/home.png',
     },
     {
@@ -34,12 +34,12 @@ const initialState = {
       couches: 'names',
       events: 'events',
       followed: true,
-      cover: '/assets/header-pages/home.png',
+      cover: 0,
       photo: 0,
     },
   ],
   pageSize: 9,
-  totalUsersCount: 0,
+  totalFriendsCount: 0,
 }
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {

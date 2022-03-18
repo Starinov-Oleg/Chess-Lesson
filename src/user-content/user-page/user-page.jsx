@@ -15,7 +15,7 @@ function UserPage(props) {
       <div className={page.page}>
         <div className='row'>
           <div className='col-md-12 col-12'>
-            <UserHeader cover={user.cover} photo={user.logo} />
+            <UserHeader cover={user.cover} photo={user.photo} />
           </div>
           <div className='col-md-6 col-12'>
             <div className={page.profile}>

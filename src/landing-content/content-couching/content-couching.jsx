@@ -12,8 +12,6 @@ function SectionCouching({ contentCouching }) {
           <div className='row'>
             <div className='col-md-12 col-12'>
               <H1 message='COACHING FOR KIDS' />
-            </div>
-            <div className='col-lg-6 col-12'>
               <Ul lists={contentCouching} />
               <Button message='CHESS LAND COACHES' href='/pages/chesslandcoaches' />
             </div>
