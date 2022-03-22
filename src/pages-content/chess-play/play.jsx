@@ -4,7 +4,7 @@ import PlayClockTimer from './play-clock-timer/play-clock-timer'
 import PlayProfile from './play-user-profile/play-user-profile'
 import DiedChess from './play-count-died-chess/play-count-died-chess'
 import HomeLink from '../../ui-library/home-link/home-link'
-
+//import Game from '../../chess-game/game/game'
 function Play(chessplay) {
   return (
     <section className='play'>

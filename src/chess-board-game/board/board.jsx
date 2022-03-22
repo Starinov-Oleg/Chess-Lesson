@@ -7,7 +7,7 @@ function start(setShowButton) {
   setShowButton(false)
 }
 function handleClick(value) {
-  alert('Hi ' + value)
+  alert(value)
 }
 
 function Board() {
