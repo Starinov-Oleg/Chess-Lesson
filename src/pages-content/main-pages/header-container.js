@@ -1,7 +1,6 @@
 import Header from './Header'
 import { connect } from 'react-redux'
 import { setUserData } from '../../redux/reducer/auth.reducer'
-
 function HeaderContainer({ navlinkItems }) {
   return <Header navlinkItems={navlinkItems} />
 }

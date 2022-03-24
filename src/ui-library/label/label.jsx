@@ -1,7 +1,11 @@
 import label from './label.module.css'
 
-function Label({ message }) {
-  return <label className={label.label}>{message}</label>
+function Label({ message, htmlFor }) {
+  return (
+    <label className={label.label} htmlFor={htmlFor}>
+      {message}
+    </label>
+  )
 }
 
 export default Label

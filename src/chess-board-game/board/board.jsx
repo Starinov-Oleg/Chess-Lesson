@@ -37,9 +37,6 @@ function Board() {
   const eventsItems2 = board
     .slice(48, 56)
     .map(square => <Square onClick={() => handleClick(square.key)} key={square.id} style={square.style} />)
-  const eventsItems1 = board
-    .slice(56, 64)
-    .map(square => <Square onClick={() => handleClick(square.key)} key={square.id} style={square.style} />)
 
   return (
     <section className='board'>
@@ -70,7 +67,17 @@ function Board() {
 
             <tr>
               <th>8</th>
-              {eventsItems1}
+              {board
+                .filter(u => u.id === 0)
+                .map(square => (
+                  <Square onClick={() => handleClick(square.key)} key={square.id} style={square.style} />
+                ))}
+
+              {board
+                .filter(u => u.id === 1)
+                .map(square => (
+                  <Square onClick={() => handleClick(square.key)} key={square.id} style={square.style} />
+                ))}
             </tr>
             <tr>
               <th>7</th>

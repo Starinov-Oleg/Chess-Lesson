@@ -1,3 +1,4 @@
+import * as React from 'react'
 import form from './form-register.module.css'
 import { useForm } from 'react-hook-form'
 import Input from '../../../ui-library/input/input'
@@ -9,16 +10,21 @@ function Form({ onSubmit }) {
   const {
     register,
     handleSubmit,
+    setFocus,
     formState: { errors },
   } = useForm()
   const button = { fontSize: '1.8rem', marginTop: '1rem' }
+  React.useEffect(() => {
+    setFocus('email')
+  }, [setFocus])
   return (
     <form className={form.form} onSubmit={handleSubmit(onSubmit)}>
       <div className='row'>
         <div className='col-md-6'>
-          <Label message='Email address' />
+          <Label message='Email address' htmlFor='email' />
           <Input
             name='email'
+            type='email'
             register={register}
             rules={{
               required: true,
@@ -29,7 +35,7 @@ function Form({ onSubmit }) {
           <ErrorMessage errors={errors} name='email' render={() => <p className={form.errors}>Email not Correct</p>} />
         </div>
         <div className='col-md-6'>
-          <Label message='Password' />
+          <Label message='Password' htmlFor='password' />
           <Input type='password' name='password' register={register} rules={{ required: true }} />
           <ErrorMessage errors={errors} name='password' render={() => <p className={form.errors}>Empty Field</p>} />
         </div>

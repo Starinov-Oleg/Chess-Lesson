@@ -9,7 +9,7 @@ function Square(props) {
           className={square.square}
           onClick={props.onClick}
           style={props.style}
-          key={props.keyVal}
+          key={props.key}
           toggle={props.toggle}></button>
       </td>
     </Fragment>

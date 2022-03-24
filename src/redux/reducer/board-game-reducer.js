@@ -73,7 +73,6 @@ const initialState = [
   { id: 63, key: 'g8', style: { background: 'black' } },
   { id: 64, key: 'h8', style: { background: 'white' } },
 ]
-
 const boardReducer = (state = initialState, action) => {
   switch (action.type) {
     case STYLE:
@@ -90,4 +89,5 @@ export const boardSlice = createSlice({
   initialState,
   reducers: {},
 })
+
 export default boardReducer

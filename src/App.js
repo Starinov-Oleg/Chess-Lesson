@@ -8,17 +8,15 @@ import ChessLandSchool from './pages-content/chess-land-school/chess-land-school
 import ChessLandCoaches from './pages-content/chess-land-coaches/chess-land-coaches'
 import ChessLearn from './pages-content/chess-learn/chess-land-school'
 import Home from './pages-content/chess-page-home/home'
-import Play from './pages-content/chess-play/play'
 import Adventure from './pages-content/chess-adventure/adventure'
 import EventsContainer from './pages-content/chess-events/events-container'
 import ContactContainer from './pages-content/chess-contact/contact-container'
 import ScrollToTop from './common/scroll-top/scroll'
-
 const Login = React.lazy(() => import('./user-content/login/login'))
 const Register = React.lazy(() => import('./user-content/register/register'))
 const RegisterCouch = React.lazy(() => import('./pages-content/chess-land-coaches/coaches-register/register'))
 const User = React.lazy(() => import('./user-content/user-page/user-container'))
-
+const Play = React.lazy(() => import('./pages-content/chess-play/play'))
 function App(props) {
   return (
     <BrowserRouter>

@@ -11,10 +11,10 @@
   height: 4rem;
 }
 
-.square:focus {
+button:focus {
   background: #c25e1b;
 }
 
-.square:hover {
+button:hover {
   background: #f2bd9f;
 }

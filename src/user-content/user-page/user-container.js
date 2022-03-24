@@ -10,6 +10,7 @@ let mapStateToProps = state => {
     pageSize: state.usersPage.pageSize,
     totalUsersCount: state.usersPage.totalUsersCount,
     isAuth: state.auth.isAuth,
+    
   }
 }
 let isAuth = props => {

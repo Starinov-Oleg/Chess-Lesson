@@ -28,3 +28,7 @@
 .active {
   background: red;
 }
+
+svg {
+  position: absolute;
+}
