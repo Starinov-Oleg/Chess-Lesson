@@ -5,12 +5,14 @@ function Square(props) {
   return (
     <Fragment>
       <td>
-        <button
+        <div
           className={square.square}
           onClick={props.onClick}
           style={props.style}
           key={props.key}
-          toggle={props.toggle}></button>
+          toggle={props.toggle}>
+          {props.value}
+        </div>
       </td>
     </Fragment>
   )
