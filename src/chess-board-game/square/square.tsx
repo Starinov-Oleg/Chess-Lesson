@@ -3,9 +3,9 @@ import square from './square.module.css'
 
 interface SquareProps {
   style: Object
-  value: string
+  value?: string
   key: string
-  toggle: string
+  toggle?: string
   onClick: () => void
 }
 
