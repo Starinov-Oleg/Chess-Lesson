@@ -7,6 +7,7 @@ import { useSelector, RootStateOrAny } from 'react-redux'
 function start(setShowButton: { (value: SetStateAction<boolean>): void; (arg0: boolean): void }) {
   setShowButton(false)
 }
+
 function handleClick(value: any) {
   alert(value)
 }
@@ -20,16 +21,24 @@ function Board() {
 
   const eventsItems6 = board
     .slice(16, 24)
-    .map((square: { key: any; id: string; style: Object }) => <Square onClick={() => handleClick(square.key)} key={square.id} style={square.style} />)
+    .map((square: { key: any; id: string; style: Object }) => (
+      <Square onClick={() => handleClick(square.key)} key={square.id} style={square.style} />
+    ))
   const eventsItems5 = board
     .slice(24, 32)
-    .map((square: { key: any; id: string; style: Object }) => <Square onClick={() => handleClick(square.key)} key={square.id} style={square.style} />)
+    .map((square: { key: any; id: string; style: Object }) => (
+      <Square onClick={() => handleClick(square.key)} key={square.id} style={square.style} />
+    ))
   const eventsItems4 = board
     .slice(32, 40)
-    .map((square: { key: any; id: string; style: Object }) => <Square onClick={() => handleClick(square.key)} key={square.id} style={square.style} />)
+    .map((square: { key: any; id: string; style: Object }) => (
+      <Square onClick={() => handleClick(square.key)} key={square.id} style={square.style} />
+    ))
   const eventsItems3 = board
     .slice(40, 48)
-    .map((square: { key: any; id: string; style: Object }) => <Square onClick={() => handleClick(square.key)} key={square.id} style={square.style} />)
+    .map((square: { key: any; id: string; style: Object }) => (
+      <Square onClick={() => handleClick(square.key)} key={square.id} style={square.style} />
+    ))
 
   return (
     <section className='board'>
@@ -56,7 +65,6 @@ function Board() {
               <th>g</th>
               <th>h</th>
             </tr>
-
             <tr>
               <th>8</th>
 
@@ -69,11 +77,16 @@ function Board() {
                     style={square.style}
                     value={piece
                       .filter((u: { key: string }) => u.key === 'BR')
-                      .map((piece: { key: Key | null | undefined; piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) => (
-                        <div key={piece.key} className={boardcss.svg}>
-                          {piece.piece}
-                        </div>
-                      ))}
+                      .map(
+                        (piece: {
+                          key: Key | null | undefined
+                          piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined
+                        }) => (
+                          <div key={piece.key} className={boardcss.svg}>
+                            {piece.piece}
+                          </div>
+                        )
+                      )}
                   />
                 ))}
 
@@ -86,11 +99,16 @@ function Board() {
                     style={square.style}
                     value={piece
                       .filter((u: { key: string }) => u.key === 'BN')
-                      .map((piece: { key: Key | null | undefined; piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) => (
-                        <span key={piece.key} className={boardcss.svg}>
-                          {piece.piece}
-                        </span>
-                      ))}
+                      .map(
+                        (piece: {
+                          key: Key | null | undefined
+                          piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined
+                        }) => (
+                          <span key={piece.key} className={boardcss.svg}>
+                            {piece.piece}
+                          </span>
+                        )
+                      )}
                   />
                 ))}
               {board
@@ -102,11 +120,16 @@ function Board() {
                     style={square.style}
                     value={piece
                       .filter((u: { key: string }) => u.key === 'BB')
-                      .map((piece: { key: Key | null | undefined; piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) => (
-                        <span key={piece.key} className={boardcss.svg}>
-                          {piece.piece}
-                        </span>
-                      ))}
+                      .map(
+                        (piece: {
+                          key: Key | null | undefined
+                          piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined
+                        }) => (
+                          <span key={piece.key} className={boardcss.svg}>
+                            {piece.piece}
+                          </span>
+                        )
+                      )}
                   />
                 ))}
               {board
@@ -118,11 +141,16 @@ function Board() {
                     style={square.style}
                     value={piece
                       .filter((u: { key: string }) => u.key === 'BQ')
-                      .map((piece: { key: Key | null | undefined; piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) => (
-                        <span key={piece.key} className={boardcss.svg}>
-                          {piece.piece}
-                        </span>
-                      ))}
+                      .map(
+                        (piece: {
+                          key: Key | null | undefined
+                          piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined
+                        }) => (
+                          <span key={piece.key} className={boardcss.svg}>
+                            {piece.piece}
+                          </span>
+                        )
+                      )}
                   />
                 ))}
               {board
@@ -134,11 +162,16 @@ function Board() {
                     style={square.style}
                     value={piece
                       .filter((u: { key: string }) => u.key === 'BK')
-                      .map((piece: { key: Key | null | undefined; piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) => (
-                        <span key={piece.key} className={boardcss.svg}>
-                          {piece.piece}
-                        </span>
-                      ))}
+                      .map(
+                        (piece: {
+                          key: Key | null | undefined
+                          piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined
+                        }) => (
+                          <span key={piece.key} className={boardcss.svg}>
+                            {piece.piece}
+                          </span>
+                        )
+                      )}
                   />
                 ))}
               {board
@@ -150,11 +183,16 @@ function Board() {
                     style={square.style}
                     value={piece
                       .filter((u: { key: string }) => u.key === 'BB2')
-                      .map((piece: { key: Key | null | undefined; piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) => (
-                        <span key={piece.key} className={boardcss.svg}>
-                          {piece.piece}
-                        </span>
-                      ))}
+                      .map(
+                        (piece: {
+                          key: Key | null | undefined
+                          piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined
+                        }) => (
+                          <span key={piece.key} className={boardcss.svg}>
+                            {piece.piece}
+                          </span>
+                        )
+                      )}
                   />
                 ))}
               {board
@@ -166,11 +204,16 @@ function Board() {
                     style={square.style}
                     value={piece
                       .filter((u: { key: string }) => u.key === 'BN2')
-                      .map((piece: { key: Key | null | undefined; piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) => (
-                        <span key={piece.key} className={boardcss.svg}>
-                          {piece.piece}
-                        </span>
-                      ))}
+                      .map(
+                        (piece: {
+                          key: Key | null | undefined
+                          piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined
+                        }) => (
+                          <span key={piece.key} className={boardcss.svg}>
+                            {piece.piece}
+                          </span>
+                        )
+                      )}
                   />
                 ))}
               {board
@@ -182,11 +225,16 @@ function Board() {
                     style={square.style}
                     value={piece
                       .filter((u: { key: string }) => u.key === 'BR2')
-                      .map((piece: { key: Key | null | undefined; piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) => (
-                        <span key={piece.key} className={boardcss.svg}>
-                          {piece.piece}
-                        </span>
-                      ))}
+                      .map(
+                        (piece: {
+                          key: Key | null | undefined
+                          piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined
+                        }) => (
+                          <span key={piece.key} className={boardcss.svg}>
+                            {piece.piece}
+                          </span>
+                        )
+                      )}
                   />
                 ))}
             </tr>
@@ -201,11 +249,16 @@ function Board() {
                     style={square.style}
                     value={piece
                       .filter((u: { key: string }) => u.key === 'BP')
-                      .map((piece: { key: Key | null | undefined; piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) => (
-                        <div key={piece.key} className={boardcss.svg}>
-                          {piece.piece}
-                        </div>
-                      ))}
+                      .map(
+                        (piece: {
+                          key: Key | null | undefined
+                          piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined
+                        }) => (
+                          <div key={piece.key} className={boardcss.svg}>
+                            {piece.piece}
+                          </div>
+                        )
+                      )}
                   />
                 ))}
               {board
@@ -217,11 +270,16 @@ function Board() {
                     style={square.style}
                     value={piece
                       .filter((u: { key: string }) => u.key === 'BP1')
-                      .map((piece: { key: Key | null | undefined; piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) => (
-                        <div key={piece.key} className={boardcss.svg}>
-                          {piece.piece}
-                        </div>
-                      ))}
+                      .map(
+                        (piece: {
+                          key: Key | null | undefined
+                          piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined
+                        }) => (
+                          <div key={piece.key} className={boardcss.svg}>
+                            {piece.piece}
+                          </div>
+                        )
+                      )}
                   />
                 ))}
               {board
@@ -233,11 +291,16 @@ function Board() {
                     style={square.style}
                     value={piece
                       .filter((u: { key: string }) => u.key === 'BP2')
-                      .map((piece: { key: Key | null | undefined; piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) => (
-                        <div key={piece.key} className={boardcss.svg}>
-                          {piece.piece}
-                        </div>
-                      ))}
+                      .map(
+                        (piece: {
+                          key: Key | null | undefined
+                          piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined
+                        }) => (
+                          <div key={piece.key} className={boardcss.svg}>
+                            {piece.piece}
+                          </div>
+                        )
+                      )}
                   />
                 ))}
               {board
@@ -249,11 +312,16 @@ function Board() {
                     style={square.style}
                     value={piece
                       .filter((u: { key: string }) => u.key === 'BP3')
-                      .map((piece: { key: Key | null | undefined; piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) => (
-                        <div key={piece.key} className={boardcss.svg}>
-                          {piece.piece}
-                        </div>
-                      ))}
+                      .map(
+                        (piece: {
+                          key: Key | null | undefined
+                          piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined
+                        }) => (
+                          <div key={piece.key} className={boardcss.svg}>
+                            {piece.piece}
+                          </div>
+                        )
+                      )}
                   />
                 ))}
               {board
@@ -265,11 +333,16 @@ function Board() {
                     style={square.style}
                     value={piece
                       .filter((u: { key: string }) => u.key === 'BP4')
-                      .map((piece: { key: Key | null | undefined; piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) => (
-                        <div key={piece.key} className={boardcss.svg}>
-                          {piece.piece}
-                        </div>
-                      ))}
+                      .map(
+                        (piece: {
+                          key: Key | null | undefined
+                          piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined
+                        }) => (
+                          <div key={piece.key} className={boardcss.svg}>
+                            {piece.piece}
+                          </div>
+                        )
+                      )}
                   />
                 ))}
               {board
@@ -281,11 +354,16 @@ function Board() {
                     style={square.style}
                     value={piece
                       .filter((u: { key: string }) => u.key === 'BP5')
-                      .map((piece: { key: Key | null | undefined; piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) => (
-                        <div key={piece.key} className={boardcss.svg}>
-                          {piece.piece}
-                        </div>
-                      ))}
+                      .map(
+                        (piece: {
+                          key: Key | null | undefined
+                          piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined
+                        }) => (
+                          <div key={piece.key} className={boardcss.svg}>
+                            {piece.piece}
+                          </div>
+                        )
+                      )}
                   />
                 ))}
               {board
@@ -297,11 +375,16 @@ function Board() {
                     style={square.style}
                     value={piece
                       .filter((u: { key: string }) => u.key === 'BP6')
-                      .map((piece: { key: Key | null | undefined; piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) => (
-                        <div key={piece.key} className={boardcss.svg}>
-                          {piece.piece}
-                        </div>
-                      ))}
+                      .map(
+                        (piece: {
+                          key: Key | null | undefined
+                          piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined
+                        }) => (
+                          <div key={piece.key} className={boardcss.svg}>
+                            {piece.piece}
+                          </div>
+                        )
+                      )}
                   />
                 ))}
               {board
@@ -313,28 +396,33 @@ function Board() {
                     style={square.style}
                     value={piece
                       .filter((u: { key: string }) => u.key === 'BP7')
-                      .map((piece: { key: Key | null | undefined; piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) => (
-                        <div key={piece.key} className={boardcss.svg}>
-                          {piece.piece}
-                        </div>
-                      ))}
+                      .map(
+                        (piece: {
+                          key: Key | null | undefined
+                          piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined
+                        }) => (
+                          <div key={piece.key} className={boardcss.svg}>
+                            {piece.piece}
+                          </div>
+                        )
+                      )}
                   />
                 ))}
             </tr>
             <tr>
-              <th>6</th>
+              <th>3</th>
               {eventsItems6}
             </tr>
             <tr>
-              <th>5</th>
+              <th>4</th>
               {eventsItems5}
             </tr>
             <tr>
-              <th>4</th>
+              <th>5</th>
               {eventsItems4}
             </tr>
             <tr>
-              <th>3</th>
+              <th>6</th>
               {eventsItems3}
             </tr>
             <tr>
@@ -348,11 +436,16 @@ function Board() {
                     style={square.style}
                     value={piece
                       .filter((u: { key: string }) => u.key === 'WP')
-                      .map((piece: { key: Key | null | undefined; piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) => (
-                        <div key={piece.key} className={boardcss.svg}>
-                          {piece.piece}
-                        </div>
-                      ))}
+                      .map(
+                        (piece: {
+                          key: Key | null | undefined
+                          piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined
+                        }) => (
+                          <div key={piece.key} className={boardcss.svg}>
+                            {piece.piece}
+                          </div>
+                        )
+                      )}
                   />
                 ))}
               {board
@@ -364,11 +457,16 @@ function Board() {
                     style={square.style}
                     value={piece
                       .filter((u: { key: string }) => u.key === 'WP1')
-                      .map((piece: { key: Key | null | undefined; piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) => (
-                        <div key={piece.key} className={boardcss.svg}>
-                          {piece.piece}
-                        </div>
-                      ))}
+                      .map(
+                        (piece: {
+                          key: Key | null | undefined
+                          piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined
+                        }) => (
+                          <div key={piece.key} className={boardcss.svg}>
+                            {piece.piece}
+                          </div>
+                        )
+                      )}
                   />
                 ))}
               {board
@@ -380,11 +478,16 @@ function Board() {
                     style={square.style}
                     value={piece
                       .filter((u: { key: string }) => u.key === 'WP2')
-                      .map((piece: { key: Key | null | undefined; piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) => (
-                        <div key={piece.key} className={boardcss.svg}>
-                          {piece.piece}
-                        </div>
-                      ))}
+                      .map(
+                        (piece: {
+                          key: Key | null | undefined
+                          piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined
+                        }) => (
+                          <div key={piece.key} className={boardcss.svg}>
+                            {piece.piece}
+                          </div>
+                        )
+                      )}
                   />
                 ))}
               {board
@@ -396,11 +499,16 @@ function Board() {
                     style={square.style}
                     value={piece
                       .filter((u: { key: string }) => u.key === 'WP3')
-                      .map((piece: { key: Key | null | undefined; piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) => (
-                        <div key={piece.key} className={boardcss.svg}>
-                          {piece.piece}
-                        </div>
-                      ))}
+                      .map(
+                        (piece: {
+                          key: Key | null | undefined
+                          piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined
+                        }) => (
+                          <div key={piece.key} className={boardcss.svg}>
+                            {piece.piece}
+                          </div>
+                        )
+                      )}
                   />
                 ))}
               {board
@@ -412,11 +520,16 @@ function Board() {
                     style={square.style}
                     value={piece
                       .filter((u: { key: string }) => u.key === 'WP4')
-                      .map((piece: { key: Key | null | undefined; piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) => (
-                        <div key={piece.key} className={boardcss.svg}>
-                          {piece.piece}
-                        </div>
-                      ))}
+                      .map(
+                        (piece: {
+                          key: Key | null | undefined
+                          piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined
+                        }) => (
+                          <div key={piece.key} className={boardcss.svg}>
+                            {piece.piece}
+                          </div>
+                        )
+                      )}
                   />
                 ))}
               {board
@@ -428,11 +541,16 @@ function Board() {
                     style={square.style}
                     value={piece
                       .filter((u: { key: string }) => u.key === 'WP5')
-                      .map((piece: { key: Key | null | undefined; piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) => (
-                        <div key={piece.key} className={boardcss.svg}>
-                          {piece.piece}
-                        </div>
-                      ))}
+                      .map(
+                        (piece: {
+                          key: Key | null | undefined
+                          piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined
+                        }) => (
+                          <div key={piece.key} className={boardcss.svg}>
+                            {piece.piece}
+                          </div>
+                        )
+                      )}
                   />
                 ))}
               {board
@@ -444,11 +562,16 @@ function Board() {
                     style={square.style}
                     value={piece
                       .filter((u: { key: string }) => u.key === 'WP6')
-                      .map((piece: { key: Key | null | undefined; piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) => (
-                        <div key={piece.key} className={boardcss.svg}>
-                          {piece.piece}
-                        </div>
-                      ))}
+                      .map(
+                        (piece: {
+                          key: Key | null | undefined
+                          piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined
+                        }) => (
+                          <div key={piece.key} className={boardcss.svg}>
+                            {piece.piece}
+                          </div>
+                        )
+                      )}
                   />
                 ))}
               {board
@@ -460,11 +583,16 @@ function Board() {
                     style={square.style}
                     value={piece
                       .filter((u: { key: string }) => u.key === 'WP7')
-                      .map((piece: { key: Key | null | undefined; piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) => (
-                        <div key={piece.key} className={boardcss.svg}>
-                          {piece.piece}
-                        </div>
-                      ))}
+                      .map(
+                        (piece: {
+                          key: Key | null | undefined
+                          piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined
+                        }) => (
+                          <div key={piece.key} className={boardcss.svg}>
+                            {piece.piece}
+                          </div>
+                        )
+                      )}
                   />
                 ))}
             </tr>
@@ -479,11 +607,16 @@ function Board() {
                     style={square.style}
                     value={piece
                       .filter((u: { key: string }) => u.key === 'WR')
-                      .map((piece: { key: Key | null | undefined; piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) => (
-                        <div key={piece.key} className={boardcss.svg}>
-                          {piece.piece}
-                        </div>
-                      ))}
+                      .map(
+                        (piece: {
+                          key: Key | null | undefined
+                          piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined
+                        }) => (
+                          <div key={piece.key} className={boardcss.svg}>
+                            {piece.piece}
+                          </div>
+                        )
+                      )}
                   />
                 ))}
 
@@ -496,11 +629,16 @@ function Board() {
                     style={square.style}
                     value={piece
                       .filter((u: { key: string }) => u.key === 'WN')
-                      .map((piece: { key: Key | null | undefined; piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) => (
-                        <span key={piece.key} className={boardcss.svg}>
-                          {piece.piece}
-                        </span>
-                      ))}
+                      .map(
+                        (piece: {
+                          key: Key | null | undefined
+                          piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined
+                        }) => (
+                          <span key={piece.key} className={boardcss.svg}>
+                            {piece.piece}
+                          </span>
+                        )
+                      )}
                   />
                 ))}
               {board
@@ -512,11 +650,16 @@ function Board() {
                     style={square.style}
                     value={piece
                       .filter((u: { key: string }) => u.key === 'WB')
-                      .map((piece: { key: Key | null | undefined; piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) => (
-                        <span key={piece.key} className={boardcss.svg}>
-                          {piece.piece}
-                        </span>
-                      ))}
+                      .map(
+                        (piece: {
+                          key: Key | null | undefined
+                          piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined
+                        }) => (
+                          <span key={piece.key} className={boardcss.svg}>
+                            {piece.piece}
+                          </span>
+                        )
+                      )}
                   />
                 ))}
               {board
@@ -528,11 +671,16 @@ function Board() {
                     style={square.style}
                     value={piece
                       .filter((u: { key: string }) => u.key === 'WQ')
-                      .map((piece: { key: Key | null | undefined; piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) => (
-                        <span key={piece.key} className={boardcss.svg}>
-                          {piece.piece}
-                        </span>
-                      ))}
+                      .map(
+                        (piece: {
+                          key: Key | null | undefined
+                          piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined
+                        }) => (
+                          <span key={piece.key} className={boardcss.svg}>
+                            {piece.piece}
+                          </span>
+                        )
+                      )}
                   />
                 ))}
               {board
@@ -544,11 +692,16 @@ function Board() {
                     style={square.style}
                     value={piece
                       .filter((u: { key: string }) => u.key === 'WK')
-                      .map((piece: { key: Key | null | undefined; piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) => (
-                        <span key={piece.key} className={boardcss.svg}>
-                          {piece.piece}
-                        </span>
-                      ))}
+                      .map(
+                        (piece: {
+                          key: Key | null | undefined
+                          piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined
+                        }) => (
+                          <span key={piece.key} className={boardcss.svg}>
+                            {piece.piece}
+                          </span>
+                        )
+                      )}
                   />
                 ))}
               {board
@@ -560,11 +713,16 @@ function Board() {
                     style={square.style}
                     value={piece
                       .filter((u: { key: string }) => u.key === 'WB2')
-                      .map((piece: { key: Key | null | undefined; piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) => (
-                        <span key={piece.key} className={boardcss.svg}>
-                          {piece.piece}
-                        </span>
-                      ))}
+                      .map(
+                        (piece: {
+                          key: Key | null | undefined
+                          piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined
+                        }) => (
+                          <span key={piece.key} className={boardcss.svg}>
+                            {piece.piece}
+                          </span>
+                        )
+                      )}
                   />
                 ))}
               {board
@@ -576,11 +734,16 @@ function Board() {
                     style={square.style}
                     value={piece
                       .filter((u: { key: string }) => u.key === 'WN2')
-                      .map((piece: { key: Key | null | undefined; piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) => (
-                        <span key={piece.key} className={boardcss.svg}>
-                          {piece.piece}
-                        </span>
-                      ))}
+                      .map(
+                        (piece: {
+                          key: Key | null | undefined
+                          piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined
+                        }) => (
+                          <span key={piece.key} className={boardcss.svg}>
+                            {piece.piece}
+                          </span>
+                        )
+                      )}
                   />
                 ))}
               {board
@@ -592,11 +755,16 @@ function Board() {
                     style={square.style}
                     value={piece
                       .filter((u: { key: string }) => u.key === 'WR2')
-                      .map((piece: { key: Key | null | undefined; piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined }) => (
-                        <span key={piece.key} className={boardcss.svg}>
-                          {piece.piece}
-                        </span>
-                      ))}
+                      .map(
+                        (piece: {
+                          key: Key | null | undefined
+                          piece: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined
+                        }) => (
+                          <span key={piece.key} className={boardcss.svg}>
+                            {piece.piece}
+                          </span>
+                        )
+                      )}
                   />
                 ))}
             </tr>
