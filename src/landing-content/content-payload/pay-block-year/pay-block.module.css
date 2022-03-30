@@ -1,0 +1,24 @@
+.payblock {
+  background-color: white;
+  border-radius: 10px;
+}
+.relativepic {
+  position: relative;
+}
+.picture {
+  animation: MoveUpDown 2s linear infinite;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+@keyframes MoveUpDown {
+  0%,
+  100% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 20px;
+  }
+}

@@ -1,0 +1,25 @@
+.payitem {
+  background-color: white;
+  margin: 1rem;
+  border-radius: 10px;
+}
+
+.body {
+  font-size: 1rem;
+  font-family: 'Mochiy';
+}
+
+.height {
+  height: 20rem;
+}
+.headerblock,
+.bodylock,
+.noteblock,
+.footerblock {
+  height: 5rem;
+}
+.bodylock .footerblock,
+.note {
+  font-family: 'Mochiy';
+  color: #cecfcf;
+}

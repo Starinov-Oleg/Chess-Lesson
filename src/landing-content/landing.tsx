@@ -5,6 +5,7 @@ import SectionProgramm from './content-programm/content-programm'
 import SectionCouching from './content-couching/content-couching'
 import SectionNews from './content-news/content-news'
 import SectionSafe from './ content-safe/content-safe'
+import SectionPay from './content-payload/content-pay'
 import Header from '../main/header/Header'
 import Footer from '../main/footer/Footer'
 interface LandingProps {
@@ -20,6 +21,7 @@ function Landing(props: LandingProps) {
       <SectionBaner />
       <SectionSafe contentSafe={props.contentSafe} />
       <SectionProgramm contentProgramm={props.contentProgramm} />
+      <SectionPay />
       <SectionCouching contentCouching={props.contentCouching} />
       <SectionNews />
       <Footer />
