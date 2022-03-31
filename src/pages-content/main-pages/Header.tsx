@@ -11,6 +11,7 @@ import { NavLink } from 'react-router-dom'
 import logo from '../../assets/section-learn/logo.png'
 import MenuItem from './menu-list/menu-item'
 import Button from '../../ui-library/button-link/button-link'
+
 interface HeaderProps {
   navlinkItems: string
   isAuth: boolean
@@ -34,6 +35,7 @@ function Header({ navlinkItems, isAuth }: HeaderProps) {
           <img src={logo} alt='home' className={header.logo} />
         </NavLink>
         <MenuItem navlinkItems={navlinkItems} />
+
         {isAuth ? (
           <Button message='LOGOUT' href='/LOGIN' style={style} />
         ) : (

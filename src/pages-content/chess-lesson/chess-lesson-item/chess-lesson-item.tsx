@@ -1,10 +1,12 @@
 import chesslessonitem from './chess-lesson-item.module.css'
 import H3 from '../../../ui-library/h3/h3'
+import { NavLink } from 'react-router-dom'
+
 function ChessLessonItem() {
   return (
     <div className={chesslessonitem.chesslessonitem}>
       <div className={chesslessonitem.courseitem}>
-        <a href='https://www.chess.com/lessons/how-to-move-the-pieces' className={chesslessonitem.link}>
+        <NavLink to='https://www.chess.com/lessons/how-to-move-the-pieces' className={chesslessonitem.link}>
           <div className={chesslessonitem.courseimage}>
             <img
               className={chesslessonitem.img}
@@ -25,7 +27,7 @@ function ChessLessonItem() {
               </div>
             </div>
           </div>
-        </a>
+        </NavLink>
       </div>
     </div>
   )

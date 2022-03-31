@@ -3,8 +3,6 @@
   font-size: 1.2rem;
   color: white;
   text-align: left;
-  display: inline-block;
-  padding: 0.5rem 1rem;
 }
 .icon {
   width: 2rem;
@@ -12,9 +10,4 @@
 
 .dropdownmenu {
   list-style-type: none;
-  padding: 0;
-  text-align: left;
-}
-a {
-  text-decoration: none;
 }

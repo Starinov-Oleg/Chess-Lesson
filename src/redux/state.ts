@@ -63,7 +63,13 @@ const state = {
   navlinkItems: [
     { id: 0, href: 'home', name: 'home', icon: '/assets/header-pages/home.png' },
     { id: 1, href: '/play', name: 'Play', icon: '/assets/header-pages/play.png' },
-    { id: 2, href: 'chesslearn', name: 'Learn', icon: '/assets/header-pages/adventure.png' },
+    {
+      id: 2,
+      href: 'chesslearn',
+      name: 'Learn',
+      icon: '/assets/header-pages/adventure.png',
+      submenu: [{ name: 'Lesson', href:'chesslesson' }],
+    },
     { id: 3, href: 'chesslandcoaches', name: 'Coaching', icon: '/assets/header-pages/coach.png' },
     { id: 4, href: 'contact', name: 'Contact', icon: '/assets/header-pages/connect.png' },
     { id: 5, href: 'events', name: 'Events', icon: '/assets/header-pages/event.png' },
