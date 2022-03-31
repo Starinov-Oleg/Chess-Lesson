@@ -23,7 +23,7 @@ function PayItem({ header, body, note, footer, style }: PayProps) {
       </div>
       <div className={payitem.footerblock}>
         <H3 message={footer} style={h3} />
-        <p>for lesson</p>
+        <p className={payitem.note}>for lesson</p>
       </div>
     </div>
   )

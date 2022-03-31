@@ -3,7 +3,7 @@ import Iframe from './chess-learn-video/iframe'
 import { useState } from 'react'
 import Cover from './chess-learn-cover-video/learn-cover-video'
 import About from './chess-learn-about-video/learn-about-video'
-
+import { NavLink } from 'react-router-dom'
 interface ChessLearnProps {
   learn: any
 }
@@ -22,6 +22,11 @@ function ChessLearn(props: ChessLearnProps) {
               {show ? <Iframe src={props.learn.video1} height='500' width='100%' title='couch video' /> : null}
 
               {show2 ? <Iframe src={props.learn.video2} height='500' width='100%' title='couch video' /> : null}
+            </div>
+            <div className={chesslearn.linkblock}>
+              <NavLink to='/chesslesson' className={chesslearn.link}>
+                More Lesson
+              </NavLink>
             </div>
           </div>
           <div className={`col-md-4 col-12 ${chesslearn.background_color}`}>

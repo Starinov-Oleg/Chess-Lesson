@@ -5,7 +5,7 @@ function Home() {
   return (
     <section className='home'>
       <div className={`${home.color}  ${home.link}`}>
-        <H1 message='CHESSLAND - CHESS CLUB' style={style_h1} />
+        <H1 message='Chessland - Chess Club' style={style_h1} />
       </div>
       <div className={home.body}>
         <p>

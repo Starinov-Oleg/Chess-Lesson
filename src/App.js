@@ -12,6 +12,7 @@ import Adventure from './pages-content/chess-adventure/adventure'
 import EventsContainer from './pages-content/chess-events/events-container'
 import ContactContainer from './pages-content/chess-contact/contact-container'
 import ScrollToTop from './common/scroll-top/scroll'
+import ChessLesson from './pages-content/chess-lesson/chess-lesson'
 
 const Login = React.lazy(() => import('./user-content/login/login'))
 const Register = React.lazy(() => import('./user-content/register/register'))
@@ -48,6 +49,7 @@ function App(props) {
               <Route path='contact' element={<ContactContainer />} />
               <Route path='events' element={<EventsContainer />} />
               <Route path='adventure' element={<Adventure />} />
+              <Route path='chesslesson' element={<ChessLesson chesslesson={props.state.chesslesson} />} />
               <Route path='user/:id' element={<User />}></Route>
               <Route path='chat/:id' element={<ChatPage />}></Route>
             </Route>

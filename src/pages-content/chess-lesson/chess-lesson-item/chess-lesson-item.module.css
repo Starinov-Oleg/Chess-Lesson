@@ -1,0 +1,26 @@
+.link {
+  color: inherit;
+  text-decoration: inherit;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1rem;
+  text-align: left;
+  font-family: 'Mochiy';
+}
+
+.img {
+  padding: 1rem;
+  width: 100%;
+}
+.content {
+  padding: 1rem;
+}
+.chesslessonitem {
+  background-color: #e3f9f8;
+  margin: 1rem;
+  border-radius: 10px;
+}
+.span {
+  color: black;
+  font-size: 1rem;
+}

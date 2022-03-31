@@ -2,7 +2,6 @@
   min-height: 100vh;
 }
 
-
 .start {
   text-align: left;
   height: 100vh;
@@ -12,4 +11,15 @@
 
 .background_color {
   background-color: aliceblue;
+}
+
+.link {
+  font-family: 'Mochiy';
+  color: #cecfcf;
+  font-size: 1rem;
+}
+
+.linkblock {
+  text-align: right;
+  padding: 1rem;
 }
