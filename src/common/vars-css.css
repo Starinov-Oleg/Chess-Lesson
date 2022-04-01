@@ -5,8 +5,10 @@
   --global-var-color-blue: #2aa3d3;
   --global-var-color-grey: #51504b;
   --global-var-color-note: #cecfcf; /*color for notification*/
+  --global-var-color-white: white; /**here for couch say */
   --global-var-align-left: left;
   --global-var-font-size-1rem: 1rem;
+  --global-var-font-mocha: 'Mochiy';
 }
 
 /*for import copy 

@@ -1,0 +1,23 @@
+.chessreport {
+  display: flex;
+  font-size: var(--global-var-font-size-1rem);
+  color: var(--global-var-color-white);
+  border-radius: 10px;
+  border: 1px solid var(--global-var-color-white);
+  box-shadow: -2rem 0 3rem -2rem var(--global-var-color-white);
+  text-align: var(--global-var-align-left);
+}
+
+.body {
+  padding-top: 10%;
+  padding-left: 0.5rem;
+}
+
+.img {
+  padding-top: 1rem;
+  height: 100px;
+  width: 100px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}

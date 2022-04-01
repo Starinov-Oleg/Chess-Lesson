@@ -1,0 +1,18 @@
+.baneritemcard {
+  margin: 3%;
+  border-radius: 10px;
+  border: 1px solid var(--global-var-color-orange);
+  box-shadow: -2rem 0 3rem -2rem var(--global-var-color-orange);
+  font-family: var(--global-var-font-mocha);
+}
+
+.banercardheader {
+  color: var(--global-var-color-orange);
+}
+
+.baneritemcard:hover,
+.baneritemcard:active {
+  border: 1px solid var(--global-var-color-blue);
+  box-shadow: -2rem 0 3rem -2rem var(--global-var-color-blue);
+  transform: rotate(-15deg);
+}

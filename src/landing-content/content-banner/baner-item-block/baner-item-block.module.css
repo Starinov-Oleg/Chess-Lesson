@@ -1,0 +1,11 @@
+.baneritemblock {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 1rem;
+}
+
+.baneritemblock div {
+  width: 20em;
+}

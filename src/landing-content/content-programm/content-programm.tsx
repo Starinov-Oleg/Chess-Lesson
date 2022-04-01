@@ -6,7 +6,8 @@ import Ul from '../../ui-library/ul/ul'
 import H1 from '../../ui-library/h1/h1'
 import H3 from '../../ui-library/h3/h3'
 import '../../common/vars-css.css'
-
+import ProgrammExample from './programm-excample/programm-example'
+import ChessReport from './chess-report/chess-report'
 interface contentProgrammProps {
   contentProgramm: Array<string>
 }
@@ -34,6 +35,16 @@ function SectionProgramm({ contentProgramm }: contentProgrammProps) {
             <div className='col-lg-6 col-12'>
               <Ul lists={contentProgramm} style={style} />
               <Button message='CHESS LAND SCHOOL' href='chesslandschool' />
+            </div>
+          </div>
+          <div className='row'>
+            <div className='col-lg-12'>
+              <ProgrammExample />
+            </div>
+          </div>
+          <div className='row'>
+            <div className='col-lg-12'>
+            <ChessReport />
             </div>
           </div>
         </div>

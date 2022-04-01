@@ -7,7 +7,7 @@ function ChessLesson() {
   return (
     <div className='container'>
       <H1 message='Lesson' style={style_h1} />
-      <ChessLessonItem />
+      <ChessLessonItem href='chesslesson/1' />
     </div>
   )
 }
