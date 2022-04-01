@@ -5,15 +5,16 @@ import Button from '../../ui-library/button-link/button-link'
 import Ul from '../../ui-library/ul/ul'
 import H1 from '../../ui-library/h1/h1'
 import H3 from '../../ui-library/h3/h3'
+import '../../common/vars-css.css'
 
 interface contentProgrammProps {
   contentProgramm: Array<string>
 }
 
 function SectionProgramm({ contentProgramm }: contentProgrammProps) {
-  const style = { color: '#51504b' }
+  const style = { color: 'var( --global-var-color-grey)' }
   const style_h3 = { paddingTop: '2rem' }
-  const style_h1 = { color: '#2aa3d3' }
+  const style_h1 = { color: 'var( --global-var-color-blue)' }
   return (
     <section className='school-programm'>
       <div className={programm.programm}>

@@ -1,7 +1,9 @@
 import home from './home.module.css'
 import H1 from '../../ui-library/h1/h1'
+import '../../common/vars-css.css'
+
 function Home() {
-  const style_h1 = { color: '#2aa3d3' }
+  const style_h1 = { color: 'var(--global-var-color-blue)' }
   return (
     <section className='home'>
       <div className={`${home.color}  ${home.link}`}>

@@ -2,11 +2,15 @@ import payblock from './pay-block.module.css'
 import H1 from '../../../ui-library/h1/h1'
 import H3 from '../../../ui-library/h3/h3'
 import picture from '../../../assets/pages/chess-learn/learn-video.jpg'
-
+import '../../../common/vars-css.css'
 function PayBlock() {
-  const styleH1 = { color: '#ff6b08' }
-  const styleH3 = { color: 'black', textAlign: 'left' }
-  const note = { color: '#cecfcf', textAlign: 'left', fontSize: '1rem' }
+  const styleH1 = { color: 'var(--global-var-color-orange)', textAlign: 'var(--global-var-align-left)' }
+  const styleH3 = { color: 'var(--global-var-color-black)', textAlign: 'var(--global-var-align-left)' }
+  const note = {
+    color: 'var(--global-var-color-note)',
+    textAlign: 'var(--global-var-align-left)',
+    fontSize: 'var(--global-var-font-size-1rem)',
+  }
 
   return (
     <div className={`container ${payblock.payblock}`}>
