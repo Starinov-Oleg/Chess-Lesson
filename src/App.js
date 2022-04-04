@@ -35,6 +35,7 @@ function App(props) {
                   contentSafe={props.state.landing.contentSafe.lists}
                   contentCouching={props.state.landing.contentCouching.lists}
                   contentProgramm={props.state.landing.contentProgramm.lists}
+                  banerItemCards={props.state.banerItemCard}
                 />
               }
             />

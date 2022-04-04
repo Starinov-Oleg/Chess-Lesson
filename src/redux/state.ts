@@ -76,7 +76,7 @@ const state = {
     { id: 6, href: 'adventure', name: 'Adventure', icon: '/assets/header-pages/learn.png' },
   ],
   /**baner page item */
-  baneritemcard: [
+  banerItemCard: [
     { headertext: 'Clips', bodytext: 'Here text about clips', href: 'chesslearn' },
     { headertext: 'Interactive Lesson', bodytext: 'Here about interactive lessons', href: 'chesslearn' },
     { headertext: 'Lesson in Class', bodytext: 'here about class lessons', href: 'chesscoach' },
