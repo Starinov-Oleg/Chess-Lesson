@@ -2,4 +2,24 @@
   display: flex;
   flex-wrap: wrap;
   padding: 1rem 0;
+  margin-top: 2rem;
+  font-size: var(--global-var-font-size-1rem);
+  color: var(--global-var-color-black);
+  text-align: left;
+}
+.flex_item1 {
+  width: 25%;
+}
+.flex_item2 {
+  width: 25%;
+}
+.flex_item3 {
+  width: 50%;
+}
+.body {
+  padding: 1rem;
+}
+
+.betweenline {
+  border: 1px solid var(--global-var-color-orange);
 }

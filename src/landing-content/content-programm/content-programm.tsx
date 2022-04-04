@@ -36,15 +36,11 @@ function SectionProgramm({ contentProgramm }: contentProgrammProps) {
               <Ul lists={contentProgramm} style={style} />
               <Button message='CHESS LAND SCHOOL' href='chesslandschool' />
             </div>
-          </div>
-          <div className='row'>
             <div className='col-lg-12'>
               <ProgrammExample />
             </div>
-          </div>
-          <div className='row'>
             <div className='col-lg-12'>
-            <ChessReport />
+              <ChessReport />
             </div>
           </div>
         </div>

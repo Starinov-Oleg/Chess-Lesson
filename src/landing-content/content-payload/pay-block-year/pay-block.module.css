@@ -10,7 +10,7 @@
   position: absolute;
   right: 0;
   bottom: 0;
-  width: 100%;
+  width: 50%;
 }
 
 @keyframes MoveUpDown {
@@ -19,6 +19,6 @@
     bottom: 0;
   }
   50% {
-    bottom: 20px;
+    bottom: 7rem;
   }
 }

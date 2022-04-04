@@ -1,3 +1,9 @@
+.programmexample {
+  background-color: var(--global-var-color-white);
+  border-radius: 10px;
+  /* box-shadow: 0 0 2rem var(--global-var-color-blue);*/
+  padding: var(--global-var-font-size-1rem);
+}
 .typeprogramm {
   color: palevioletred;
 }
