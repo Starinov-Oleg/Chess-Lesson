@@ -3,6 +3,7 @@ import H1 from '../../../ui-library/h1/h1'
 import H3 from '../../../ui-library/h3/h3'
 import picture from '../../../assets/section-payload/g.png'
 import '../../../common/vars-css.css'
+import { Link } from 'react-router-dom'
 function PayBlock() {
   const styleH1 = { color: 'var(--global-var-color-orange)', textAlign: 'var(--global-var-align-left)' }
   const styleH3 = { color: 'var(--global-var-color-black)', textAlign: 'var(--global-var-align-left)' }
@@ -16,9 +17,11 @@ function PayBlock() {
     <div className={`container ${payblock.payblock}`}>
       <div className='row'>
         <div className='col-md-12 col-12'>
-          <H1 message='COURSE ON ONE YEAR ->' style={styleH1} />
+          <Link to='/contact'>
+            <H1 message='COURSE ON ONE YEAR ->' style={styleH1} />
+          </Link>
         </div>
-        <div className='col-md-6 col-12'>
+        <div className='col-md-8 col-12'>
           <H3
             message='Study 1-4 times a week in one or more subjects and complete the whole class program'
             style={styleH3}
@@ -27,7 +30,7 @@ function PayBlock() {
           <H3 message='50 000 Đ ' style={styleH3} />
           <H3 message='for lesson' style={note} />
         </div>
-        <div className={`col-md-6 col-12 ${payblock.relativepic}`}>
+        <div className={`col-md-4 col-12 ${payblock.relativepic}`}>
           <img
             src={picture}
             className={payblock.picture}

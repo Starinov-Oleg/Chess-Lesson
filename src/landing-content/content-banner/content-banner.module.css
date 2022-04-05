@@ -5,3 +5,15 @@
   background-repeat: no-repeat;
   padding-bottom: 6rem;
 }
+.baneritem {
+  text-align: left;
+}
+.banernote {
+  font-family: var(--global-var-font-mocha);
+}
+
+@media screen and (max-width: 1195px) {
+  .baneritem {
+    text-align: center;
+  }
+}

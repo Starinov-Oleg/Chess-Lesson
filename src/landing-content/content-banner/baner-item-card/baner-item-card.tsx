@@ -5,14 +5,22 @@ interface BanerCardItemProps {
   bodytext: string
   message: string
   href: string
+  style?: Object
+  src: any
+  alt: string
 }
-function BanerItemCard({ headertext, bodytext, message, href }: BanerCardItemProps) {
+function BanerItemCard({ headertext, bodytext, message, href, style, src, alt }: BanerCardItemProps) {
   return (
-    <div className={baneritemcard.baneritemcard}>
-      <div className={baneritemcard.banercardheader}>{headertext}</div>
-      <div className={baneritemcard.banercardbody}>{bodytext}</div>
-      <div className={baneritemcard.notification}>
-        <LinkText message={message} href={href} />
+    <div className={baneritemcard.position} style={style}>
+      <div className={baneritemcard.baneritemcard}>
+        <div className={baneritemcard.imgposition}>
+          <img src={src} alt={alt} className={baneritemcard.img} />
+        </div>
+        <div className={baneritemcard.banercardheader}>{headertext}</div>
+        <div className={baneritemcard.banercardbody}>{bodytext}</div>
+        <div className={baneritemcard.notification}>
+          <LinkText message={message} href={href} />
+        </div>
       </div>
     </div>
   )

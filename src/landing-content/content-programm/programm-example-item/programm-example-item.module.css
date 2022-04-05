@@ -9,6 +9,7 @@
 }
 .flex_item1 {
   width: 25%;
+  border-radius: 10px;
 }
 .flex_item2 {
   width: 25%;
