@@ -6,7 +6,7 @@
   position: relative;
 }
 .picture {
-  animation: MoveUpDown 2s linear infinite;
+  animation: MoveUpDown 10s linear infinite;
   position: absolute;
   right: 0;
   bottom: 0;

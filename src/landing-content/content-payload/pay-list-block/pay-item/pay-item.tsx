@@ -3,7 +3,7 @@ import H3 from '../../../../ui-library/h3/h3'
 interface PayProps {
   header: string
   body: string
-  note?: string
+  note?: string | null
   footer: string
   style?: Object
 }
@@ -18,9 +18,9 @@ function PayItem({ header, body, note, footer, style }: PayProps) {
       <div className={payitem.bodyblock}>
         <p className={payitem.body}>{body}</p>
       </div>
-      <div className={payitem.noteblock}>
-        <p className={payitem.note}>{note}</p>
-      </div>
+
+      <div className={payitem.noteblock}>{note ? <p className={payitem.note}>{note}</p> : null}</div>
+
       <div className={payitem.footerblock}>
         <H3 message={footer} style={h3} />
         <p className={payitem.note}>for lesson</p>

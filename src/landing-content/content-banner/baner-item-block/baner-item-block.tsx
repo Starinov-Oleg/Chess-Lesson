@@ -18,3 +18,5 @@ function BanerItemBlock() {
 }
 
 export default BanerItemBlock
+
+/**TODO add for static state */

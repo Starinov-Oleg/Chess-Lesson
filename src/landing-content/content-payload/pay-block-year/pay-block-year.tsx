@@ -1,7 +1,7 @@
 import payblock from './pay-block.module.css'
 import H1 from '../../../ui-library/h1/h1'
 import H3 from '../../../ui-library/h3/h3'
-import picture from '../../../assets/pages/chess-learn/learn-video.jpg'
+import picture from '../../../assets/section-payload/g.png'
 import '../../../common/vars-css.css'
 function PayBlock() {
   const styleH1 = { color: 'var(--global-var-color-orange)', textAlign: 'var(--global-var-align-left)' }
