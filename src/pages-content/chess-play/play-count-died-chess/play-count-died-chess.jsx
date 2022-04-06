@@ -1,3 +1,4 @@
+import React from 'react'
 import diedchess from './play-count-died-chess.module.css'
 import H3 from '../../../ui-library/h3/h3'
 function DiedChess({ name }) {

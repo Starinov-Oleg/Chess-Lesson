@@ -1,3 +1,4 @@
+import React from 'react'
 import play from './play.module.css'
 import ChessBoard from '../../chess-board-game/chess-board'
 import PlayClockTimer from './play-clock-timer/play-clock-timer'

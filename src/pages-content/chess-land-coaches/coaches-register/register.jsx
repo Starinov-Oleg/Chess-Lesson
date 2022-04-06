@@ -1,3 +1,4 @@
+import React from 'react'
 import register from './register.module.css'
 import Form from './register-form/form'
 

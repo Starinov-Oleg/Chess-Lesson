@@ -1,5 +1,5 @@
+import React from 'react'
 import playprofile from './play-user-profile.module.css'
-
 import CardSocial from '../../../ui-library/card-social/card-social'
 import picture from '../../../assets/pages/chess-play/user.png'
 

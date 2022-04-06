@@ -1,3 +1,4 @@
+import React from 'react'
 import form from './form.module.css'
 import Input from '../../../../ui-library/input/input'
 import Label from '../../../../ui-library/label/label'
@@ -20,8 +21,7 @@ function Form({ onSubmit }) {
         register={register}
         rules={{
           required: true,
-          pattern:
-            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+          pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
           message: 'Invalid email',
         }}
       />

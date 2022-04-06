@@ -1,3 +1,4 @@
+import React from 'react'
 import whatis from './what-is-chessland.module.css'
 import H3 from '../../ui-library/h3/h3'
 function WhatIsChessland() {
