@@ -6,7 +6,11 @@ import H3 from '../../ui-library/h3/h3'
 import { useParams } from 'react-router-dom'
 import FriendsContainer from '../../common/friends-block/friends-container'
 import CouchContainer from '../../common/couch-block/couch-container'
-function UserPage(props: { users: any[]; totalcount: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined }) {
+import ChessReportCard from '../chess-report-card/chess-report-card'
+function UserPage(props: {
+  users: any[]
+  totalcount: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined
+}) {
   const h3 = { paddingTop: '1rem' }
   const { id } = useParams()
   const user = props.users.find(p => p.id === Number(id))
@@ -16,6 +20,9 @@ function UserPage(props: { users: any[]; totalcount: boolean | React.ReactChild 
         <div className='row'>
           <div className='col-md-12 col-12'>
             <UserHeader cover={user.cover} photo={user.photo} />
+          </div>
+          <div className='col-md-12 col-12'>
+            <ChessReportCard />
           </div>
           <div className='col-md-6 col-12'>
             <div className={page.profile}>
