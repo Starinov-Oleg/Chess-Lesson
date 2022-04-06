@@ -7,3 +7,10 @@
 .blockbody {
   margin-top: var(--global-var-font-size-1rem);
 }
+
+.img {
+  width: 100%;
+}
+.promo {
+  text-align: left;
+}

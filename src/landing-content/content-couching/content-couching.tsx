@@ -15,9 +15,11 @@ function SectionCouching({ contentCouching }: contentCouchingProps) {
         <div className='container'>
           <div className='row'>
             <div className='col-md-6 col-12'>
-              <H1 message='COACHING FOR KIDS' />
-              <Ul lists={contentCouching} />
-              <Button message='CHESS LAND COACHES' href='chesslandcoaches' />
+              <div className={couch.centerAlign}>
+                <H1 message='COACHING FOR KIDS' />
+                <Ul lists={contentCouching} />
+                <Button message='CHESS LAND COACHES' href='chesslandcoaches' />
+              </div>
             </div>
             <div className='col-md-6 col-12'>
               <div className={couch.couchsay}>

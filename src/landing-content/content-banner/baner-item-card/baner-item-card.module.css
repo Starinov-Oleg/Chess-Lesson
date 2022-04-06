@@ -1,8 +1,9 @@
 .baneritemcard {
   border-radius: 10px;
-  box-shadow: 0 0 2rem var(--global-var-color-orange);
+  box-shadow: 0 0 2rem var(--global-var-color-note);
   font-family: var(--global-var-font-mocha);
   position: absolute;
+  background-color: var(--global-var-color-white);
 }
 
 .banercardheader {

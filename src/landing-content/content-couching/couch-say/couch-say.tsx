@@ -1,5 +1,6 @@
 import coucsay from './couch-say.module.css'
 import '../../../common/vars-css.css'
+import couchsay from '../../../assets/section-couch/couch-face.png'
 function CouchSay() {
   return (
     <div className={coucsay.chessreport}>
@@ -10,9 +11,9 @@ function CouchSay() {
           us to play chess.”
         </p>
       </div>
-      <div className={coucsay.img}>
+      <div className={couchsay.imgcontainer}>
         <figure className={coucsay.imgblock}>
-          <img src='/dsdsd' alt='here card report' />
+          <img src={couchsay} alt='funny couch face here' className={coucsay.img} />
           <figcaption className={coucsay.note}>Pham Dung </figcaption>
         </figure>
       </div>

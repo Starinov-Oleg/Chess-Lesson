@@ -20,6 +20,8 @@
 .img {
   padding: var(--global-var-font-size-1rem);
   font-family: var(--global-var-color-mocha);
+
+  width: 100%;
 }
 
 .imgblock {
@@ -28,8 +30,11 @@
   border-radius: 50%;
   display: inline-block;
   background-color: #bbb;
+  position: relative;
 }
-
+.imgcontainer {
+  padding: 1rem;
+}
 .note {
   color: var(--global-var-color-note);
   font-family: var(--global-var-font-mocha);

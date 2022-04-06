@@ -17,7 +17,7 @@ function onUploadPhoto(e: any, props: any) {
 }
 function UserHeader(props: any) {
   const logoButton = { position: 'absolute', top: '0rem', right: '0rem', padding: '5px' }
-  const coverButton = { width: 'auto', padding: '0rem', position: 'absolute', right: '0rem' }
+  const coverButton = { width: 'auto', padding: '0rem', position: 'absolute', right: '1rem', top: '1rem' }
 
   return (
     <div className={userheader.profile_display}>
