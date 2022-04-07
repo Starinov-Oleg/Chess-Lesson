@@ -9,10 +9,10 @@ interface AboutProps {
   messagebutton: string
 }
 function About({ message, messagebutton }: AboutProps) {
-  const style_h3 = { fontSize: '1.5rem', padding: '1rem 1rem', color: 'var(--global-var-color-black)' }
+  const style_h3 = { padding: '1rem 1rem' }
   return (
     <Fragment>
-      <H3 message={message} style={style_h3} />
+      <H3 message={message} style={style_h3} colorBlack />
       <img src={logo} alt='club logo' className={coaches.logo} />
       <Button message={messagebutton} href='/regcouching' />
     </Fragment>

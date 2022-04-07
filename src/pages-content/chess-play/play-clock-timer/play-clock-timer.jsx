@@ -5,7 +5,7 @@ function PlayClockTimer() {
   return (
     <section className='PlayClockTimer'>
       <div className={playtimer.playtimer}>
-        <H3 message='Timer:' />
+        <H3 message='Timer:' primary />
         <span className={playtimer.font}>10:00</span>
       </div>
     </section>

@@ -8,10 +8,10 @@ interface AboutProps {
   onClick: () => void
 }
 function About({ message, textMessage, onClick }: AboutProps) {
-  const style_h3 = { padding: '1rem 1rem', color: 'var(--global-var-color-black' }
+  const style_h3 = { padding: '1rem 1rem' }
   return (
     <>
-      <H3 message={message} style={style_h3} />
+      <H3 message={message} style={style_h3} primary />
       <p className={about.about}>{textMessage}</p>
       <Button message='WATCH VIDEO' onClick={onClick} />
     </>

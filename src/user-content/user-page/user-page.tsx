@@ -29,15 +29,15 @@ function UserPage(props: {
           <div className='col-md-6 col-12'>
             <div className={page.profile}>
               <div className={page.profiletext}>
-                <H3 message={user.fullname} />
-                <H3 message={`Win:${user.win}`} />
-                <H3 message={`Lose:${user.lose}`} />
+                <H3 message={user.fullname} primary />
+                <H3 message={`Win:${user.win}`} primary />
+                <H3 message={`Lose:${user.lose}`} primary />
               </div>
               <div className={page.settings}></div>
             </div>
             <div className={page.people}>
               <div className={page.friends}>
-                <H3 message='Friends' style={h3} />
+                <H3 message='Friends' style={h3} primary />
                 <div className={page.more}>
                   <span>All friends</span>
                 </div>
@@ -47,7 +47,7 @@ function UserPage(props: {
                 <FriendsContainer />
               </div>
               <div className={page.coaches}>
-                <H3 message='Couches' />
+                <H3 message='Couches' primary />
                 <CouchContainer />
               </div>
             </div>

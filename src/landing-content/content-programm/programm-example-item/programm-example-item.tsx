@@ -10,15 +10,9 @@ interface ProgrammExampleItemProps {
 }
 function ProgrammExampleItem({ messagetitle, messagebody, messagenote }: ProgrammExampleItemProps) {
   const style = {
-    color: 'var(--global-var-color-orange)',
-    textAlign: 'var(--global-var-align-left)',
-    fontSize: 'var(--global-var-font-size-1rem)',
     padding: '1rem',
   }
-  const notification = {
-    color: 'var(--global-var-color-note)',
-    fontSize: 'var(--global-var-font-size-1rem)',
-  }
+
   return (
     <>
       <div className={programmexampleitem.programmexampleitem}>
@@ -26,8 +20,8 @@ function ProgrammExampleItem({ messagetitle, messagebody, messagenote }: Program
           <img src='/' alt='title programm block' />
         </div>
         <div className={programmexampleitem.flex_item2}>
-          <H3 message={messagetitle} style={style} />
-          {!messagenote ? null : <H3 message={messagenote} style={notification} />}
+          <H3 message={messagetitle} style={style} colorOrange textAlignLeft fontSize1rem />
+          {!messagenote ? null : <H3 message={messagenote} colorNote fontSize1rem />}
         </div>
         <div className={programmexampleitem.flex_item3}>
           <p className={programmexampleitem.body}>{messagebody}</p>

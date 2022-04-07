@@ -10,11 +10,10 @@ interface PayProps {
 }
 
 function PayItem({ header, body, note, footer, style }: PayProps) {
-  const h3 = { color: 'black' }
   return (
     <div className={`${payitem.payitem} ${payitem.height}`} style={style}>
       <div className={payitem.headerblock}>
-        <H3 message={header} style={h3} />
+        <H3 message={header} colorBlack />
       </div>
       <div className={payitem.bodyblock}>
         <p className={payitem.body}>{body}</p>
@@ -23,7 +22,7 @@ function PayItem({ header, body, note, footer, style }: PayProps) {
       <div className={payitem.noteblock}>{note ? <p className={payitem.note}>{note}</p> : null}</div>
 
       <div className={payitem.footerblock}>
-        <H3 message={footer} style={h3} />
+        <H3 message={footer} colorBlack />
         <p className={payitem.note}>for lesson</p>
       </div>
     </div>

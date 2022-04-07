@@ -30,7 +30,7 @@ function SectionBaner() {
           </div>
           <div className='col-lg-5 col-12'>
             <div className={baner.baner}>
-              <H3 message='CHESS?' style={style_h3} />
+              <H3 message='CHESS?' primary />
               <H1 message='LEARN NOW' style={style_h1} />
               <ButtonPlay href='chesslearn' />
             </div>

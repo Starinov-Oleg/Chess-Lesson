@@ -24,11 +24,11 @@ function Contact({ cardItems }: CardProps) {
         <div className='row justify-content-center '>{cardItems}</div>
         <H1 message='HOT LINE + 0923234243434' style={hotline} />
         <div className={`${contact.align}`}>
-          <H3 message='Introduce With Coaches' />
+          <H3 message='Introduce With Coaches' colorBlack />
           <div className={contact.alignBlock}>
             <CouchContainer />
           </div>
-          <H3 message='Your Friends' />
+          <H3 message='Your Friends' colorBlack />
           <div className={contact.alignBlock}>
             <FriendsContainer />
           </div>

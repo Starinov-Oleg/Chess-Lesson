@@ -24,9 +24,18 @@ function ChessReport() {
               </p>
             </div>
             <div className={chessreport.promo}>
-              <H3 message='[Chess Report Card] can get from couch or click [club-member] and after click [get report]' />
-              <H3 message='[Chess Report Card] show yu a detailed list of your Kinds club progress: Lesson, Videos, Workouts and etc' />
-              <H3 message='For get Report for period can chose date period. If date period not chose -will show last month report' />
+              <H3
+                message='[Chess Report Card] can get from couch or click [club-member] and after click [get report]'
+                colorBlack
+              />
+              <H3
+                message='[Chess Report Card] show yu a detailed list of your Kinds club progress: Lesson, Videos, Workouts and etc'
+                colorBlack
+              />
+              <H3
+                message='For get Report for period can chose date period. If date period not chose -will show last month report'
+                colorBlack
+              />
             </div>
           </div>
         </div>

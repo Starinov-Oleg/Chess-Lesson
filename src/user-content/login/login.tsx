@@ -15,7 +15,7 @@ function onSubmit(data: any) {
 
 function Login() {
   const h1 = { color: '#2aa3d3' }
-  const h3 = { fontSize: '1.3rem', color: 'black' }
+
   return (
     <section className='login'>
       <div className={login.login}>
@@ -32,7 +32,7 @@ function Login() {
                 alt="<a href='https://www.freepik.com/vectors/background'>Background vector created by studio4rt - www.freepik.com</a>"
                 className={login.logo}
               />
-              <H3 message='If you dont have accaunt falow link:' style={h3} />
+              <H3 message='If you dont have accaunt falow link:' fontSize1rem colorBlack />
               <Button message='REGISTER' />
             </div>
           </div>

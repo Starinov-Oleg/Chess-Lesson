@@ -5,7 +5,7 @@ function DiedChess({ name }) {
   return (
     <section>
       <div className={diedchess.diedchess}>
-        <H3 message='Died Chess:' /> <span className={diedchess.color}>{name}</span>:
+        <H3 message='Died Chess:' primary /> <span className={diedchess.color}>{name}</span>:
         <hr className={diedchess.line} />
       </div>
     </section>

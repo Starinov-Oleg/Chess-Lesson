@@ -9,7 +9,7 @@ interface ItemProps {
 function Item(props: ItemProps) {
   return (
     <div className={item.id}>
-      <H3 message={props.title} />
+      <H3 message={props.title} colorBlack />
       <hr />
       <p>{props.text}</p>
       <span>{props.data}</span>

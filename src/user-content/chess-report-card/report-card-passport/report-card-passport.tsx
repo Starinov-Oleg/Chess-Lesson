@@ -8,9 +8,9 @@ function ReportCardPassport() {
     <div className={passport.passport}>
       <Logo src='' />
       <div className={passport.flexitem}>
-        <H3 message={`Name:${'Dung'}`} style={style_h3} />
-        <H3 message={`Win:${'100'}`} style={style_h3} />
-        <H3 message={`Lose:${'500'}`} style={style_h3} />
+        <H3 message={`Name:${'Dung'}`} style={style_h3} primary />
+        <H3 message={`Win:${'100'}`} style={style_h3} primary />
+        <H3 message={`Lose:${'500'}`} style={style_h3} primary />
       </div>
     </div>
   )

@@ -8,12 +8,11 @@ import ReportCardFilter from './report-card-filter/report-card-filter'
 import Button from '../../ui-library/button-click/button'
 import ReportCardPassport from './report-card-passport/report-card-passport'
 function ChessReportCard() {
-  const style_h3 = { color: 'var(--global-var-color-note)' }
   const datepicker = 'Period. Max: 31 days'
   const filtersection = 'Select the activities you like to see. You can chose all together.'
   return (
     <div className={chessreportcard.chessreportcard}>
-      <H3 message='CHESS REPORT CARD' style={style_h3} />
+      <H3 message='CHESS REPORT CARD' colorNote />
       <div className={chessreportcard.passport}>
         <ReportCardPassport />
       </div>

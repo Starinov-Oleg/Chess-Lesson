@@ -18,7 +18,7 @@ function ChessLessonItem({ href }: ChessLessonItemProps) {
           </div>
           <div className={chesslessonitem.content}>
             <div className={chesslessonitem.info}>
-              <H3 message='How to Move the Pieces' />
+              <H3 message='How to Move the Pieces' primary />
               <p className={chesslessonitem.desc}>Get to know the chess pieces and how to set up the board.</p>
               <div className={chesslessonitem.author}>ChessLand Team</div>
             </div>

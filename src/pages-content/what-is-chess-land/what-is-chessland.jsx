@@ -7,7 +7,7 @@ function WhatIsChessland() {
       <div className={whatis.whatis}>
         <div className='row'>
           <div className='col-md-12 col-12'>
-            <H3 message='What is Chess Land?' />
+            <H3 message='What is Chess Land?' primary />
             <div className={whatis.body}>
               <p>Here idea about ChessLand</p>
               <ul>

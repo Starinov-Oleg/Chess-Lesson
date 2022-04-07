@@ -7,12 +7,6 @@ import '../../../common/vars-css.css'
 import { Link } from 'react-router-dom'
 function PayBlock() {
   const styleH1 = { color: 'var(--global-var-color-orange)', textAlign: 'var(--global-var-align-left)' }
-  const styleH3 = { color: 'var(--global-var-color-black)', textAlign: 'var(--global-var-align-left)' }
-  const note = {
-    color: 'var(--global-var-color-note)',
-    textAlign: 'var(--global-var-align-left)',
-    fontSize: 'var(--global-var-font-size-1rem)',
-  }
 
   return (
     <div className={`container ${payblock.payblock}`}>
@@ -25,11 +19,12 @@ function PayBlock() {
         <div className='col-md-8 col-12'>
           <H3
             message='Study 1-4 times a week in one or more subjects and complete the whole class program'
-            style={styleH3}
+            colorBlack
+            textAlignLeft
           />
-          <H3 message='3 lesson for free' style={note} />
-          <H3 message='50 000 Đ ' style={styleH3} />
-          <H3 message='for lesson' style={note} />
+          <H3 message='3 lesson for free' colorNote textAlignLeft fontSize1rem />
+          <H3 message='50 000 Đ ' colorBlack textAlignLeft />
+          <H3 message='for lesson' colorNote textAlignLeft fontSize1rem />
         </div>
         <div className={`col-md-4 col-12 ${payblock.relativepic}`}>
           <img
