@@ -1,3 +1,4 @@
+import React from 'react'
 import { createSlice } from '@reduxjs/toolkit'
 /*interface BoardGamePiecesInterface {
   key: string;
@@ -7,7 +8,7 @@ const STEP = 'STEP'
 const initialState = [
   {
     key: 'BR',
-    piece: (
+    piece: () => (
       <svg xmlns='http://www.w3.org/2000/svg' version='1.1' width='45' height='45'>
         <g
           style={{
@@ -1341,7 +1342,7 @@ const initialState = [
     ),
   },
 ]
-const pieceReducer = (state = initialState, action:any) => {
+const pieceReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case STEP:
       return {

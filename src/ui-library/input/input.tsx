@@ -1,3 +1,4 @@
+import React from 'react'
 import input from './input.module.css'
 
 interface InputProps {

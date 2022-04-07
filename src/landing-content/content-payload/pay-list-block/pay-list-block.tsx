@@ -1,4 +1,6 @@
 import PayItem from './pay-item/pay-item'
+import React from 'react'
+
 function PayListBlock() {
   const payloadlist = [
     { header: '4 lesson', body: 'Basic principles of the game', footer: '100 000 Đ' },
@@ -18,8 +20,8 @@ function PayListBlock() {
   return (
     <div className='container'>
       <div className='row'>
-        {payloadlist.map(item => (
-          <div className='col-md-4 col-sm-12 col-12'>
+        {payloadlist.map((item, index) => (
+          <div className='col-md-4 col-sm-12 col-12' key={index}>
             <PayItem header={item.header} body={item.body} note={item.note} footer={item.footer} />
           </div>
         ))}

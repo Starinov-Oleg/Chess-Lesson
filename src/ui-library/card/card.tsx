@@ -1,3 +1,4 @@
+import React from 'react'
 import card from './card.module.css'
 
 interface CardProps {

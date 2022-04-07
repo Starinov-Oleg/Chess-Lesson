@@ -1,3 +1,4 @@
+import React from 'react'
 import programmexampleitem from './programm-example-item.module.css'
 import H3 from '../../../ui-library/h3/h3'
 import '../../../common/vars-css.css'

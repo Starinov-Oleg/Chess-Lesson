@@ -32,10 +32,12 @@
   background-color: #bbb;
   position: relative;
 }
-.imgcontainer {
-  padding: 1rem;
-}
+
 .note {
   color: var(--global-var-color-note);
   font-family: var(--global-var-font-mocha);
+}
+
+.imgcontainer {
+  padding: 1rem;
 }

@@ -1,3 +1,4 @@
+import React from 'react'
 import { Outlet } from 'react-router-dom'
 import Footer from '../main/footer/Footer'
 import HeaderContainer from './main-pages/header-container'

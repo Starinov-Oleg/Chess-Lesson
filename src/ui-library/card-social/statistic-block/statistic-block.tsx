@@ -1,3 +1,4 @@
+import React from 'react'
 import statistic from './statistic-block.module.css'
 import Button from '../../button-link/button-link'
 

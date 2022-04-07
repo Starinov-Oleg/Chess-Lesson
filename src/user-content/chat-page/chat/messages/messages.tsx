@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { useEffect /*useState */ } from 'react'
 import MessageItem from './message-item/message-item'
 const ws = new WebSocket('#') /**TODO here from anouther place */

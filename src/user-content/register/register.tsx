@@ -1,3 +1,4 @@
+import React from 'react'
 import register from './register.module.css'
 import Form from './form/form-register'
 import H1 from '../../ui-library/h1/h1'

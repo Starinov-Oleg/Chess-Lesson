@@ -1,3 +1,4 @@
+import React from 'react'
 import logo from './logo.module.css'
 import photo from '../../assets/pages/chess-play/user.png'
 

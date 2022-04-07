@@ -1,3 +1,4 @@
+import React from 'react'
 import payblock from './pay-block.module.css'
 import H1 from '../../../ui-library/h1/h1'
 import H3 from '../../../ui-library/h3/h3'

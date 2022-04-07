@@ -1,3 +1,4 @@
+import React from 'react'
 import baneritemcard from './baner-item-card.module.css'
 import LinkText from '../../../ui-library/link-text/link-text'
 interface BanerCardItemProps {

@@ -1,5 +1,6 @@
 import h1 from './h1.module.css'
 import { ReactChildren, ReactChild } from 'react'
+import React from 'react'
 
 interface H1Props {
   message: string

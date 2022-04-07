@@ -1,3 +1,4 @@
+import React from 'react'
 import boardgame from './chess-board.module.css'
 import Board from './board/board'
 function ChessBoard() {

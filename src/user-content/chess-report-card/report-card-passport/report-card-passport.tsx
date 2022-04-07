@@ -1,3 +1,4 @@
+import React from 'react'
 import passport from './report-card-passport.module.css'
 import Logo from '../../../ui-library/logo/logo'
 import H3 from '../../../ui-library/h3/h3'

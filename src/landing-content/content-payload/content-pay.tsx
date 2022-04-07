@@ -1,3 +1,4 @@
+import React from 'react'
 import pay from './content-pay.module.css'
 import H1 from '../../ui-library/h1/h1'
 import PayListBlock from './pay-list-block/pay-list-block'

@@ -1,4 +1,5 @@
 //import contact from './contact.module.css'
+import React from 'react'
 
 interface FriendsProps {
   couchItems: Object

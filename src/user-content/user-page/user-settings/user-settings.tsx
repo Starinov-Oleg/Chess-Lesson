@@ -1,5 +1,6 @@
 import settings from './user-settings.module.css'
 import ChessReportCard from '../../chess-report-card/chess-report-card'
+import React from 'react'
 
 interface SettingsProps {
   img: string

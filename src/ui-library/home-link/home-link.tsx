@@ -1,3 +1,4 @@
+import React from 'react'
 import home from './home-link.module.css'
 import logo from '../../assets/pages/header-pages/home.png'
 import { NavLink } from 'react-router-dom'

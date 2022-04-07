@@ -1,3 +1,4 @@
+import React from 'react'
 import chessreport from './chess-report.module.css'
 import '../../../common/vars-css.css'
 import H1 from '../../../ui-library/h1/h1'

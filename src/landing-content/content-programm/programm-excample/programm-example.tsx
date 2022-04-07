@@ -1,3 +1,4 @@
+import React from 'react'
 import programmexample from './programm-example.module.css'
 import H1 from '../../../ui-library/h1/h1'
 import ProgrammExampleItem from '../programm-example-item/programm-example-item'

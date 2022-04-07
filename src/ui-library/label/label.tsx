@@ -1,3 +1,4 @@
+import React from 'react'
 import label from './label.module.css'
 
 interface LabelProps {

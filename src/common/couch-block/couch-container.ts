@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { connect } from 'react-redux'
 import { follow, setUsers, unfollow } from '../../redux/reducer/user.reducer'
 import CouchContainerView from './couch-container-view'

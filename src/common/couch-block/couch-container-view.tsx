@@ -1,3 +1,5 @@
+import React from 'react'
+
 import photo from '../../assets/pages/chess-play/user.png'
 import Couch from './couch'
 import CardSocial from '../../ui-library/card-social/card-social'

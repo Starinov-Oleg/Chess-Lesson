@@ -1,3 +1,4 @@
+import React from 'react'
 import h3 from './h3.module.css'
 
 interface H3Props {

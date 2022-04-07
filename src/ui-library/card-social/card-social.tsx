@@ -1,3 +1,4 @@
+import React from 'react'
 import cardsocial from './card-social.module.css'
 import Button from '../button-click/button'
 import Statistic from './statistic-block/statistic-block'

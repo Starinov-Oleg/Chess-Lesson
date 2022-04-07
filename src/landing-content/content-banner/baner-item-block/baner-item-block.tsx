@@ -1,3 +1,4 @@
+import React from 'react'
 import BanerItemCard from '../baner-item-card/baner-item-card'
 import baneritemblock from './baner-item-block.module.css'
 import '../../../common/vars-css.css'
@@ -26,7 +27,7 @@ function BanerItemBlock() {
   const card_position = { margin: '3%' }
   return (
     <div className={baneritemblock.baneritemblock}>
-      {banerItemCard.map(item => (
+      {banerItemCard.map((item, index) => (
         <BanerItemCard
           headertext={item.headertext}
           bodytext={item.bodytext}
@@ -35,6 +36,7 @@ function BanerItemBlock() {
           style={card_position}
           src={item.src}
           alt={item.headertext}
+          key={index}
         />
       ))}
     </div>

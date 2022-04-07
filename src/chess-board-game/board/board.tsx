@@ -1,3 +1,5 @@
+import React from 'react'
+
 import boardcss from './board.module.css'
 import Button from '../../ui-library/button-click/button'
 import { Key, ReactChild, ReactFragment, ReactPortal, SetStateAction, useState } from 'react'

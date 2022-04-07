@@ -1,3 +1,5 @@
+import React from 'react'
+
 import passport from './passport-block.module.css'
 
 interface PassportProps {

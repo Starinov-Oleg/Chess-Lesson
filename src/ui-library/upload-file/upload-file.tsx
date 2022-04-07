@@ -1,3 +1,4 @@
+import React from 'react'
 import upload from './upload-file.module.css'
 
 interface UploadProps {

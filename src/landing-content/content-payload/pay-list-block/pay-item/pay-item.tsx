@@ -1,3 +1,4 @@
+import React from 'react'
 import payitem from './pay-item.module.css'
 import H3 from '../../../../ui-library/h3/h3'
 interface PayProps {

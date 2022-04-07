@@ -1,3 +1,4 @@
+import React from 'react'
 import coucsay from './couch-say.module.css'
 import '../../../common/vars-css.css'
 import couchsay from '../../../assets/section-couch/couch-face.png'
@@ -11,7 +12,7 @@ function CouchSay() {
           us to play chess.”
         </p>
       </div>
-      <div className={couchsay.imgcontainer}>
+      <div className={coucsay.imgcontainer}>
         <figure className={coucsay.imgblock}>
           <img src={couchsay} alt='funny couch face here' className={coucsay.img} />
           <figcaption className={coucsay.note}>Pham Dung </figcaption>
