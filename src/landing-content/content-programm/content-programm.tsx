@@ -22,8 +22,8 @@ function SectionProgramm({ contentProgramm }: contentProgrammProps) {
         <div className='container'>
           <div className='row'>
             <div className='col-lg-12 col-12'>
-              <H3 message='OPTIMIZED FOR KIDS' style={style_h3} />
-              <H1 message='SCHOOL CHESS PROGRAMS' style={style_h1} />
+              <H3 message='OPTIMIZED FOR KIDS' style={style_h3} primary />
+              <H1 message='SCHOOL CHESS PROGRAMS' style={style_h1} primary />
             </div>
             <div className='col-lg-6 col-12'>
               <img

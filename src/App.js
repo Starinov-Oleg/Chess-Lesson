@@ -14,7 +14,6 @@ import ContactContainer from './pages-content/chess-contact/contact-container'
 import ScrollToTop from './common/scroll-top/scroll'
 import ChessLesson from './pages-content/chess-lesson/chess-lesson'
 import ChessLesson1 from './pages-content/chess-lesson/chess-lesson-1/chess-lesson-1'
-
 const Login = React.lazy(() => import('./user-content/login/login'))
 const Register = React.lazy(() => import('./user-content/register/register'))
 const RegisterCouch = React.lazy(() => import('./pages-content/chess-land-coaches/coaches-register/register'))

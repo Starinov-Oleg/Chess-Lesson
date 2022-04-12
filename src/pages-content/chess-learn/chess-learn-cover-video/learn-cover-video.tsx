@@ -3,10 +3,9 @@ import H1 from '../../../ui-library/h1/h1'
 import picture from '../../../assets/pages/chess-learn/learn-video.jpg'
 import '../../../common/vars-css.css'
 function Cover() {
-  const style_h1 = { color: 'var(--global-var-color-blue)' }
   return (
     <div className={cover.display}>
-      <H1 message='Watch video' style={style_h1} />
+      <H1 message='Watch video' primary />
       <img
         src={picture}
         className={cover.picture}

@@ -5,7 +5,7 @@ import H1 from '../../ui-library/h1/h1'
 import Button from '../../ui-library/button-register/button-register'
 import ButtonLogin from '../../ui-library/button-login/button-login'
 function SectionLearn() {
-  const style = { color: 'gold', fontSize: '3rem', textShadow: '2px 2px black', fontWeight: 'bold' }
+  const style = { fontSize: '3rem', textShadow: '2px 2px black', fontWeight: 'bold' }
   return (
     <section className='section-learn'>
       <div className={learn.learn}>
@@ -15,7 +15,7 @@ function SectionLearn() {
               <div className={learn.promo}>
                 <img src={logo} alt='chess-land' className={learn.logo} />
                 <div className='titles'>
-                  <H1 message='Kids Learn and Play Chess' style={style} />
+                  <H1 message='Kids Learn and Play Chess' style={style} goldTitle />
                 </div>
                 <div className='buttons '>
                   <ButtonLogin message='LOGIN' />

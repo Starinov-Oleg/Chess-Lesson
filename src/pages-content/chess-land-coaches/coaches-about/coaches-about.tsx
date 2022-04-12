@@ -4,15 +4,17 @@ import logo from '../../../assets/user/login.jpg'
 import H3 from '../../../ui-library/h3/h3'
 import { Fragment } from 'react'
 import '../../../common/vars-css.css'
+import { PaddingVerticalHorizontal } from '../../../common/styled-components/padding-margin.styled'
 interface AboutProps {
   message: string
   messagebutton: string
 }
 function About({ message, messagebutton }: AboutProps) {
-  const style_h3 = { padding: '1rem 1rem' }
   return (
     <Fragment>
-      <H3 message={message} style={style_h3} colorBlack />
+      <PaddingVerticalHorizontal>
+        <H3 message={message} colorBlack />
+      </PaddingVerticalHorizontal>
       <img src={logo} alt='club logo' className={coaches.logo} />
       <Button message={messagebutton} href='/regcouching' />
     </Fragment>

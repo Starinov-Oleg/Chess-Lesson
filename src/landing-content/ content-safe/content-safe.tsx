@@ -15,7 +15,7 @@ function SectionSafe({ contentSafe }: SectionSafeProps) {
         <div className='container'>
           <div className='row'>
             <div className='col-lg-6 col-12'>
-              <H1 message='CARE FOR SAFE' />
+              <H1 message='CARE FOR SAFE' colorWhite />
               <Ul lists={contentSafe} />
               <Button message='WHAT IS CHESS LAND?' href='whatis' />
             </div>

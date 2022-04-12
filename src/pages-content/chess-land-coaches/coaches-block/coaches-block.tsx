@@ -6,10 +6,9 @@ interface CoachBlockProps {
   textMessage: string
 }
 function CoachBlock({ message, textMessage }: CoachBlockProps) {
-  const style_h1 = { color: 'var(--global-var-color-blue)' }
   return (
     <div className={coachesblock.coachesblock}>
-      <H1 message={message} style={style_h1} />
+      <H1 message={message} primary />
       <div className={coachesblock.body}>
         <p>{textMessage}</p>
       </div>

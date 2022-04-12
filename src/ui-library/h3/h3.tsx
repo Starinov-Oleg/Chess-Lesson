@@ -1,62 +1,63 @@
 import React from 'react'
-import h3 from './h3.module.css'
 import styled, { css } from 'styled-components'
 interface H3Props {
-  style?: Object
+  style?: { [key: string]: string }
   message: string
-  primary?: any
-  colorBlack?: any
-  colorNote?: any
-  textAlignLeft?: any
-  fontSize1rem?: any
-  colorOrange?: any
+  primary?: boolean | string
+  colorBlack?: boolean | string
+  colorNote?: boolean | string
+  textAlignLeft?: boolean | string
+  fontSize1rem?: boolean | string
+  colorOrange?: boolean | string
 }
-const StyledButton = styled.h3<{
-  primary: boolean
-  colorBlack: boolean
-  colorNote: boolean
-  colorOrange: boolean
-  textAlignLeft: boolean
-  fontSize1rem: boolean
-}>`
+interface StyledH3Props {
+  primary?: boolean | string
+  colorBlack?: boolean | string
+  colorNote?: boolean | string
+  colorOrange?: boolean | string
+  textAlignLeft?: boolean | string
+  fontSize1rem?: boolean | string
+}
+const StyledH3 = styled.h3<StyledH3Props>`
   font-size: 1.5rem;
   padding-bottom: 2rem;
   font-family: 'Mochiy';
+
+  ${props =>
+    props.colorBlack &&
+    css`
+      color: black;
+    `}
+  ${props =>
+    props.colorNote &&
+    css`
+      color: var(--global-var-color-note);
+    `}
     ${props =>
-      props.colorBlack &&
-      css`
-    color: black;
-  `}
-      ${props =>
-        props.colorNote &&
-        css`
-    color: var(--global-var-color-note);
-  `}
+    props.primary &&
+    css`
+      color: var(--global-var-color-blue);
+    `}
     ${props =>
-      props.primary &&
-      css`
-    color: #2aa3d3;
-  `}
-   ${props =>
-     props.colorOrange &&
-     css`
-    color: var(--global-var-color-orange);
-  `}
-      ${props =>
-        props.textAlignLeft &&
-        css`
-    text-align: var(--global-var-align-left);
-  `}
-      ${props =>
-        props.fontSize1rem &&
-        css`
-    font-size: var(--global-var-font-size-1rem);
-  `}
+    props.colorOrange &&
+    css`
+      color: var(--global-var-color-orange);
+    `}
+    ${props =>
+    props.textAlignLeft &&
+    css`
+      text-align: var(--global-var-align-left);
+    `}
+    ${props =>
+    props.fontSize1rem &&
+    css`
+      font-size: var(--global-var-font-size-1rem);
+    `};
 `
 
 function H3({ style, message, primary, colorBlack, colorNote, colorOrange, textAlignLeft, fontSize1rem }: H3Props) {
   return (
-    <StyledButton
+    <StyledH3
       style={style}
       primary={primary}
       colorBlack={colorBlack}
@@ -65,7 +66,7 @@ function H3({ style, message, primary, colorBlack, colorNote, colorOrange, textA
       textAlignLeft={textAlignLeft}
       fontSize1rem={fontSize1rem}>
       {message}
-    </StyledButton>
+    </StyledH3>
   )
 }
 

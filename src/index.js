@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import store from './redux/store.ts'
 import state from './redux/state.ts'
 import { Provider } from 'react-redux'
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

@@ -6,14 +6,12 @@ import picture from '../../../assets/section-payload/g.png'
 import '../../../common/vars-css.css'
 import { Link } from 'react-router-dom'
 function PayBlock() {
-  const styleH1 = { color: 'var(--global-var-color-orange)', textAlign: 'var(--global-var-align-left)' }
-
   return (
     <div className={`container ${payblock.payblock}`}>
       <div className='row'>
         <div className='col-md-12 col-12'>
           <Link to='/contact'>
-            <H1 message='COURSE ON ONE YEAR ->' style={styleH1} />
+            <H1 message='COURSE ON ONE YEAR ->' colorOrange textAlignLeft />
           </Link>
         </div>
         <div className='col-md-8 col-12'>

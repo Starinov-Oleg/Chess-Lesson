@@ -14,8 +14,6 @@ function onSubmit(data: any) {
 }
 
 function Login() {
-  const h1 = { color: '#2aa3d3' }
-
   return (
     <section className='login'>
       <div className={login.login}>
@@ -23,7 +21,7 @@ function Login() {
           <div className={`row ${login.color}`}>
             <div className='col-md-6 col-12'>
               <HomeLink />
-              <H1 message='LOGIN' style={h1} />
+              <H1 message='LOGIN' primary />
               <Form onSubmit={onSubmit} />
             </div>
             <div className='col-md-6 col-12'>

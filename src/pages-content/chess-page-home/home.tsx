@@ -3,11 +3,10 @@ import H1 from '../../ui-library/h1/h1'
 import '../../common/vars-css.css'
 
 function Home() {
-  const style_h1 = { color: 'var(--global-var-color-blue)' }
   return (
     <section className='home'>
       <div className={`${home.color}  ${home.link}`}>
-        <H1 message='Chessland - Chess Club' style={style_h1} />
+        <H1 message='Chessland - Chess Club' primary />
       </div>
       <div className={home.body}>
         <p>

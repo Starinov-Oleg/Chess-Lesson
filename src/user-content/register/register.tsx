@@ -11,7 +11,6 @@ function onSubmit(data: any) {
 }
 
 function Register() {
-  const h1 = { color: '#2aa3d3' }
   return (
     <section className={register.register}>
       <div className={`container ${register.color}`}>
@@ -20,7 +19,7 @@ function Register() {
             <HomeLink />
           </div>
           <div className='col-md-3 col-12'>
-            <H1 message='REGISTER' style={h1} />
+            <H1 message='REGISTER' primary />
           </div>
         </div>
         <Form onSubmit={onSubmit} />
