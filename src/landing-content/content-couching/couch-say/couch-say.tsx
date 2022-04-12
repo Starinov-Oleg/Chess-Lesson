@@ -1,6 +1,6 @@
 import React from 'react'
 import coucsay from './couch-say.module.css'
-import '../../../common/vars-css.css'
+
 import couchsay from '../../../assets/section-couch/couch-face.png'
 function CouchSay() {
   return (

@@ -1,5 +1,8 @@
 import styled from 'styled-components'
 
+const Padding = styled.div`
+  padding: 1rem;
+`
 const PaddingLeft = styled.div`
   padding-left: 1rem;
 `
@@ -12,5 +15,7 @@ const PaddingVerticalHorizontal = styled.div`
 const MarginStyled = styled.div`
   margin: 2rem;
 `
-
-export { MarginStyled, PaddingLeft, PaddingTop, PaddingVerticalHorizontal }
+const MarginBottom = styled.div`
+  margin-bottom: 2rem;
+`
+export { MarginStyled, MarginBottom, Padding, PaddingLeft, PaddingTop, PaddingVerticalHorizontal }

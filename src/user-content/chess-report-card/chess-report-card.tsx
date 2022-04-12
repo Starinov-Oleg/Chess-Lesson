@@ -1,6 +1,5 @@
 import H3 from '../../ui-library/h3/h3'
 import chessreportcard from './chess-report-card.module.css'
-import '../../common/vars-css.css'
 import React from 'react'
 
 import ReportDatepiker from './report-card-datepicker/report-card-datepicker'

@@ -1,6 +1,5 @@
 import React from 'react'
 import chessreport from './chess-report.module.css'
-import '../../../common/vars-css.css'
 import H1 from '../../../ui-library/h1/h1'
 import reportPic from '../../../assets/section-programm/phone.png'
 import H3 from '../../../ui-library/h3/h3'

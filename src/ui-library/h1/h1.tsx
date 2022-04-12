@@ -9,7 +9,6 @@ interface H1Props {
   goldTitle?: boolean | string
   colorOrange?: boolean | string
   colorBlack?: boolean | string
-  textAlignLeft?: boolean | string
 }
 interface StyledH1Props {
   colorWhite?: boolean | string
@@ -17,7 +16,6 @@ interface StyledH1Props {
   goldTitle: boolean | string | undefined
   colorOrange?: boolean | string
   colorBlack?: boolean | string
-  textAlignLeft: boolean | string | undefined
 }
 const StyledH1 = styled.h1<StyledH1Props>`
   font-size: 2rem;
@@ -28,7 +26,7 @@ const StyledH1 = styled.h1<StyledH1Props>`
   ${props =>
     props.colorWhite &&
     css`
-      color: white;
+      color: var(--global-var-color-white);
     `}
   ${props =>
     props.primary &&
@@ -45,23 +43,8 @@ const StyledH1 = styled.h1<StyledH1Props>`
     css`
       color: var(--global-var-color-orange);
     `}
-    ${props =>
-    props.textAlignLeft &&
-    css`
-      text-align: var(--global-var-align-left);
-    `}
 `
-function H1({
-  message,
-  style,
-  colorWhite,
-  primary,
-  goldTitle,
-  colorOrange,
-  textAlignLeft,
-  colorBlack,
-  children,
-}: H1Props) {
+function H1({ message, style, colorWhite, primary, goldTitle, colorOrange, colorBlack, children }: H1Props) {
   return (
     <StyledH1
       style={style}
@@ -69,8 +52,7 @@ function H1({
       primary={primary}
       goldTitle={goldTitle}
       colorOrange={colorOrange}
-      colorBlack={colorBlack}
-      textAlignLeft={textAlignLeft}>
+      colorBlack={colorBlack}>
       {message}
       {children}
     </StyledH1>

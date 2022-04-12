@@ -3,19 +3,20 @@ import safe from './content-safe.module.css'
 import Button from '../../ui-library/button-link/button-link'
 import H1 from '../../ui-library/h1/h1'
 import Ul from '../../ui-library/ul/ul'
-
 interface SectionSafeProps {
   contentSafe: Array<string>
 }
 
 function SectionSafe({ contentSafe }: SectionSafeProps) {
+  const titleH1 = 'CARE FOR SAFE'
+
   return (
     <section className='safe'>
       <div className={safe.safe}>
         <div className='container'>
           <div className='row'>
             <div className='col-lg-6 col-12'>
-              <H1 message='CARE FOR SAFE' colorWhite />
+              <H1 message={titleH1} colorWhite />
               <Ul lists={contentSafe} />
               <Button message='WHAT IS CHESS LAND?' href='whatis' />
             </div>

@@ -3,14 +3,13 @@ import H3 from '../../ui-library/h3/h3'
 import FriendsContainer from '../../common/friends-block/friends-container'
 import CouchContainer from '../../common/couch-block/couch-container'
 import H1 from '../../ui-library/h1/h1'
-import '../../common/vars-css.css'
-import { MarginStyled } from '../../common/styled-components/padding-margin.styled'
+import { MarginStyled, MarginBottom } from '../../common/styled-components/padding-margin.styled'
+
 interface CardProps {
   cardItems: any
 }
 
 function Contact({ cardItems }: CardProps) {
-  const style_h1 = { marginBottom: '2rem' }
   const hotline = {
     boxShadow: '0 0 2rem var(--global-var-color-note)',
     border: '10px',
@@ -18,7 +17,9 @@ function Contact({ cardItems }: CardProps) {
   return (
     <section className='contact'>
       <div className={contact.contact}>
-        <H1 message='Introduce With Club' style={style_h1} primary />
+        <MarginBottom>
+          <H1 message='Introduce With Club' primary />
+        </MarginBottom>
 
         <div className='row justify-content-center '>{cardItems}</div>
         <MarginStyled>

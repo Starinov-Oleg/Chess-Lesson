@@ -5,7 +5,7 @@ import Button from '../../ui-library/button-link/button-link'
 import Ul from '../../ui-library/ul/ul'
 import H1 from '../../ui-library/h1/h1'
 import H3 from '../../ui-library/h3/h3'
-import '../../common/vars-css.css'
+
 import ProgrammExample from './programm-excample/programm-example'
 import ChessReport from './chess-report/chess-report'
 interface contentProgrammProps {

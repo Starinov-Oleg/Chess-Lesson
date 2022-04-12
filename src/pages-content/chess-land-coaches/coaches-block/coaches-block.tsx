@@ -1,6 +1,6 @@
 import coachesblock from './coaches-block.module.css'
 import H1 from '../../../ui-library/h1/h1'
-import '../../../common/vars-css.css'
+
 interface CoachBlockProps {
   message: string
   textMessage: string

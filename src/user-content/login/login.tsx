@@ -6,7 +6,7 @@ import H1 from '../../ui-library/h1/h1'
 import H3 from '../../ui-library/h3/h3'
 import Button from '../../ui-library/button-register/button-register'
 import HomeLink from '../../ui-library/home-link/home-link'
-
+import { FontSize1rem } from '../../common/styled-components/font-size.styled'
 function onSubmit(data: any) {
   alert(JSON.stringify(data))
   let url = '/pages'
@@ -30,7 +30,9 @@ function Login() {
                 alt="<a href='https://www.freepik.com/vectors/background'>Background vector created by studio4rt - www.freepik.com</a>"
                 className={login.logo}
               />
-              <H3 message='If you dont have accaunt falow link:' fontSize1rem colorBlack />
+              <FontSize1rem>
+                <H3 message='If you dont have accaunt falow link:' colorBlack />
+              </FontSize1rem>
               <Button message='REGISTER' />
             </div>
           </div>

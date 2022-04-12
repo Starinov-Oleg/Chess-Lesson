@@ -3,16 +3,19 @@ import payblock from './pay-block.module.css'
 import H1 from '../../../ui-library/h1/h1'
 import H3 from '../../../ui-library/h3/h3'
 import picture from '../../../assets/section-payload/g.png'
-import '../../../common/vars-css.css'
+import { TextAlignLeft } from '../../../common/styled-components/position.styled'
 import { Link } from 'react-router-dom'
+import { FontSize1rem } from '../../../common/styled-components/font-size.styled'
 function PayBlock() {
   return (
     <div className={`container ${payblock.payblock}`}>
       <div className='row'>
         <div className='col-md-12 col-12'>
-          <Link to='/contact'>
-            <H1 message='COURSE ON ONE YEAR ->' colorOrange textAlignLeft />
-          </Link>
+          <TextAlignLeft>
+            <Link to='/contact'>
+              <H1 message='COURSE ON ONE YEAR ->' colorOrange />
+            </Link>
+          </TextAlignLeft>
         </div>
         <div className='col-md-8 col-12'>
           <H3
@@ -20,9 +23,13 @@ function PayBlock() {
             colorBlack
             textAlignLeft
           />
-          <H3 message='3 lesson for free' colorNote textAlignLeft fontSize1rem />
+          <FontSize1rem>
+            <H3 message='3 lesson for free' colorNote textAlignLeft />
+          </FontSize1rem>
           <H3 message='50 000 Đ ' colorBlack textAlignLeft />
-          <H3 message='for lesson' colorNote textAlignLeft fontSize1rem />
+          <FontSize1rem>
+            <H3 message='for lesson' colorNote textAlignLeft />
+          </FontSize1rem>
         </div>
         <div className={`col-md-4 col-12 ${payblock.relativepic}`}>
           <img

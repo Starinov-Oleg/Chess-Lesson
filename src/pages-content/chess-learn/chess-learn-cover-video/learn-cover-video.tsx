@@ -1,7 +1,6 @@
 import cover from './learn-cover-video.module.css'
 import H1 from '../../../ui-library/h1/h1'
 import picture from '../../../assets/pages/chess-learn/learn-video.jpg'
-import '../../../common/vars-css.css'
 function Cover() {
   return (
     <div className={cover.display}>

@@ -7,7 +7,6 @@ interface H3Props {
   colorBlack?: boolean | string
   colorNote?: boolean | string
   textAlignLeft?: boolean | string
-  fontSize1rem?: boolean | string
   colorOrange?: boolean | string
 }
 interface StyledH3Props {
@@ -16,7 +15,6 @@ interface StyledH3Props {
   colorNote?: boolean | string
   colorOrange?: boolean | string
   textAlignLeft?: boolean | string
-  fontSize1rem?: boolean | string
 }
 const StyledH3 = styled.h3<StyledH3Props>`
   font-size: 1.5rem;
@@ -48,14 +46,9 @@ const StyledH3 = styled.h3<StyledH3Props>`
     css`
       text-align: var(--global-var-align-left);
     `}
-    ${props =>
-    props.fontSize1rem &&
-    css`
-      font-size: var(--global-var-font-size-1rem);
-    `};
 `
 
-function H3({ style, message, primary, colorBlack, colorNote, colorOrange, textAlignLeft, fontSize1rem }: H3Props) {
+function H3({ style, message, primary, colorBlack, colorNote, colorOrange, textAlignLeft }: H3Props) {
   return (
     <StyledH3
       style={style}
@@ -63,8 +56,7 @@ function H3({ style, message, primary, colorBlack, colorNote, colorOrange, textA
       colorBlack={colorBlack}
       colorNote={colorNote}
       colorOrange={colorOrange}
-      textAlignLeft={textAlignLeft}
-      fontSize1rem={fontSize1rem}>
+      textAlignLeft={textAlignLeft}>
       {message}
     </StyledH3>
   )

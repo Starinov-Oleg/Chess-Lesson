@@ -1,6 +1,6 @@
 import adventure from './adventure.module.css'
 import H1 from '../../ui-library/h1/h1'
-import '../../common/vars-css.css'
+
 function Adventure() {
   return (
     <section className='adventure'>

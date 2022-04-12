@@ -1,7 +1,6 @@
 import React from 'react'
 import BanerItemCard from '../baner-item-card/baner-item-card'
 import baneritemblock from './baner-item-block.module.css'
-import '../../../common/vars-css.css'
 
 function BanerItemBlock() {
   const banerItemCard = [

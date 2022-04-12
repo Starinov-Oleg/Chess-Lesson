@@ -1,7 +1,6 @@
 import about from './learn-about-video.module.css'
 import H3 from '../../../ui-library/h3/h3'
 import Button from '../../../ui-library/button-click/button'
-import '../../../common/vars-css.css'
 import { PaddingVerticalHorizontal } from '../../../common/styled-components/padding-margin.styled'
 
 interface AboutProps {
@@ -10,7 +9,6 @@ interface AboutProps {
   onClick: () => void
 }
 function About({ message, textMessage, onClick }: AboutProps) {
-  const style_h3 = { padding: '1rem 1rem' }
   return (
     <>
       <PaddingVerticalHorizontal>

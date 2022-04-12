@@ -3,7 +3,6 @@ import Button from '../../../ui-library/button-link/button-link'
 import logo from '../../../assets/user/login.jpg'
 import H3 from '../../../ui-library/h3/h3'
 import { Fragment } from 'react'
-import '../../../common/vars-css.css'
 import { PaddingVerticalHorizontal } from '../../../common/styled-components/padding-margin.styled'
 interface AboutProps {
   message: string
