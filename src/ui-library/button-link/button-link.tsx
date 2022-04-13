@@ -1,6 +1,5 @@
 import React from 'react'
-
-import button from './button-link.module.css'
+import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
 interface ButtonProps {
@@ -9,11 +8,37 @@ interface ButtonProps {
   style?: Object
 }
 
+const StyledButton = styled(NavLink)`
+  border-radius: 8px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: 'Mochiy';
+  font-size: 28px;
+  padding: 10px 50px;
+  text-decoration: none;
+  box-shadow: 0px 0px 0px 0px #c25e1b;
+  background-color: #ff6b08;
+  border: 1px solid #f2bd9f;
+  text-shadow: 0px 1px 0px #662828;
+  @media (max-width: 512px) {
+    width: auto;
+  }
+  &:hover {
+    background-color: #f2bd9f;
+    color: white;
+  }
+  &:active {
+    position: relative;
+    top: 1px;
+    color: white;
+  }
+`
 function Button({ href, message, style }: ButtonProps) {
   return (
-    <NavLink to={href} className={button.button} style={style}>
+    <StyledButton to={href} style={style}>
       {message}
-    </NavLink>
+    </StyledButton>
   )
 }
 

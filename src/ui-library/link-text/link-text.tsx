@@ -1,5 +1,5 @@
 import React from 'react'
-import linktext from './link-text.module.css'
+import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
 interface ButtonProps {
@@ -7,12 +7,16 @@ interface ButtonProps {
   message: string
   style?: Object
 }
-
+const StyledLinkText = styled(NavLink)`
+  font-family: 'Mochiy';
+  color: #cecfcf;
+  font-size: 1rem;
+`
 function LinkText({ href, message, style }: ButtonProps) {
   return (
-    <NavLink to={href} className={linktext.linktext} style={style}>
+    <StyledLinkText to={href} style={style}>
       {message}
-    </NavLink>
+    </StyledLinkText>
   )
 }
 

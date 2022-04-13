@@ -1,8 +1,7 @@
 import React from 'react'
-import card from './card.module.css'
 
 interface CardProps {
-  style?: Object
+  style?: { [key: string]: string }
   src: string
   alt: string
   fullname: string
@@ -10,7 +9,7 @@ interface CardProps {
 }
 function Card({ style, src, alt, fullname, text }: CardProps) {
   return (
-    <div className={`card ${card.card}`} style={style}>
+    <div className={`card `} style={style}>
       <img src={src} className='card-img-top' alt={alt} />
       <div className='card-body'>
         <h5 className='card-title'>{fullname}</h5>

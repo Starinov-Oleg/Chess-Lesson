@@ -1,36 +1,22 @@
 import * as React from 'react'
-import filter from './report-card-filter.module.css'
 import Label from '../../../ui-library/label/label'
-import { FontSize1rem } from '../../../common/styled-components/font-size.styled'
-import { Padding } from '../../../common/styled-components/padding-margin.styled'
+
 function ReportCardFilter() {
+  const padding = { paddingRight: '1rem', paddingLeft: '1rem' }
   return (
-    <div className={filter.filter}>
+    <div className='container'>
       <form>
         <input type='checkbox' id='lesson' name='lesson' value='Lessons(Complited)' />
-        <Padding>
-          <FontSize1rem>
-            <Label message='Lessons(Complited)' htmlFor='lesson' />
-          </FontSize1rem>
-        </Padding>
+        <Label message='Lessons(Complited)' htmlFor='lesson' style={padding} />
+
         <input type='checkbox' id='article' name='article' value='Articles' />
-        <Padding>
-          <FontSize1rem>
-            <Label message='Article' htmlFor='article' />
-          </FontSize1rem>
-        </Padding>
+        <Label message='Article' htmlFor='article' style={padding} />
+
         <input type='checkbox' id='video' name='video' value='Videos' />
-        <Padding>
-          <FontSize1rem>
-            <Label message='Videos' htmlFor='video' />
-          </FontSize1rem>
-        </Padding>
-        <input type='checkbox' id='workout' name='workout' value='Workouts' />
-        <Padding>
-          <FontSize1rem>
-            <Label message='Workouts' htmlFor='workout' />
-          </FontSize1rem>
-        </Padding>
+        <Label message='Videos' htmlFor='video' style={padding} />
+
+        <input type='checkbox' id='workout' name='workout' value='Workouts' style={padding} />
+        <Label message='Workouts' htmlFor='workout' />
       </form>
     </div>
   )

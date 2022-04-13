@@ -1,19 +1,20 @@
-import ul from './ul.module.css'
+import styled from 'styled-components'
 import React from 'react'
 
 interface Props {
-  style?: Object
+  style?: { [key: string]: string }
   lists: Array<string>
 }
+const StyledUlList = styled.ul`
+  font-size: 2rem;
+  text-align: left;
+  color: white;
+`
 function Ul(props: Props) {
   const lists = props.lists
 
   const listItems = lists.map(list => <li key={list.toString()}>{list}</li>)
-  return (
-    <ul className={`${ul.list}`} style={props.style}>
-      {listItems}
-    </ul>
-  )
+  return <StyledUlList style={props.style}>{listItems}</StyledUlList>
 }
 
 export default Ul

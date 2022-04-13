@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom'
 
 //import Logo from '../logo/logo'
 interface CardSocialProps {
-  style?: Object
+  style?: { [key: string]: string }
   text?: string
   src: string
   alt: string
