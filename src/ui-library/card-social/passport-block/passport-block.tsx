@@ -1,5 +1,4 @@
 import React from 'react'
-//import passport from './passport-block.module.css'
 import { Padding } from '../../../common/styled-components/padding-margin.styled'
 interface PassportProps {
   location?: string
