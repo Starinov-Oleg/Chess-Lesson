@@ -4,7 +4,7 @@ import styled from 'styled-components'
 interface LabelProps {
   message: string
   htmlFor: any
-  style?: Object
+  style?: { [key: string]: string }
 }
 const StyleLabel = styled.label`
   font-size: 1rem;

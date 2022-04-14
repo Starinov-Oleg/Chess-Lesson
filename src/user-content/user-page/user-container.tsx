@@ -19,4 +19,5 @@ let isAuth = (props: { isAuth: any }) => {
   if (!props.isAuth) return <Navigate to='/login' />
   return <UserPage users={[]} totalcount={undefined} {...props} />
 }
+
 export default connect(mapStateToProps, { follow, unfollow, setUsers })(isAuth)
