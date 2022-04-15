@@ -19,7 +19,7 @@ import { COLORS } from './common/styled-components/var-colors.styled'
 const Login = React.lazy(() => import('./user-content/login/login'))
 const Register = React.lazy(() => import('./user-content/register/register'))
 const RegisterCouch = React.lazy(() => import('./pages-content/chess-land-coaches/coaches-register/register'))
-const User = React.lazy(() => import('./user-content/user-page/user-container'))
+const User = React.lazy(() => import('./user-content/user-page/user'))
 const Play = React.lazy(() => import('./pages-content/chess-play/play'))
 const ChatPage = React.lazy(() => import('./user-content/chat-page/chat-page'))
 function App(props) {

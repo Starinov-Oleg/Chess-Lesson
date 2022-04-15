@@ -5,7 +5,7 @@ import boardGameReducer from './reducer/board-game-reducer'
 import pieceReducer from './reducer/board-game-pieces-reducer'
 import usersReducer from './reducer/user.reducer'
 import authReducer from './reducer/auth.reducer'
-
+import itemReducer from './slicer/user-slicer'
 export default configureStore({
   reducer: {
     events: eventReducer,
@@ -14,6 +14,7 @@ export default configureStore({
     piece: pieceReducer,
     usersPage: usersReducer,
     auth: authReducer,
+    users: itemReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
