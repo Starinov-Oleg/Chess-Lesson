@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import photo from '../../assets/pages/chess-play/user.png'
 import Friends from './friends'
 import CardSocial from '../../ui-library/card-social/card-social'
 import { Fragment, Key } from 'react'
-
+import { fetchData } from '../../services/user.service'
 interface FriendsContainerProps {
   unfollow(id: Key | null | undefined): Object
   follow(id: Key | null | undefined): Object
@@ -18,36 +18,37 @@ function FriendsContainerView(props: FriendsContainerProps) {
    *  pages.push(i);
    * }
    */
-
-  const couchItems = props.users.map(
+  const [users, setUser] = useState<any>([])
+  useEffect(() => {
+    fetchData(setUser)
+  }, [])
+  const couchItems = users.map(
     (user: {
       id: Key | null | undefined
       position: string
-      fullname: string
+      first_name: string
       followed: boolean
-      photo: string | number
+      avatar: string | number
     }) => (
       <Fragment key={user.id}>
-        {user.position === 'Friend' ? (
-          <div className='col-md-3 col-12 '>
-            <CardSocial
-              fullname={user.fullname}
-              message1='-'
-              followed={user.followed}
-              message2='+'
-              alt='picture'
-              showbutton
-              src={user.photo !== 0 ? user.photo : photo}
-              onClick1={() => {
-                props.unfollow(user.id)
-              }}
-              onClick2={() => {
-                props.follow(user.id)
-              }}
-              user={user.id}
-            />
-          </div>
-        ) : null}
+        <div className='col-md-3 col-12 '>
+          <CardSocial
+            fullname={user.first_name}
+            message1='-'
+            followed={user.followed}
+            message2='+'
+            alt='picture'
+            showbutton
+            src={user.avatar !== 0 ? user.avatar : photo}
+            onClick1={() => {
+              props.unfollow(user.id)
+            }}
+            onClick2={() => {
+              props.follow(user.id)
+            }}
+            user={user.id}
+          />
+        </div>
       </Fragment>
     )
   )

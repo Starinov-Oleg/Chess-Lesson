@@ -7,13 +7,16 @@ import H3 from '../../ui-library/h3/h3'
 import Button from '../../ui-library/button-register/button-register'
 import HomeLink from '../../ui-library/home-link/home-link'
 import { FontSize1rem } from '../../common/styled-components/font-size.styled'
-function onSubmit(data: any) {
-  alert(JSON.stringify(data))
-  let url = '/pages'
-  window.location.replace(url)
-}
+import AuthService from '../../services/auth.service'
 
 function Login() {
+  function onSubmit(data: any) {
+    AuthService.login(data).then(() => {
+      JSON.stringify(data)
+      let url = '/pages'
+      window.location.replace(url)
+    })
+  }
   return (
     <section className='login'>
       <div className={login.login}>

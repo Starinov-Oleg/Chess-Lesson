@@ -13,6 +13,7 @@ function Contact({ cardItems }: CardProps) {
   const hotline = {
     boxShadow: '0 0 2rem var(--global-var-color-note)',
     border: '10px',
+    padding: '1rem',
   }
   return (
     <section className='contact'>

@@ -12,7 +12,7 @@
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 80%;
 }
 
 @keyframes MoveUpDown {
@@ -21,6 +21,6 @@
     bottom: 0;
   }
   50% {
-    bottom: 7rem;
+    bottom: 2rem;
   }
 }
