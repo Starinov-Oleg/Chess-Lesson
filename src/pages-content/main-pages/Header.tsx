@@ -10,7 +10,7 @@ interface HeaderProps {
   isAuth: boolean
 }
 function Header({ navlinkItems, isAuth }: HeaderProps) {
-  const style = { margin: '5px', padding: '0.5rem', display:'flex' }
+  const style = { margin: '5px', padding: '0.5rem', display: 'flex', justifyContent: 'center' }
   return (
     <div className='d-flex flex-sm-column flex-row flex-nowrap  sticky-top '>
       <div className='navigation'>

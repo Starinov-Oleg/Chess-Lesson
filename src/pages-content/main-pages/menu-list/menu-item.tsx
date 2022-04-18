@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, Fragment } from 'react'
 import menuitem from './menu-item.module.css'
 import { NavLink, To } from 'react-router-dom'
 import Button from '../../../ui-library/button-click/button'
@@ -26,8 +26,8 @@ function MenuItem({ navlinkItems, name }: MenuItemProps) {
           name: {} | null | undefined
           submenu: any
         }) => (
-          <>
-            <li key={navlinkItem.id.toString()} className='nav-item submenu-control'>
+          <Fragment key={navlinkItem.id.toString()}>
+            <li className='nav-item submenu-control'>
               <NavLink
                 to={navlinkItem.href}
                 className={`${menuitem.link} `}
@@ -44,7 +44,7 @@ function MenuItem({ navlinkItems, name }: MenuItemProps) {
                 </>
               ) : null}
             </li>
-          </>
+          </Fragment>
         )
       )}
     </ul>

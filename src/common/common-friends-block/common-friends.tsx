@@ -4,7 +4,7 @@ import CardSocial from '../../ui-library/card-social/card-social'
 import { Fragment, Key } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchData, itemsSelector } from '../../redux/slicer/user-slicer'
-import Friends from '../friends-block/friends'
+import Friends from './friends'
 interface FriendsContainerProps {
   unfollow?: any
   follow?: any

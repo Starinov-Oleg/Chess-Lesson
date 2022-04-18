@@ -4,12 +4,12 @@ function ChessLesson1() {
   return (
     <div className={chesslesson1.programmexampleitem}>
       <div className='row'>
-        <div col-lg-8 col-12>
-          <div className={chesslesson1.board}></div>
-          <div className={chesslesson1.description}></div>
+        <div className='col-lg-8 col-12'>
+          <div className={chesslesson1.board}>Lesson</div>
+          <div className={chesslesson1.description}>Description</div>
         </div>
-        <div col-lg-4 col-12>
-          <Button message='Next>>' href='/' />
+        <div className='col-lg-4 col-12'>
+          <Button message='Next>>' href='#' />
         </div>
       </div>
     </div>

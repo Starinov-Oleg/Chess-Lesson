@@ -44,7 +44,7 @@ function App(props) {
             <Route path='/register' element={<Register />}></Route>
             <Route path='/regcouching' element={<RegisterCouch />}></Route>
             <Route element={<Pages navlinkItems={props.state.navlinkItems} />}>
-              <Route path='home' element={<Home />}></Route>
+              <Route path='home' element={<Home />} />
               <Route path='whatis' element={<WhatIsChessland />} />
               <Route path='chesslandschool' element={<ChessLandSchool />} />
               <Route path='chesslandcoaches' element={<ChessLandCoaches />} />
@@ -52,7 +52,7 @@ function App(props) {
               <Route path='contact' element={<ContactContainer />} />
               <Route path='events' element={<EventsContainer />} />
               <Route path='adventure' element={<Adventure />} />
-              <Route path='/chesslesson1' element={<ChessLesson1 />} />
+              <Route path='chesslesson/chesslesson1' element={<ChessLesson1 />} />
               <Route path='chesslesson' element={<ChessLesson chesslesson={props.state.chesslesson} />} />
               <Route path='user/:id' element={<User />}></Route>
               <Route path='chat/:id' element={<ChatPage />}></Route>
