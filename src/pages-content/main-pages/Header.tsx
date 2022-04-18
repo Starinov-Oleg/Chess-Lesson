@@ -10,7 +10,7 @@ interface HeaderProps {
   isAuth: boolean
 }
 function Header({ navlinkItems, isAuth }: HeaderProps) {
-  const style = { margin: '5px' }
+  const style = { margin: '5px', padding: '0.5rem', display:'flex' }
   return (
     <div className='d-flex flex-sm-column flex-row flex-nowrap  sticky-top '>
       <div className='navigation'>
@@ -18,7 +18,6 @@ function Header({ navlinkItems, isAuth }: HeaderProps) {
           <img src={logo} alt='home' className={header.logo} />
         </NavLink>
         <MenuItem navlinkItems={navlinkItems} />
-
         {isAuth ? (
           <Button message='LOGOUT' href='/LOGIN' style={style} />
         ) : (

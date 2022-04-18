@@ -8,7 +8,7 @@ function ChessLessonItem({ href }: ChessLessonItemProps) {
   return (
     <div className={chesslessonitem.chesslessonitem}>
       <div className={chesslessonitem.courseitem}>
-        <NavLink to={href} className={chesslessonitem.link}>
+        <NavLink to='/chesslesson1' className={chesslessonitem.link}>
           <div className={chesslessonitem.courseimage}>
             <img
               className={chesslessonitem.img}

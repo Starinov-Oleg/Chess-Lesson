@@ -26,23 +26,25 @@ function MenuItem({ navlinkItems, name }: MenuItemProps) {
           name: {} | null | undefined
           submenu: any
         }) => (
-          <li key={navlinkItem.id.toString()} className='nav-item submenu-control'>
-            <NavLink
-              to={navlinkItem.href}
-              className={`${menuitem.link} `}
-              style={({ isActive }) => ({
-                color: isActive ? 'gold' : 'white',
-              })}>
-              <img src={navlinkItem.icon} className={menuitem.icon} alt={name} />
-              {navlinkItem.name}
-            </NavLink>
-            {navlinkItem.submenu ? (
-              <>
-                <Button message='+' style={stylebutton} onClick={() => toggleButton()} />
-                {showmenu ? <SubMenuList navlinkItems={navlinkItem} /> : null}
-              </>
-            ) : null}
-          </li>
+          <>
+            <li key={navlinkItem.id.toString()} className='nav-item submenu-control'>
+              <NavLink
+                to={navlinkItem.href}
+                className={`${menuitem.link} `}
+                style={({ isActive }) => ({
+                  color: isActive ? 'gold' : 'white',
+                })}>
+                <img src={navlinkItem.icon} className={menuitem.icon} alt={name} />
+                {navlinkItem.name}
+              </NavLink>
+              {navlinkItem.submenu ? (
+                <>
+                  <Button message='+' style={stylebutton} onClick={() => toggleButton()} />
+                  {showmenu ? <SubMenuList navlinkItems={navlinkItem} /> : null}
+                </>
+              ) : null}
+            </li>
+          </>
         )
       )}
     </ul>
