@@ -5,7 +5,7 @@ import axios from 'axios'
 export const initialState = {
   loading: false,
   error: false,
-  isAuth: false,
+  // isAuth: false,
   users: [],
 }
 
@@ -20,9 +20,9 @@ const userSlice = createSlice({
 
     setItems: (state, { payload }) => {
       state.loading = false
-      state.isAuth = true
       state.error = false
       state.users = payload
+      // state.isAuth = true
     },
     setError: state => {
       state.error = true

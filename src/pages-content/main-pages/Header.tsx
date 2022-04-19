@@ -4,12 +4,14 @@ import { NavLink } from 'react-router-dom'
 import logo from '../../assets/section-learn/logo.png'
 import MenuItem from './menu-list/menu-item'
 import Button from '../../ui-library/button-link/button-link'
+import { useSelector, RootStateOrAny } from 'react-redux'
 
 interface HeaderProps {
   navlinkItems: string
-  isAuth: boolean
 }
-function Header({ navlinkItems, isAuth }: HeaderProps) {
+function Header({ navlinkItems }: HeaderProps) {
+  const { isAuth } = useSelector((state: RootStateOrAny) => state.auth)
+
   const style = { margin: '5px', padding: '0.5rem', display: 'flex', justifyContent: 'center' }
   return (
     <div className='d-flex flex-sm-column flex-row flex-nowrap  sticky-top '>

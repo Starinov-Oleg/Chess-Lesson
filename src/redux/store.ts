@@ -4,8 +4,9 @@ import contactReducer from './reducer/contact-reducer'
 import boardGameReducer from './reducer/board-game-reducer'
 import pieceReducer from './reducer/board-game-pieces-reducer'
 import usersReducer from './reducer/user.reducer'
-import authReducer from './reducer/auth.reducer'
+//import authReducer from './reducer/auth.reducer'
 import itemReducer from './slicer/user-slicer'
+import authReducer from './slicer/auth-slicer'
 export default configureStore({
   reducer: {
     events: eventReducer,

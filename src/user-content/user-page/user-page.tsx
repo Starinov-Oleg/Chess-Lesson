@@ -46,7 +46,7 @@ function UserPage(props: {
                   Friends: <span>{props.totalcount}</span>
                 </div>
 
-                <CommonFriends/>
+                <CommonFriends />
               </div>
               <div className={page.coaches}>
                 <H3 message='Couches' primary />

@@ -1,9 +1,9 @@
 import React from 'react'
-import cardsocial from './card-social.module.css'
 import Button from '../button-click/button'
 import Statistic from './statistic-block/statistic-block'
 import Passport from './passport-block/passport-block'
 import { NavLink } from 'react-router-dom'
+import styled from 'styled-components'
 
 //import Logo from '../logo/logo'
 interface CardSocialProps {
@@ -22,7 +22,12 @@ interface CardSocialProps {
   showstatistic?: boolean
   user: any
 }
-
+interface StyledCardSocialProps {
+  position?: boolean | string
+}
+const StyledCardSocial = styled.div<StyledCardSocialProps>`
+  position: absolute;
+`
 function CardSocial({
   style,
   text,
@@ -42,18 +47,18 @@ function CardSocial({
   const stylebutton = { width: '3rem', height: '3rem', padding: '0px' }
   const styleimg = { width: '100%' }
   return (
-    <div className={`card ${cardsocial.card}`} style={style}>
+    <div className={`card `} style={style}>
       <NavLink to={'/user/' + user}>
-        <img src={src} className={cardsocial.img} alt={alt} style={styleimg} />
+        <img src={src}  alt={alt} style={styleimg} />
       </NavLink>
       {showbutton ? (
-        <div className={`text-center ${cardsocial.socialactive}`}>
+        <StyledCardSocial className={`text-center `}>
           {followed ? (
             <Button onClick={onClick1} message={message1} style={stylebutton} />
           ) : (
             <Button onClick={onClick2} message={message2} style={stylebutton} />
           )}
-        </div>
+        </StyledCardSocial>
       ) : null}
       <div className='text-center'>
         <h5 className='card-title'>{fullname}</h5>

@@ -2,8 +2,8 @@ import React, { useEffect } from 'react'
 import photo from '../../assets/pages/chess-play/user.png'
 import CardSocial from '../../ui-library/card-social/card-social'
 import { Fragment, Key } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchData, itemsSelector } from '../../redux/slicer/user-slicer'
+import { useDispatch, useSelector, RootStateOrAny } from 'react-redux'
+import { fetchData } from '../../redux/slicer/user-slicer'
 import Friends from './friends'
 interface FriendsContainerProps {
   unfollow?: any
@@ -12,7 +12,8 @@ interface FriendsContainerProps {
 function CommonFriends(props: FriendsContainerProps) {
   const dispatch = useDispatch()
 
-  const { loading, error, users, isAuth } = useSelector(itemsSelector)
+  const { loading, error, users } = useSelector((state: RootStateOrAny) => state.users)
+  const { isAuth } = useSelector((state: RootStateOrAny) => state.auth)
 
   useEffect(() => {
     dispatch(fetchData())
