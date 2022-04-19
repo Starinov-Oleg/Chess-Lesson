@@ -1,6 +1,6 @@
 import React from 'react'
 import BanerItemCard from '../baner-item-card/baner-item-card'
-import baneritemblock from './baner-item-block.module.css'
+import styled from 'styled-components'
 
 function BanerItemBlock() {
   const banerItemCard = [
@@ -23,22 +23,35 @@ function BanerItemBlock() {
       src: '/assets/baner-icon/class.png',
     },
   ]
-  const card_position = { margin: '3%' }
+  const StyledBanerItemBlock = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 15rem;
+    div {
+      width: 20em;
+      margin: 1%;
+    }
+    @media screen and (max-width: 1399px) {
+      padding-bottom: 0;
+    }
+  `
+
   return (
-    <div className={baneritemblock.baneritemblock}>
+    <StyledBanerItemBlock>
       {banerItemCard.map((item, index) => (
         <BanerItemCard
           headertext={item.headertext}
           bodytext={item.bodytext}
           message='Know more>>>'
           href='chesslearn'
-          style={card_position}
           src={item.src}
           alt={item.headertext}
           key={index}
         />
       ))}
-    </div>
+    </StyledBanerItemBlock>
   )
 }
 

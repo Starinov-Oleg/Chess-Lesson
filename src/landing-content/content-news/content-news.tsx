@@ -1,4 +1,3 @@
-import './content-news.css'
 import React from 'react'
 
 function SectionNews() {

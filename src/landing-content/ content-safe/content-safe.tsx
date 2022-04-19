@@ -1,28 +1,38 @@
 import React from 'react'
-import safe from './content-safe.module.css'
 import Button from '../../ui-library/button-link/button-link'
 import H1 from '../../ui-library/h1/h1'
 import Ul from '../../ui-library/ul/ul'
+import { Col, Container, Row } from 'react-bootstrap'
+import styled from 'styled-components'
+import img from '../../assets/section-safe/back.jpg'
 interface SectionSafeProps {
   contentSafe: Array<string>
 }
+const StyledSection = styled.div`
+  background-image: url(${img});
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-bottom: 20px;
+  text-align: left;
+`
 
 function SectionSafe({ contentSafe }: SectionSafeProps) {
   const titleH1 = 'CARE FOR SAFE'
 
   return (
     <section className='safe'>
-      <div className={safe.safe}>
-        <div className='container'>
-          <div className='row'>
-            <div className='col-lg-6 col-12'>
+      <StyledSection>
+        <Container>
+          <Row>
+            <Col>
               <H1 message={titleH1} colorWhite />
               <Ul lists={contentSafe} />
               <Button message='WHAT IS CHESS LAND?' href='whatis' />
-            </div>
-          </div>
-        </div>
-      </div>
+            </Col>
+          </Row>
+        </Container>
+      </StyledSection>
     </section>
   )
 }

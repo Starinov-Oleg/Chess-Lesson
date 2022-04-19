@@ -1,24 +1,60 @@
 import React from 'react'
-import coucsay from './couch-say.module.css'
 
+import styled from 'styled-components'
 import couchsay from '../../../assets/section-couch/couch-face.png'
+
 function CouchSay() {
+  const StyledSectionCouch = styled.div`
+    display: flex;
+    font-size: var(--global-var-font-size-1rem);
+    color: var(--global-var-color-white);
+    border-radius: 10px;
+    border: 1px solid var(--global-var-color-white);
+    box-shadow: -2rem 0 3rem -2rem var(--global-var-color-white);
+    text-align: var(--global-var-align-left);
+    justify-content: space-between;
+  `
+  const StyledCouchBody = styled.div`
+    padding: 2%;
+    padding-top: 10%;
+    width: 70%;
+    font-family: var(--global-var-font-mocha);
+  `
+  const StyledCouchImgContainer = styled.div`
+    padding: 1rem;
+  `
+  const StyledCouchFigure = styled.figure`
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #bbb;
+    position: relative;
+  `
+  const StyledCouchImg = styled.img`
+    padding: var(--global-var-font-size-1rem);
+    width: 100%;
+  `
+  const StyledCouchFigCaption = styled.figcaption`
+    color: var(--global-var-color-note);
+    font-family: var(--global-var-font-mocha);
+  `
   return (
-    <div className={coucsay.chessreport}>
-      <div className={coucsay.body}>
-        <p className={coucsay.bodytext}>
+    <StyledSectionCouch>
+      <StyledCouchBody>
+        <p>
           “Before, I thought chess was for people smarter than me but now I feel smarter than before knowing how to play
           chess. I also have more patience now. Thank you again for going out of your way to come every Tuesday to teach
           us to play chess.”
         </p>
-      </div>
-      <div className={coucsay.imgcontainer}>
-        <figure className={coucsay.imgblock}>
-          <img src={couchsay} alt='funny couch face here' className={coucsay.img} />
-          <figcaption className={coucsay.note}>Pham Dung </figcaption>
-        </figure>
-      </div>
-    </div>
+      </StyledCouchBody>
+      <StyledCouchImgContainer>
+        <StyledCouchFigure>
+          <StyledCouchImg src={couchsay} alt='funny couch face here' />
+          <StyledCouchFigCaption>Pham Dung </StyledCouchFigCaption>
+        </StyledCouchFigure>
+      </StyledCouchImgContainer>
+    </StyledSectionCouch>
   )
 }
 
