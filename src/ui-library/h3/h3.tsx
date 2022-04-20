@@ -20,7 +20,9 @@ const StyledH3 = styled.h3<StyledH3Props>`
   font-size: 1.5rem;
   padding-bottom: 2rem;
   font-family: 'Mochiy';
-
+  @media screen and (max-width: 768px) {
+    font-size: 0.7rem;
+  }
   ${props =>
     props.colorBlack &&
     css`

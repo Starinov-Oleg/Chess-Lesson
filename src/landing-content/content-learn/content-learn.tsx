@@ -14,6 +14,8 @@ function SectionLearn() {
     background-size: contain, cover;
     background-repeat: no-repeat;
     padding-bottom: 20%;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
   `
   const StyledLogo = styled.img`
     width: 45%;

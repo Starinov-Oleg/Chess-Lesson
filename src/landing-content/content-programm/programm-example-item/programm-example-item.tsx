@@ -7,13 +7,14 @@ interface ProgrammExampleItemProps {
   messagetitle: string
   messagebody: string
   messagenote?: string
+  src?: string
 }
-function ProgrammExampleItem({ messagetitle, messagebody, messagenote }: ProgrammExampleItemProps) {
+function ProgrammExampleItem({ messagetitle, messagebody, messagenote, src }: ProgrammExampleItemProps) {
   return (
     <>
       <div className={programmexampleitem.programmexampleitem}>
         <div className={programmexampleitem.flex_item1}>
-          <img src='/' alt='title programm block' />
+          <img src={src} alt='title programm block' />
         </div>
         <div className={programmexampleitem.flex_item2}>
           <Padding>

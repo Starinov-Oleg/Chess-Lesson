@@ -4,7 +4,7 @@ import picture from '../../../assets/pages/chess-learn/learn-video.jpg'
 function Cover() {
   return (
     <div className={cover.display}>
-      <H1 message='Watch video' primary />
+      <H1 message='Chose video' primary />
       <img
         src={picture}
         className={cover.picture}

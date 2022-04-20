@@ -10,6 +10,7 @@
 .flex_item1 {
   width: 25%;
   border-radius: 10px;
+  text-align: center;
 }
 .flex_item2 {
   width: 25%;
@@ -23,4 +24,15 @@
 
 .betweenline {
   border: 1px solid var(--global-var-color-orange);
+}
+
+img {
+  width: 10rem;
+}
+
+@media screen and (max-width: 768px) {
+  img {
+    width: 100%;
+  }
+  
 }

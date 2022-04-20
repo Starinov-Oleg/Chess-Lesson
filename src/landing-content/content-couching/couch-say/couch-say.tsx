@@ -10,7 +10,7 @@ function CouchSay() {
     color: var(--global-var-color-white);
     border-radius: 10px;
     border: 1px solid var(--global-var-color-white);
-    box-shadow: -2rem 0 3rem -2rem var(--global-var-color-white);
+    box-shadow: 0 0 2rem var(--global-var-color-note);
     text-align: var(--global-var-align-left);
     justify-content: space-between;
   `
@@ -19,6 +19,7 @@ function CouchSay() {
     padding-top: 10%;
     width: 70%;
     font-family: var(--global-var-font-mocha);
+    
   `
   const StyledCouchImgContainer = styled.div`
     padding: 1rem;
