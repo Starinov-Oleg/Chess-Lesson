@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 interface H1Props {
-  message: string
+  message: any
   style?: { [key: string]: string }
   children?: React.ReactNode
   colorWhite?: boolean | string
