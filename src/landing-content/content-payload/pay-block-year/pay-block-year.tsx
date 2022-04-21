@@ -7,37 +7,39 @@ import { Link } from 'react-router-dom'
 import { FontSize1rem } from '../../../common/styled-components/font-size.styled'
 import { Container, Row, Col } from 'react-bootstrap'
 import styled from 'styled-components'
+import LanguagesContext from '../../../common/languages/language-context'
 
+const StyledSectionPayblock = styled.div`
+  background-color: white;
+  border-radius: 10px;
+`
+const StyledPayblockBody = styled.div`
+  text-align: left;
+  padding-left: 1rem;
+`
+const StylePayblockPicture = styled.img`
+  animation: MoveUpDown 10s linear infinite;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  @keyframes MoveUpDown {
+    0%,
+    100% {
+      bottom: 0;
+    }
+    50% {
+      bottom: 2rem;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    position: static;
+  }
+`
 function PayBlock() {
-  const StyledSectionPayblock = styled.div`
-    background-color: white;
-    border-radius: 10px;
-  `
-  const StyledPayblockBody = styled.div`
-    text-align: left;
-    padding-left: 1rem;
-  `
-  const StylePayblockPicture = styled.img`
-    animation: MoveUpDown 10s linear infinite;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
-    @keyframes MoveUpDown {
-      0%,
-      100% {
-        bottom: 0;
-      }
-      50% {
-        bottom: 2rem;
-      }
-    }
-    @media screen and (max-width: 767px) {
-      position: static;
-    }
-  `
+  const language = React.useContext(LanguagesContext)
   return (
     <Container>
       <StyledSectionPayblock>
@@ -45,17 +47,13 @@ function PayBlock() {
           <Col md={8} xs={12}>
             <StyledPayblockBody>
               <Link to='/contact'>
-                <H1 message='COURSE ON ONE YEAR ->' colorOrange />
+                <H1 message={language.payblocktitileH1.message} colorOrange />
               </Link>
-              <H3
-                message='Study 1-4 times a week in one or more subjects and complete the whole class program'
-                colorBlack
-                textAlignLeft
-              />
+              <H3 message={language.payblockH3_1.message} colorBlack textAlignLeft />
               <FontSize1rem>
-                <H3 message='3 lesson for free' colorNote textAlignLeft />
-                <H3 message='50 000 Đ ' colorBlack textAlignLeft />
-                <H3 message='for lesson' colorNote textAlignLeft />
+                <H3 message={language.payblockH3_2.message} colorNote textAlignLeft />
+                <H3 message={language.payblockH3_3.message} colorBlack textAlignLeft />
+                <H3 message={language.payblockH3_4.message} colorNote textAlignLeft />
               </FontSize1rem>
             </StyledPayblockBody>
           </Col>

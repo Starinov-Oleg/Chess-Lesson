@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import logo from '../../assets/section-learn/logo.png'
 import H1 from '../../ui-library/h1/h1'
 import Button from '../../ui-library/button-register/button-register'
@@ -7,7 +7,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import styled from 'styled-components'
 import imgchess from '../../assets/section-learn/cess.png'
 import imgland from '../../assets/section-learn/land3.jpg'
-import  LanguagesContext  from '../../common/languages/language-context'
+import LanguagesContext from '../../common/languages/language-context'
 const StyledSectionLearn = styled.div`
   background-image: url(${imgchess}), url(${imgland});
   background-position: center;
@@ -41,11 +41,11 @@ function SectionLearn() {
               <StyledPromo>
                 <StyledLogo src={logo} alt='chess-land' />
                 <Titles>
-                  <H1 message={language.language.en.logo.message} goldTitle />
+                  <H1 message={language.logo.message} goldTitle />
                 </Titles>
                 <div className='buttons '>
-                  <ButtonLogin message='LOGIN' />
-                  <Button message='SIGN UP' />
+                  <ButtonLogin message={language.loginbutton.message} />
+                  <Button message={language.signupbutton.message} />
                 </div>
               </StyledPromo>
             </Col>

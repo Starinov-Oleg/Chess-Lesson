@@ -5,9 +5,11 @@ import Ul from '../../ui-library/ul/ul'
 import { Col, Container, Row } from 'react-bootstrap'
 import styled from 'styled-components'
 import img from '../../assets/section-safe/back.jpg'
-interface SectionSafeProps {
+import LanguagesContext from '../../common/languages/language-context'
+/**interface SectionSafeProps {
   contentSafe: Array<string>
-}
+} */
+
 const StyledSection = styled.div`
   background-image: url(${img});
   background-position: center;
@@ -17,8 +19,8 @@ const StyledSection = styled.div`
   text-align: left;
 `
 
-function SectionSafe({ contentSafe }: SectionSafeProps) {
-  const titleH1 = 'CARE FOR SAFE'
+function SectionSafe(/*{ contentSafe }: SectionSafeProps*/) {
+  const language = React.useContext(LanguagesContext)
 
   return (
     <section className='safe'>
@@ -26,9 +28,9 @@ function SectionSafe({ contentSafe }: SectionSafeProps) {
         <Container>
           <Row>
             <Col>
-              <H1 message={titleH1} colorWhite />
-              <Ul lists={contentSafe} />
-              <Button message='WHAT IS CHESS LAND?' href='whatis' />
+              <H1 message={language.titleH1.message} colorWhite />
+              <Ul lists={language.contentSafe.lists} />
+              <Button message={language.button.message} href='whatis' />
             </Col>
           </Row>
         </Container>

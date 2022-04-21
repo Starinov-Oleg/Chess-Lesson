@@ -1,5 +1,5 @@
 import { createContext } from 'react'
-import { language } from './language'
+import { en } from './language'
 
-const LanguagesContext = createContext({ language })
+const LanguagesContext = createContext(en)
 export default LanguagesContext

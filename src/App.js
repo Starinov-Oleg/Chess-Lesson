@@ -15,7 +15,6 @@ import ScrollToTop from './common/scroll-top/scroll'
 import ChessLesson from './pages-content/chess-lesson/chess-lesson'
 import ChessLesson1 from './pages-content/chess-lesson/chess-lesson-1/chess-lesson-1'
 import { COLORS } from './common/styled-components/var-colors.styled'
-
 const Login = React.lazy(() => import('./user-content/login/login'))
 const Register = React.lazy(() => import('./user-content/register/register'))
 const RegisterCouch = React.lazy(() => import('./pages-content/chess-land-coaches/coaches-register/register'))
@@ -33,10 +32,9 @@ function App(props) {
               path='/'
               element={
                 <Landing
-                  contentSafe={props.state.landing.contentSafe.lists}
-                  contentCouching={props.state.landing.contentCouching.lists}
-                  contentProgramm={props.state.landing.contentProgramm.lists}
-                  banerItemCards={props.state.banerItemCard}
+                /*contentSafe={props.state.landing.contentSafe.lists}*/
+                /*contentCouching={props.state.landing.contentCouching.lists}*/
+                /*contentProgramm={props.state.landing.contentProgramm.lists}*/
                 />
               }
             />
@@ -62,9 +60,9 @@ function App(props) {
               path='*'
               element={
                 <Landing
-                  contentSafe={props.state.landing.contentSafe.lists}
-                  contentCouching={props.state.landing.contentCouching.lists}
-                  contentProgramm={props.state.landing.contentProgramm.lists}
+                /*contentSafe={props.state.landing.contentSafe.lists}*/
+                /* contentCouching={props.state.landing.contentCouching.lists}*/
+                /* contentProgramm={props.state.landing.contentProgramm.lists}*/
                 />
               }></Route>
           </Routes>

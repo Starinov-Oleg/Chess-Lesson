@@ -1,9 +1,27 @@
 import React from 'react'
 import BanerItemCard from '../baner-item-card/baner-item-card'
 import styled from 'styled-components'
+import LanguagesContext from '../../../common/languages/language-context'
+
+const StyledBanerItemBlock = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 15rem;
+  div {
+    width: 20em;
+    margin: 1%;
+  }
+  @media screen and (max-width: 1399px) {
+    padding-bottom: 0;
+  }
+`
 
 function BanerItemBlock() {
-  const banerItemCard = [
+  const language = React.useContext(LanguagesContext)
+  /**NOW USE CONTEXT for language
+   *  const banerItemCard = [
     {
       headertext: 'Clips',
       bodytext: 'Clips from resources and original platform',
@@ -23,24 +41,11 @@ function BanerItemBlock() {
       src: '/assets/baner-icon/class.png',
     },
   ]
-  const StyledBanerItemBlock = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: 15rem;
-    div {
-      width: 20em;
-      margin: 1%;
-    }
-    @media screen and (max-width: 1399px) {
-      padding-bottom: 0;
-    }
-  `
+   */
 
   return (
     <StyledBanerItemBlock>
-      {banerItemCard.map((item, index) => (
+      {language.banerItemCard.banerItemCard.map((item, index) => (
         <BanerItemCard
           headertext={item.headertext}
           bodytext={item.bodytext}
@@ -57,4 +62,4 @@ function BanerItemBlock() {
 
 export default BanerItemBlock
 
-/**TODO add for static state */
+

@@ -27,15 +27,14 @@ const StyledSpan = styled.span`
 `
 interface ButtonProps {
   onClick?: () => void
+  onClickVn?: () => void
 }
-function LanguageButton({ onClick }: ButtonProps) {
+function LanguageButton({ onClick, onClickVn }: ButtonProps) {
   return (
     <StyledLanguageButtonsContainer>
-      <StyledLanguageIcon uk onClick={onClick}>
-        UK
-      </StyledLanguageIcon>
+      <StyledLanguageIcon onClick={onClick}>VN</StyledLanguageIcon>
       <StyledSpan>|</StyledSpan>
-      <StyledLanguageIcon vn>VN</StyledLanguageIcon>
+      <StyledLanguageIcon onClick={onClickVn}>UK</StyledLanguageIcon>
     </StyledLanguageButtonsContainer>
   )
 }

@@ -3,6 +3,7 @@ import programmexampleitem from './programm-example-item.module.css'
 import H3 from '../../../ui-library/h3/h3'
 import { FontSize1rem } from '../../../common/styled-components/font-size.styled'
 import { Padding } from '../../../common/styled-components/padding-margin.styled'
+
 interface ProgrammExampleItemProps {
   messagetitle: string
   messagebody: string
@@ -20,7 +21,7 @@ function ProgrammExampleItem({ messagetitle, messagebody, messagenote, src }: Pr
           <Padding>
             <FontSize1rem>
               <H3 message={messagetitle} colorOrange textAlignLeft />
-              {!messagenote ? null : <H3 message={messagenote} colorNote />}
+              <H3 message={messagenote} colorNote />
             </FontSize1rem>
           </Padding>
         </div>
@@ -34,3 +35,4 @@ function ProgrammExampleItem({ messagetitle, messagebody, messagenote, src }: Pr
 }
 
 export default ProgrammExampleItem
+/**TODO FIX messagenote for not display in DOM if empty   */
