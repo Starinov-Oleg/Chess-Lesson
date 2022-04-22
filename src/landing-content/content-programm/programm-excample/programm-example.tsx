@@ -1,9 +1,8 @@
 import React from 'react'
-import programmexample from './programm-example.module.css'
 import H1 from '../../../ui-library/h1/h1'
 import ProgrammExampleItem from '../programm-example-item/programm-example-item'
-import { TextAlignLeft } from '../../../common/styled-components/position.styled'
 import LanguagesContext from '../../../common/languages/language-context'
+import styled from 'styled-components'
 
 function ProgrammExample() {
   const language = React.useContext(LanguagesContext)
@@ -40,14 +39,21 @@ function ProgrammExample() {
     },
   ]
    */
-
+  const StyledProgrammExample = styled.div`
+    background-color: var(--global-var-color-white);
+    border-radius: 10px;
+    box-shadow: 0 0 2rem var(--global-var-color-note);
+    padding: var(--global-var-font-size-1rem);
+    text-align: left;
+  `
+  const StyledProgrammName = styled.span`
+    color: palevioletred;
+  `
   return (
-    <div className={programmexample.programmexample}>
-      <TextAlignLeft>
-        <H1 message={language.programmexampletitleH1.message} colorBlack>
-          <span className={programmexample.typeprogramm}>{language.programmexampletitleSpan.message}</span>
-        </H1>
-      </TextAlignLeft>
+    <StyledProgrammExample>
+      <H1 message={language.programmexampletitleH1.message} colorBlack>
+        <StyledProgrammName>{language.programmexampletitleSpan.message}</StyledProgrammName>
+      </H1>
       {language.exampleItem.exampleItem.map((item, index) => (
         <ProgrammExampleItem
           messagetitle={item.messagetitle}
@@ -57,7 +63,7 @@ function ProgrammExample() {
           src={item.img}
         />
       ))}
-    </div>
+    </StyledProgrammExample>
   )
 }
 

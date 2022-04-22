@@ -1,8 +1,6 @@
 import React from 'react'
-import programmexampleitem from './programm-example-item.module.css'
 import H3 from '../../../ui-library/h3/h3'
-import { FontSize1rem } from '../../../common/styled-components/font-size.styled'
-import { Padding } from '../../../common/styled-components/padding-margin.styled'
+import styled from 'styled-components'
 
 interface ProgrammExampleItemProps {
   messagetitle: string
@@ -10,26 +8,56 @@ interface ProgrammExampleItemProps {
   messagenote?: string
   src?: string
 }
+const StyledProgrammExampleItem = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem 0;
+  margin-top: 2rem;
+  font-size: var(--global-var-font-size-1rem);
+  color: var(--global-var-color-black);
+  text-align: left;
+`
+const StyledProgrammExampleFlexItem1 = styled.div`
+  width: 25%;
+  border-radius: 10px;
+  text-align: center;
+`
+const StyledProgrammExampleFlexItem2 = styled.div`
+  width: 25%;
+  padding: 1rem;
+  font-size: 1rem;
+`
+const StyledProgrammExampleFlexItem3 = styled.div`
+  width: 50%;
+`
+const StyledProgrammItemBody = styled.p`
+  padding: 1rem;
+`
+const StyledImg = styled.img`
+  width: 10rem;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+`
+const StyledHr = styled.hr`
+  border: 1px solid var(--global-var-color-orange);
+`
 function ProgrammExampleItem({ messagetitle, messagebody, messagenote, src }: ProgrammExampleItemProps) {
   return (
     <>
-      <div className={programmexampleitem.programmexampleitem}>
-        <div className={programmexampleitem.flex_item1}>
-          <img src={src} alt='title programm block' />
-        </div>
-        <div className={programmexampleitem.flex_item2}>
-          <Padding>
-            <FontSize1rem>
-              <H3 message={messagetitle} colorOrange textAlignLeft />
-              <H3 message={messagenote} colorNote />
-            </FontSize1rem>
-          </Padding>
-        </div>
-        <div className={programmexampleitem.flex_item3}>
-          <p className={programmexampleitem.body}>{messagebody}</p>
-        </div>
-      </div>
-      <hr className={programmexampleitem.betweenline} />
+      <StyledProgrammExampleItem>
+        <StyledProgrammExampleFlexItem1>
+          <StyledImg src={src} alt='title programm block' />
+        </StyledProgrammExampleFlexItem1>
+        <StyledProgrammExampleFlexItem2>
+          <H3 message={messagetitle} colorOrange textAlignLeft />
+          <H3 message={messagenote} colorNote />
+        </StyledProgrammExampleFlexItem2>
+        <StyledProgrammExampleFlexItem3>
+          <StyledProgrammItemBody>{messagebody}</StyledProgrammItemBody>
+        </StyledProgrammExampleFlexItem3>
+      </StyledProgrammExampleItem>
+      <StyledHr />
     </>
   )
 }

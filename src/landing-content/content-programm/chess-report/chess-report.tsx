@@ -1,36 +1,44 @@
 import React from 'react'
-import chessreport from './chess-report.module.css'
 import H1 from '../../../ui-library/h1/h1'
 import reportPic from '../../../assets/section-programm/phone.png'
 import H3 from '../../../ui-library/h3/h3'
 import LanguagesContext from '../../../common/languages/language-context'
+import styled from 'styled-components'
+import { Container, Row, Col } from 'react-bootstrap'
 
+const StyledImg = styled.img`
+  width: 100%;
+`
+const StyledReportBlock = styled.div`
+  font-size: var(--global-var-font-size-1rem);
+  font-family: var(--global-var-font-mocha);
+  text-align: left;
+`
+const StyledBlockBody = styled.div`
+  margin-top: var(--global-var-font-size-1rem);
+`
 function ChessReport() {
   const language = React.useContext(LanguagesContext)
   return (
-    <div className={chessreport.chessreport}>
-      <div className='row'>
-        <div className='col-lg-6 col-12'>
-          <div className={chessreport.img}>
-            <img src={reportPic} alt='here card report' className={chessreport.img} />
-          </div>
-        </div>
-        <div className='col-lg-6 col-12'>
-          <div className={chessreport.reportblock}>
+    <Container>
+      <Row>
+        <Col lg={6} xs={12}>
+          <StyledImg src={reportPic} alt='here card report' />
+        </Col>
+        <Col lg={6} xs={12}>
+          <StyledReportBlock>
             <H1 message={language.chessreport_title.message} colorOrange />
-            <div className={chessreport.blockbody}>
-              <p className={chessreport.body}>{language.chessreport_body_1.message}</p>
-              <p className={chessreport.body}>{language.chessreport_body_2.message}</p>
-            </div>
-            <div className={chessreport.promo}>
-              <H3 message={language.chessreport_promo_1.message} primary />
-              <H3 message={language.chessreport_promo_2.message} primary />
-              <H3 message={language.chessreport_promo_3.message} primary />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+            <StyledBlockBody>
+              <p>{language.chessreport_body_1.message}</p>
+              <p>{language.chessreport_body_2.message}</p>
+            </StyledBlockBody>
+            <H3 message={language.chessreport_promo_1.message} primary />
+            <H3 message={language.chessreport_promo_2.message} primary />
+            <H3 message={language.chessreport_promo_3.message} primary />
+          </StyledReportBlock>
+        </Col>
+      </Row>
+    </Container>
   )
 }
 
