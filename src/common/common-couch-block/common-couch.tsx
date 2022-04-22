@@ -4,12 +4,12 @@ import CardSocial from '../../ui-library/card-social/card-social'
 import { Fragment, Key } from 'react'
 import { useDispatch, useSelector, RootStateOrAny } from 'react-redux'
 import { fetchData } from '../../redux/slicer/user-slicer'
-import Friends from './friends'
-interface FriendsContainerProps {
+import Couch from './couch'
+interface CouchContainerProps {
   unfollow?: any
   follow?: any
 }
-function CommonFriends(props: FriendsContainerProps) {
+function CommonCouch(props: CouchContainerProps) {
   const dispatch = useDispatch()
 
   const { loading, error, users } = useSelector((state: RootStateOrAny) => state.users)
@@ -33,7 +33,7 @@ function CommonFriends(props: FriendsContainerProps) {
         avatar: string | number
       }) => (
         <Fragment key={user.id}>
-          {user.group === 'friends' ? (
+          {user.group === 'couch' ? (
             <div className='col-md-3 col-12 '>
               <CardSocial
                 fullname={user.name}
@@ -58,9 +58,9 @@ function CommonFriends(props: FriendsContainerProps) {
     )
   }
 
-  return <Friends couchItems={renderItems()} />
+  return <Couch couchItems={renderItems()} />
 }
 
-export default CommonFriends
+export default CommonCouch
 
 /**TODO make fallow-unfallow */

@@ -1,36 +1,37 @@
 import { createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
 
+// initial state
 export const initialState = {
   loading: false,
   error: false,
-  users: [],
+  posts: [],
 }
 
-const userSlice = createSlice({
-  name: 'users',
+const postSlice = createSlice({
+  name: 'posts',
   initialState,
   reducers: {
-    setLoading: state => {
+    setLoadingPosts: state => {
       state.loading = true
     },
 
-    setItems: (state, { payload }) => {
+    setItemsPosts: (state, { payload }) => {
       state.loading = false
       state.error = false
-      state.users = payload
+      state.posts = payload
     },
-    setError: state => {
+    setErrorPosts: state => {
       state.error = true
     },
   },
 })
 
-export const { setLoading, setItems, setError } = userSlice.actions
+export const { setLoadingPosts, setItemsPosts, setErrorPosts } = postSlice.actions
 
-export const itemsSelector = (state: { users: any }) => state.users
+export const postSelector = (state: { posts: any }) => state.posts
 
-export default userSlice.reducer
+export default postSlice.reducer
 
 const api = axios.create({
   //baseURL: 'https://reqres.in/api',
@@ -42,15 +43,16 @@ const api = axios.create({
   },
 })
 
-export function fetchData() {
-  return async (dispatch: any, id: any) => {
+// fetch all items
+export function fetchData1() {
+  return async (dispatch: any, id: any, post: string) => {
     api
       .get(`/users/?${id}/post`)
       .then(response => {
-        dispatch(setItems(response.data))
+        dispatch(setItemsPosts(response.data))
       })
       .catch(er => {
-        dispatch(setError())
+        dispatch(setErrorPosts())
       })
   }
 }

@@ -7,6 +7,7 @@ import usersReducer from './reducer/user.reducer'
 //import authReducer from './reducer/auth.reducer'
 import itemReducer from './slicer/user-slicer'
 import authReducer from './slicer/auth-slicer'
+import postReducer from './slicer/user-activity-slicer'
 export default configureStore({
   reducer: {
     events: eventReducer,
@@ -16,6 +17,7 @@ export default configureStore({
     usersPage: usersReducer,
     auth: authReducer,
     users: itemReducer,
+    posts: postReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
