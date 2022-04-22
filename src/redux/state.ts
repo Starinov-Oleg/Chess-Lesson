@@ -34,9 +34,9 @@ const state = {
       setShow(null)
     },
   },
-  /**Landing page. Values for display different section */
-  landing: {
-    /**value ul list Landing Page*/
+  /**Landing page. Values for display different section  FOR USE PROPS (now use context language)*/
+  // landing: {
+  /**value ul list Landing Page
     contentSafe: {
       lists: [
         'Activity report',
@@ -44,21 +44,21 @@ const state = {
         'Only kids content',
         'Attention to every child',
       ],
-    },
-    /**value ul list Landing Page*/
+    },*/
+  /**value ul list Landing Page 
     contentCouching: {
       lists: ['School manage', 'Report student progress', 'Organize tournaments', 'Couching education material'],
-    },
-    /**value ul list Landing Page*/
-    contentProgramm: {
+    },*/
+  /**value ul list Landing Page*/
+  /* contentProgramm: {
       lists: [
         'Student study material',
         'Chess report cards',
         'Organize tournaments',
         'Individual and foreigner chess programm',
       ],
-    },
-  },
+    },*/
+  //},
   /**menu pages */
   navlinkItems: [
     { id: 0, href: 'home', name: 'home', icon: '/assets/header-pages/home.png' },

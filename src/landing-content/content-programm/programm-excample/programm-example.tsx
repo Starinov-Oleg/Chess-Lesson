@@ -3,9 +3,12 @@ import programmexample from './programm-example.module.css'
 import H1 from '../../../ui-library/h1/h1'
 import ProgrammExampleItem from '../programm-example-item/programm-example-item'
 import { TextAlignLeft } from '../../../common/styled-components/position.styled'
+import LanguagesContext from '../../../common/languages/language-context'
 
 function ProgrammExample() {
-  const exampleItem = [
+  const language = React.useContext(LanguagesContext)
+  /**NOW USE CONTEXT
+   *  const exampleItem = [
     {
       messagetitle: 'Introduce Block',
       messagebody: 'Introduce with club and introduce with couch. Introduce with software. Introduce with card-report.',
@@ -36,18 +39,20 @@ function ProgrammExample() {
       img: '/assets/programm-icons/block4.png',
     },
   ]
-  const titleH1 = 'PROGRAMM'
+   */
+
   return (
     <div className={programmexample.programmexample}>
       <TextAlignLeft>
-        <H1 message={titleH1} colorBlack>
-          <span className={programmexample.typeprogramm}>junior</span>
+        <H1 message={language.programmexampletitleH1.message} colorBlack>
+          <span className={programmexample.typeprogramm}>{language.programmexampletitleSpan.message}</span>
         </H1>
       </TextAlignLeft>
-      {exampleItem.map((item, index) => (
+      {language.exampleItem.exampleItem.map((item, index) => (
         <ProgrammExampleItem
           messagetitle={item.messagetitle}
           messagebody={item.messagebody}
+          messagenote={item.messagenote}
           key={index}
           src={item.img}
         />
@@ -57,4 +62,3 @@ function ProgrammExample() {
 }
 
 export default ProgrammExample
-/**TODO make item from states */

@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 interface H3Props {
   style?: { [key: string]: string }
-  message: string
+  message: any
   primary?: boolean | string
   colorBlack?: boolean | string
   colorNote?: boolean | string
