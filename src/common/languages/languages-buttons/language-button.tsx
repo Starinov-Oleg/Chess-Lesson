@@ -21,6 +21,13 @@ const StyledLanguageIcon = styled.div<StyledLanguageButton>`
   margin: 10px;
   color: gold;
   font-weight: 800;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0px 0px 0px 0px #c25e1b;
+    color: var(--global-var-color-orange);
+    width: 3.2rem;
+    height: 3.2rem;
+  }
 `
 const StyledSpan = styled.span`
   color: gold;

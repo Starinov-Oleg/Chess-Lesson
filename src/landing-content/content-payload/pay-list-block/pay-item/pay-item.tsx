@@ -1,6 +1,8 @@
 import React from 'react'
-import payitem from './pay-item.module.css'
+
 import H3 from '../../../../ui-library/h3/h3'
+import styled from 'styled-components'
+
 interface PayProps {
   header: string
   body: string
@@ -8,24 +10,39 @@ interface PayProps {
   footer: string
   style?: Object
 }
-
+const StyledPayItem = styled.div`
+  background-color: white;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  height: 20rem;
+  font-family: 'Mochiy';
+`
+const StyledBlock = styled.div`
+  height: 4rem;
+  padding-top: 1rem;
+`
+const StyledP = styled.p`
+  font-size: 1rem;
+`
+const StyledPNote = styled.p`
+  color: #cecfcf;
+`
 function PayItem({ header, body, note, footer, style }: PayProps) {
   return (
-    <div className={`${payitem.payitem} ${payitem.height}`} style={style}>
-      <div className={payitem.headerblock}>
+    <StyledPayItem>
+      <StyledBlock>
         <H3 message={header} colorBlack />
-      </div>
-      <div className={payitem.bodyblock}>
-        <p className={payitem.body}>{body}</p>
-      </div>
-
-      <div className={payitem.noteblock}>{note ? <p className={payitem.note}>{note}</p> : null}</div>
-
-      <div className={payitem.footerblock}>
+      </StyledBlock>
+      <StyledBlock>
+        <StyledP>{body}</StyledP>
+      </StyledBlock>
+      <StyledBlock>{note ? <StyledPNote>{note}</StyledPNote> : null}</StyledBlock>
+      <StyledBlock>
         <H3 message={footer} colorBlack />
-        <p className={payitem.note}>for lesson</p>
-      </div>
-    </div>
+        <StyledPNote>for lesson</StyledPNote>
+      </StyledBlock>
+    </StyledPayItem>
   )
 }
 
