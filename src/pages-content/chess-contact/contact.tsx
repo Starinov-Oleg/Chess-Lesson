@@ -29,7 +29,7 @@ function Contact({ cardItems }: CardProps) {
         <div className={`${contact.align}`}>
           <H3 message='Introduce With Coaches' primary />
           <div className={contact.alignBlock}>
-            <CommonCouch />
+            <CommonFriends />
           </div>
           <H3 message='Your Friends' colorBlack primary />
           <div className={contact.alignBlock}>

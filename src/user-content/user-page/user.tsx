@@ -20,22 +20,24 @@ function UserPage() {
   const dispatch1 = useDispatch()
   const { users } = useSelector(itemsSelector)
   const { posts } = useSelector(postSelector)
+  const { id } = useParams()
   useEffect(() => {
-    dispatch(fetchData())
     axios.get(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${id}/post`).then(response => {
       setPost(response.data)
     })
-  }, [dispatch])
-  const h3 = { paddingTop: '1rem' }
-  const { id } = useParams()
+
+    axios.get(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users`).then(response => {
+      setUser(response.data)
+    })
+  }, [id])
+
   const [showResults, setShowResults] = useState(false)
   const friends = users.filter((user: { group: string }) => user.group === 'friends')
   const [post, setPost] = useState([])
+  const [user, setUser] = useState([])
   const count = friends.length
-  const blogPosts = post.map((item: { body: string | undefined }, index: number) => {
-    return <ActionItem body={item.body} key={index} />
-  })
-  return users
+
+  return user
     .filter((user: any) => user.id === String(id))
     .map(
       (
@@ -61,7 +63,7 @@ function UserPage() {
                 </div>
                 <div className={page.people}>
                   <div className={page.friends}>
-                    <H3 message='Friends' style={h3} primary />
+                    <H3 message='Friends' primary />
                     <div className={page.more}>
                       All friends and couches:<span>{users.length}</span>
                     </div>
@@ -78,8 +80,11 @@ function UserPage() {
               </div>
               <div className='col-md-6 col-12 '>
                 <div className={page.actionsline}>
-                  <ActionItem />
-                  {blogPosts}
+                  {post
+                    .filter((post: any) => post.userId === String(id))
+                    .map((item: { body: string | undefined }, index: number) => {
+                      return <ActionItem body={item.body} key={index} />
+                    })}
                 </div>
               </div>
             </div>
