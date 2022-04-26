@@ -44,10 +44,10 @@ const api = axios.create({
 })
 
 // fetch all items
-export function fetchData1() {
-  return async (dispatch: any, id: any, post: string) => {
+export const fetchData1 = () => {
+  return async (dispatch: any, id: number, post: any) => {
     api
-      .get(`/users/?${id}/post`)
+      .get(`/users/${id}/post`)
       .then(response => {
         dispatch(setItemsPosts(response.data))
       })

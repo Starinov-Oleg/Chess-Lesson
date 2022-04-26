@@ -48,8 +48,8 @@ function CardSocial({
   const styleimg = { width: '100%' }
   return (
     <div className={`card `} style={style}>
-      <NavLink to={'/user/' + user}>
-        <img src={src}  alt={alt} style={styleimg} />
+      <NavLink to={'/user/' + user + '/post'}>
+        <img src={src} alt={alt} style={styleimg} />
       </NavLink>
       {showbutton ? (
         <StyledCardSocial className={`text-center `}>

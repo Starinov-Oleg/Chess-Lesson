@@ -52,7 +52,7 @@ function App(props) {
               <Route path='adventure' element={<Adventure />} />
               <Route path='chesslesson/chesslesson1' element={<ChessLesson1 />} />
               <Route path='chesslesson' element={<ChessLesson chesslesson={props.state.chesslesson} />} />
-              <Route path='user/:id' element={<User />}></Route>
+              <Route path='user/:id/post' element={<User />}></Route>
               <Route path='chat/:id' element={<ChatPage />}></Route>
             </Route>
             <Route path='/play' element={<Play chessplay={props.state.chessplay} />} />
