@@ -43,14 +43,14 @@ const api = axios.create({
 })
 
 export function fetchData() {
-  return async (dispatch: any, id: any) => {
+  return (dispatch: any, id: number) => {
     api
       .get(`/users/?${id}`)
       .then(response => {
-         dispatch(setItems(response.data))
+        dispatch(setItems(response.data))
       })
-      .catch(er => {
-        dispatch(setError())
+      .catch(response => {
+        return Promise.reject(response.data)
       })
   }
 }

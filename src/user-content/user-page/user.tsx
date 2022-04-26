@@ -13,24 +13,26 @@ import CommonFriends from '../../common/common-friends-block/common-friends'
 import CommonCouch from '../../common/common-couch-block/common-couch'
 import ChessReportCard from '../chess-report-card/chess-report-card'
 import Button from '../../ui-library/button-click/button'
+import axios from 'axios'
 
 function UserPage() {
   const dispatch = useDispatch()
   const dispatch1 = useDispatch()
-  const { users, isAuth } = useSelector(itemsSelector)
+  const { users } = useSelector(itemsSelector)
   const { posts } = useSelector(postSelector)
   useEffect(() => {
     dispatch(fetchData())
-    dispatch1(fetchData1())
-  }, [dispatch, dispatch1])
-
+    axios.get(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${id}/post`).then(response => {
+      setPost(response.data)
+    })
+  }, [dispatch])
   const h3 = { paddingTop: '1rem' }
   const { id } = useParams()
-
   const [showResults, setShowResults] = useState(false)
   const friends = users.filter((user: { group: string }) => user.group === 'friends')
+  const [post, setPost] = useState([])
   const count = friends.length
-  const blogPosts = posts.map((item: { body: string | undefined }, index: number) => {
+  const blogPosts = post.map((item: { body: string | undefined }, index: number) => {
     return <ActionItem body={item.body} key={index} />
   })
   return users
