@@ -5,6 +5,7 @@ import { Fragment, Key } from 'react'
 import { useDispatch, useSelector, RootStateOrAny } from 'react-redux'
 import { fetchData } from '../../redux/slicer/user-slicer'
 import Friends from './friends'
+import { Col } from 'react-bootstrap'
 interface FriendsContainerProps {
   unfollow?: any
   follow?: any
@@ -34,7 +35,7 @@ function CommonFriends(props: FriendsContainerProps) {
       }) => (
         <Fragment key={user.id}>
           {user.group === 'friends' ? (
-            <div className='col-md-3 col-12 '>
+            <Col md={3} xs={12}>
               <CardSocial
                 fullname={user.name}
                 message1='-'
@@ -51,7 +52,7 @@ function CommonFriends(props: FriendsContainerProps) {
                   props.follow(user.id)
                 }}
               />
-            </div>
+            </Col>
           ) : null}
         </Fragment>
       )

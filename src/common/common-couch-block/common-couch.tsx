@@ -3,6 +3,7 @@ import photo from '../../assets/pages/chess-play/user.png'
 import CardSocial from '../../ui-library/card-social/card-social'
 import { Fragment, Key } from 'react'
 import { useDispatch, useSelector, RootStateOrAny } from 'react-redux'
+import { Col } from 'react-bootstrap'
 import { fetchData } from '../../redux/slicer/user-slicer'
 import Couch from './couch'
 interface CouchContainerProps {
@@ -34,7 +35,7 @@ function CommonCouch(props: CouchContainerProps) {
       }) => (
         <Fragment key={user.id}>
           {user.group === 'couch' ? (
-            <div className='col-md-3 col-12 '>
+            <Col md={3} xs={12}>
               <CardSocial
                 fullname={user.name}
                 message1='-'
@@ -51,7 +52,7 @@ function CommonCouch(props: CouchContainerProps) {
                   props.follow(user.id)
                 }}
               />
-            </div>
+            </Col>
           ) : null}
         </Fragment>
       )

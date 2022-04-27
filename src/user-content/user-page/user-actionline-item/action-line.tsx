@@ -1,4 +1,3 @@
-import actionline from './action-line.module.css'
 import React from 'react'
 
 interface ActionitemProps {
@@ -10,12 +9,12 @@ interface ActionitemProps {
 
 function ActionItem({ header, body, footer, data }: ActionitemProps) {
   return (
-    <div className={actionline.line_item}>
-      <div className={actionline.line_header}>{header}</div>
+    <div>
+      <div>{header}</div>
       <hr />
-      <div className={actionline.line_body}>{body}</div>
+      <div>{body}</div>
       <hr />
-      <div className={actionline.line_footer}>
+      <div>
         {footer}
         <span>{data}</span>
       </div>
