@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import UserProfile from './use-profile/user-profile'
 import UserPeopleBlock from './user-people-block/user-people-block'
+import CommonPeople from '../../common/commpon-people-block/common-people'
 import UserHeader from './user-header-block/user-header'
 import ActionItem from './user-actionline-item/action-line'
 import { useParams } from 'react-router-dom'
@@ -33,7 +34,16 @@ function UserPage() {
   const friends = user.filter((user: { group: string }) => user.group === 'friends')
   const count = friends.length
   const length = user.length
-
+  const peopleFriends = user
+    .filter((user: { group: string }) => user.group === 'friends')
+    .map((item: { name: string; avatar: string; key: number; id: number }, index: number) => {
+      return <CommonPeople fullname={item.name} avatar={item.avatar} key={index} user={item.id} />
+    })
+  const peopleCouches = user
+    .filter((user: { group: string }) => user.group === 'couch')
+    .map((item: { name: string; avatar: string; key: number; id: number }, index: number) => {
+      return <CommonPeople fullname={item.name} avatar={item.avatar} key={index} user={item.id} />
+    })
   return user
     .filter((user: any) => user.id === String(id))
     .map(
@@ -62,7 +72,12 @@ function UserPage() {
             <Row>
               <Col md={6} xs={12}>
                 <UserProfile messagename={user.name} />
-                <UserPeopleBlock spanlength={length} spancount={count} />
+                <UserPeopleBlock
+                  spanlength={length}
+                  spancount={count}
+                  childFriends={<Row>{peopleFriends}</Row>}
+                  childCouches={<Row>{peopleCouches}</Row>}
+                />
               </Col>
               <Col md={6} xs={12}>
                 <StyledActionBlock>
