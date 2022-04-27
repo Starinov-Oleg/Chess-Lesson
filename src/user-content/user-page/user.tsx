@@ -10,7 +10,8 @@ import ChessReportCard from '../chess-report-card/chess-report-card'
 import Button from '../../ui-library/button-click/button'
 import axios from 'axios'
 import styled from 'styled-components'
-
+import AddPost from './user-action/add-post/add-post'
+import { format } from 'date-fns'
 const StyledActionBlock = styled.div`
   margin-top: 3%;
   border-radius: 10px;
@@ -44,6 +45,7 @@ function UserPage() {
     .map((item: { name: string; avatar: string; key: number; id: number }, index: number) => {
       return <CommonPeople fullname={item.name} avatar={item.avatar} key={index} user={item.id} />
     })
+
   return user
     .filter((user: any) => user.id === String(id))
     .map(
@@ -81,10 +83,11 @@ function UserPage() {
               </Col>
               <Col md={6} xs={12}>
                 <StyledActionBlock>
+                  <AddPost />
                   {post
                     .filter((post: any) => post.userId === String(id))
-                    .map((item: { body: string | undefined }, index: number) => {
-                      return <ActionItem body={item.body} key={index} />
+                    .map((item: { body: string | undefined; createdAt: any }, index: number) => {
+                      return <ActionItem body={item.body} key={index} data={item.createdAt} />
                     })}
                 </StyledActionBlock>
               </Col>

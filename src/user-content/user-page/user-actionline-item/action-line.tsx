@@ -1,4 +1,6 @@
 import React from 'react'
+import Button from '../../../ui-library/button-click/button'
+import styled from 'styled-components'
 
 interface ActionitemProps {
   header?: string
@@ -6,18 +8,35 @@ interface ActionitemProps {
   footer?: string
   data?: any
 }
-
+const StyledButtonsDelete = styled.div`
+  button {
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    margin-left: 1em;
+    display: inline;
+    position: absolute;
+    right: 1em;
+    top: 0em;
+  }
+`
+const StyledLentaAction = styled.div`
+  position: relative;
+`
 function ActionItem({ header, body, footer, data }: ActionitemProps) {
   return (
     <div>
       <div>{header}</div>
       <hr />
-      <div>{body}</div>
+      <StyledLentaAction>
+        {body}
+        <StyledButtonsDelete>
+          <Button message='-' />
+        </StyledButtonsDelete>
+      </StyledLentaAction>
+      <span>{data}</span>
       <hr />
-      <div>
-        {footer}
-        <span>{data}</span>
-      </div>
+      <div>{footer}</div>
     </div>
   )
 }
