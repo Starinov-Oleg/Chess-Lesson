@@ -19,13 +19,21 @@ const StyledUserPeople = styled.div`
 function UserPeopleBlock({ spanlength, spancount, childFriends, childCouches }: UserPeopleBlockProps) {
   return (
     <StyledUserPeople>
-      <H3 message='Friends' primary />
-      All friends and couches:
-      <span>{spanlength}</span>
-      Friends:<span>{spancount}</span>
-      {childFriends}
-      <H3 message='Couches' primary />
-      {childCouches}
+      <div>
+        <H3 message='Friends' primary />
+        <div>
+          All friends and couches:
+          <span>{spanlength}</span>
+        </div>
+        <div>
+          Friends:<span>{spancount}</span>
+        </div>
+        {childFriends}
+      </div>
+      <div>
+        <H3 message='Couches' primary />
+        {childCouches}
+      </div>
     </StyledUserPeople>
   )
 }

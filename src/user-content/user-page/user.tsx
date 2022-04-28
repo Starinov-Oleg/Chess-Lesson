@@ -12,6 +12,8 @@ import axios from 'axios'
 import styled from 'styled-components'
 import AddPost from './user-action/add-post/add-post'
 import { format } from 'date-fns'
+import Popup from '../../common/popup-message/popup-message'
+
 const StyledActionBlock = styled.div`
   margin-top: 3%;
   border-radius: 10px;
@@ -19,6 +21,7 @@ const StyledActionBlock = styled.div`
 `
 function UserPage() {
   const { id } = useParams()
+
   useEffect(() => {
     axios.get(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${id}/post`).then(response => {
       setPost(response.data)
@@ -32,6 +35,10 @@ function UserPage() {
   const [showResults, setShowResults] = useState(false)
   const [post, setPost] = useState<any[]>([])
   const [user, setUser] = useState([])
+  const [isOpen, setIsOpen] = useState(false)
+  const togglePopup = () => {
+    setIsOpen(!isOpen)
+  }
   const length = user.length
   const peopleFriends = user
     .filter((user: { group: string }) => user.group === 'friends')
@@ -47,6 +54,7 @@ function UserPage() {
     axios.delete(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${userId}/post/${id}`).then(() => {
       // const del = post.filter(item => item.id !== id)
       setPost(post.filter(item => item.id !== id))
+      setIsOpen(!isOpen)
     })
   }
 
@@ -121,3 +129,29 @@ function UserPage() {
 }
 
 export default UserPage
+
+/**
+                             {isOpen && (
+                              <Popup
+                                content={
+                                  <>
+                                    <b>Delete post</b>
+                                    <p>Post will deleted. This action is irreversible.</p>
+                                    <Button
+                                      message='Delete'
+                                      onClick={() => {
+                                        removeData(item.id, item.userId)
+                                      }}
+                                    />
+                                    <Button
+                                      message='Canchel'
+                                      onClick={() => {
+                                        removeData(item.id, item.userId)
+                                      }}
+                                    />
+                                  </>
+                                }
+                                handleClose={togglePopup}
+                              />
+                            )}
+ */
