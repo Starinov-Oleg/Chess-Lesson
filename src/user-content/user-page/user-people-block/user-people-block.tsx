@@ -1,6 +1,7 @@
 import React from 'react'
 import H3 from '../../../ui-library/h3/h3'
 import styled from 'styled-components'
+import { Container } from 'react-bootstrap'
 
 interface UserPeopleBlockProps {
   spanlength: number
@@ -10,7 +11,7 @@ interface UserPeopleBlockProps {
   childCouches: React.ReactNode
 }
 
-const StyledUserPeople = styled.div`
+const StyledUserPeople = styled(Container)`
   margin: 3%;
   border-radius: 10px;
   border: 1px solid #ff6b08;

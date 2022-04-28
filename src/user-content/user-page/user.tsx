@@ -87,7 +87,13 @@ function UserPage() {
                   {post
                     .filter((post: any) => post.userId === String(id))
                     .map((item: { body: string | undefined; createdAt: any }, index: number) => {
-                      return <ActionItem body={item.body} key={index} data={item.createdAt} />
+                      return (
+                        <ActionItem
+                          body={item.body}
+                          key={index}
+                          data={format(new Date(item.createdAt), 'dd/MM/yyyy')}
+                        />
+                      )
                     })}
                 </StyledActionBlock>
               </Col>
