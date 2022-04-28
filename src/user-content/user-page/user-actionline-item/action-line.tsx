@@ -7,32 +7,45 @@ interface ActionitemProps {
   body?: string
   footer?: string
   data?: any
+  onClick?: any
+  id?: any
 }
 const StyledButtonsDelete = styled.div`
   button {
     width: 2rem;
     height: 2rem;
     padding: 0;
-    margin-left: 1em;
-    display: inline;
-    position: absolute;
     right: 1em;
     top: 0em;
+    display: inline;
   }
 `
 const StyledLentaAction = styled.div`
   position: relative;
 `
-function ActionItem({ header, body, footer, data }: ActionitemProps) {
+function ActionItem({ header, body, footer, data, onClick, id }: ActionitemProps) {
+  const stylebutton = {
+    width: '2rem',
+    height: '2rem',
+    padding: '0',
+    marginLeft: '1em',
+    display: 'inline',
+    position: 'absolute',
+    right: '1em',
+    top: '0em',
+  }
+
   return (
     <div>
-      <div>{header}</div>
+      <div>
+        {header}
+        {id}
+      </div>
       <hr />
       <StyledLentaAction>
         {body}
-        <StyledButtonsDelete>
-          <Button message='-' />
-        </StyledButtonsDelete>
+
+        <Button message='-' style={stylebutton} onClick={onClick} />
       </StyledLentaAction>
       <span>{data}</span>
       <hr />

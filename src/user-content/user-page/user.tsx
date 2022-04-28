@@ -31,9 +31,8 @@ function UserPage() {
 
   const [showResults, setShowResults] = useState(false)
   const [post, setPost] = useState([])
-  const [user, setUser] = useState([])
-  const friends = user.filter((user: { group: string }) => user.group === 'friends')
-  const count = friends.length
+  const [user, setUser] = useState<any[]>([])
+  const [deletepost, setDelete] = useState<any[]>([])
   const length = user.length
   const peopleFriends = user
     .filter((user: { group: string }) => user.group === 'friends')
@@ -45,7 +44,14 @@ function UserPage() {
     .map((item: { name: string; avatar: string; key: number; id: number }, index: number) => {
       return <CommonPeople fullname={item.name} avatar={item.avatar} key={index} user={item.id} />
     })
+  const removeData = (id: any | never) => {
+    axios.delete(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${id}/post/${id}`).then(() => {
+      const del = deletepost.filter((post: any) => post.id === String(id))
+      setDelete(del)
+    })
+  }
 
+  const count = peopleFriends.length
   return user
     .filter((user: any) => user.id === String(id))
     .map(
@@ -86,12 +92,15 @@ function UserPage() {
                   <AddPost />
                   {post
                     .filter((post: any) => post.userId === String(id))
-                    .map((item: { body: string | undefined; createdAt: any }, index: number) => {
+                    .map((item: { body: string | undefined; createdAt: any; id: number }, index: number) => {
                       return (
                         <ActionItem
                           body={item.body}
                           key={index}
                           data={format(new Date(item.createdAt), 'dd/MM/yyyy')}
+                          onClick={() => {
+                            window.confirm('Your message') && removeData(item.id)
+                          }}
                         />
                       )
                     })}
