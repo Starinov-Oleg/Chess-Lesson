@@ -10,16 +10,7 @@ interface ActionitemProps {
   onClick?: any
   id?: any
 }
-const StyledButtonsDelete = styled.div`
-  button {
-    width: 2rem;
-    height: 2rem;
-    padding: 0;
-    right: 1em;
-    top: 0em;
-    display: inline;
-  }
-`
+
 const StyledLentaAction = styled.div`
   position: relative;
 `
@@ -44,7 +35,6 @@ function ActionItem({ header, body, footer, data, onClick, id }: ActionitemProps
       <hr />
       <StyledLentaAction>
         {body}
-
         <Button message='-' style={stylebutton} onClick={onClick} />
       </StyledLentaAction>
       <span>{data}</span>

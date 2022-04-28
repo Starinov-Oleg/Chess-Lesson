@@ -1,8 +1,9 @@
 import React from 'react'
+import { Container } from 'react-bootstrap'
 import styled from 'styled-components'
 import Button from '../../../../ui-library/button-click/button'
 
-const StyledTextArea = styled.div`
+const StyledTextArea = styled(Container)`
   textarea {
     width: 98%;
     margin: 1rem;

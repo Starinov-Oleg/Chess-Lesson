@@ -30,9 +30,8 @@ function UserPage() {
   }, [id])
 
   const [showResults, setShowResults] = useState(false)
-  const [post, setPost] = useState([])
-  const [user, setUser] = useState<any[]>([])
-  const [deletepost, setDelete] = useState<any[]>([])
+  const [post, setPost] = useState<any[]>([])
+  const [user, setUser] = useState([])
   const length = user.length
   const peopleFriends = user
     .filter((user: { group: string }) => user.group === 'friends')
@@ -44,14 +43,15 @@ function UserPage() {
     .map((item: { name: string; avatar: string; key: number; id: number }, index: number) => {
       return <CommonPeople fullname={item.name} avatar={item.avatar} key={index} user={item.id} />
     })
-  const removeData = (id: any | never) => {
-    axios.delete(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${id}/post/${id}`).then(() => {
-      const del = deletepost.filter((post: any) => post.id === String(id))
-      setDelete(del)
+  const removeData = (id: any | never, userId: any | never) => {
+    axios.delete(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${userId}/post/${id}`).then(() => {
+      // const del = post.filter(item => item.id !== id)
+      setPost(post.filter(item => item.id !== id))
     })
   }
 
   const count = peopleFriends.length
+
   return user
     .filter((user: any) => user.id === String(id))
     .map(
@@ -65,20 +65,21 @@ function UserPage() {
           body: string
           length: number
           spancount: number
+          id: number
         },
         index: number
       ) => (
         <section key={index}>
           <Container fluid className='p-0 l-0'>
             <Row>
-              <Col md={12} xs={12}>
+              <Col md={12} sm={12} xs={12}>
                 <UserHeader cover={user.image_profile} photo={user.avatar} />
                 <Button message='Chess Report Card' onClick={() => setShowResults(!showResults)} />
                 {showResults ? <ChessReportCard /> : null}
               </Col>
             </Row>
             <Row>
-              <Col md={6} xs={12}>
+              <Col md={12} xl={6} sm={12} xs={12}>
                 <UserProfile messagename={user.name} />
                 <UserPeopleBlock
                   spanlength={length}
@@ -87,23 +88,29 @@ function UserPage() {
                   childCouches={<Row>{peopleCouches}</Row>}
                 />
               </Col>
-              <Col md={6} xs={12}>
+              <Col md={12} xl={6} sm={12} xs={12}>
                 <StyledActionBlock>
                   <AddPost />
                   {post
                     .filter((post: any) => post.userId === String(id))
-                    .map((item: { body: string | undefined; createdAt: any; id: number }, index: number) => {
-                      return (
-                        <ActionItem
-                          body={item.body}
-                          key={index}
-                          data={format(new Date(item.createdAt), 'dd/MM/yyyy')}
-                          onClick={() => {
-                            window.confirm('Your message') && removeData(item.id)
-                          }}
-                        />
-                      )
-                    })}
+                    .map(
+                      (
+                        item: { body: string | undefined; createdAt: any; id: number; userId: number },
+                        index: number
+                      ) => {
+                        return (
+                          <ActionItem
+                            body={item.body}
+                            key={index}
+                            data={format(new Date(item.createdAt), 'dd/MM/yyyy')}
+                            onClick={() => {
+                              window.confirm('Your message') && removeData(item.id, item.userId)
+                            }}
+                            id={item.id}
+                          />
+                        )
+                      }
+                    )}
                 </StyledActionBlock>
               </Col>
             </Row>
