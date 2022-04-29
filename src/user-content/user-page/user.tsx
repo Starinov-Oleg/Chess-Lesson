@@ -121,6 +121,8 @@ function UserPage() {
                             />
                             {isOpen && (
                               <Popup
+                                content_title='Delete Post'
+                                content_body='Post will deleted. This action is irreversible.'
                                 content={
                                   <>
                                     <Button

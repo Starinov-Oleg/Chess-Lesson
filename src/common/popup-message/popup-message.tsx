@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import Button from '../../ui-library/button-click/button'
 
 interface PopupProps {
   content: any
+  content_title: string
+  content_body: string
 }
 
 const StyledPopupBox = styled.div`
@@ -13,6 +14,7 @@ const StyledPopupBox = styled.div`
   height: 100vh;
   top: 0;
   left: 0;
+  z-index: 9999;
 `
 const StyledBox = styled.div`
   position: relative;
@@ -28,12 +30,12 @@ const StyledBox = styled.div`
   overflow: auto;
 `
 
-function Popup({ content }: PopupProps) {
+function Popup({ content, content_title, content_body }: PopupProps) {
   return (
     <StyledPopupBox>
       <StyledBox>
-        <b>Delete post</b>
-        <p>Post will deleted. This action is irreversible.</p>
+        <b>{content_title}</b>
+        <p>{content_body}</p>
         {content}
       </StyledBox>
     </StyledPopupBox>

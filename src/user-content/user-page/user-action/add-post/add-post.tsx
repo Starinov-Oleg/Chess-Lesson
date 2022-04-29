@@ -11,7 +11,7 @@ const StyledTextArea = styled(Container)`
 `
 const StyledAddPost = styled.div`
   button {
-    width: 12rem;
+    width: 10em;
   }
 `
 function AddPost() {

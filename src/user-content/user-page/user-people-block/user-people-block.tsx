@@ -1,7 +1,6 @@
 import React from 'react'
 import H3 from '../../../ui-library/h3/h3'
 import styled from 'styled-components'
-import { Container } from 'react-bootstrap'
 
 interface UserPeopleBlockProps {
   spanlength: number
