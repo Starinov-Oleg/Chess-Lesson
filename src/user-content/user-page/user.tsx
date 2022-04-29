@@ -1,25 +1,22 @@
 import React, { useState, useEffect } from 'react'
-
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchData, itemsSelector } from '../../redux/slicer/user-slicer'
-import { fetchData1, postSelector } from '../../redux/slicer/user-activity-slicer'
-
-import page from './user-page.module.css'
+import { Col, Container, Row } from 'react-bootstrap'
+import UserProfile from './use-profile/user-profile'
+import UserPeopleBlock from './user-people-block/user-people-block'
+import CommonPeople from '../../common/commpon-people-block/common-people'
 import UserHeader from './user-header-block/user-header'
 import ActionItem from './user-actionline-item/action-line'
-import H3 from '../../ui-library/h3/h3'
 import { useParams } from 'react-router-dom'
-import CommonFriends from '../../common/common-friends-block/common-friends'
-import CommonCouch from '../../common/common-couch-block/common-couch'
 import ChessReportCard from '../chess-report-card/chess-report-card'
 import Button from '../../ui-library/button-click/button'
 import axios from 'axios'
+import styled from 'styled-components'
 
+const StyledActionBlock = styled.div`
+  margin-top: 3%;
+  border-radius: 10px;
+  border: 1px solid #ff6b08;
+`
 function UserPage() {
-  const dispatch = useDispatch()
-  const dispatch1 = useDispatch()
-  const { users } = useSelector(itemsSelector)
-  const { posts } = useSelector(postSelector)
   const { id } = useParams()
   useEffect(() => {
     axios.get(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${id}/post`).then(response => {
@@ -32,63 +29,67 @@ function UserPage() {
   }, [id])
 
   const [showResults, setShowResults] = useState(false)
-  const friends = users.filter((user: { group: string }) => user.group === 'friends')
   const [post, setPost] = useState([])
   const [user, setUser] = useState([])
+  const friends = user.filter((user: { group: string }) => user.group === 'friends')
   const count = friends.length
-
+  const length = user.length
+  const peopleFriends = user
+    .filter((user: { group: string }) => user.group === 'friends')
+    .map((item: { name: string; avatar: string; key: number; id: number }, index: number) => {
+      return <CommonPeople fullname={item.name} avatar={item.avatar} key={index} user={item.id} />
+    })
+  const peopleCouches = user
+    .filter((user: { group: string }) => user.group === 'couch')
+    .map((item: { name: string; avatar: string; key: number; id: number }, index: number) => {
+      return <CommonPeople fullname={item.name} avatar={item.avatar} key={index} user={item.id} />
+    })
   return user
     .filter((user: any) => user.id === String(id))
     .map(
       (
-        user: { group: string; name: string; followed: boolean; avatar: string | number; body: string },
+        user: {
+          group: string
+          name: string
+          followed: boolean
+          avatar: string | number
+          image_profile: string | number
+          body: string
+          length: number
+          spancount: number
+        },
         index: number
       ) => (
         <section key={index}>
-          <div className={page.page}>
-            <div className='row'>
-              <div className='col-md-12 col-12 '>
-                <UserHeader cover={user.avatar} photo={user.avatar} />
+          <Container fluid className='p-0 l-0'>
+            <Row>
+              <Col md={12} xs={12}>
+                <UserHeader cover={user.image_profile} photo={user.avatar} />
                 <Button message='Chess Report Card' onClick={() => setShowResults(!showResults)} />
                 {showResults ? <ChessReportCard /> : null}
-              </div>
-              <div className='col-md-6 col-12'>
-                <div className={page.profile}>
-                  <div className={page.profiletext}>
-                    <H3 message={user.name} />
-                    <H3 message={`Win:`} primary />
-                    <H3 message={`Lose:`} primary />
-                  </div>
-                  <div className={page.settings}></div>
-                </div>
-                <div className={page.people}>
-                  <div className={page.friends}>
-                    <H3 message='Friends' primary />
-                    <div className={page.more}>
-                      All friends and couches:<span>{users.length}</span>
-                    </div>
-                    <div className={page.totalcount}>
-                      Friends:<span>{count}</span>
-                    </div>
-                    <CommonFriends />
-                  </div>
-                  <div className={page.coaches}>
-                    <H3 message='Couches' primary />
-                    <CommonCouch />
-                  </div>
-                </div>
-              </div>
-              <div className='col-md-6 col-12 '>
-                <div className={page.actionsline}>
+              </Col>
+            </Row>
+            <Row>
+              <Col md={6} xs={12}>
+                <UserProfile messagename={user.name} />
+                <UserPeopleBlock
+                  spanlength={length}
+                  spancount={count}
+                  childFriends={<Row>{peopleFriends}</Row>}
+                  childCouches={<Row>{peopleCouches}</Row>}
+                />
+              </Col>
+              <Col md={6} xs={12}>
+                <StyledActionBlock>
                   {post
                     .filter((post: any) => post.userId === String(id))
                     .map((item: { body: string | undefined }, index: number) => {
                       return <ActionItem body={item.body} key={index} />
                     })}
-                </div>
-              </div>
-            </div>
-          </div>
+                </StyledActionBlock>
+              </Col>
+            </Row>
+          </Container>
         </section>
       )
     )
