@@ -2,25 +2,36 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 import Footer from '../main/footer/Footer'
 import Header from './main-pages/Header'
-import pages from './pages.module.css'
+import { Col, Row, Container } from 'react-bootstrap'
+import styled from 'styled-components'
+
+const StyledPages = styled.div`
+  background-color: #a4c8e7;
+  a {
+    text-decoration: none;
+  }
+`
+const StyledColOutlet = styled(Col)`
+  background-color: white;
+`
 interface PagesProps {
   navlinkItems: string
 }
 function Pages({ navlinkItems }: PagesProps) {
   return (
-    <div className={`${pages.pages}`}>
-      <div className='container-fluid'>
-        <div className='row'>
-          <div className='col-lg-2 col-md-3 col-sm-3'>
+    <StyledPages>
+      <Container fluid>
+        <Row>
+          <Col lg={2} md={3} sm={3}>
             <Header navlinkItems={navlinkItems} />
-          </div>
-          <div className={`col-lg-10 col-md-9 col-sm-9 col-12 ${pages.color}`}>
+          </Col>
+          <StyledColOutlet lg={10} md={9} sm={9} xs={12}>
             <Outlet />
-          </div>
-        </div>
-      </div>
+          </StyledColOutlet>
+        </Row>
+      </Container>
       <Footer />
-    </div>
+    </StyledPages>
   )
 }
 

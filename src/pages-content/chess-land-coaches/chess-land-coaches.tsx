@@ -1,23 +1,33 @@
-import chesscoaches from './chess-land-coaches.module.css'
 import CoachBlock from './coaches-block/coaches-block'
 import About from './coaches-about/coaches-about'
+import { Col, Row } from 'react-bootstrap'
+import styled from 'styled-components'
 
+const StyledChessCochess = styled.div`
+  min-height: 100vh;
+`
+const StyledChessCoachessStart = styled.div`
+  text-align: left;
+  background-color: aliceblue;
+  margin: 1rem 0rem 1rem;
+  border-radius: 10px;
+`
 function ChessLandCoaches() {
   return (
     <section className='chesscoaches'>
-      <div className={chesscoaches.chesscoaches}>
-        <div className='row'>
-          <div className='col-md-8 col-12'>
+      <StyledChessCochess>
+        <Row>
+          <Col md={8} xs={12}>
             <CoachBlock message='Chess Land for coaches and parents' textMessage='Here text about couching' />
             <CoachBlock message='Coaches answer on question' textMessage='Here text about couching' />
-          </div>
-          <div className='col-md-4 col-12'>
-            <div className={chesscoaches.start}>
+          </Col>
+          <Col md={4} xs={12}>
+            <StyledChessCoachessStart>
               <About message='Become a Member of the Chess Land' messagebutton='JOIN FOR FREE' />
-            </div>
-          </div>
-        </div>
-      </div>
+            </StyledChessCoachessStart>
+          </Col>
+        </Row>
+      </StyledChessCochess>
     </section>
   )
 }

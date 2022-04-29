@@ -1,15 +1,52 @@
 import React, { useState, Fragment } from 'react'
-import menuitem from './menu-item.module.css'
 import { NavLink, To } from 'react-router-dom'
 import Button from '../../../ui-library/button-click/button'
 import SubMenuList from '../submenu-list/submenu-list'
+import styled from 'styled-components'
+
 interface MenuItemProps {
   navlinkItems: any
   name?: string
 }
 
+const StyledLog = styled.img`
+  width: 2rem;
+`
+const StyledUlDropDownMenu = styled.ul`
+  list-style-type: none;
+  padding: 0;
+  text-align: left;
+`
+const StyledNavLink = styled(NavLink)`
+  font-family: 'Mochiy';
+  font-size: 1.2rem;
+  color: white;
+  text-align: left;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  &:focus,
+  &:hover,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
+  text-decoration: ${props => {
+    console.log(props.style)
+    return props.style ? isActive => (isActive ? 'underline' : 'none') : 'none'
+  }};
+  &:hover {
+    text-decoration: underline;
+  }
+  &[aria-current] {
+    color: gold;
+  }
+  @media (max-width: 1256px) {
+    width: auto;
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+`
 function MenuItem({ navlinkItems, name }: MenuItemProps) {
-  const stylebutton = { width: '2rem', height: '2rem', padding: '0', marginLeft: '1em', display: 'inline' }
   const [showmenu, setMenu] = useState(false)
 
   function toggleButton() {
@@ -17,7 +54,7 @@ function MenuItem({ navlinkItems, name }: MenuItemProps) {
     else setMenu(false)
   }
   return (
-    <ul className={menuitem.dropdownmenu}>
+    <StyledUlDropDownMenu>
       {navlinkItems.map(
         (navlinkItem: {
           id: { toString: () => React.Key | null | undefined }
@@ -28,18 +65,13 @@ function MenuItem({ navlinkItems, name }: MenuItemProps) {
         }) => (
           <Fragment key={navlinkItem.id.toString()}>
             <li className='nav-item submenu-control'>
-              <NavLink
-                to={navlinkItem.href}
-                className={`${menuitem.link} `}
-                style={({ isActive }) => ({
-                  color: isActive ? 'gold' : 'white',
-                })}>
-                <img src={navlinkItem.icon} className={menuitem.icon} alt={name} />
+              <StyledNavLink to={navlinkItem.href}>
+                <StyledLog src={navlinkItem.icon} alt={name} />
                 {navlinkItem.name}
-              </NavLink>
+              </StyledNavLink>
               {navlinkItem.submenu ? (
                 <>
-                  <Button message='+' style={stylebutton} onClick={() => toggleButton()} />
+                  <Button message='+' onClick={() => toggleButton()} />
                   {showmenu ? <SubMenuList navlinkItems={navlinkItem} /> : null}
                 </>
               ) : null}
@@ -47,7 +79,7 @@ function MenuItem({ navlinkItems, name }: MenuItemProps) {
           </Fragment>
         )
       )}
-    </ul>
+    </StyledUlDropDownMenu>
   )
 }
 

@@ -21,8 +21,10 @@ const StyledButton = styled(NavLink)`
   background-color: #ff6b08;
   border: 1px solid #f2bd9f;
   text-shadow: 0px 1px 0px #662828;
-  @media (max-width: 512px) {
+  @media (max-width: 1693px) {
     width: auto;
+    padding: 10px 12px;
+    font-size: 20px;
   }
   &:hover {
     background-color: #f2bd9f;

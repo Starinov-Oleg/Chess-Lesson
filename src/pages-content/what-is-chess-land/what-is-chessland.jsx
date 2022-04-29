@@ -1,23 +1,32 @@
 import React from 'react'
-import whatis from './what-is-chessland.module.css'
 import H3 from '../../ui-library/h3/h3'
+import { Col, Row, Container } from 'react-bootstrap'
+import styled from 'styled-components'
+
+const StyledBody = styled.div`
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: left;
+  font-size: 1rem;
+  font-family: 'Mochiy';
+`
 function WhatIsChessland() {
   return (
     <section className='whatis'>
-      <div className={whatis.whatis}>
-        <div className='row'>
-          <div className='col-md-12 col-12'>
+      <Container>
+        <Row>
+          <Col md={12} xs={12}>
             <H3 message='What is Chess Land?' primary />
-            <div className={whatis.body}>
+            <StyledBody>
               <p>Here idea about ChessLand</p>
               <ul>
                 <li>1</li>
                 <li>2</li>
               </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+            </StyledBody>
+          </Col>
+        </Row>
+      </Container>
     </section>
   )
 }

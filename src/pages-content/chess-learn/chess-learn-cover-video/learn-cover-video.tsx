@@ -1,13 +1,16 @@
-import cover from './learn-cover-video.module.css'
 import H1 from '../../../ui-library/h1/h1'
 import picture from '../../../assets/pages/chess-learn/learn-video.jpg'
+import styled from 'styled-components'
+
+const StyledImg = styled.img`
+  width: 100%;
+`
 function Cover() {
   return (
-    <div className={cover.display}>
+    <div>
       <H1 message='Chose video' primary />
-      <img
+      <StyledImg
         src={picture}
-        className={cover.picture}
         alt='video here <a href=https://www.freepik.com/vectors/background>Background vector created by pch.vector - www.freepik.com</a>'
       />
     </div>

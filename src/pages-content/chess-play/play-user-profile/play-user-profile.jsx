@@ -1,13 +1,22 @@
 import React from 'react'
-import playprofile from './play-user-profile.module.css'
 import CardSocial from '../../../ui-library/card-social/card-social'
 import picture from '../../../assets/pages/chess-play/user.png'
+import styled from 'styled-components'
 
+const StyledPlayProfile = styled.div`
+  background-color: aliceblue;
+  border-radius: 10px;
+`
+const StyledPlayFlex = styled.div`
+  display: flex;
+  text-align: left;
+  flex-wrap: wrap;
+`
 function PlayProfile() {
   return (
     <section className='playprofile'>
-      <div className={playprofile.playprofile}>
-        <div className={playprofile.flex}>
+      <StyledPlayProfile>
+        <StyledPlayFlex>
           <CardSocial
             fullname='Rival'
             message1='-'
@@ -18,8 +27,8 @@ function PlayProfile() {
             showstatistic
             src={picture}
           />
-        </div>
-      </div>
+        </StyledPlayFlex>
+      </StyledPlayProfile>
     </section>
   )
 }

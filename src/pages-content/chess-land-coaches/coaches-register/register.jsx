@@ -1,6 +1,6 @@
 import React from 'react'
-import register from './register.module.css'
 import Form from './register-form/form'
+import { Col, Row, Container } from 'react-bootstrap'
 
 function onSubmit(data) {
   alert(JSON.stringify(data))
@@ -10,13 +10,13 @@ function onSubmit(data) {
 function RegisterCouch() {
   return (
     <section>
-      <div className={register.register}>
-        <div className='container'>
-          <div className='col-md-12 col-12'>
+      <Container>
+        <Row>
+          <Col md={12} xs={12}>
             <Form onSubmit={onSubmit} />
-          </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Container>
     </section>
   )
 }
