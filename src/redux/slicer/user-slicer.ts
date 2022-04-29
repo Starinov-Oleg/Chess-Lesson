@@ -1,15 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
 
-// initial state
 export const initialState = {
   loading: false,
   error: false,
-  // isAuth: false,
   users: [],
 }
 
-// our slice
 const userSlice = createSlice({
   name: 'users',
   initialState,
@@ -22,7 +19,6 @@ const userSlice = createSlice({
       state.loading = false
       state.error = false
       state.users = payload
-      // state.isAuth = true
     },
     setError: state => {
       state.error = true
@@ -37,7 +33,8 @@ export const itemsSelector = (state: { users: any }) => state.users
 export default userSlice.reducer
 
 const api = axios.create({
-  baseURL: 'https://reqres.in/api',
+  //baseURL: 'https://reqres.in/api',
+  baseURL: 'https://62622400d5bd12ff1e78dbfd.mockapi.io/api',
   withCredentials: false,
   headers: {
     'Accept': 'application/json',
@@ -45,16 +42,15 @@ const api = axios.create({
   },
 })
 
-// fetch all items
 export function fetchData() {
-  return async (dispatch: any, id: any) => {
+  return (dispatch: any, id: number) => {
     api
       .get(`/users/?${id}`)
       .then(response => {
-        dispatch(setItems(response.data.data))
+        dispatch(setItems(response.data))
       })
-      .catch(er => {
-        dispatch(setError())
+      .catch(response => {
+        return Promise.reject(response.data)
       })
   }
 }

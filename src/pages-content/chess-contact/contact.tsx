@@ -1,7 +1,7 @@
 import contact from './contact.module.css'
 import H3 from '../../ui-library/h3/h3'
 import CommonFriends from '../../common/common-friends-block/common-friends'
-import CouchContainer from '../../common/couch-block/couch-container'
+import CommonCouch from '../../common/common-couch-block/common-couch'
 import H1 from '../../ui-library/h1/h1'
 import { MarginStyled, MarginBottom } from '../../common/styled-components/padding-margin.styled'
 
@@ -29,7 +29,7 @@ function Contact({ cardItems }: CardProps) {
         <div className={`${contact.align}`}>
           <H3 message='Introduce With Coaches' primary />
           <div className={contact.alignBlock}>
-            <CouchContainer />
+            <CommonFriends />
           </div>
           <H3 message='Your Friends' colorBlack primary />
           <div className={contact.alignBlock}>
