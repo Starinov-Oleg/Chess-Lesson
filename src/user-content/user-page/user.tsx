@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import UserProfile from './use-profile/user-profile'
 import UserPeopleBlock from './user-people-block/user-people-block'
@@ -19,6 +19,7 @@ const StyledActionBlock = styled.div`
   border-radius: 10px;
   border: 1px solid #ff6b08;
 `
+
 function UserPage() {
   const { id } = useParams()
 
@@ -40,6 +41,7 @@ function UserPage() {
     setIsOpen(!isOpen)
   }
   const length = user.length
+
   const peopleFriends = user
     .filter((user: { group: string }) => user.group === 'friends')
     .map((item: { name: string; avatar: string; key: number; id: number }, index: number) => {
@@ -107,15 +109,37 @@ function UserPage() {
                         index: number
                       ) => {
                         return (
-                          <ActionItem
-                            body={item.body}
-                            key={index}
-                            data={format(new Date(item.createdAt), 'dd/MM/yyyy')}
-                            onClick={() => {
-                              window.confirm('Your message') && removeData(item.id, item.userId)
-                            }}
-                            id={item.id}
-                          />
+                          <Fragment key={index}>
+                            <ActionItem
+                              body={item.body}
+                              data={format(new Date(item.createdAt), 'dd/MM/yyyy')}
+                              onClick={() => {
+                                // window.confirm('Your message') && removeData(item.id, item.userId)
+                                togglePopup()
+                              }}
+                              id={item.id}
+                            />
+                            {isOpen && (
+                              <Popup
+                                content={
+                                  <>
+                                    <Button
+                                      message='Delete'
+                                      onClick={() => {
+                                        removeData(item.id, item.userId)
+                                      }}
+                                    />
+                                    <Button
+                                      message='Canchel'
+                                      onClick={() => {
+                                        togglePopup()
+                                      }}
+                                    />
+                                  </>
+                                }
+                              />
+                            )}
+                          </Fragment>
                         )
                       }
                     )}
@@ -129,29 +153,3 @@ function UserPage() {
 }
 
 export default UserPage
-
-/**
-                             {isOpen && (
-                              <Popup
-                                content={
-                                  <>
-                                    <b>Delete post</b>
-                                    <p>Post will deleted. This action is irreversible.</p>
-                                    <Button
-                                      message='Delete'
-                                      onClick={() => {
-                                        removeData(item.id, item.userId)
-                                      }}
-                                    />
-                                    <Button
-                                      message='Canchel'
-                                      onClick={() => {
-                                        removeData(item.id, item.userId)
-                                      }}
-                                    />
-                                  </>
-                                }
-                                handleClose={togglePopup}
-                              />
-                            )}
- */

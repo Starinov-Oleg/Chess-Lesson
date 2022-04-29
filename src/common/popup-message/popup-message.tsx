@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import Button from '../../ui-library/button-click/button'
 
 interface PopupProps {
-  handleClose: any
   content: any
 }
 
@@ -27,28 +27,13 @@ const StyledBox = styled.div`
   border: 1px solid #999;
   overflow: auto;
 `
-const StyledClosedIcon = styled.span`
-  content: 'x';
-  cursor: pointer;
-  position: fixed;
-  right: calc(15% - 30px);
-  top: calc(100vh - 85vh - 33px);
-  background: #ededed;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  line-height: 20px;
-  text-align: center;
-  border: 1px solid #999;
-  font-size: 20px;
-`
-function Popup({ handleClose, content }: PopupProps) {
+
+function Popup({ content }: PopupProps) {
   return (
     <StyledPopupBox>
       <StyledBox>
-        <StyledClosedIcon className='close-icon' onClick={handleClose}>
-          x
-        </StyledClosedIcon>
+        <b>Delete post</b>
+        <p>Post will deleted. This action is irreversible.</p>
         {content}
       </StyledBox>
     </StyledPopupBox>
