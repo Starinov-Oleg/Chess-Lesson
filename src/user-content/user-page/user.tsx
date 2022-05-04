@@ -59,9 +59,12 @@ function UserPage() {
       setIsOpen(!isOpen)
     })
   }
-
+  const addData = (id: any | never) => {
+    axios.post(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${id}/post`).then(response => {
+      setPost(post)
+    })
+  }
   const count = peopleFriends.length
-
   return user
     .filter((user: any) => user.id === String(id))
     .map(
@@ -100,7 +103,11 @@ function UserPage() {
               </Col>
               <Col md={12} xl={6} sm={12} xs={12}>
                 <StyledActionBlock>
-                  <AddPost />
+                  <AddPost
+                    onClick={() => {
+                      addData(id)
+                    }}
+                  />
                   {post
                     .filter((post: any) => post.userId === String(id))
                     .map(
@@ -114,13 +121,14 @@ function UserPage() {
                               body={item.body}
                               data={format(new Date(item.createdAt), 'dd/MM/yyyy')}
                               onClick={() => {
-                                // window.confirm('Your message') && removeData(item.id, item.userId)
                                 togglePopup()
                               }}
                               id={item.id}
                             />
+
                             {isOpen && (
                               <Popup
+                                id={item.id}
                                 content_title='Delete Post'
                                 content_body='Post will deleted. This action is irreversible.'
                                 content={

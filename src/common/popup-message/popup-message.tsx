@@ -5,6 +5,7 @@ interface PopupProps {
   content: any
   content_title: string
   content_body: string
+  id: any
 }
 
 const StyledPopupBox = styled.div`
@@ -30,11 +31,14 @@ const StyledBox = styled.div`
   overflow: auto;
 `
 
-function Popup({ content, content_title, content_body }: PopupProps) {
+function Popup({ content, content_title, content_body, id }: PopupProps) {
   return (
     <StyledPopupBox>
       <StyledBox>
-        <b>{content_title}</b>
+        <b>
+          {content_title}
+          {id}
+        </b>
         <p>{content_body}</p>
         {content}
       </StyledBox>
