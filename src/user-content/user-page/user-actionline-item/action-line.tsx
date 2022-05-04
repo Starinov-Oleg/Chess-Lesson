@@ -35,7 +35,7 @@ function ActionItem({ header, body, footer, data, onClick, id }: ActionitemProps
       <hr />
       <StyledLentaAction>
         {body}
-        <Button message='-' style={stylebutton} onClick={onClick} />
+        <Button message='-' style={stylebutton} onClick={onClick} title='delete psot' />
       </StyledLentaAction>
       <span>{data}</span>
       <hr />

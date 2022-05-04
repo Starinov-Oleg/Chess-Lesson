@@ -4,6 +4,7 @@ import styled from 'styled-components'
 interface ButtonProps {
   style?: { [key: string]: string }
   message: string
+  title?: string
   onClick?: () => void
 }
 
@@ -13,7 +14,7 @@ const StyledButton = styled.button`
   cursor: pointer;
   color: #ffffff;
   font-family: 'Mochiy';
-  padding: 10px 50px;
+  padding: 10px;
   text-decoration: none;
   box-shadow: 0px 0px 0px 0px #c25e1b;
   background-color: #ff6b08;
@@ -34,9 +35,9 @@ const StyledButton = styled.button`
   }
 `
 
-function Button({ onClick, style, message }: ButtonProps) {
+function Button({ onClick, style, message, title }: ButtonProps) {
   return (
-    <StyledButton onClick={onClick} style={style}>
+    <StyledButton onClick={onClick} style={style} title={title}>
       {message}
     </StyledButton>
   )
