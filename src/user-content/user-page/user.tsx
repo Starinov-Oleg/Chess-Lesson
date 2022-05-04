@@ -36,9 +36,17 @@ function UserPage() {
   const [showResults, setShowResults] = useState(false)
   const [post, setPost] = useState<any[]>([])
   const [user, setUser] = useState([])
-  const [isOpen, setIsOpen] = useState(false)
-  const togglePopup = () => {
-    setIsOpen(!isOpen)
+  const [isOpen, setIsOpen] = useState({ show: false, id: null })
+
+  const togglePopup = (id: any, userId: any | never) => {
+    // setPost(post.filter(item => item.id === id))
+    setIsOpen({ show: true, id })
+  }
+  const handleDeleteFalse = () => {
+    setIsOpen({
+      show: false,
+      id: null,
+    })
   }
   const length = user.length
 
@@ -55,8 +63,11 @@ function UserPage() {
   const removeData = (id: any | never, userId: any | never) => {
     axios.delete(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${userId}/post/${id}`).then(() => {
       // const del = post.filter(item => item.id !== id)
+
       setPost(post.filter(item => item.id !== id))
-      setIsOpen(!isOpen)
+      setIsOpen({ show: false, id: null })
+
+      // setIsOpen(!isOpen)
     })
   }
   const addData = (id: any | never) => {
@@ -121,12 +132,12 @@ function UserPage() {
                               body={item.body}
                               data={format(new Date(item.createdAt), 'dd/MM/yyyy')}
                               onClick={() => {
-                                togglePopup()
+                                togglePopup(item.id, item.userId)
                               }}
                               id={item.id}
                             />
 
-                            {isOpen && (
+                            {isOpen.id === item.id && (
                               <Popup
                                 id={item.id}
                                 content_title='Delete Post'
@@ -142,7 +153,7 @@ function UserPage() {
                                     <Button
                                       message='Canchel'
                                       onClick={() => {
-                                        togglePopup()
+                                        handleDeleteFalse()
                                       }}
                                     />
                                   </>
