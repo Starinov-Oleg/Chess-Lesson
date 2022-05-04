@@ -37,17 +37,22 @@ function UserPage() {
   const [post, setPost] = useState<any[]>([])
   const [user, setUser] = useState([])
   const [isOpen, setIsOpen] = useState({ show: false, id: null })
+  const [text, setText] = useState<any | undefined>(undefined)
 
   const togglePopup = (id: any, userId: any | never) => {
-    // setPost(post.filter(item => item.id === id))
     setIsOpen({ show: true, id })
   }
+
   const handleDeleteFalse = () => {
     setIsOpen({
       show: false,
       id: null,
     })
   }
+  function handleChange(event: { target: { value: any } }) {
+    setText(event.target.value)
+  }
+
   const length = user.length
 
   const peopleFriends = user
@@ -62,17 +67,15 @@ function UserPage() {
     })
   const removeData = (id: any | never, userId: any | never) => {
     axios.delete(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${userId}/post/${id}`).then(() => {
-      // const del = post.filter(item => item.id !== id)
-
       setPost(post.filter(item => item.id !== id))
       setIsOpen({ show: false, id: null })
-
-      // setIsOpen(!isOpen)
     })
   }
-  const addData = (id: any | never) => {
+  const addData = (id: any) => {
     axios.post(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${id}/post`).then(response => {
-      setPost(post)
+      setPost([...post, response.data])
+
+      setText('')
     })
   }
   const count = peopleFriends.length
@@ -118,6 +121,8 @@ function UserPage() {
                     onClick={() => {
                       addData(id)
                     }}
+                    onChange={handleChange}
+                    value={text}
                   />
                   {post
                     .filter((post: any) => post.userId === String(id))
