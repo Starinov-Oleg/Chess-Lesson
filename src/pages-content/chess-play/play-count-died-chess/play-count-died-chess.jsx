@@ -1,12 +1,19 @@
 import React from 'react'
-import diedchess from './play-count-died-chess.module.css'
 import H3 from '../../../ui-library/h3/h3'
+import styled from 'styled-components'
+
+const HR = styled.hr`
+  color: #ff6b08;
+`
+const StyledSpan = styled.span`
+  color: blue;
+`
 function DiedChess({ name }) {
   return (
     <section>
-      <div className={diedchess.diedchess}>
-        <H3 message='Died Chess:' primary /> <span className={diedchess.color}>{name}</span>:
-        <hr className={diedchess.line} />
+      <div>
+        <H3 message='Died Chess:' primary /> <StyledSpan>{name}</StyledSpan>:
+        <HR />
       </div>
     </section>
   )

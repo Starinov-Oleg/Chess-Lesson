@@ -1,17 +1,23 @@
-import coachesblock from './coaches-block.module.css'
 import H1 from '../../../ui-library/h1/h1'
+import styled from 'styled-components'
 
 interface CoachBlockProps {
   message: string
   textMessage: string
 }
+
+const StyledCoachesBlockBody = styled.div`
+  text-align: left;
+  font-size: 1rem;
+  font-family: 'Mochiy';
+`
 function CoachBlock({ message, textMessage }: CoachBlockProps) {
   return (
-    <div className={coachesblock.coachesblock}>
+    <div>
       <H1 message={message} primary />
-      <div className={coachesblock.body}>
+      <StyledCoachesBlockBody>
         <p>{textMessage}</p>
-      </div>
+      </StyledCoachesBlockBody>
     </div>
   )
 }

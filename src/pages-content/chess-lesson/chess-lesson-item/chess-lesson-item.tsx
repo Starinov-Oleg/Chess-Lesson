@@ -1,6 +1,7 @@
-import chesslessonitem from './chess-lesson-item.module.css'
 import H3 from '../../../ui-library/h3/h3'
 import { NavLink } from 'react-router-dom'
+import styled from 'styled-components'
+
 interface ChessLessonItemProps {
   href: string
   title: string
@@ -9,34 +10,56 @@ interface ChessLessonItemProps {
   lessons: string
   level: string
 }
+const StyledChessLessonItem = styled.div`
+  background-color: #e3f9f8;
+  margin: 1rem;
+  border-radius: 10px;
+`
+const StyledChessLessonImg = styled.img`
+  padding: 1rem;
+  width: 100%;
+`
+const StyledChessLessonContent = styled.div`
+  padding: 1rem;
+`
+const StyledChesslessonSpan = styled.span`
+  color: black;
+  font-size: 1rem;
+`
+const StyledNavLink = styled(NavLink)`
+  color: inherit;
+  text-decoration: inherit;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1rem;
+  text-align: left;
+  font-family: 'Mochiy';
+`
 function ChessLessonItem({ href, title, text, author, lessons, level }: ChessLessonItemProps) {
   return (
-    <div className={chesslessonitem.chesslessonitem}>
-      <div className={chesslessonitem.courseitem}>
-        <NavLink to={href} className={chesslessonitem.link}>
-          <div className={chesslessonitem.courseimage}>
-            <img
-              className={chesslessonitem.img}
-              src='https://images.chesscomfiles.com/uploads/v1/lesson_course/8ba0f4de-6e57-11e8-b3b5-4bc0b74cd42e.26fa16e1.320x180o.b4244f444c1b.png'
-              alt={title}
-            />
+    <StyledChessLessonItem>
+      <StyledNavLink to={href}>
+        <div>
+          <StyledChessLessonImg
+            src='https://images.chesscomfiles.com/uploads/v1/lesson_course/8ba0f4de-6e57-11e8-b3b5-4bc0b74cd42e.26fa16e1.320x180o.b4244f444c1b.png'
+            alt={title}
+          />
+        </div>
+        <StyledChessLessonContent>
+          <div>
+            <H3 message={title} primary />
+            <p>{text}</p>
+            <div>{author}</div>
           </div>
-          <div className={chesslessonitem.content}>
-            <div className={chesslessonitem.info}>
-              <H3 message={title} primary />
-              <p className={chesslessonitem.desc}>{text}</p>
-              <div className={chesslessonitem.author}>{author}</div>
-            </div>
-            <div className={chesslessonitem.moreinfo}>
-              <div className={chesslessonitem.lessoninfo}>
-                <span className={chesslessonitem.span}>{lessons}</span>
-                <span className={chesslessonitem.span}> {level}</span>
-              </div>
+          <div>
+            <div>
+              <StyledChesslessonSpan>{lessons}</StyledChesslessonSpan>
+              <StyledChesslessonSpan> {level}</StyledChesslessonSpan>
             </div>
           </div>
-        </NavLink>
-      </div>
-    </div>
+        </StyledChessLessonContent>
+      </StyledNavLink>
+    </StyledChessLessonItem>
   )
 }
 export default ChessLessonItem

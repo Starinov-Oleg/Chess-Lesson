@@ -9,20 +9,16 @@ const StyledTextArea = styled(Container)`
     margin: 1rem;
   }
 `
-const StyledAddPost = styled.div`
-  button {
-    width: 10em;
-  }
-`
+
 function AddPost() {
   return (
-    <StyledAddPost>
+    <div>
       <StyledTextArea>
         <textarea rows={3}></textarea>
       </StyledTextArea>
       <Button message='ADD' />
       <Button message='CANCHEL' />
-    </StyledAddPost>
+    </div>
   )
 }
 

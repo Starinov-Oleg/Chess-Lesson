@@ -1,18 +1,19 @@
 import Button from '../../../ui-library/button-link/button-link'
-import chesslesson1 from './chess-lesson-1.module.css'
+import { Col, Row, Container } from 'react-bootstrap'
+
 function ChessLesson1() {
   return (
-    <div className={chesslesson1.programmexampleitem}>
-      <div className='row'>
-        <div className='col-lg-8 col-12'>
-          <div className={chesslesson1.board}>Lesson</div>
-          <div className={chesslesson1.description}>Description</div>
-        </div>
-        <div className='col-lg-4 col-12'>
+    <Container>
+      <Row className='row'>
+        <Col lg={8} xs={12}>
+          <div>Lesson</div>
+          <div>Description</div>
+        </Col>
+        <Col lg={4} xs={12}>
           <Button message='Next>>' href='#' />
-        </div>
-      </div>
-    </div>
+        </Col>
+      </Row>
+    </Container>
   )
 }
 

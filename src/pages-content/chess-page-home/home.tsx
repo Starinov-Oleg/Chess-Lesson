@@ -1,13 +1,21 @@
-import home from './home.module.css'
 import H1 from '../../ui-library/h1/h1'
+import styled from 'styled-components'
 
+const StyledHome = styled.div`
+  min-height: 100vh;
+`
+const StyledHomeBody = styled.div`
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: left;
+  font-size: 1rem;
+  font-family: 'Mochiy';
+`
 function Home() {
   return (
-    <section className='home'>
-      <div className={`${home.color}  ${home.link}`}>
-        <H1 message='Chessland - Chess Club' primary />
-      </div>
-      <div className={home.body}>
+    <StyledHome>
+      <H1 message='Chessland - Chess Club' primary />
+      <StyledHomeBody>
         <p>
           Chessland is a chess club for children and their parents. Our club teaches the game of chess in after school
           time.
@@ -32,8 +40,8 @@ function Home() {
         <p>Explain how the party is arranged - from the rules of the game to the options of strategies.</p>
         <p>Interesting tasks.</p>
         <p>The history of the development of a chess game, tactical techniques in an interactive format.</p>
-      </div>
-    </section>
+      </StyledHomeBody>
+    </StyledHome>
   )
 }
 export default Home

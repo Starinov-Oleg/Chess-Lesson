@@ -1,5 +1,3 @@
-import iframe from './iframe.module.css'
-
 interface IframeProps {
   src: string
   height: string
@@ -8,7 +6,7 @@ interface IframeProps {
 }
 function Iframe({ src, height, width, title }: IframeProps) {
   return (
-    <div className={iframe.iframe}>
+    <div>
       <iframe src={src} height={height} width={width} title={title} />
     </div>
   )

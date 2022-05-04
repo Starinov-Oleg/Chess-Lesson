@@ -1,32 +1,31 @@
 import React from 'react'
-import play from './play.module.css'
 import ChessBoard from '../../chess-board-game/chess-board'
 import PlayClockTimer from './play-clock-timer/play-clock-timer'
 import PlayProfile from './play-user-profile/play-user-profile'
 import DiedChess from './play-count-died-chess/play-count-died-chess'
 import HomeLink from '../../ui-library/home-link/home-link'
+import { Col, Row, Container } from 'react-bootstrap'
+
 //import Game from '../../chess-game/game/game'
 function Play(chessplay) {
   return (
     <section className='play'>
-      <div className={play.play}>
-        <div className='container-fluid'>
-          <div className='row'>
-            <div className='col-md-3 col-12'>
-              <PlayProfile name={chessplay.name_rival} />
-            </div>
-            <div className='col-md-6 col-12'>
-              <ChessBoard />
-            </div>
-            <div className='col-md-3 col-12'>
-              <HomeLink />
-              <PlayClockTimer />
-              <DiedChess name={chessplay.name_rival} />
-              <DiedChess name={chessplay.name_you} />
-            </div>
-          </div>
-        </div>
-      </div>
+      <Container fluid>
+        <Row>
+          <Col md={3} xs={12}>
+            <PlayProfile name={chessplay.name_rival} />
+          </Col>
+          <Col md={6} xs={12}>
+            <ChessBoard />
+          </Col>
+          <Col md={3} xs={12}>
+            <HomeLink />
+            <PlayClockTimer />
+            <DiedChess name={chessplay.name_rival} />
+            <DiedChess name={chessplay.name_you} />
+          </Col>
+        </Row>
+      </Container>
     </section>
   )
 }

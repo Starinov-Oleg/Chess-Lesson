@@ -1,17 +1,22 @@
-import eventsitems from './events.module.css'
+import styled from 'styled-components'
+import { Col, Row, Container } from 'react-bootstrap'
 
 interface EventItemsProps {
   eventsItems: Object
 }
-
+const StyledEvents = styled(Container)`
+  min-height: 100vh;
+`
 function Events({ eventsItems }: EventItemsProps) {
   return (
     <section className='events'>
-      <div className={eventsitems.events}>
-        <div className='row'>
-          <div className='col-md-12 col-12'>{eventsItems}</div>
-        </div>
-      </div>
+      <StyledEvents>
+        <Row>
+          <Col md={12} xs={12}>
+            {eventsItems}
+          </Col>
+        </Row>
+      </StyledEvents>
     </section>
   )
 }
