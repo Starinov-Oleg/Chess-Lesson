@@ -36,9 +36,21 @@ function UserPage() {
   const [showResults, setShowResults] = useState(false)
   const [post, setPost] = useState<any[]>([])
   const [user, setUser] = useState([])
-  const [isOpen, setIsOpen] = useState(false)
-  const togglePopup = () => {
-    setIsOpen(!isOpen)
+  const [isOpen, setIsOpen] = useState({ show: false, id: null })
+  const [text, setText] = useState<any | undefined>(undefined)
+
+  const togglePopup = (id: any, userId: any | never) => {
+    setIsOpen({ show: true, id })
+  }
+
+  const handleDeleteFalse = () => {
+    setIsOpen({
+      show: false,
+      id: null,
+    })
+  }
+  function handleChange(event: { target: { value: any } }) {
+    setText(event.target.value)
   }
   const length = user.length
 
@@ -54,14 +66,26 @@ function UserPage() {
     })
   const removeData = (id: any | never, userId: any | never) => {
     axios.delete(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${userId}/post/${id}`).then(() => {
-      // const del = post.filter(item => item.id !== id)
       setPost(post.filter(item => item.id !== id))
-      setIsOpen(!isOpen)
+      setIsOpen({ show: false, id: null })
     })
+  }
+  const addData = (id: any) => {
+    axios
+      .post(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${id}/post`, {
+        body: text,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .then(response => {
+        setPost([...post, response.data])
+        console.log(response)
+        setText('')
+      })
   }
 
   const count = peopleFriends.length
-
   return user
     .filter((user: any) => user.id === String(id))
     .map(
@@ -100,7 +124,14 @@ function UserPage() {
               </Col>
               <Col md={12} xl={6} sm={12} xs={12}>
                 <StyledActionBlock>
-                  <AddPost />
+                  <AddPost
+                    onClick={() => {
+                      addData(id)
+                    }}
+                    onChange={handleChange}
+                    value={text}
+                    name='body'
+                  />
                   {post
                     .filter((post: any) => post.userId === String(id))
                     .map(
@@ -114,13 +145,14 @@ function UserPage() {
                               body={item.body}
                               data={format(new Date(item.createdAt), 'dd/MM/yyyy')}
                               onClick={() => {
-                                // window.confirm('Your message') && removeData(item.id, item.userId)
-                                togglePopup()
+                                togglePopup(item.id, item.userId)
                               }}
                               id={item.id}
                             />
-                            {isOpen && (
+
+                            {isOpen.id === item.id && (
                               <Popup
+                                id={item.id}
                                 content_title='Delete Post'
                                 content_body='Post will deleted. This action is irreversible.'
                                 content={
@@ -134,7 +166,7 @@ function UserPage() {
                                     <Button
                                       message='Canchel'
                                       onClick={() => {
-                                        togglePopup()
+                                        handleDeleteFalse()
                                       }}
                                     />
                                   </>
