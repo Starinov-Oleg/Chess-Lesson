@@ -5,7 +5,9 @@ interface ButtonProps {
   style?: { [key: string]: string }
   message: string
   title?: string
-  onClick?: () => void
+  onClick?: any
+  children?: React.ReactNode
+  type?: any
 }
 
 const StyledButton = styled.button`
@@ -35,10 +37,11 @@ const StyledButton = styled.button`
   }
 `
 
-function Button({ onClick, style, message, title }: ButtonProps) {
+function Button({ onClick, style, message, title, children, type }: ButtonProps) {
   return (
-    <StyledButton onClick={onClick} style={style} title={title}>
+    <StyledButton onClick={onClick} style={style} title={title} type={type}>
       {message}
+      {children}
     </StyledButton>
   )
 }
