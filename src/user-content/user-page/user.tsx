@@ -88,7 +88,10 @@ function UserPage() {
         setText('')
       })
   }
-
+  const sortMost = (id: any) => {
+    setPost(post.sort((a, b) => (a.item > b.item ? 1 : -1)))
+  }
+  const sortLatest = () => {}
   const count = peopleFriends.length
   return user
     .filter((user: any) => user.id === String(id))
@@ -130,7 +133,12 @@ function UserPage() {
                 <StyledActionBlock>
                   <StyledSearchFilterBlock>
                     <SearchPost />
-                    <FilterPost />
+                    <FilterPost
+                      onClickLatest={() => sortLatest()}
+                      onClickMost={() => {
+                        sortMost(id)
+                      }}
+                    />
                   </StyledSearchFilterBlock>
                   <AddPost
                     onClick={() => {

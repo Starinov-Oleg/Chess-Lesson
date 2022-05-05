@@ -8,7 +8,8 @@ interface CustomToggleProps {
   eventKey: any
 }
 interface Filterpostprops {
-  onClick?: any
+  onClickLatest?: any
+  onClickMost?: any
 }
 const StyledButtonContainer = styled.form`
   button {
@@ -25,7 +26,7 @@ function CustomToggle({ children, eventKey }: CustomToggleProps) {
   )
 }
 
-function FilterPost({ onClick }: Filterpostprops) {
+function FilterPost({ onClickLatest, onClickMost }: Filterpostprops) {
   return (
     <Accordion defaultActiveKey='0'>
       <Card>
@@ -35,10 +36,10 @@ function FilterPost({ onClick }: Filterpostprops) {
         <Accordion.Collapse eventKey='1'>
           <Card.Body>
             <StyledButtonContainer>
-              <Button variant='outline-success' onClick={onClick}>
+              <Button variant='outline-success' onClick={onClickLatest}>
                 latest
               </Button>
-              <Button variant='outline-warning' onClick={onClick}>
+              <Button variant='outline-warning' onClick={onClickMost}>
                 most
               </Button>
             </StyledButtonContainer>
