@@ -52,7 +52,6 @@ function UserPage() {
   function handleChange(event: { target: { value: any } }) {
     setText(event.target.value)
   }
-
   const length = user.length
 
   const peopleFriends = user
@@ -72,12 +71,20 @@ function UserPage() {
     })
   }
   const addData = (id: any) => {
-    axios.post(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${id}/post`).then(response => {
-      setPost([...post, response.data])
-
-      setText('')
-    })
+    axios
+      .post(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${id}/post`, {
+        body: text,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .then(response => {
+        setPost([...post, response.data])
+        console.log(response)
+        setText('')
+      })
   }
+
   const count = peopleFriends.length
   return user
     .filter((user: any) => user.id === String(id))
@@ -123,6 +130,7 @@ function UserPage() {
                     }}
                     onChange={handleChange}
                     value={text}
+                    name='body'
                   />
                   {post
                     .filter((post: any) => post.userId === String(id))

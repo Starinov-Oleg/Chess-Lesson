@@ -8,6 +8,7 @@ interface AddPostProps {
   onClick?: any
   onChange?: any
   value?: any
+  name?: string
 }
 const StyledTextArea = styled(Container)`
   textarea {
@@ -15,17 +16,23 @@ const StyledTextArea = styled(Container)`
     margin: 1rem;
   }
 `
-
-function AddPost({ onClick, onChange, value }: AddPostProps) {
+const StyledButtonContainer = styled(Container)`
+  button {
+    margin: 0.5rem;
+  }
+`
+function AddPost({ onClick, onChange, value, name }: AddPostProps) {
   const { handleSubmit } = useForm()
   return (
     <div>
       <form onSubmit={handleSubmit(onClick)}>
         <StyledTextArea>
-          <textarea onChange={onChange} rows={3} value={value} />
+          <textarea onChange={onChange} rows={3} value={value} name={name} />
         </StyledTextArea>
-        <Button message='ADD' />
-        <Button message='CANCHEL' />
+        <StyledButtonContainer>
+          <Button message='ADD' />
+          <Button message='CANCHEL' />
+        </StyledButtonContainer>
       </form>
     </div>
   )
