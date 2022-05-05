@@ -27,7 +27,7 @@ function AddPost({ onClick, onChange, value, name }: AddPostProps) {
     <div>
       <form onSubmit={handleSubmit(onClick)}>
         <StyledTextArea>
-          <textarea onChange={onChange} rows={3} value={value} name={name} />
+          <textarea onChange={onChange} rows={3} value={value} name={name} required />
         </StyledTextArea>
         <StyledButtonContainer>
           <Button message='ADD' />
