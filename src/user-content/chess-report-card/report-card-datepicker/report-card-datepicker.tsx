@@ -1,24 +1,43 @@
-import datepicker from './report-datepicker.module.css'
 import React, { useState } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
+import styled from 'styled-components'
 
+const StyledDatepicker = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`
+const StyledFlexItem = styled.div`
+  padding: 0.5rem;
+  DatePicker {
+    background-color: var(--global-var-color-orange);
+    border-radius: 5px;
+    border-color: var(--global-var-color-orange);
+    font-family: var(--global-var-font-mocha);
+    color: var(--global-var-color-white);
+  }
+  DatePicker:hover,
+  DatePicker:active,
+  DatePicker:visited {
+    background-color: #f2bd9f;
+    border-color: var(--global-var-color-orange);
+  }
+`
 function ReportDatepiker() {
   const [startDate, setStartDate] = useState<Date | null>(new Date('2014/02/08'))
   const [endDate, setEndDate] = useState<Date | null>(new Date('2014/02/10'))
   return (
-    <div className={datepicker.datepicker}>
-      <div className={datepicker.flexitem}>
+    <StyledDatepicker>
+      <StyledFlexItem>
         <DatePicker
           selected={startDate}
           onChange={date => setStartDate(date)}
           selectsStart
           startDate={startDate}
           endDate={endDate}
-          className={datepicker.customisedatepiker}
         />
-      </div>
-      <div className={datepicker.flexitem}>
+      </StyledFlexItem>
+      <StyledFlexItem>
         <DatePicker
           selected={endDate}
           onChange={date => setEndDate(date)}
@@ -26,10 +45,9 @@ function ReportDatepiker() {
           startDate={startDate}
           endDate={endDate}
           minDate={startDate}
-          className={datepicker.customisedatepiker}
         />
-      </div>
-    </div>
+      </StyledFlexItem>
+    </StyledDatepicker>
   )
 }
 
