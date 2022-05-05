@@ -88,11 +88,52 @@ function UserPage() {
         setText('')
       })
   }
-  const sortMost = (id: any) => {
-    setPost(post.sort((a, b) => (a.item > b.item ? 1 : -1)))
+  const sortDataPost = (id: any) => {
+    setPost([...post].sort((a, b) => (a.item > b.item ? 1 : -1)))
   }
-  const sortLatest = () => {}
+
   const count = peopleFriends.length
+
+  const postListComponent = post
+    .filter((post: any) => post.userId === String(id))
+    .map((item: { body: string | undefined; createdAt: any; id: number; userId: number }, index: number) => {
+      return (
+        <Fragment key={index}>
+          <ActionItem
+            body={item.body}
+            data={format(new Date(item.createdAt), 'dd/MM/yyyy')}
+            onClick={() => {
+              togglePopup(item.id, item.userId)
+            }}
+            id={item.id}
+          />
+
+          {isOpen.id === item.id && (
+            <Popup
+              id={item.id}
+              content_title='Delete Post'
+              content_body='Post will deleted. This action is irreversible.'
+              content={
+                <>
+                  <Button
+                    message='Delete'
+                    onClick={() => {
+                      removeData(item.id, item.userId)
+                    }}
+                  />
+                  <Button
+                    message='Canchel'
+                    onClick={() => {
+                      handleDeleteFalse()
+                    }}
+                  />
+                </>
+              }
+            />
+          )}
+        </Fragment>
+      )
+    })
   return user
     .filter((user: any) => user.id === String(id))
     .map(
@@ -134,9 +175,8 @@ function UserPage() {
                   <StyledSearchFilterBlock>
                     <SearchPost />
                     <FilterPost
-                      onClickLatest={() => sortLatest()}
-                      onClickMost={() => {
-                        sortMost(id)
+                      onClickData={() => {
+                        sortDataPost(id)
                       }}
                     />
                   </StyledSearchFilterBlock>
@@ -148,51 +188,7 @@ function UserPage() {
                     value={text}
                     name='body'
                   />
-                  {post
-                    .filter((post: any) => post.userId === String(id))
-                    .map(
-                      (
-                        item: { body: string | undefined; createdAt: any; id: number; userId: number },
-                        index: number
-                      ) => {
-                        return (
-                          <Fragment key={index}>
-                            <ActionItem
-                              body={item.body}
-                              data={format(new Date(item.createdAt), 'dd/MM/yyyy')}
-                              onClick={() => {
-                                togglePopup(item.id, item.userId)
-                              }}
-                              id={item.id}
-                            />
-
-                            {isOpen.id === item.id && (
-                              <Popup
-                                id={item.id}
-                                content_title='Delete Post'
-                                content_body='Post will deleted. This action is irreversible.'
-                                content={
-                                  <>
-                                    <Button
-                                      message='Delete'
-                                      onClick={() => {
-                                        removeData(item.id, item.userId)
-                                      }}
-                                    />
-                                    <Button
-                                      message='Canchel'
-                                      onClick={() => {
-                                        handleDeleteFalse()
-                                      }}
-                                    />
-                                  </>
-                                }
-                              />
-                            )}
-                          </Fragment>
-                        )
-                      }
-                    )}
+                  {postListComponent}
                 </StyledActionBlock>
               </Col>
             </Row>
