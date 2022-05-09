@@ -1,20 +1,25 @@
 import React from 'react'
-import passport from './report-card-passport.module.css'
 import Logo from '../../../ui-library/logo/logo'
 import H3 from '../../../ui-library/h3/h3'
 import { PaddingLeft } from '../../../common/styled-components/padding-margin.styled'
+import styled from 'styled-components'
+
+const StyledPassportProps = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`
 function ReportCardPassport() {
   return (
-    <div className={passport.passport}>
+    <StyledPassportProps>
       <Logo src='' />
-      <div className={passport.flexitem}>
+      <div>
         <PaddingLeft>
           <H3 message={`Name:${'Dung'}`} primary />
           <H3 message={`Win:${'100'}`} primary />
           <H3 message={`Lose:${'500'}`} primary />
         </PaddingLeft>
       </div>
-    </div>
+    </StyledPassportProps>
   )
 }
 
