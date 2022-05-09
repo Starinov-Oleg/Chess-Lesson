@@ -11,6 +11,8 @@ import Button from '../../ui-library/button-click/button'
 import axios from 'axios'
 import styled from 'styled-components'
 import AddPost from './user-action/add-post/add-post'
+import FilterPost from './user-action/filter-search-post/filter-post'
+import SearchPost from './user-action/filter-search-post/search-post'
 import { format } from 'date-fns'
 import Popup from '../../common/popup-message/popup-message'
 
@@ -19,7 +21,9 @@ const StyledActionBlock = styled.div`
   border-radius: 10px;
   border: 1px solid #ff6b08;
 `
-
+const StyledSearchFilterBlock = styled.div`
+  padding: 1rem;
+`
 function UserPage() {
   const { id } = useParams()
 
@@ -84,7 +88,10 @@ function UserPage() {
         setText('')
       })
   }
-
+  const sortMost = (id: any) => {
+    setPost(post.sort((a, b) => (a.item > b.item ? 1 : -1)))
+  }
+  const sortLatest = () => {}
   const count = peopleFriends.length
   return user
     .filter((user: any) => user.id === String(id))
@@ -124,6 +131,15 @@ function UserPage() {
               </Col>
               <Col md={12} xl={6} sm={12} xs={12}>
                 <StyledActionBlock>
+                  <StyledSearchFilterBlock>
+                    <SearchPost />
+                    <FilterPost
+                      onClickLatest={() => sortLatest()}
+                      onClickMost={() => {
+                        sortMost(id)
+                      }}
+                    />
+                  </StyledSearchFilterBlock>
                   <AddPost
                     onClick={() => {
                       addData(id)
