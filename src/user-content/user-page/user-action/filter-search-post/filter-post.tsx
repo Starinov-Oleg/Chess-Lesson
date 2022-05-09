@@ -2,20 +2,24 @@ import * as React from 'react'
 import { Accordion, Card, useAccordionButton, Button } from 'react-bootstrap'
 import styled from 'styled-components'
 import ButtonToggle from '../../../../ui-library/button-click/button'
+import H3 from '../../../../ui-library/h3/h3'
 
 interface CustomToggleProps {
   children: any
   eventKey: any
 }
 interface Filterpostprops {
-  onClickLatest?: any
-  onClickMost?: any
+  onClickData?: any
 }
 const StyledButtonContainer = styled.form`
   button {
     margin-left: 1rem;
   }
+  H3 {
+    display: inline-block;
+  }
 `
+
 function CustomToggle({ children, eventKey }: CustomToggleProps) {
   const decoratedOnClick = useAccordionButton(eventKey, () => console.log('totally custom!'))
 
@@ -26,7 +30,7 @@ function CustomToggle({ children, eventKey }: CustomToggleProps) {
   )
 }
 
-function FilterPost({ onClickLatest, onClickMost }: Filterpostprops) {
+function FilterPost({ onClickData }: Filterpostprops) {
   return (
     <Accordion defaultActiveKey='0'>
       <Card>
@@ -36,11 +40,9 @@ function FilterPost({ onClickLatest, onClickMost }: Filterpostprops) {
         <Accordion.Collapse eventKey='1'>
           <Card.Body>
             <StyledButtonContainer>
-              <Button variant='outline-success' onClick={onClickLatest}>
-                latest
-              </Button>
-              <Button variant='outline-warning' onClick={onClickMost}>
-                most
+              <H3 message='Filters:' primary />
+              <Button variant='outline-warning' onClick={onClickData}>
+                Data
               </Button>
             </StyledButtonContainer>
           </Card.Body>
