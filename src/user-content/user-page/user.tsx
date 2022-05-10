@@ -8,13 +8,14 @@ import ActionItem from './user-actionline-item/action-line'
 import { useParams } from 'react-router-dom'
 import ChessReportCard from '../chess-report-card/chess-report-card'
 import Button from '../../ui-library/button-click/button'
-import axios from 'axios'
 import styled from 'styled-components'
 import AddPost from './user-action/add-post/add-post'
 import FilterPost from './user-action/filter-search-post/filter-post'
 import SearchPost from './user-action/filter-search-post/search-post'
 import { format } from 'date-fns'
 import Popup from '../../common/popup-message/popup-message'
+import { getUser, getUserIdPost, addData, removeData } from '../../api/get-user-api'
+
 const StyledActionBlock = styled.div`
   margin-top: 3%;
   border-radius: 10px;
@@ -44,13 +45,8 @@ function UserPage() {
   const [search, setSearch] = useState('')
   const [searchResult, setSearchResult] = useState<any[]>([])
   useEffect(() => {
-    axios.get(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${id}/post`).then(response => {
-      setPost(response.data)
-    })
-
-    axios.get(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users`).then(response => {
-      setUser(response.data)
-    })
+    getUser(setUser)
+    getUserIdPost(setPost, id)
   }, [id])
 
   const length = user.length
@@ -65,29 +61,8 @@ function UserPage() {
     .map((item: { name: string; avatar: string; key: number; id: number }, index: number) => {
       return <CommonPeople fullname={item.name} avatar={item.avatar} key={index} user={item.id} />
     })
-  const removeData = (id: any | never, userId: any | never) => {
-    axios.delete(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${userId}/post/${id}`).then(() => {
-      setPost(post.filter(item => item.id !== id))
-      setIsOpen({ show: false, id: null })
-    })
-  }
 
-  const count = peopleFriends.length
-  const addData = (id: any) => {
-    axios
-      .post(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${id}/post`, {
-        body: text,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-      .then(response => {
-        setPost([...post, response.data])
-        console.log(response)
-        setText('')
-      })
-  }
-  const sortDataPost = (id: any) => {
+  const sortDataPost = () => {
     setPost([...post].sort((a, b) => (a.item > b.item ? 1 : -1)))
   }
 
@@ -126,7 +101,7 @@ function UserPage() {
                   <Button
                     message='Delete'
                     onClick={() => {
-                      removeData(item.id, item.userId)
+                      removeData(item.id, item.userId, setPost, setIsOpen, post)
                     }}
                   />
                   <Button
@@ -166,7 +141,7 @@ function UserPage() {
                   <Button
                     message='Delete'
                     onClick={() => {
-                      removeData(item.id, item.userId)
+                      removeData(item.id, item.userId, setPost, setIsOpen, post)
                     }}
                   />
                   <Button
@@ -213,7 +188,7 @@ function UserPage() {
                 <UserProfile messagename={user.name} />
                 <UserPeopleBlock
                   spanlength={length}
-                  spancount={count}
+                  spancount={peopleFriends.length}
                   childFriends={<Row>{peopleFriends}</Row>}
                   childCouches={<Row>{peopleCouches}</Row>}
                 />
@@ -224,13 +199,13 @@ function UserPage() {
                     <SearchPost onChange={(e: any) => searchItems(e.target.value)} />
                     <FilterPost
                       onClickData={() => {
-                        sortDataPost(id)
+                        sortDataPost()
                       }}
                     />
                   </StyledSearchFilterBlock>
                   <AddPost
                     onClick={() => {
-                      addData(id)
+                      addData(id, text, setText, setPost, post)
                     }}
                     onChange={(event: { target: { value: any } }) => {
                       setText(event.target.value)
