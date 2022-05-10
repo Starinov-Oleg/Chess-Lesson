@@ -7,6 +7,7 @@ import Button from '../../../../ui-library/button-click/button'
 interface AddPostProps {
   onClick?: any
   onChange?: any
+  onReset?: any
   value?: any
   name?: string
 }
@@ -21,7 +22,7 @@ const StyledButtonContainer = styled(Container)`
     margin: 0.5rem;
   }
 `
-function AddPost({ onClick, onChange, value, name }: AddPostProps) {
+function AddPost({ onClick, onChange, value, name, onReset }: AddPostProps) {
   const { handleSubmit } = useForm()
   return (
     <div>
@@ -31,7 +32,7 @@ function AddPost({ onClick, onChange, value, name }: AddPostProps) {
         </StyledTextArea>
         <StyledButtonContainer>
           <Button message='ADD' />
-          <Button message='CANCHEL' />
+          <Button message='CANCHEL' onClick={onReset} />
         </StyledButtonContainer>
       </form>
     </div>
