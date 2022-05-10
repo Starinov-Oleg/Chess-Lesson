@@ -14,7 +14,7 @@ import FilterPost from './user-action/filter-search-post/filter-post'
 import SearchPost from './user-action/filter-search-post/search-post'
 import { format } from 'date-fns'
 import Popup from '../../common/popup-message/popup-message'
-import { getUser, getUserIdPost, addData, removeData } from '../../api/get-user-api'
+import { getUser, getUserIdPost, addData, removeData } from '../../api/user-post-data-operation'
 
 const StyledActionBlock = styled.div`
   margin-top: 3%;
