@@ -1,12 +1,14 @@
 import * as React from 'react'
-import Button from '../../../../ui-library/button-click/button'
 
-function SearchPost() {
+interface SearchPostProps {
+  onChange?: any
+  value?: any
+}
+function SearchPost({ onChange, value }: SearchPostProps) {
   return (
-    <form className='d-flex'>
-      <input className='form-control me-2' type='search' placeholder='Search Post' aria-label='Search' />
-      <Button type='submit' message='Search' />
-    </form>
+    <div className='d-flex'>
+      <input className='form-control' placeholder='Search Post' aria-label='Search' onChange={onChange} />
+    </div>
   )
 }
 export default SearchPost

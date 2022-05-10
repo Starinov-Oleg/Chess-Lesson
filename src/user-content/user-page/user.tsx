@@ -42,7 +42,8 @@ function UserPage() {
   const [user, setUser] = useState([])
   const [isOpen, setIsOpen] = useState({ show: false, id: null })
   const [text, setText] = useState<any | undefined>(undefined)
-
+  const [search, setSearch] = useState('')
+  const [searchResult, setSearchResult] = useState<any[]>([])
   const togglePopup = (id: any, userId: any | never) => {
     setIsOpen({ show: true, id })
   }
@@ -56,6 +57,7 @@ function UserPage() {
   function handleChange(event: { target: { value: any } }) {
     setText(event.target.value)
   }
+
   const length = user.length
 
   const peopleFriends = user
@@ -94,7 +96,58 @@ function UserPage() {
 
   const count = peopleFriends.length
 
+  const searchItems = (searchValue: any) => {
+    setSearch(searchValue)
+    if (search !== '') {
+      const filteredData = post.filter(item => {
+        return Object.values(item).join('').toLowerCase().includes(search.toLowerCase())
+      })
+      setSearchResult(filteredData)
+    } else {
+      setSearchResult(post)
+    }
+  }
   const postListComponent = post
+    .filter((post: any) => post.userId === String(id))
+    .map((item: { body: string | undefined; createdAt: any; id: number; userId: number }, index: number) => {
+      return (
+        <Fragment key={index}>
+          <ActionItem
+            body={item.body}
+            data={format(new Date(item.createdAt), 'dd/MM/yyyy')}
+            onClick={() => {
+              togglePopup(item.id, item.userId)
+            }}
+            id={item.id}
+          />
+
+          {isOpen.id === item.id && (
+            <Popup
+              id={item.id}
+              content_title='Delete Post'
+              content_body='Post will deleted. This action is irreversible.'
+              content={
+                <>
+                  <Button
+                    message='Delete'
+                    onClick={() => {
+                      removeData(item.id, item.userId)
+                    }}
+                  />
+                  <Button
+                    message='Canchel'
+                    onClick={() => {
+                      handleDeleteFalse()
+                    }}
+                  />
+                </>
+              }
+            />
+          )}
+        </Fragment>
+      )
+    })
+  const postListSearchComponent = searchResult
     .filter((post: any) => post.userId === String(id))
     .map((item: { body: string | undefined; createdAt: any; id: number; userId: number }, index: number) => {
       return (
@@ -173,7 +226,7 @@ function UserPage() {
               <Col md={12} xl={6} sm={12} xs={12}>
                 <StyledActionBlock>
                   <StyledSearchFilterBlock>
-                    <SearchPost />
+                    <SearchPost onChange={(e: any) => searchItems(e.target.value)} />
                     <FilterPost
                       onClickData={() => {
                         sortDataPost(id)
@@ -188,7 +241,8 @@ function UserPage() {
                     value={text}
                     name='body'
                   />
-                  {postListComponent}
+
+                  {search.length > 1 ? postListSearchComponent : postListComponent}
                 </StyledActionBlock>
               </Col>
             </Row>
