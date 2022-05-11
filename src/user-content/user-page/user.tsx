@@ -8,13 +8,14 @@ import ActionItem from './user-actionline-item/action-line'
 import { useParams } from 'react-router-dom'
 import ChessReportCard from '../chess-report-card/chess-report-card'
 import Button from '../../ui-library/button-click/button'
-import axios from 'axios'
 import styled from 'styled-components'
 import AddPost from './user-action/add-post/add-post'
 import FilterPost from './user-action/filter-search-post/filter-post'
 import SearchPost from './user-action/filter-search-post/search-post'
 import { format } from 'date-fns'
 import Popup from '../../common/popup-message/popup-message'
+import { getUserIdPost, addData, removeData } from '../../api/user-post-data-operation'
+import useGetUser from '../../hooks/get-user-hook'
 
 const StyledActionBlock = styled.div`
   margin-top: 3%;
@@ -24,40 +25,29 @@ const StyledActionBlock = styled.div`
 const StyledSearchFilterBlock = styled.div`
   padding: 1rem;
 `
+
+const togglePopupDelete = (id: any, userId: any | never, setIsOpen: any) => {
+  setIsOpen({ show: true, id })
+}
+const handleDeleteFalse = (setIsOpen: any) => {
+  setIsOpen({
+    show: false,
+    id: null,
+  })
+}
+
 function UserPage() {
   const { id } = useParams()
-
-  useEffect(() => {
-    axios.get(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${id}/post`).then(response => {
-      setPost(response.data)
-    })
-
-    axios.get(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users`).then(response => {
-      setUser(response.data)
-    })
-  }, [id])
-
   const [showResults, setShowResults] = useState(false)
   const [post, setPost] = useState<any[]>([])
-  const [user, setUser] = useState([])
   const [isOpen, setIsOpen] = useState({ show: false, id: null })
   const [text, setText] = useState<any | undefined>(undefined)
   const [search, setSearch] = useState('')
   const [searchResult, setSearchResult] = useState<any[]>([])
-  const togglePopup = (id: any, userId: any | never) => {
-    setIsOpen({ show: true, id })
-  }
-
-  const handleDeleteFalse = () => {
-    setIsOpen({
-      show: false,
-      id: null,
-    })
-  }
-  function handleChange(event: { target: { value: any } }) {
-    setText(event.target.value)
-  }
-
+  useEffect(() => {
+    getUserIdPost(setPost, id)
+  }, [id])
+  const user = useGetUser()
   const length = user.length
 
   const peopleFriends = user
@@ -70,31 +60,10 @@ function UserPage() {
     .map((item: { name: string; avatar: string; key: number; id: number }, index: number) => {
       return <CommonPeople fullname={item.name} avatar={item.avatar} key={index} user={item.id} />
     })
-  const removeData = (id: any | never, userId: any | never) => {
-    axios.delete(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${userId}/post/${id}`).then(() => {
-      setPost(post.filter(item => item.id !== id))
-      setIsOpen({ show: false, id: null })
-    })
-  }
-  const addData = (id: any) => {
-    axios
-      .post(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${id}/post`, {
-        body: text,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-      .then(response => {
-        setPost([...post, response.data])
-        console.log(response)
-        setText('')
-      })
-  }
-  const sortDataPost = (id: any) => {
+
+  const sortDataPost = () => {
     setPost([...post].sort((a, b) => (a.item > b.item ? 1 : -1)))
   }
-
-  const count = peopleFriends.length
 
   const searchItems = (searchValue: any) => {
     setSearch(searchValue)
@@ -116,7 +85,7 @@ function UserPage() {
             body={item.body}
             data={format(new Date(item.createdAt), 'dd/MM/yyyy')}
             onClick={() => {
-              togglePopup(item.id, item.userId)
+              togglePopupDelete(item.id, item.userId, setIsOpen)
             }}
             id={item.id}
           />
@@ -131,13 +100,13 @@ function UserPage() {
                   <Button
                     message='Delete'
                     onClick={() => {
-                      removeData(item.id, item.userId)
+                      removeData(item.id, item.userId, setPost, setIsOpen, post)
                     }}
                   />
                   <Button
                     message='Canchel'
                     onClick={() => {
-                      handleDeleteFalse()
+                      handleDeleteFalse(setIsOpen)
                     }}
                   />
                 </>
@@ -156,7 +125,7 @@ function UserPage() {
             body={item.body}
             data={format(new Date(item.createdAt), 'dd/MM/yyyy')}
             onClick={() => {
-              togglePopup(item.id, item.userId)
+              togglePopupDelete(item.id, item.userId, setIsOpen)
             }}
             id={item.id}
           />
@@ -171,13 +140,13 @@ function UserPage() {
                   <Button
                     message='Delete'
                     onClick={() => {
-                      removeData(item.id, item.userId)
+                      removeData(item.id, item.userId, setPost, setIsOpen, post)
                     }}
                   />
                   <Button
                     message='Canchel'
                     onClick={() => {
-                      handleDeleteFalse()
+                      handleDeleteFalse(setIsOpen)
                     }}
                   />
                 </>
@@ -218,7 +187,7 @@ function UserPage() {
                 <UserProfile messagename={user.name} />
                 <UserPeopleBlock
                   spanlength={length}
-                  spancount={count}
+                  spancount={peopleFriends.length}
                   childFriends={<Row>{peopleFriends}</Row>}
                   childCouches={<Row>{peopleCouches}</Row>}
                 />
@@ -229,19 +198,23 @@ function UserPage() {
                     <SearchPost onChange={(e: any) => searchItems(e.target.value)} />
                     <FilterPost
                       onClickData={() => {
-                        sortDataPost(id)
+                        sortDataPost()
                       }}
                     />
                   </StyledSearchFilterBlock>
                   <AddPost
                     onClick={() => {
-                      addData(id)
+                      addData(id, text, setText, setPost, post)
                     }}
-                    onChange={handleChange}
+                    onChange={(event: { target: { value: any } }) => {
+                      setText(event.target.value)
+                    }}
                     value={text}
                     name='body'
+                    onReset={(event: { target: { value: any } }) => {
+                      setText('')
+                    }}
                   />
-
                   {search.length > 1 ? postListSearchComponent : postListComponent}
                 </StyledActionBlock>
               </Col>

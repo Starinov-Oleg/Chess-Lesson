@@ -2,6 +2,7 @@ import React from 'react'
 import Button from '../button-click/button'
 import Statistic from './statistic-block/statistic-block'
 import Passport from './passport-block/passport-block'
+import photo from '../../assets/pages/chess-play/user.png'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
@@ -49,7 +50,7 @@ function CardSocial({
   return (
     <div className={`card `} style={style}>
       <NavLink to={'/user/' + user + '/post'}>
-        <img src={src} alt={alt} style={styleimg} />
+        <img src={!src||src.length===0?photo:src} alt={alt} style={styleimg} />
       </NavLink>
       {showbutton ? (
         <StyledCardSocial className={`text-center `}>
