@@ -1,5 +1,4 @@
 import React from 'react'
-import photo from '../../assets/pages/chess-play/user.png'
 import CardSocial from '../../ui-library/card-social/card-social'
 import { Col } from 'react-bootstrap'
 
@@ -21,7 +20,7 @@ function CommonPeople({ fullname, followed, unfollow, follow, avatar, user }: Pe
         message2='+'
         alt='picture'
         showbutton
-        src={avatar !== 0 ? avatar : photo}
+        src={avatar}
         user={user}
         onClick1={() => {
           unfollow(user)

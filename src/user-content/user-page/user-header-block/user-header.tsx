@@ -50,7 +50,7 @@ function UserHeader(props: any) {
     <StyledUserHeader>
       <StyledHeaderCover
         style={{
-          backgroundImage: `url(${props.cover !== 0 ? props.cover : cover})`,
+          backgroundImage: `url(${!props.cover || props.cover.length === 0 ? cover : props.cover})`,
           width: '100%',
         }}>
         <Upload message='add cover' style={coverButton} onChange={onUploadCover} />
