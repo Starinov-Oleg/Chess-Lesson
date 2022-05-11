@@ -14,7 +14,8 @@ import FilterPost from './user-action/filter-search-post/filter-post'
 import SearchPost from './user-action/filter-search-post/search-post'
 import { format } from 'date-fns'
 import Popup from '../../common/popup-message/popup-message'
-import { getUser, getUserIdPost, addData, removeData } from '../../api/user-post-data-operation'
+import { getUserIdPost, addData, removeData } from '../../api/user-post-data-operation'
+import useGetUser from '../../hooks/get-user-hook'
 
 const StyledActionBlock = styled.div`
   margin-top: 3%;
@@ -39,16 +40,14 @@ function UserPage() {
   const { id } = useParams()
   const [showResults, setShowResults] = useState(false)
   const [post, setPost] = useState<any[]>([])
-  const [user, setUser] = useState([])
   const [isOpen, setIsOpen] = useState({ show: false, id: null })
   const [text, setText] = useState<any | undefined>(undefined)
   const [search, setSearch] = useState('')
   const [searchResult, setSearchResult] = useState<any[]>([])
   useEffect(() => {
-    getUser(setUser)
     getUserIdPost(setPost, id)
   }, [id])
-
+  const user = useGetUser()
   const length = user.length
 
   const peopleFriends = user

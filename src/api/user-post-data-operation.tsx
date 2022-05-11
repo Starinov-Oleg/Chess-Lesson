@@ -1,11 +1,5 @@
 import axios from 'axios'
 
-export const getUser = (setUser: any) => {
-  axios.get(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users`).then(response => {
-    setUser(response.data)
-  })
-}
-
 export const getUserIdPost = (setPost: any, id: string | undefined) => {
   axios.get(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${id}/post`).then(response => {
     setPost(response.data)

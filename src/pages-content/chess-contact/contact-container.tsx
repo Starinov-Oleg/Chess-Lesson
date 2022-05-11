@@ -1,22 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import picture from '../../assets/pages/chess-play/user.png'
 import { useSelector, RootStateOrAny } from 'react-redux'
 import Contact from './contact'
 import Card from '../../ui-library/card/card'
 import CommonPeople from '../../common/commpon-people-block/common-people'
 import { Key } from 'react'
-import axios from 'axios'
 import { Row } from 'react-bootstrap'
-import { useParams } from 'react-router-dom'
+import useGetUser from '../../hooks/get-user-hook'
 
 function ContactContainerView() {
-  const { id } = useParams()
-  const [user, setUser] = useState([])
-  useEffect(() => {
-    axios.get(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users`).then(response => {
-      setUser(response.data)
-    })
-  }, [id])
+  const user = useGetUser()
   const peopleFriends = user
     .filter((user: { group: string }) => user.group === 'friends')
     .map((item: { name: string; avatar: string; key: number; id: number }, index: number) => {
