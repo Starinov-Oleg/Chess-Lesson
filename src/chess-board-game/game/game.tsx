@@ -1,7 +1,6 @@
-import game from './game.module.css'
 import React from 'react'
 
 function Game() {
-  return <div className={game}></div>
+  return <div></div>
 }
 export default Game

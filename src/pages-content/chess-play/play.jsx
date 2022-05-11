@@ -12,13 +12,13 @@ function Play(chessplay) {
     <section className='play'>
       <Container fluid>
         <Row>
-          <Col md={3} xs={12}>
+          <Col md={2} xs={12}>
             <PlayProfile name={chessplay.name_rival} />
           </Col>
-          <Col md={6} xs={12}>
+          <Col md={8} xs={12}>
             <ChessBoard />
           </Col>
-          <Col md={3} xs={12}>
+          <Col md={2} xs={12}>
             <HomeLink />
             <PlayClockTimer />
             <DiedChess name={chessplay.name_rival} />
