@@ -11,11 +11,15 @@ import LanguagesContext from '../../../common/languages/language-context'
 
 const StyledSectionPayblock = styled.div`
   background-color: white;
+  box-shadow: 0 0 2rem var(--global-var-color-note);
   border-radius: 10px;
 `
 const StyledPayblockBody = styled.div`
   text-align: left;
   padding-left: 1rem;
+`
+const StyleLink = styled(Link)`
+  text-decoration: none;
 `
 const StylePayblockPicture = styled.img`
   animation: MoveUpDown 10s linear infinite;
@@ -25,6 +29,9 @@ const StylePayblockPicture = styled.img`
   margin-left: auto;
   margin-right: auto;
   width: 80%;
+  a {
+    text-decoration: none;
+  }
   @keyframes MoveUpDown {
     0%,
     100% {
@@ -46,9 +53,9 @@ function PayBlock() {
         <Row>
           <Col md={8} xs={12}>
             <StyledPayblockBody>
-              <Link to='/contact'>
+              <StyleLink to='/contact'>
                 <H1 message={language.payblocktitileH1.message} colorOrange />
-              </Link>
+              </StyleLink>
               <H3 message={language.payblockH3_1.message} colorBlack textAlignLeft />
               <FontSize1rem>
                 <H3 message={language.payblockH3_2.message} colorNote textAlignLeft />
