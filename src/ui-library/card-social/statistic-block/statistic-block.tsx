@@ -1,26 +1,35 @@
 import React from 'react'
-import statistic from './statistic-block.module.css'
 import Button from '../../button-link/button-link'
+import styled from 'styled-components'
 
 interface StatisticProps {
   win?: number
   lose?: number
 }
+const StyledStatic = styled.div`
+  padding: 1rem;
+`
+const StyledUserVictoriesCount = styled.p`
+  padding: 1rem;
+  font-size: 1rem;
+  font-family: 'Mochiy';
+`
+const StyledUserVictoriesCounSpan = styled.span`
+  padding: 1rem;
+`
 function Statistic({ win, lose }: StatisticProps) {
   return (
-    <section>
-      <div className={statistic.statistic}>
-        <h5>Win: {win}</h5>
-        <h5>Lose: {lose}</h5>
-        <p className={`${statistic.user_victories} ${statistic.font}`}>
-          Victories:
-          <span className={statistic.user_victories_caunt}>100</span>
-        </p>
-        <p className={`${statistic.user_best} ${statistic.font}`}>
-          Best Victories <Button message='WATCH' href='/pages/chesslandcoaches' />
-        </p>
-      </div>
-    </section>
+    <StyledStatic>
+      <h5>Win: {win}</h5>
+      <h5>Lose: {lose}</h5>
+      <StyledUserVictoriesCount>
+        Victories:
+        <StyledUserVictoriesCounSpan>100</StyledUserVictoriesCounSpan>
+      </StyledUserVictoriesCount>
+      <p>
+        Best Victories <Button message='WATCH' href='/pages/chesslandcoaches' />
+      </p>
+    </StyledStatic>
   )
 }
 export default Statistic

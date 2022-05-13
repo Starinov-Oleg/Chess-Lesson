@@ -12,6 +12,7 @@ interface PayProps {
 }
 const StyledPayItem = styled.div`
   background-color: white;
+  box-shadow: 0 0 2rem var(--global-var-color-note);
   margin-top: 1rem;
   margin-bottom: 1rem;
   border-radius: 10px;

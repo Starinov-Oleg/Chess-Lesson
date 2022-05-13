@@ -1,6 +1,7 @@
 import H3 from '../../ui-library/h3/h3'
 import H1 from '../../ui-library/h1/h1'
 import styled from 'styled-components'
+import { Row } from 'react-bootstrap'
 interface CardProps {
   cardItems?: any
   childFriends?: React.ReactNode
@@ -21,6 +22,11 @@ const StyledClub = styled.div`
 const StyledChildPeopleBlock = styled.div`
   margin: 1rem;
 `
+const StyledCardSize = styled(Row)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
 function Contact({ cardItems, childFriends, childCouches }: CardProps) {
   return (
     <section className='contact'>
@@ -28,7 +34,7 @@ function Contact({ cardItems, childFriends, childCouches }: CardProps) {
         <StyledIntroduceClub>
           <H1 message='Introduce With Club' primary />
         </StyledIntroduceClub>
-        <div className='row justify-content-center '>{cardItems}</div>
+        <StyledCardSize>{cardItems}</StyledCardSize>
         <StyledHotLine>
           <H1 message='HOT LINE + 0923234243434' primary />
         </StyledHotLine>

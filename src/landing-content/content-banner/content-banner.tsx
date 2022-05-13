@@ -19,7 +19,7 @@ const StyledBanerImg = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   //padding-bottom: 6rem;
-  padding-top: 25%;
+  margin-top: 2%;
 `
 function SectionBaner() {
   const language = React.useContext(LanguagesContext)

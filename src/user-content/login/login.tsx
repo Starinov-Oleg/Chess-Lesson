@@ -1,5 +1,4 @@
 import React from 'react'
-import login from './login.module.css'
 import logo from '../../assets/user/login.jpg'
 import Form from './form/form-login'
 import H1 from '../../ui-library/h1/h1'
@@ -8,7 +7,19 @@ import Button from '../../ui-library/button-register/button-register'
 import HomeLink from '../../ui-library/home-link/home-link'
 import { FontSize1rem } from '../../common/styled-components/font-size.styled'
 import AuthService from '../../services/auth.service'
+import styled from 'styled-components'
+import { Col, Container, Row } from 'react-bootstrap'
 
+const StyledLogin = styled.div`
+  background-color: #a4c8e7;
+  padding: 1rem 0rem 1rem;
+`
+const StyledloginContainer = styled(Container)`
+  background-color: white;
+`
+const StyledImage = styled.img`
+  width: 100%;
+`
 function Login() {
   function onSubmit(data: any) {
     AuthService.login(data).then(() => {
@@ -18,30 +29,27 @@ function Login() {
     })
   }
   return (
-    <section className='login'>
-      <div className={login.login}>
-        <div className='container'>
-          <div className={`row ${login.color}`}>
-            <div className='col-md-6 col-12'>
-              <HomeLink />
-              <H1 message='LOGIN' primary />
-              <Form onSubmit={onSubmit} />
-            </div>
-            <div className='col-md-6 col-12'>
-              <img
-                src={logo}
-                alt="<a href='https://www.freepik.com/vectors/background'>Background vector created by studio4rt - www.freepik.com</a>"
-                className={login.logo}
-              />
-              <FontSize1rem>
-                <H3 message='If you dont have accaunt falow link:' colorBlack />
-              </FontSize1rem>
-              <Button message='REGISTER' />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <StyledLogin>
+      <StyledloginContainer>
+        <Row>
+          <Col md={6} xs={12}>
+            <HomeLink />
+            <H1 message='LOGIN' primary />
+            <Form onSubmit={onSubmit} />
+          </Col>
+          <Col md={6} xs={12}>
+            <StyledImage
+              src={logo}
+              alt="<a href='https://www.freepik.com/vectors/background'>Background vector created by studio4rt - www.freepik.com</a>"
+            />
+            <FontSize1rem>
+              <H3 message='If you dont have accaunt falow link:' colorBlack />
+            </FontSize1rem>
+            <Button message='REGISTER' />
+          </Col>
+        </Row>
+      </StyledloginContainer>
+    </StyledLogin>
   )
 }
 export default Login
