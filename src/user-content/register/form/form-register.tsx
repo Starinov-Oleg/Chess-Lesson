@@ -1,14 +1,24 @@
 import * as React from 'react'
-import form from './form-register.module.css'
 import { useForm } from 'react-hook-form'
 import Input from '../../../ui-library/input/input'
 import Label from '../../../ui-library/label/label'
 import Button from '../../../ui-library/button-click/button'
 import { ErrorMessage } from '@hookform/error-message'
-
+import styled from 'styled-components'
+import { Col, Row } from 'react-bootstrap'
 interface FormProps {
   onSubmit: any
 }
+const StyledError = styled.p`
+  color: #c25e1b;
+`
+const StyledButtonAling = styled.div`
+  text-align: center;
+`
+const StyledFormAlign = styled.form`
+  text-align: left;
+  padding: 1rem;
+`
 function Form({ onSubmit }: FormProps) {
   const {
     register,
@@ -21,9 +31,9 @@ function Form({ onSubmit }: FormProps) {
     setFocus('email')
   }, [setFocus])
   return (
-    <form className={form.form} onSubmit={handleSubmit(onSubmit)}>
-      <div className='row'>
-        <div className='col-md-6'>
+    <StyledFormAlign onSubmit={handleSubmit(onSubmit)}>
+      <Row>
+        <Col md={6} xs={12}>
           <Label message='Email address' htmlFor='email' />
           <Input
             name='email'
@@ -35,18 +45,18 @@ function Form({ onSubmit }: FormProps) {
                 /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
             }}
           />
-          <ErrorMessage errors={errors} name='email' render={() => <p className={form.errors}>Email not Correct</p>} />
-        </div>
-        <div className='col-md-6'>
+          <ErrorMessage errors={errors} name='email' render={() => <StyledError>Email not Correct</StyledError>} />
+        </Col>
+        <Col md={6} xs={12}>
           <Label message='Password' htmlFor='password' />
           <Input type='password' name='password' register={register} rules={{ required: true }} />
-          <ErrorMessage errors={errors} name='password' render={() => <p className={form.errors}>Empty Field</p>} />
-        </div>
-      </div>
-      <div className={form.align_button}>
-        <Button message='REGISTER' style={button} />
-      </div>
-    </form>
+          <ErrorMessage errors={errors} name='password' render={() => <StyledError>Empty Field</StyledError>} />
+        </Col>
+        <StyledButtonAling>
+          <Button message='REGISTER' style={button} />
+        </StyledButtonAling>
+      </Row>
+    </StyledFormAlign>
   )
 }
 export default Form
