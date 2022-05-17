@@ -14,8 +14,9 @@ import FilterPost from './user-action/filter-search-post/filter-post'
 import SearchPost from './user-action/filter-search-post/search-post'
 import { format } from 'date-fns'
 import Popup from '../../common/popup-message/popup-message'
-import { getUserIdPost, addData, removeData } from '../../api/user-post-data-operation'
+import { addData, removeData, PostService } from '../../api/user-post-data-operation'
 import useGetUser from '../../hooks/get-user-hook'
+import { useQuery } from 'react-query'
 
 const StyledActionBlock = styled.div`
   margin-top: 3%;
@@ -44,9 +45,12 @@ function UserPage() {
   const [text, setText] = useState<any | undefined>(undefined)
   const [search, setSearch] = useState('')
   const [searchResult, setSearchResult] = useState<any[]>([])
-  useEffect(() => {
-    getUserIdPost(setPost, id)
-  }, [id])
+
+  const { data } = useQuery('articles', () => PostService.getPostId(id), {
+    onSuccess: data => {
+      setPost(data)
+    },
+  })
   const user = useGetUser()
   const length = user.length
 
@@ -68,7 +72,7 @@ function UserPage() {
   const searchItems = (searchValue: any) => {
     setSearch(searchValue)
     if (search !== '') {
-      const filteredData = post.filter(item => {
+      const filteredData = post.filter((item: { [s: string]: unknown } | ArrayLike<unknown>) => {
         return Object.values(item).join('').toLowerCase().includes(search.toLowerCase())
       })
       setSearchResult(filteredData)
