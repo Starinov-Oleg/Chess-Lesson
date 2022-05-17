@@ -1,11 +1,11 @@
 import axios from 'axios'
-
+/** 
 export const getUserIdPost = (setPost: any, id: string | undefined) => {
   axios.get(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${id}/post`).then(response => {
     setPost(response.data)
   })
 }
-
+*/
 export const removeData = (id: any | never, userId: any | never, setPost: any, setIsOpen: any, post: any) => {
   axios.delete(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${userId}/post/${id}`).then(() => {
     setPost(post.filter((item: { id: any }) => item.id !== id))

@@ -17,6 +17,7 @@ import Popup from '../../common/popup-message/popup-message'
 import { addData, removeData, PostService } from '../../api/user-post-data-operation'
 import useGetUser from '../../hooks/get-user-hook'
 import { useQuery } from 'react-query'
+import { useLocation } from 'react-router-dom'
 
 const StyledActionBlock = styled.div`
   margin-top: 3%;
@@ -45,14 +46,20 @@ function UserPage() {
   const [text, setText] = useState<any | undefined>(undefined)
   const [search, setSearch] = useState('')
   const [searchResult, setSearchResult] = useState<any[]>([])
+  const user = useGetUser()
+  const length = user.length
+  const location = useLocation()
 
-  const { data } = useQuery('articles', () => PostService.getPostId(id), {
+  const { refetch } = useQuery('articles', () => PostService.getPostId(id), {
     onSuccess: data => {
       setPost(data)
     },
   })
-  const user = useGetUser()
-  const length = user.length
+  useEffect(() => {
+    if (location) {
+      refetch()
+    }
+  }, [location, refetch])
 
   const peopleFriends = user
     .filter((user: { group: string }) => user.group === 'friends')

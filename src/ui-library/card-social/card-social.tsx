@@ -3,7 +3,7 @@ import Button from '../button-click/button'
 import Statistic from './statistic-block/statistic-block'
 import Passport from './passport-block/passport-block'
 import photo from '../../assets/pages/chess-play/user.png'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 //import Logo from '../logo/logo'
@@ -49,9 +49,9 @@ function CardSocial({
   const styleimg = { width: '100%' }
   return (
     <div className={`card `} style={style}>
-      <a href={'/user/' + user + '/post'}>
+      <NavLink to={'/user/' + user + '/post'}>
         <img src={!src || src.length === 0 ? photo : src} alt={alt} style={styleimg} />
-      </a>
+      </NavLink>
       {showbutton ? (
         <StyledCardSocial className={`text-center `}>
           {followed ? (
