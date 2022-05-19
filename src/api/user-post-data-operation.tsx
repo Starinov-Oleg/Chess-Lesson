@@ -6,12 +6,13 @@ export const getUserIdPost = (setPost: any, id: string | undefined) => {
   })
 }
 */
+/** 
 export const removeData = (id: any | never, userId: any | never, setPost: any, setIsOpen: any, post: any) => {
   axios.delete(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${userId}/post/${id}`).then(() => {
     setPost(post.filter((item: { id: any }) => item.id !== id))
     setIsOpen({ show: false, id: null })
   })
-}
+}*/
 /**
 export const addData = (id: any, text: any, setText: any, setPost: any, post: any) => {
   axios
@@ -44,5 +45,8 @@ export const PostService = {
         },
       })
       .then(res => res.data)
+  },
+  async removePostId(id: any | never, userId: any | never) {
+    return axios.delete<any[]>(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${userId}/post/${id}`)
   },
 }
