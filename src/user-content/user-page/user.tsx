@@ -16,7 +16,7 @@ import { format } from 'date-fns'
 import Popup from '../../common/popup-message/popup-message'
 import { addData, removeData, PostService } from '../../api/user-post-data-operation'
 import useGetUser from '../../hooks/get-user-hook'
-import { useQuery } from 'react-query'
+import { useMutation, useQuery } from 'react-query'
 import { useLocation } from 'react-router-dom'
 
 const StyledActionBlock = styled.div`
@@ -55,6 +55,7 @@ function UserPage() {
       setPost(data)
     },
   })
+
   useEffect(() => {
     if (location) {
       refetch()
@@ -87,6 +88,7 @@ function UserPage() {
       setSearchResult(post)
     }
   }
+
   const postListComponent = post
     .filter((post: any) => post.userId === String(id))
     .map((item: { body: string | undefined; createdAt: any; id: number; userId: number }, index: number) => {
@@ -167,6 +169,12 @@ function UserPage() {
         </Fragment>
       )
     })
+  const mutation = useMutation('articles', () => PostService.getPostId(id), {
+    onSuccess: data => {
+      setPost([...post, data])
+      setText('')
+    },
+  })
   return user
     .filter((user: any) => user.id === String(id))
     .map(
@@ -237,3 +245,12 @@ function UserPage() {
 }
 
 export default UserPage
+/**
+ *  For custom hook 
+ *   const { refetch, data: getpost } = useQuery('articles', () => PostService.getPostId(id), {
+    select: data =>
+      data.map(post => ({
+        ...post,
+      })),
+  })
+ */

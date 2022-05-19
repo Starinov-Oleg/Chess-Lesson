@@ -35,4 +35,7 @@ export const PostService = {
   async getPostId(id: any) {
     return axios.get<any[]>(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${id}/post`).then(res => res.data)
   },
+  async addPostId(id: any, text: any) {
+    return axios.post<any[]>(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${id}/post`).then(res => res.data)
+  },
 }
