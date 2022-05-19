@@ -14,7 +14,7 @@ import FilterPost from './user-action/filter-search-post/filter-post'
 import SearchPost from './user-action/filter-search-post/search-post'
 import { format } from 'date-fns'
 import Popup from '../../common/popup-message/popup-message'
-import { addData, removeData, PostService } from '../../api/user-post-data-operation'
+import { removeData, PostService } from '../../api/user-post-data-operation'
 import useGetUser from '../../hooks/get-user-hook'
 import { useMutation, useQuery } from 'react-query'
 import { useLocation } from 'react-router-dom'
@@ -53,6 +53,13 @@ function UserPage() {
   const { refetch } = useQuery('articles', () => PostService.getPostId(id), {
     onSuccess: data => {
       setPost(data)
+    },
+  })
+
+  const { mutate } = useMutation(() => PostService.addPostId(id, text), {
+    onSuccess: data => {
+      setPost([...post, data])
+      setText('')
     },
   })
 
@@ -169,12 +176,7 @@ function UserPage() {
         </Fragment>
       )
     })
-  const mutation = useMutation('articles', () => PostService.getPostId(id), {
-    onSuccess: data => {
-      setPost([...post, data])
-      setText('')
-    },
-  })
+
   return user
     .filter((user: any) => user.id === String(id))
     .map(
@@ -223,7 +225,7 @@ function UserPage() {
                   </StyledSearchFilterBlock>
                   <AddPost
                     onClick={() => {
-                      addData(id, text, setText, setPost, post)
+                      mutate(text)
                     }}
                     onChange={(event: { target: { value: any } }) => {
                       setText(event.target.value)

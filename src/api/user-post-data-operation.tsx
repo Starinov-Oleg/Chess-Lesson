@@ -12,7 +12,7 @@ export const removeData = (id: any | never, userId: any | never, setPost: any, s
     setIsOpen({ show: false, id: null })
   })
 }
-
+/**
 export const addData = (id: any, text: any, setText: any, setPost: any, post: any) => {
   axios
     .post(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${id}/post`, {
@@ -26,7 +26,7 @@ export const addData = (id: any, text: any, setText: any, setPost: any, post: an
       setText('')
     })
 }
-
+ */
 /**
  * Fixed for react query
  */
@@ -36,6 +36,13 @@ export const PostService = {
     return axios.get<any[]>(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${id}/post`).then(res => res.data)
   },
   async addPostId(id: any, text: any) {
-    return axios.post<any[]>(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${id}/post`).then(res => res.data)
+    return axios
+      .post(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${id}/post`, {
+        body: text,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .then(res => res.data)
   },
 }
