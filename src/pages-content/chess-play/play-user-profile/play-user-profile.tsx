@@ -20,12 +20,13 @@ function PlayProfile() {
           <CardSocial
             fullname='Rival'
             message1='-'
-            followed='no'
+            followed
             message2='+'
             alt='picture'
             showbutton
             showstatistic
             src={picture}
+            user={undefined}
           />
         </StyledPlayFlex>
       </StyledPlayProfile>

@@ -8,7 +8,10 @@ const HR = styled.hr`
 const StyledSpan = styled.span`
   color: blue;
 `
-function DiedChess({ name }) {
+interface DiedChessProp {
+  name: string
+}
+function DiedChess({ name }: DiedChessProp) {
   return (
     <section>
       <div>
