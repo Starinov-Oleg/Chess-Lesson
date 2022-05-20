@@ -13,7 +13,10 @@ const StyledForm = styled.form`
 const StyledErrors = styled.p`
   color: #c25e1b;
 `
-function Form({ onSubmit }) {
+interface FormProp {
+  onSubmit: any
+}
+function Form({ onSubmit }: FormProp) {
   const {
     register,
     handleSubmit,
@@ -22,7 +25,7 @@ function Form({ onSubmit }) {
   const button = { fontSize: '1.8rem', marginTop: '1rem' }
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
-      <Label message='Email address' />
+      <Label message='Email address' htmlFor={undefined} />
       <Input
         name='email'
         register={register}
@@ -32,9 +35,10 @@ function Form({ onSubmit }) {
             /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
           message: 'Invalid email',
         }}
+        type={''}
       />
       <ErrorMessage errors={errors} name='email' render={() => <StyledErrors>Email not Correct</StyledErrors>} />
-      <Label message='Password' />
+      <Label message='Password' htmlFor={undefined} />
       <Input type='password' name='password' register={register} rules={{ required: true }} />
       <ErrorMessage errors={errors} name='password' render={() => <StyledErrors>Empty Field</StyledErrors>} />
 

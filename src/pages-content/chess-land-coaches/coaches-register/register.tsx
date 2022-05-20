@@ -2,7 +2,7 @@ import React from 'react'
 import Form from './register-form/form'
 import { Col, Row, Container } from 'react-bootstrap'
 
-function onSubmit(data) {
+function onSubmit(data: any) {
   alert(JSON.stringify(data))
   let url = '/'
   window.location.replace(url)
