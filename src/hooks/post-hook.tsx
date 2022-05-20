@@ -1,24 +1,20 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useQuery } from 'react-query'
-import { useParams } from 'react-router-dom'
 import { PostService } from '../api/post-service'
 import { useLocation } from 'react-router-dom'
 
-const usePost = () => {
-  const { id } = useParams()
-  const [post, setPost] = useState<any[]>([])
+const usePost = (id: any) => {
   const location = useLocation()
-  const { refetch } = useQuery('articles', () => PostService.getPostId(id), {
-    onSuccess: (data: any) => {
-      setPost(data)
-    },
-  })
+
+  const { refetch, data } = useQuery('articles', () => PostService.getPostId(id))
+
   useEffect(() => {
     if (location) {
       refetch()
     }
   }, [location, refetch])
-  return post
+
+  return data
 }
 
 export default usePost
