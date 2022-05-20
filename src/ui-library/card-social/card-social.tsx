@@ -50,7 +50,7 @@ function CardSocial({
   return (
     <div className={`card `} style={style}>
       <NavLink to={'/user/' + user + '/post'}>
-        <img src={!src||src.length===0?photo:src} alt={alt} style={styleimg} />
+        <img src={!src || src.length === 0 ? photo : src} alt={alt} style={styleimg} />
       </NavLink>
       {showbutton ? (
         <StyledCardSocial className={`text-center `}>

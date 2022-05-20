@@ -14,8 +14,10 @@ import FilterPost from './user-action/filter-search-post/filter-post'
 import SearchPost from './user-action/filter-search-post/search-post'
 import { format } from 'date-fns'
 import Popup from '../../common/popup-message/popup-message'
-import { getUserIdPost, addData, removeData } from '../../api/user-post-data-operation'
+import { PostService } from '../../api/user-post-data-operation'
 import useGetUser from '../../hooks/get-user-hook'
+import { useMutation, useQuery } from 'react-query'
+import { useLocation } from 'react-router-dom'
 
 const StyledActionBlock = styled.div`
   margin-top: 3%;
@@ -44,11 +46,34 @@ function UserPage() {
   const [text, setText] = useState<any | undefined>(undefined)
   const [search, setSearch] = useState('')
   const [searchResult, setSearchResult] = useState<any[]>([])
-  useEffect(() => {
-    getUserIdPost(setPost, id)
-  }, [id])
   const user = useGetUser()
   const length = user.length
+  const location = useLocation()
+
+  const { refetch } = useQuery('articles', () => PostService.getPostId(id), {
+    onSuccess: data => {
+      setPost(data)
+    },
+  })
+
+  const addpost = useMutation(() => PostService.addPostId(id, text), {
+    onSuccess: data => {
+      setPost([...post, data])
+      setText('')
+    },
+  })
+  const removepost = useMutation((userId: any) => PostService.removePostId(userId, id), {
+    onSuccess: () => {
+      setIsOpen({ show: false, id: null })
+      refetch()
+    },
+  })
+
+  useEffect(() => {
+    if (location) {
+      refetch()
+    }
+  }, [location, refetch])
 
   const peopleFriends = user
     .filter((user: { group: string }) => user.group === 'friends')
@@ -68,7 +93,7 @@ function UserPage() {
   const searchItems = (searchValue: any) => {
     setSearch(searchValue)
     if (search !== '') {
-      const filteredData = post.filter(item => {
+      const filteredData = post.filter((item: { [s: string]: unknown } | ArrayLike<unknown>) => {
         return Object.values(item).join('').toLowerCase().includes(search.toLowerCase())
       })
       setSearchResult(filteredData)
@@ -76,6 +101,7 @@ function UserPage() {
       setSearchResult(post)
     }
   }
+
   const postListComponent = post
     .filter((post: any) => post.userId === String(id))
     .map((item: { body: string | undefined; createdAt: any; id: number; userId: number }, index: number) => {
@@ -100,7 +126,8 @@ function UserPage() {
                   <Button
                     message='Delete'
                     onClick={() => {
-                      removeData(item.id, item.userId, setPost, setIsOpen, post)
+                      removepost.mutate(item.id)
+                      // removeData(item.id, item.userId, setPost, setIsOpen, post)
                     }}
                   />
                   <Button
@@ -140,7 +167,8 @@ function UserPage() {
                   <Button
                     message='Delete'
                     onClick={() => {
-                      removeData(item.id, item.userId, setPost, setIsOpen, post)
+                      removepost.mutate(item.id)
+                      //removeData(item.id, item.userId, setPost, setIsOpen, post)
                     }}
                   />
                   <Button
@@ -156,6 +184,7 @@ function UserPage() {
         </Fragment>
       )
     })
+
   return user
     .filter((user: any) => user.id === String(id))
     .map(
@@ -204,7 +233,7 @@ function UserPage() {
                   </StyledSearchFilterBlock>
                   <AddPost
                     onClick={() => {
-                      addData(id, text, setText, setPost, post)
+                      addpost.mutate(text)
                     }}
                     onChange={(event: { target: { value: any } }) => {
                       setText(event.target.value)
@@ -226,3 +255,13 @@ function UserPage() {
 }
 
 export default UserPage
+
+/**
+ *  For custom hook 
+ *   const { refetch, data: getpost } = useQuery('articles', () => PostService.getPostId(id), {
+    select: data =>
+      data.map(post => ({
+        ...post,
+      })),
+  })
+ */

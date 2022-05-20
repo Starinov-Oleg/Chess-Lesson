@@ -7,11 +7,14 @@ import 'bootstrap/dist/css/bootstrap.css'
 import store from './redux/store.ts'
 import state from './redux/state.ts'
 import { Provider } from 'react-redux'
-
+import { QueryClient, QueryClientProvider } from 'react-query'
+const queryClient = new QueryClient({})
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App state={state} />
+      <QueryClientProvider client={queryClient}>
+        <App state={state} />
+      </QueryClientProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
