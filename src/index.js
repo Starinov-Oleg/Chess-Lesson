@@ -8,7 +8,13 @@ import store from './redux/store.ts'
 import state from './redux/state.ts'
 import { Provider } from 'react-redux'
 import { QueryClient, QueryClientProvider } from 'react-query'
-const queryClient = new QueryClient({})
+const queryClient = new QueryClient({
+  /** FOR Refactoring 
+  initialData: id => {
+    return queryClient.getQueryData('articles')?.find(d => d.id === id)
+  },
+  */
+})
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
