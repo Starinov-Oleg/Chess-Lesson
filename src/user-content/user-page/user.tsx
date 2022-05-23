@@ -16,7 +16,7 @@ import { format } from 'date-fns'
 import Popup from '../../common/popup-message/popup-message'
 import { PostService } from '../../api/post-service'
 import useGetUser from '../../hooks/get-user-hook'
-import { useMutation } from 'react-query'
+import { useMutation, useQueryClient } from 'react-query'
 import usePost from '../../hooks/post-hook'
 import useDeletePost from '../../hooks/post-delete-hook'
 const StyledActionBlock = styled.div`
@@ -48,21 +48,26 @@ function UserPage() {
   const [searchResult, setSearchResult] = useState<any[] | undefined>([])
   const user = useGetUser()
   const querypost = usePost(id)
+  const queryClient = useQueryClient()
 
   console.log(querypost)
 
   const length = user.length
 
   const addpost = useMutation(() => PostService.addPostId(id, text), {
-    onSuccess: data => {
-      setPost([...post, data])
+    onSuccess: () => {
       setText('')
+    },
+    onSettled: () => {
+      queryClient.invalidateQueries('articles')
     },
   })
   const removepost = useMutation((userId: any) => PostService.removePostId(userId, id), {
     onSuccess: () => {
       setIsOpen({ show: false, id: null })
-      //refetch()
+    },
+    onSettled: () => {
+      queryClient.invalidateQueries('articles')
     },
   })
 
