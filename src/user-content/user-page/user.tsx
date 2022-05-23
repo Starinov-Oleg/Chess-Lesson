@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react'
+import React, { useState, Fragment } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import UserProfile from './use-profile/user-profile'
 import UserPeopleBlock from './user-people-block/user-people-block'
@@ -18,7 +18,7 @@ import { PostService } from '../../api/post-service'
 import useGetUser from '../../hooks/get-user-hook'
 import { useMutation, useQueryClient } from 'react-query'
 import usePost from '../../hooks/post-hook'
-import useDeletePost from '../../hooks/post-delete-hook'
+
 const StyledActionBlock = styled.div`
   margin-top: 3%;
   border-radius: 10px;
@@ -50,12 +50,10 @@ function UserPage() {
   const querypost = usePost(id)
   const queryClient = useQueryClient()
 
-  console.log(querypost)
-
   const length = user.length
 
   const addpost = useMutation(() => PostService.addPostId(id, text), {
-    onSuccess: () => {
+    onMutate: () => {
       setText('')
     },
     onSettled: () => {
@@ -63,7 +61,7 @@ function UserPage() {
     },
   })
   const removepost = useMutation((userId: any) => PostService.removePostId(userId, id), {
-    onSuccess: () => {
+    onMutate: () => {
       setIsOpen({ show: false, id: null })
     },
     onSettled: () => {
@@ -99,7 +97,7 @@ function UserPage() {
   }
 
   const postListComponent = querypost
-    ?.filter((post: any) => post.userId === String(id))
+    ?.filter((querypost: any) => querypost.userId === String(id))
     .map((item: { body: string | undefined; createdAt: any; id: number; userId: number }, index: number) => {
       return (
         <Fragment key={index}>
@@ -140,7 +138,7 @@ function UserPage() {
       )
     })
   const postListSearchComponent = searchResult
-    ?.filter((post: any) => post.userId === String(id))
+    ?.filter((querypost: any) => querypost.userId === String(id))
     .map((item: { body: string | undefined; createdAt: any; id: number; userId: number }, index: number) => {
       return (
         <Fragment key={index}>
