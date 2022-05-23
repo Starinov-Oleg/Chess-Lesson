@@ -9,6 +9,12 @@ import state from './redux/state.ts'
 import { Provider } from 'react-redux'
 import { QueryClient, QueryClientProvider } from 'react-query'
 const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      refetchOnMount: true,
+    },
+  },
   /** FOR Refactoring 
   initialData: id => {
     return queryClient.getQueryData('articles')?.find(d => d.id === id)
