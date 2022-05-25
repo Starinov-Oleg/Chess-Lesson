@@ -18,7 +18,6 @@ import { PostService } from '../../api/post-service'
 import useGetUser from '../../hooks/get-user-hook'
 import { useMutation, useQueryClient } from 'react-query'
 import usePost from '../../hooks/post-hook'
-
 const StyledActionBlock = styled.div`
   margin-top: 3%;
   border-radius: 10px;
