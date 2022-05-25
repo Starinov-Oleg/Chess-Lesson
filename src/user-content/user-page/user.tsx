@@ -19,6 +19,7 @@ import useGetUser from '../../hooks/get-user-hook'
 import { useMutation, useQueryClient } from 'react-query'
 import usePost from '../../hooks/post-hook'
 import useDeletePost from '../../hooks/post-delete-hook'
+import useAddPost from '../../hooks/post-add-hook'
 const StyledActionBlock = styled.div`
   margin-top: 3%;
   border-radius: 10px;
@@ -41,7 +42,7 @@ const handleDeleteFalse = (setIsOpen: any) => {
 function UserPage() {
   const { id } = useParams()
   const [showResults, setShowResults] = useState(false)
-  const [post, setPost] = useState<any[]>([])
+  const [post, setPost] = useState<any[] | undefined>([])
   const [isOpen, setIsOpen] = useState({ show: false, id: null })
   const [text, setText] = useState<any | undefined>(undefined)
   const [search, setSearch] = useState('')
@@ -49,6 +50,7 @@ function UserPage() {
   const user = useGetUser()
   const querypost = usePost(id)
   const querydeletepost = useDeletePost(id)
+  const queryaddpost = useAddPost()
   const queryClient = useQueryClient()
 
   const length = user.length
@@ -74,7 +76,9 @@ function UserPage() {
     })
 
   const sortDataPost = () => {
-    setPost([...post].sort((a, b) => (a.item > b.item ? 1 : -1)))
+    //setPost([...post].sort((a, b) => (a.item > b.item ? 1 : -1)))
+
+    setPost(querypost?.sort((a, b) => (a.item > b.item ? 1 : -1)))
   }
 
   const searchItems = (searchValue: any) => {
