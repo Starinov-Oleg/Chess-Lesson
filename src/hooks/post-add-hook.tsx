@@ -1,10 +1,13 @@
 import { useMutation, useQueryClient } from 'react-query'
 import { PostService } from '../api/post-service'
+import { useParams } from 'react-router-dom'
 
-const useAddPost = (text: any) => {
+const useAddPost = () => {
+  const { id } = useParams()
+
   const queryClient = useQueryClient()
 
-  return useMutation((id: any) => PostService.addPostId(id, text), {
+  return useMutation((text: any) => PostService.addPostId(id, text), {
     onSettled: () => {
       queryClient.invalidateQueries('articles')
     },
@@ -12,5 +15,3 @@ const useAddPost = (text: any) => {
 }
 
 export default useAddPost
-
-/**Custom hook for get post - use for refractoring */

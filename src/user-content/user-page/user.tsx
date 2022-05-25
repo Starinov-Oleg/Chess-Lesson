@@ -14,9 +14,7 @@ import FilterPost from './user-action/filter-search-post/filter-post'
 import SearchPost from './user-action/filter-search-post/search-post'
 import { format } from 'date-fns'
 import Popup from '../../common/popup-message/popup-message'
-import { PostService } from '../../api/post-service'
 import useGetUser from '../../hooks/get-user-hook'
-import { useMutation, useQueryClient } from 'react-query'
 import usePost from '../../hooks/post-hook'
 import useDeletePost from '../../hooks/post-delete-hook'
 import useAddPost from '../../hooks/post-add-hook'
@@ -50,19 +48,9 @@ function UserPage() {
   const user = useGetUser()
   const querypost = usePost(id)
   const querydeletepost = useDeletePost(id)
-  const queryaddpost = useAddPost(id)
-  const queryClient = useQueryClient()
+  const queryaddpost = useAddPost()
 
   const length = user?.length
-
-  const addpost = useMutation(() => PostService.addPostId(id, text), {
-    onMutate: () => {
-      setText('')
-    },
-    onSettled: () => {
-      queryClient.invalidateQueries('articles')
-    },
-  })
 
   const peopleFriends = user
     ?.filter((user: { group: string }) => user.group === 'friends')
@@ -220,7 +208,8 @@ function UserPage() {
                   </StyledSearchFilterBlock>
                   <AddPost
                     onClick={() => {
-                      addpost.mutate(text)
+                      queryaddpost.mutate(text)
+                      setText('')
                     }}
                     onChange={(event: { target: { value: any } }) => {
                       setText(event.target.value)
