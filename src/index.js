@@ -8,18 +8,26 @@ import store from './redux/store.ts'
 import state from './redux/state.ts'
 import { Provider } from 'react-redux'
 import { QueryClient, QueryClientProvider } from 'react-query'
+import { persistQueryClient } from 'react-query/persistQueryClient-experimental'
+import { createWebStoragePersistor } from 'react-query/createWebStoragePersistor-experimental'
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       refetchOnWindowFocus: false,
       refetchOnMount: false,
+      cacheTime: 1000 * 60 * 60 * 24,
     },
   },
   /** FOR Refactoring 
   initialData: id => {
-    return queryClient.getQueryData('articles')?.find(d => d.id === id)
+    return queryClient.getQueryData('article')?.find(d => d.id === id)
   },
   */
+})
+const localStoragePersistor = createWebStoragePersistor({ storage: window.localStorage })
+persistQueryClient({
+  queryClient,
+  persistor: localStoragePersistor,
 })
 ReactDOM.render(
   <React.StrictMode>

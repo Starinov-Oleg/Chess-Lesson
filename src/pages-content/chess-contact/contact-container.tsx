@@ -11,12 +11,12 @@ import useGetUser from '../../hooks/get-user-hook'
 function ContactContainerView() {
   const user = useGetUser()
   const peopleFriends = user
-    .filter((user: { group: string }) => user.group === 'friends')
+    ?.filter((user: { group: string }) => user.group === 'friends')
     .map((item: { name: string; avatar: string; key: number; id: number }, index: number) => {
       return <CommonPeople fullname={item.name} avatar={item.avatar} key={index} user={item.id} />
     })
   const peopleCouches = user
-    .filter((user: { group: string }) => user.group === 'couch')
+    ?.filter((user: { group: string }) => user.group === 'couch')
     .map((item: { name: string; avatar: string; key: number; id: number }, index: number) => {
       return <CommonPeople fullname={item.name} avatar={item.avatar} key={index} user={item.id} />
     })

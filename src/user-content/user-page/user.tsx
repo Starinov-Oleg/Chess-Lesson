@@ -50,10 +50,10 @@ function UserPage() {
   const user = useGetUser()
   const querypost = usePost(id)
   const querydeletepost = useDeletePost(id)
-  const queryaddpost = useAddPost()
+  const queryaddpost = useAddPost(id)
   const queryClient = useQueryClient()
 
-  const length = user.length
+  const length = user?.length
 
   const addpost = useMutation(() => PostService.addPostId(id, text), {
     onMutate: () => {
@@ -65,12 +65,12 @@ function UserPage() {
   })
 
   const peopleFriends = user
-    .filter((user: { group: string }) => user.group === 'friends')
+    ?.filter((user: { group: string }) => user.group === 'friends')
     .map((item: { name: string; avatar: string; key: number; id: number }, index: number) => {
       return <CommonPeople fullname={item.name} avatar={item.avatar} key={index} user={item.id} />
     })
   const peopleCouches = user
-    .filter((user: { group: string }) => user.group === 'couch')
+    ?.filter((user: { group: string }) => user.group === 'couch')
     .map((item: { name: string; avatar: string; key: number; id: number }, index: number) => {
       return <CommonPeople fullname={item.name} avatar={item.avatar} key={index} user={item.id} />
     })
@@ -173,7 +173,7 @@ function UserPage() {
     })
 
   return user
-    .filter((user: any) => user.id === String(id))
+    ?.filter((user: any) => user.id === String(id))
     .map(
       (
         user: {
@@ -203,7 +203,7 @@ function UserPage() {
                 <UserProfile messagename={user.name} />
                 <UserPeopleBlock
                   spanlength={length}
-                  spancount={peopleFriends.length}
+                  spancount={peopleFriends?.length}
                   childFriends={<Row>{peopleFriends}</Row>}
                   childCouches={<Row>{peopleCouches}</Row>}
                 />

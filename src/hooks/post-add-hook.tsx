@@ -1,16 +1,10 @@
-import { useState } from 'react'
 import { useMutation, useQueryClient } from 'react-query'
 import { PostService } from '../api/post-service'
 
-const useAddPost = () => {
-  const [text, setText] = useState<any | undefined>(undefined)
-
+const useAddPost = (text: any) => {
   const queryClient = useQueryClient()
 
   return useMutation((id: any) => PostService.addPostId(id, text), {
-    onMutate: () => {
-      setText('')
-    },
     onSettled: () => {
       queryClient.invalidateQueries('articles')
     },
