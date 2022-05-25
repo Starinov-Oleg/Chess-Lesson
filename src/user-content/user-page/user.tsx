@@ -18,6 +18,7 @@ import { PostService } from '../../api/post-service'
 import useGetUser from '../../hooks/get-user-hook'
 import { useMutation, useQueryClient } from 'react-query'
 import usePost from '../../hooks/post-hook'
+import useDeletePost from '../../hooks/post-delete-hook'
 const StyledActionBlock = styled.div`
   margin-top: 3%;
   border-radius: 10px;
@@ -47,6 +48,7 @@ function UserPage() {
   const [searchResult, setSearchResult] = useState<any[] | undefined>([])
   const user = useGetUser()
   const querypost = usePost(id)
+  const querydeletepost = useDeletePost(id)
   const queryClient = useQueryClient()
 
   const length = user.length
@@ -54,14 +56,6 @@ function UserPage() {
   const addpost = useMutation(() => PostService.addPostId(id, text), {
     onMutate: () => {
       setText('')
-    },
-    onSettled: () => {
-      queryClient.invalidateQueries('articles')
-    },
-  })
-  const removepost = useMutation((userId: any) => PostService.removePostId(userId, id), {
-    onMutate: () => {
-      setIsOpen({ show: false, id: null })
     },
     onSettled: () => {
       queryClient.invalidateQueries('articles')
@@ -119,8 +113,7 @@ function UserPage() {
                   <Button
                     message='Delete'
                     onClick={() => {
-                      removepost.mutate(item.id)
-                      // removeData(item.id, item.userId, setPost, setIsOpen, post)
+                      querydeletepost.mutate(item.id)
                     }}
                   />
                   <Button
@@ -160,8 +153,7 @@ function UserPage() {
                   <Button
                     message='Delete'
                     onClick={() => {
-                      removepost.mutate(item.id)
-                      //removeData(item.id, item.userId, setPost, setIsOpen, post)
+                      querydeletepost.mutate(item.id)
                     }}
                   />
                   <Button
