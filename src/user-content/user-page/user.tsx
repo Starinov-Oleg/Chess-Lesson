@@ -76,8 +76,6 @@ function UserPage() {
     })
 
   const sortDataPost = () => {
-    //setPost([...post].sort((a, b) => (a.item > b.item ? 1 : -1)))
-
     setPost(querypost?.sort((a, b) => (a.item > b.item ? 1 : -1)))
   }
 
