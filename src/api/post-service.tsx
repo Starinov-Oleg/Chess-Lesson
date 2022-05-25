@@ -47,6 +47,6 @@ export const PostService = {
       .then(res => res.data)
   },
   async removePostId(id: any | never, userId: any | never) {
-    return axios.delete<any[]>(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${userId}/post/${id}`)
+    return axios.delete<any[] | undefined>(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${userId}/post/${id}`)
   },
 }

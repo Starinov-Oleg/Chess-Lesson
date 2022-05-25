@@ -16,9 +16,9 @@ import { format } from 'date-fns'
 import Popup from '../../common/popup-message/popup-message'
 import { PostService } from '../../api/post-service'
 import useGetUser from '../../hooks/get-user-hook'
-import { useMutation, useQuery } from 'react-query'
-import { useLocation } from 'react-router-dom'
-
+import { useMutation, useQueryClient } from 'react-query'
+import usePost from '../../hooks/post-hook'
+import useDeletePost from '../../hooks/post-delete-hook'
 const StyledActionBlock = styled.div`
   margin-top: 3%;
   border-radius: 10px;
@@ -45,35 +45,31 @@ function UserPage() {
   const [isOpen, setIsOpen] = useState({ show: false, id: null })
   const [text, setText] = useState<any | undefined>(undefined)
   const [search, setSearch] = useState('')
-  const [searchResult, setSearchResult] = useState<any[]>([])
+  const [searchResult, setSearchResult] = useState<any[] | undefined>([])
   const user = useGetUser()
-  const length = user.length
-  const location = useLocation()
+  const querypost = usePost(id)
+  const queryClient = useQueryClient()
 
-  const { refetch } = useQuery('articles', () => PostService.getPostId(id), {
-    onSuccess: data => {
-      setPost(data)
-    },
-  })
+  console.log(querypost)
+
+  const length = user.length
 
   const addpost = useMutation(() => PostService.addPostId(id, text), {
-    onSuccess: data => {
-      setPost([...post, data])
+    onSuccess: () => {
       setText('')
+    },
+    onSettled: () => {
+      queryClient.invalidateQueries('articles')
     },
   })
   const removepost = useMutation((userId: any) => PostService.removePostId(userId, id), {
     onSuccess: () => {
       setIsOpen({ show: false, id: null })
-      refetch()
+    },
+    onSettled: () => {
+      queryClient.invalidateQueries('articles')
     },
   })
-
-  useEffect(() => {
-    if (location) {
-      refetch()
-    }
-  }, [location, refetch])
 
   const peopleFriends = user
     .filter((user: { group: string }) => user.group === 'friends')
@@ -93,17 +89,17 @@ function UserPage() {
   const searchItems = (searchValue: any) => {
     setSearch(searchValue)
     if (search !== '') {
-      const filteredData = post.filter((item: { [s: string]: unknown } | ArrayLike<unknown>) => {
+      const filteredData = querypost?.filter((item: { [s: string]: unknown } | ArrayLike<unknown>) => {
         return Object.values(item).join('').toLowerCase().includes(search.toLowerCase())
       })
       setSearchResult(filteredData)
     } else {
-      setSearchResult(post)
+      setSearchResult(querypost)
     }
   }
 
-  const postListComponent = post
-    .filter((post: any) => post.userId === String(id))
+  const postListComponent = querypost
+    ?.filter((post: any) => post.userId === String(id))
     .map((item: { body: string | undefined; createdAt: any; id: number; userId: number }, index: number) => {
       return (
         <Fragment key={index}>
@@ -144,7 +140,7 @@ function UserPage() {
       )
     })
   const postListSearchComponent = searchResult
-    .filter((post: any) => post.userId === String(id))
+    ?.filter((post: any) => post.userId === String(id))
     .map((item: { body: string | undefined; createdAt: any; id: number; userId: number }, index: number) => {
       return (
         <Fragment key={index}>
