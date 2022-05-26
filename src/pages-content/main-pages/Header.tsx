@@ -42,3 +42,6 @@ function Header({ navlinkItems }: HeaderProps) {
 export default React.memo(Header)
 
 /** TODO isAuth check auth... return or login or button for register */
+/**Button before auth0
+ *  {isAuth ? <Button message='LOGOUT' href='/LOGIN' /> : <Button message='LOG IN' href='/LOGIN' />}
+ */
