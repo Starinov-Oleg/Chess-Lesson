@@ -5,6 +5,7 @@ import MenuItem from './menu-list/menu-item'
 import Button from '../../ui-library/button-link/button-link'
 import { useSelector, RootStateOrAny } from 'react-redux'
 import styled from 'styled-components'
+import AuthNav from '../../auth/auth-nav'
 
 interface HeaderProps {
   navlinkItems: string
@@ -34,7 +35,7 @@ function Header({ navlinkItems }: HeaderProps) {
           <StyledLogo src={logo} alt='home' />
         </StyledNavLink>
         <MenuItem navlinkItems={navlinkItems} />
-        {isAuth ? <Button message='LOGOUT' href='/LOGIN' /> : <Button message='LOG IN' href='/LOGIN' />}
+        <AuthNav messagelogout='Logout' messagelogin='Login' />
       </div>
     </div>
   )

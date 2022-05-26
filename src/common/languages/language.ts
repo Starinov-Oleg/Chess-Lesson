@@ -7,6 +7,9 @@ export const en = {
   loginbutton: {
     message: 'Login',
   },
+  logout: {
+    message: 'Logout',
+  },
   signupbutton: {
     message: 'Sign Up',
   },
@@ -218,6 +221,9 @@ export const vn = {
   },
   loginbutton: {
     message: 'đăng nhập',
+  },
+  logout: {
+    message: 'đăng xuất',
   },
   signupbutton: {
     message: 'đăng ký',
