@@ -1,9 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useAuth0 } from '@auth0/auth0-react'
-interface ButtonLogoutProps {
-  message: string
-}
+
 const StyledButtonLogin = styled.button`
   border-radius: 8px;
   display: inline-block;
@@ -29,7 +27,7 @@ const StyledButtonLogin = styled.button`
     color: white;
   }
 `
-function ButtonLogoutAuth({ message }: ButtonLogoutProps) {
+function ButtonLogoutAuth() {
   const { logout } = useAuth0()
   return (
     <StyledButtonLogin
@@ -38,7 +36,7 @@ function ButtonLogoutAuth({ message }: ButtonLogoutProps) {
           returnTo: window.location.origin,
         })
       }>
-      {message}
+      Logout
     </StyledButtonLogin>
   )
 }

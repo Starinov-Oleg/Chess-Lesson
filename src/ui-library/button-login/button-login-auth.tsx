@@ -1,9 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useAuth0 } from '@auth0/auth0-react'
-interface ButtonLogingProps {
-  message: string
-}
+
 const StyledButtonLogin = styled.button`
   border-radius: 8px;
   display: inline-block;
@@ -29,9 +27,9 @@ const StyledButtonLogin = styled.button`
     color: white;
   }
 `
-function ButtonLoginAuth({ message }: ButtonLogingProps) {
+function ButtonLoginAuth() {
   const { loginWithRedirect } = useAuth0()
-  return <StyledButtonLogin onClick={() => loginWithRedirect()}>{message}</StyledButtonLogin>
+  return <StyledButtonLogin onClick={loginWithRedirect}>Login</StyledButtonLogin>
 }
 
 export default ButtonLoginAuth

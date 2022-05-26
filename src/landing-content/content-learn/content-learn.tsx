@@ -9,6 +9,8 @@ import imgchess from '../../assets/section-learn/cess.png'
 import imgland from '../../assets/section-learn/land3.jpg'
 import LanguagesContext from '../../common/languages/language-context'
 import AuthNav from '../../auth/auth-nav'
+import { useAuth0 } from '@auth0/auth0-react'
+
 const StyledSectionLearn = styled.div`
   background-image: url(${imgchess}), url(${imgland});
   background-position: center;
@@ -31,8 +33,11 @@ const Titles = styled.div`
     font-weight: bold;
   }
 `
+
 function SectionLearn() {
   const language = React.useContext(LanguagesContext)
+  const {user} = useAuth0()
+
   return (
     <section className='section-learn'>
       <StyledSectionLearn>
@@ -42,10 +47,11 @@ function SectionLearn() {
               <StyledPromo>
                 <StyledLogo src={logo} alt='chess-land' />
                 <Titles>
+                  <h2>{user}</h2>
                   <H1 message={language.logo.message} goldTitle />
                 </Titles>
                 <div className='buttons '>
-                  <AuthNav messagelogout='Logout' messagelogin='Login' />
+                  <AuthNav />
                   <Button message={language.signupbutton.message} />
                 </div>
               </StyledPromo>
