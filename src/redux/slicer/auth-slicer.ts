@@ -11,7 +11,7 @@ const initialState: InitialInterface = {
   id: null,
   email: null,
   password: null,
-  isAuth: true,
+  isAuth: false,
 }
 
 const authSlice = createSlice({
@@ -19,7 +19,7 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setAuth: state => {
-      state.isAuth = true
+      state.isAuth = false
     },
     setItemAuth: (state, { payload }) => {
       state.isAuth = false
@@ -32,11 +32,4 @@ export const authSelector = (state: { isAuth: any }) => state.isAuth
 
 export default authSlice.reducer
 
-const api = axios.create({
-  baseURL: 'https://reqres.in/api',
-  withCredentials: false,
-  headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json',
-  },
-})
+

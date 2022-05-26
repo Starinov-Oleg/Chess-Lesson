@@ -25,9 +25,9 @@ const ChatPage = React.lazy(() => import('./user-content/chat-page/chat-page'))
 function App(props) {
   return (
     <BrowserRouter>
-      <ScrollToTop />
-      <Suspense fallback={<div>Loading</div>}>
-        <Auth0ProviderWithHistory>
+      <Auth0ProviderWithHistory>
+        <ScrollToTop />
+        <Suspense fallback={<div>Loading</div>}>
           <div className='App'>
             <Routes>
               <Route
@@ -70,8 +70,8 @@ function App(props) {
             </Routes>
             <COLORS />
           </div>
-        </Auth0ProviderWithHistory>
-      </Suspense>
+        </Suspense>{' '}
+      </Auth0ProviderWithHistory>
     </BrowserRouter>
   )
 }
