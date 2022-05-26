@@ -3,8 +3,8 @@ import H3 from '../../../ui-library/h3/h3'
 import styled from 'styled-components'
 
 interface UserPeopleBlockProps {
-  spanlength: number
-  spancount: number
+  spanlength: number | undefined
+  spancount: number | undefined
   fullname?: string
   childFriends: React.ReactNode
   childCouches: React.ReactNode

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react'
+import React, { useState, Fragment } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import UserProfile from './use-profile/user-profile'
 import UserPeopleBlock from './user-people-block/user-people-block'
@@ -14,11 +14,10 @@ import FilterPost from './user-action/filter-search-post/filter-post'
 import SearchPost from './user-action/filter-search-post/search-post'
 import { format } from 'date-fns'
 import Popup from '../../common/popup-message/popup-message'
-import { PostService } from '../../api/post-service'
 import useGetUser from '../../hooks/get-user-hook'
-import { useMutation, useQueryClient } from 'react-query'
 import usePost from '../../hooks/post-hook'
 import useDeletePost from '../../hooks/post-delete-hook'
+import useAddPost from '../../hooks/post-add-hook'
 const StyledActionBlock = styled.div`
   margin-top: 3%;
   border-radius: 10px;
@@ -41,49 +40,31 @@ const handleDeleteFalse = (setIsOpen: any) => {
 function UserPage() {
   const { id } = useParams()
   const [showResults, setShowResults] = useState(false)
-  const [post, setPost] = useState<any[]>([])
+  const [post, setPost] = useState<any[] | undefined>([])
   const [isOpen, setIsOpen] = useState({ show: false, id: null })
   const [text, setText] = useState<any | undefined>(undefined)
   const [search, setSearch] = useState('')
   const [searchResult, setSearchResult] = useState<any[] | undefined>([])
   const user = useGetUser()
   const querypost = usePost(id)
-  const queryClient = useQueryClient()
+  const querydeletepost = useDeletePost(id)
+  const queryaddpost = useAddPost()
 
-  console.log(querypost)
-
-  const length = user.length
-
-  const addpost = useMutation(() => PostService.addPostId(id, text), {
-    onSuccess: () => {
-      setText('')
-    },
-    onSettled: () => {
-      queryClient.invalidateQueries('articles')
-    },
-  })
-  const removepost = useMutation((userId: any) => PostService.removePostId(userId, id), {
-    onSuccess: () => {
-      setIsOpen({ show: false, id: null })
-    },
-    onSettled: () => {
-      queryClient.invalidateQueries('articles')
-    },
-  })
+  const length = user?.length
 
   const peopleFriends = user
-    .filter((user: { group: string }) => user.group === 'friends')
+    ?.filter((user: { group: string }) => user.group === 'friends')
     .map((item: { name: string; avatar: string; key: number; id: number }, index: number) => {
       return <CommonPeople fullname={item.name} avatar={item.avatar} key={index} user={item.id} />
     })
   const peopleCouches = user
-    .filter((user: { group: string }) => user.group === 'couch')
+    ?.filter((user: { group: string }) => user.group === 'couch')
     .map((item: { name: string; avatar: string; key: number; id: number }, index: number) => {
       return <CommonPeople fullname={item.name} avatar={item.avatar} key={index} user={item.id} />
     })
 
   const sortDataPost = () => {
-    setPost([...post].sort((a, b) => (a.item > b.item ? 1 : -1)))
+    setPost(querypost?.sort((a, b) => (a.item > b.item ? 1 : -1)))
   }
 
   const searchItems = (searchValue: any) => {
@@ -99,7 +80,7 @@ function UserPage() {
   }
 
   const postListComponent = querypost
-    ?.filter((post: any) => post.userId === String(id))
+    ?.filter((querypost: any) => querypost.userId === String(id))
     .map((item: { body: string | undefined; createdAt: any; id: number; userId: number }, index: number) => {
       return (
         <Fragment key={index}>
@@ -122,8 +103,7 @@ function UserPage() {
                   <Button
                     message='Delete'
                     onClick={() => {
-                      removepost.mutate(item.id)
-                      // removeData(item.id, item.userId, setPost, setIsOpen, post)
+                      querydeletepost.mutate(item.id)
                     }}
                   />
                   <Button
@@ -140,7 +120,7 @@ function UserPage() {
       )
     })
   const postListSearchComponent = searchResult
-    ?.filter((post: any) => post.userId === String(id))
+    ?.filter((querypost: any) => querypost.userId === String(id))
     .map((item: { body: string | undefined; createdAt: any; id: number; userId: number }, index: number) => {
       return (
         <Fragment key={index}>
@@ -163,8 +143,7 @@ function UserPage() {
                   <Button
                     message='Delete'
                     onClick={() => {
-                      removepost.mutate(item.id)
-                      //removeData(item.id, item.userId, setPost, setIsOpen, post)
+                      querydeletepost.mutate(item.id)
                     }}
                   />
                   <Button
@@ -182,7 +161,7 @@ function UserPage() {
     })
 
   return user
-    .filter((user: any) => user.id === String(id))
+    ?.filter((user: any) => user.id === String(id))
     .map(
       (
         user: {
@@ -212,7 +191,7 @@ function UserPage() {
                 <UserProfile messagename={user.name} />
                 <UserPeopleBlock
                   spanlength={length}
-                  spancount={peopleFriends.length}
+                  spancount={peopleFriends?.length}
                   childFriends={<Row>{peopleFriends}</Row>}
                   childCouches={<Row>{peopleCouches}</Row>}
                 />
@@ -229,7 +208,8 @@ function UserPage() {
                   </StyledSearchFilterBlock>
                   <AddPost
                     onClick={() => {
-                      addpost.mutate(text)
+                      queryaddpost.mutate(text)
+                      setText('')
                     }}
                     onChange={(event: { target: { value: any } }) => {
                       setText(event.target.value)
