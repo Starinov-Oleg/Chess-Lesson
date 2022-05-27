@@ -15,7 +15,6 @@ const StyledLogo = styled.img`
   width: 140px;
 `
 const StyledNavLink = styled(NavLink)`
-  position: sticky;
   text-decoration: none;
   &:focus,
   &:hover,
@@ -27,7 +26,7 @@ const StyledNavLink = styled(NavLink)`
 `
 function Header({ navlinkItems }: HeaderProps) {
   return (
-    <div className='d-flex flex-sm-column flex-row flex-nowrap  sticky-top '>
+    <div className='d-flex flex-sm-column flex-row flex-nowrap  '>
       <div className='navigation'>
         <StyledNavLink to='/'>
           <StyledLogo src={logo} alt='home' />
