@@ -26,8 +26,6 @@ const StyledNavLink = styled(NavLink)`
   }
 `
 function Header({ navlinkItems }: HeaderProps) {
-  const { isAuth } = useSelector((state: RootStateOrAny) => state.auth)
-
   return (
     <div className='d-flex flex-sm-column flex-row flex-nowrap  sticky-top '>
       <div className='navigation'>
@@ -44,5 +42,7 @@ export default React.memo(Header)
 
 /** TODO isAuth check auth... return or login or button for register */
 /**Button before auth0
+ *   const { isAuth } = useSelector((state: RootStateOrAny) => state.auth)
+
  *  {isAuth ? <Button message='LOGOUT' href='/LOGIN' /> : <Button message='LOG IN' href='/LOGIN' />}
  */

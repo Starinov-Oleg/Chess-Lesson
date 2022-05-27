@@ -31,7 +31,17 @@ const StyledButtonLogin = styled.button`
 `
 function LoginButton({ message }: ButtonLogingProps) {
   const { loginWithRedirect } = useAuth0()
-  return <StyledButtonLogin onClick={loginWithRedirect}>{message}</StyledButtonLogin>
+
+  return (
+    <StyledButtonLogin
+      onClick={() =>
+        loginWithRedirect({
+          returnTo: window.location.origin,
+        })
+      }>
+      {message}
+    </StyledButtonLogin>
+  )
 }
 
 export default LoginButton

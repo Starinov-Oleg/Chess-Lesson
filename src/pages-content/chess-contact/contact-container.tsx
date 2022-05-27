@@ -7,9 +7,12 @@ import CommonPeople from '../../common/commpon-people-block/common-people'
 import { Key } from 'react'
 import { Row } from 'react-bootstrap'
 import useGetUser from '../../hooks/get-user-hook'
+import { useAuth0 } from '@auth0/auth0-react'
 
 function ContactContainerView() {
   const user = useGetUser()
+  const { isAuthenticated } = useAuth0()
+
   const peopleFriends = user
     ?.filter((user: { group: string }) => user.group === 'friends')
     .map((item: { name: string; avatar: string; key: number; id: number }, index: number) => {
@@ -37,8 +40,8 @@ function ContactContainerView() {
   return (
     <Contact
       cardItems={cardItems}
-      childFriends={<Row>{peopleFriends}</Row>}
-      childCouches={<Row>{peopleCouches}</Row>}
+      childFriends={isAuthenticated ? <Row>{peopleFriends}</Row> : null}
+      childCouches={isAuthenticated ? <Row>{peopleCouches}</Row> : null}
     />
   )
 }

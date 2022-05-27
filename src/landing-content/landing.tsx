@@ -11,8 +11,6 @@ import Footer from '../main/footer/Footer'
 import LanguageButton from '../common/languages/languages-buttons/language-button'
 import { en, vn } from '../common/languages/language'
 import LanguagesContext from '../common/languages/language-context'
-import styled from 'styled-components'
-import AuthNav from '../auth/auth-nav'
 
 /**interface LandingProps {
   contentSafe: string[]
@@ -26,7 +24,7 @@ function Landing(/*props: LandingProps*/) {
   return (
     <>
       <Header />
-      <LanguageButton onClick={() => setLanguage(vn)} onClickVn={() => setLanguage(en)} />
+      <LanguageButton onClick={() => setLanguage(en)} onClickVn={() => setLanguage(vn)} language={language.language} />
       <LanguagesContext.Provider value={language}>
         <SectionLearn />
         <SectionBaner />

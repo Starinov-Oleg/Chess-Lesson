@@ -1,17 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-
-interface StyledLanguageButton {
-  uk?: boolean | string | undefined
-  vn?: boolean | string | undefined
-}
+import Button from '../../../ui-library/button-click/button'
 const StyledLanguageButtonsContainer = styled.div`
   position: fixed;
   top: 0;
   left: 0;
   padding: 8px;
 `
-const StyledLanguageIcon = styled.div<StyledLanguageButton>`
+const StyledLanguageIcon = styled.div`
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -19,8 +15,8 @@ const StyledLanguageIcon = styled.div<StyledLanguageButton>`
   width: 3rem;
   height: 3rem;
   margin: 10px;
-  color: gold;
   font-weight: 800;
+  color: gold;
   cursor: pointer;
   &:hover {
     box-shadow: 0px 0px 0px 0px #c25e1b;
@@ -33,15 +29,29 @@ const StyledSpan = styled.span`
   color: gold;
 `
 interface ButtonProps {
-  onClick?: () => void
-  onClickVn?: () => void
+  onClick: () => void
+  onClickVn: () => void
+  language: any
 }
-function LanguageButton({ onClick, onClickVn }: ButtonProps) {
+
+function LanguageButton({ onClick, onClickVn, language }: ButtonProps) {
+  const [isClicked, setIsClicked] = useState(false)
+  const changeLanguage = () => {
+    setIsClicked(!isClicked)
+  }
   return (
     <StyledLanguageButtonsContainer>
-      <StyledLanguageIcon onClick={onClick}>VN</StyledLanguageIcon>
-      <StyledSpan>|</StyledSpan>
-      <StyledLanguageIcon onClick={onClickVn}>UK</StyledLanguageIcon>
+      <Button onClick={changeLanguage} message={language} />
+
+      {isClicked ? (
+        <>
+          <StyledLanguageIcon onClick={onClickVn}>VN</StyledLanguageIcon>
+          <StyledSpan>|</StyledSpan>
+          <StyledLanguageIcon onClick={onClick}>UK</StyledLanguageIcon>
+        </>
+      ) : (
+        ''
+      )}
     </StyledLanguageButtonsContainer>
   )
 }
