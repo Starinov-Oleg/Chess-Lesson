@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import SectionLearn from './content-learn/content-learn'
 import SectionBaner from './content-banner/content-banner'
 import SectionProgramm from './content-programm/content-programm'
@@ -17,15 +17,30 @@ import LanguagesContext from '../common/languages/language-context'
   contentProgramm: string[]
   contentCouching: string[]
 } */
+function setLocalStorage(key: string, value: any) {
+  try {
+    window.localStorage.setItem(key, JSON.stringify(value))
+  } catch (e) {}
+}
 
+function getLocalStorage(key: string, initialValue: any) {
+  try {
+    const value = window.localStorage.getItem(key)
+    return value ? JSON.parse(value) : initialValue
+  } catch (e) {
+    return initialValue
+  }
+}
 function Landing(/*props: LandingProps*/) {
-  const [language, setLanguage] = useState(en)
-
+  const [language, setLanguage] = useState(() => getLocalStorage('language', en))
+  useEffect(() => {
+    setLocalStorage('language', language)
+  }, [language])
   return (
     <>
       <Header />
       <LanguageButton onClick={() => setLanguage(en)} onClickVn={() => setLanguage(vn)} language={language.language} />
-      <LanguagesContext.Provider value={language}>
+      <LanguagesContext.Provider value={getLocalStorage('language', en)}>
         <SectionLearn />
         <SectionBaner />
         <SectionSafe /*contentSafe={props.contentSafe} */ />
