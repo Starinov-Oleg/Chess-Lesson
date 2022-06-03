@@ -1,5 +1,6 @@
 import './App.css'
 import React, { Suspense } from 'react'
+import Auth0ProviderWithHistory from './auth/auth0-provider-with-history'
 import Landing from './landing-content/landing'
 import WhatIsChessland from './pages-content/what-is-chess-land/what-is-chessland'
 import Pages from './pages-content/pages'
@@ -24,51 +25,53 @@ const ChatPage = React.lazy(() => import('./user-content/chat-page/chat-page'))
 function App(props) {
   return (
     <BrowserRouter>
-      <ScrollToTop />
-      <Suspense fallback={<div>Loading</div>}>
-        <div className='App'>
-          <Routes>
-            <Route
-              path='/'
-              element={
-                <Landing
-                /*contentSafe={props.state.landing.contentSafe.lists}*/
-                /*contentCouching={props.state.landing.contentCouching.lists}*/
-                /*contentProgramm={props.state.landing.contentProgramm.lists}*/
-                />
-              }
-            />
-            <Route path='/login' element={<Login />}></Route>
-            <Route path='/register' element={<Register />}></Route>
-            <Route path='/regcouching' element={<RegisterCouch />}></Route>
-            <Route element={<Pages navlinkItems={props.state.navlinkItems} />}>
-              <Route path='home' element={<Home />} />
-              <Route path='whatis' element={<WhatIsChessland />} />
-              <Route path='chesslandschool' element={<ChessLandSchool />} />
-              <Route path='chesslandcoaches' element={<ChessLandCoaches />} />
-              <Route path='chesslearn' element={<ChessLearn learn={props.state.learn} />} />
-              <Route path='contact' element={<ContactContainer />} />
-              <Route path='events' element={<EventsContainer />} />
-              <Route path='adventure' element={<Adventure />} />
-              <Route path='chesslesson/chesslesson1' element={<ChessLesson1 />} />
-              <Route path='chesslesson' element={<ChessLesson chesslesson={props.state.chesslesson} />} />
-              <Route path='user/:id/post' element={<User />}></Route>
-              <Route path='chat/:id' element={<ChatPage />}></Route>
-            </Route>
-            <Route path='/play' element={<Play chessplay={props.state.chessplay} />} />
-            <Route
-              path='*'
-              element={
-                <Landing
-                /*contentSafe={props.state.landing.contentSafe.lists}*/
-                /* contentCouching={props.state.landing.contentCouching.lists}*/
-                /* contentProgramm={props.state.landing.contentProgramm.lists}*/
-                />
-              }></Route>
-          </Routes>
-          <COLORS />
-        </div>
-      </Suspense>
+      <Auth0ProviderWithHistory>
+        <ScrollToTop />
+        <Suspense fallback={<div>Loading</div>}>
+          <div className='App'>
+            <Routes>
+              <Route
+                path='/'
+                element={
+                  <Landing
+                  /*contentSafe={props.state.landing.contentSafe.lists}*/
+                  /*contentCouching={props.state.landing.contentCouching.lists}*/
+                  /*contentProgramm={props.state.landing.contentProgramm.lists}*/
+                  />
+                }
+              />
+              <Route path='/login' element={<Login />}></Route>
+              <Route path='/register' element={<Register />}></Route>
+              <Route path='/regcouching' element={<RegisterCouch />}></Route>
+              <Route element={<Pages navlinkItems={props.state.navlinkItems} />}>
+                <Route path='home' element={<Home />} />
+                <Route path='whatis' element={<WhatIsChessland />} />
+                <Route path='chesslandschool' element={<ChessLandSchool />} />
+                <Route path='chesslandcoaches' element={<ChessLandCoaches />} />
+                <Route path='chesslearn' element={<ChessLearn learn={props.state.learn} />} />
+                <Route path='contact' element={<ContactContainer />} />
+                <Route path='events' element={<EventsContainer />} />
+                <Route path='adventure' element={<Adventure />} />
+                <Route path='chesslesson/chesslesson1' element={<ChessLesson1 />} />
+                <Route path='chesslesson' element={<ChessLesson chesslesson={props.state.chesslesson} />} />
+                <Route path='user/:id/post' element={<User />}></Route>
+                <Route path='chat/:id' element={<ChatPage />}></Route>
+              </Route>
+              <Route path='/play' element={<Play chessplay={props.state.chessplay} />} />
+              <Route
+                path='*'
+                element={
+                  <Landing
+                  /*contentSafe={props.state.landing.contentSafe.lists}*/
+                  /* contentCouching={props.state.landing.contentCouching.lists}*/
+                  /* contentProgramm={props.state.landing.contentProgramm.lists}*/
+                  />
+                }></Route>
+            </Routes>
+            <COLORS />
+          </div>
+        </Suspense>{' '}
+      </Auth0ProviderWithHistory>
     </BrowserRouter>
   )
 }

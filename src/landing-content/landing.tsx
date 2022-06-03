@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import SectionLearn from './content-learn/content-learn'
 import SectionBaner from './content-banner/content-banner'
 import SectionProgramm from './content-programm/content-programm'
@@ -11,30 +11,36 @@ import Footer from '../main/footer/Footer'
 import LanguageButton from '../common/languages/languages-buttons/language-button'
 import { en, vn } from '../common/languages/language'
 import LanguagesContext from '../common/languages/language-context'
-import styled from 'styled-components'
+
 /**interface LandingProps {
   contentSafe: string[]
   contentProgramm: string[]
   contentCouching: string[]
 } */
+function setLocalStorage(key: string, value: any) {
+  try {
+    window.localStorage.setItem(key, JSON.stringify(value))
+  } catch (e) {}
+}
 
-const StyledLanding = styled.div`
-  /* background: rgb(102, 153, 153);
-  background: linear-gradient(
-    90deg,
-    rgba(102, 153, 153, 0.27) 0%,
-    rgba(153, 231, 175, 0.2763480392156863) 50%,
-    rgba(102, 153, 153, 1) 100%
-  );*/
-`
+function getLocalStorage(key: string, initialValue: any) {
+  try {
+    const value = window.localStorage.getItem(key)
+    return value ? JSON.parse(value) : initialValue
+  } catch (e) {
+    return initialValue
+  }
+}
 function Landing(/*props: LandingProps*/) {
-  const [language, setLanguage] = useState(en)
-
+  const [language, setLanguage] = useState(() => getLocalStorage('language', en))
+  useEffect(() => {
+    setLocalStorage('language', language)
+  }, [language])
   return (
-    <StyledLanding>
+    <>
       <Header />
-      <LanguageButton onClick={() => setLanguage(vn)} onClickVn={() => setLanguage(en)} />
-      <LanguagesContext.Provider value={language}>
+      <LanguageButton onClick={() => setLanguage(en)} onClickVn={() => setLanguage(vn)} language={language.language} />
+      <LanguagesContext.Provider value={getLocalStorage('language', en)}>
         <SectionLearn />
         <SectionBaner />
         <SectionSafe /*contentSafe={props.contentSafe} */ />
@@ -44,9 +50,9 @@ function Landing(/*props: LandingProps*/) {
         <SectionNews />
       </LanguagesContext.Provider>
       <Footer />
-    </StyledLanding>
+    </>
   )
 }
 
-export default React.memo(Landing)
+export default Landing
 /**NOTE props for list. Now use context for change language */

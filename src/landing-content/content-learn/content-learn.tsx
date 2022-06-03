@@ -1,13 +1,14 @@
 import React from 'react'
 import logo from '../../assets/section-learn/logo.png'
 import H1 from '../../ui-library/h1/h1'
-import Button from '../../ui-library/button-register/button-register'
-import ButtonLogin from '../../ui-library/button-login/button-login'
+import Button from '../../ui-library/button-register/button-register-auth'
+import ButtonLogin from '../../ui-library/button-login/button-login-auth'
 import { Container, Row, Col } from 'react-bootstrap'
 import styled from 'styled-components'
 import imgchess from '../../assets/section-learn/cess.png'
 import imgland from '../../assets/section-learn/land3.jpg'
 import LanguagesContext from '../../common/languages/language-context'
+import AuthNav from '../../auth/auth-nav'
 const StyledSectionLearn = styled.div`
   background-image: url(${imgchess}), url(${imgland});
   background-position: center;
@@ -30,8 +31,10 @@ const Titles = styled.div`
     font-weight: bold;
   }
 `
+
 function SectionLearn() {
   const language = React.useContext(LanguagesContext)
+
   return (
     <section className='section-learn'>
       <StyledSectionLearn>
@@ -44,7 +47,7 @@ function SectionLearn() {
                   <H1 message={language.logo.message} goldTitle />
                 </Titles>
                 <div className='buttons '>
-                  <ButtonLogin message={language.loginbutton.message} />
+                  <AuthNav messagelogout={language.logout.message} messagelogin={language.loginbutton.message} />
                   <Button message={language.signupbutton.message} />
                 </div>
               </StyledPromo>

@@ -13,6 +13,12 @@ const StyledPages = styled.div`
 `
 const StyledColOutlet = styled(Col)`
   background-color: white;
+  padding-left: 1rem;
+  padding-right: 1rem;
+`
+const StyleFlex = styled.div`
+  display: flex;
+  flex-wrap: wrap;
 `
 interface PagesProps {
   navlinkItems: string
@@ -20,16 +26,12 @@ interface PagesProps {
 function Pages({ navlinkItems }: PagesProps) {
   return (
     <StyledPages>
-      <Container fluid>
-        <Row>
-          <Col lg={2} md={3} sm={3}>
-            <Header navlinkItems={navlinkItems} />
-          </Col>
-          <StyledColOutlet lg={10} md={9} sm={9} xs={12}>
-            <Outlet />
-          </StyledColOutlet>
-        </Row>
-      </Container>
+      <StyleFlex>
+        <Header navlinkItems={navlinkItems} />
+        <StyledColOutlet>
+          <Outlet />
+        </StyledColOutlet>
+      </StyleFlex>
       <Footer />
     </StyledPages>
   )
