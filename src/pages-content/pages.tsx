@@ -15,6 +15,7 @@ const StyledColOutlet = styled(Col)`
   background-color: white;
   padding-left: 1rem;
   padding-right: 1rem;
+  min-height: 100vh;
 `
 const StyleFlex = styled.div`
   display: flex;

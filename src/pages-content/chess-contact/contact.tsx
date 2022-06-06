@@ -16,9 +16,7 @@ const StyledHotLine = styled.div`
 const StyledIntroduceClub = styled.div`
   margin-bottom: 2rem;
 `
-const StyledClub = styled.div`
-  min-height: 100vh;
-`
+
 const StyledChildPeopleBlock = styled.div`
   margin: 1rem;
 `
@@ -30,7 +28,7 @@ const StyledCardSize = styled(Row)`
 function Contact({ cardItems, childFriends, childCouches }: CardProps) {
   return (
     <section className='contact'>
-      <StyledClub>
+      <div>
         <StyledIntroduceClub>
           <H1 message='Introduce With Club' primary />
         </StyledIntroduceClub>
@@ -44,7 +42,7 @@ function Contact({ cardItems, childFriends, childCouches }: CardProps) {
           <H3 message='Your Friends' colorBlack primary />
           <StyledChildPeopleBlock>{childFriends}</StyledChildPeopleBlock>
         </div>
-      </StyledClub>
+      </div>
     </section>
   )
 }
