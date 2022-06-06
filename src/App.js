@@ -16,6 +16,7 @@ import ScrollToTop from './common/scroll-top/scroll'
 import ChessLesson from './pages-content/chess-lesson/chess-lesson'
 import ChessLesson1 from './pages-content/chess-lesson/chess-lesson-1/chess-lesson-1'
 import ChessLesson1Practice from './pages-content/chess-lesson/chess-lesson-1/chess-lesson-1-board-practice/chess-lesson-1-practice'
+import ChessLessonTestPage from './pages-content/chess-lesson/chess-lesson-1/chess-lesson-1-test-page/chess-lesson-1-test-page'
 import { COLORS } from './common/styled-components/var-colors.styled'
 const Login = React.lazy(() => import('./user-content/login/login'))
 const Register = React.lazy(() => import('./user-content/register/register'))
@@ -55,6 +56,7 @@ function App(props) {
                 <Route path='adventure' element={<Adventure />} />
                 <Route path='chesslesson/chesslesson1' element={<ChessLesson1 />} />
                 <Route path='chesslesson/chesslesson1/cheslesson1practice' element={<ChessLesson1Practice />} />
+                <Route path='chesslesson/chesslesson1/cheslesson1test' element={<ChessLessonTestPage />} />
                 <Route path='chesslesson' element={<ChessLesson chesslesson={props.state.chesslesson} />} />
                 <Route path='user/:id/post' element={<User />}></Route>
                 <Route path='chat/:id' element={<ChatPage />}></Route>
