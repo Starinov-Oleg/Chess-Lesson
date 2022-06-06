@@ -10,6 +10,9 @@ import { Provider } from 'react-redux'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { persistQueryClient } from 'react-query/persistQueryClient-experimental'
 import { createWebStoragePersistor } from 'react-query/createWebStoragePersistor-experimental'
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
+import { TouchBackend } from 'react-dnd-touch-backend'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -34,7 +37,9 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
-        <App state={state} />
+        <DndProvider backend={TouchBackend}>
+          <App state={state} />
+        </DndProvider>
       </QueryClientProvider>
     </Provider>
   </React.StrictMode>,
