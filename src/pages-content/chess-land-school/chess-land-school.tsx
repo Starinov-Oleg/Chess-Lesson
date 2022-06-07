@@ -1,4 +1,4 @@
-import { Col, Row, Container } from 'react-bootstrap'
+import { Col, Container,Row } from 'react-bootstrap'
 
 function ChessLandSchool() {
   return (

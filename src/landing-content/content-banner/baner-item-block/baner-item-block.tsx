@@ -1,7 +1,8 @@
 import React from 'react'
-import BanerItemCard from '../baner-item-card/baner-item-card'
 import styled from 'styled-components'
+
 import LanguagesContext from '../../../common/languages/language-context'
+import BanerItemCard from '../baner-item-card/baner-item-card'
 
 const StyledBanerItemBlock = styled.div`
   display: flex;

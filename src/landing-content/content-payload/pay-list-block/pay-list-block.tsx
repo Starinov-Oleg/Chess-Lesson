@@ -1,7 +1,8 @@
-import PayItem from './pay-item/pay-item'
 import React from 'react'
+import { Col,Container, Row } from 'react-bootstrap'
+
 import LanguagesContext from '../../../common/languages/language-context'
-import { Container, Row, Col } from 'react-bootstrap'
+import PayItem from './pay-item/pay-item'
 /**NOW USE CONTEXT
  * const payloadlist = [
   { header: '4 lesson', body: 'Basic principles of the game', footer: '100 000 Đ' },

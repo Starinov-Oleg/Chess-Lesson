@@ -1,3 +1,5 @@
+import React from 'react'
+
 import H1 from '../../ui-library/h1/h1'
 import ChessLessonItem from './chess-lesson-item/chess-lesson-item'
 function ChessLesson() {

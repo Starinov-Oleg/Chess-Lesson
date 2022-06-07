@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
-import CommonPeople from './common-people'
+import React, { useEffect,useState } from 'react'
 import { Row } from 'react-bootstrap'
+import { useParams } from 'react-router-dom'
+
 import useGetUser from '../../hooks/get-user-hook'
+import CommonPeople from './common-people'
 
 function Friends() {
   const user = useGetUser()

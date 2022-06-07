@@ -1,5 +1,6 @@
-import H1 from '../../ui-library/h1/h1'
 import styled from 'styled-components'
+
+import H1 from '../../ui-library/h1/h1'
 
 const StyledHome = styled.div`
   min-height: 100vh;

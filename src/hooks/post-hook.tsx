@@ -1,4 +1,5 @@
 import { useQuery } from 'react-query'
+
 import { PostService } from '../api/post-service'
 
 const usePost = (id: any) => {

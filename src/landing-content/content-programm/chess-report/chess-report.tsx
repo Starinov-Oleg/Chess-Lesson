@@ -1,10 +1,11 @@
 import React from 'react'
-import H1 from '../../../ui-library/h1/h1'
-import reportPic from '../../../assets/section-programm/phone.png'
-import H3 from '../../../ui-library/h3/h3'
-import LanguagesContext from '../../../common/languages/language-context'
+import { Col,Container, Row } from 'react-bootstrap'
 import styled from 'styled-components'
-import { Container, Row, Col } from 'react-bootstrap'
+
+import reportPic from '../../../assets/section-programm/phone.png'
+import LanguagesContext from '../../../common/languages/language-context'
+import H1 from '../../../ui-library/h1/h1'
+import H3 from '../../../ui-library/h3/h3'
 
 const StyledImg = styled.img`
   width: 100%;

@@ -18,4 +18,4 @@ const MarginStyled = styled.div`
 const MarginBottom = styled.div`
   margin-bottom: 2rem;
 `
-export { MarginStyled, MarginBottom, Padding, PaddingLeft, PaddingTop, PaddingVerticalHorizontal }
+export { MarginBottom, MarginStyled, Padding, PaddingLeft, PaddingTop, PaddingVerticalHorizontal }

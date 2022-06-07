@@ -1,8 +1,9 @@
-import Logo from '../../../ui-library/logo/logo'
-import cover from '../../../assets/pages/chess-play/cover.jpg'
-import Upload from '../../../ui-library/upload-file/upload-file'
 import React from 'react'
 import styled from 'styled-components'
+
+import cover from '../../../assets/pages/chess-play/cover.jpg'
+import Logo from '../../../ui-library/logo/logo'
+import Upload from '../../../ui-library/upload-file/upload-file'
 
 function onUploadCover(e: any, props: any) {
   if (e.target.files.length) {

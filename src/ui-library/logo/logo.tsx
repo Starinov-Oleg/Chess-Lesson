@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+
 import photo from '../../assets/pages/chess-play/user.png'
 
 interface LogoProps {

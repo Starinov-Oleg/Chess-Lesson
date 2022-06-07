@@ -1,10 +1,10 @@
 import React from 'react'
-
-import boardcss from './board.module.css'
-import Button from '../../ui-library/button-click/button'
 import { Key, ReactChild, ReactFragment, ReactPortal, SetStateAction, useState } from 'react'
+import { RootStateOrAny,useSelector } from 'react-redux'
+
+import Button from '../../ui-library/button-click/button'
 import Square from '../square/square'
-import { useSelector, RootStateOrAny } from 'react-redux'
+import boardcss from './board.module.css'
 
 function start(setShowButton: { (value: SetStateAction<boolean>): void; (arg0: boolean): void }) {
   setShowButton(false)

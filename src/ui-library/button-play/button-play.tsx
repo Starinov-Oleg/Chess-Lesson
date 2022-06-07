@@ -1,7 +1,8 @@
 import React from 'react'
-import styled from 'styled-components'
-import img from '../../assets/section-baner/play.png'
 import { NavLink } from 'react-router-dom'
+import styled from 'styled-components'
+
+import img from '../../assets/section-baner/play.png'
 
 interface ButtonProps {
   href: string

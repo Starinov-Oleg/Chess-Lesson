@@ -1,7 +1,8 @@
 import React from 'react'
 import { useDrag } from 'react-dnd'
-import { ItemTypes } from './constants/ItemTypes'
+
 import pieces from '../../../../chess-board-game/pieces/chesspieces'
+import { ItemTypes } from './constants/ItemTypes'
 export default function Knight() {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: ItemTypes.KNIGHT,

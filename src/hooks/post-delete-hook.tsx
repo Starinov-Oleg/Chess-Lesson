@@ -1,4 +1,5 @@
 import { useMutation, useQueryClient } from 'react-query'
+
 import { PostService } from '../api/post-service'
 
 const useDeletePost = (id: any) => {

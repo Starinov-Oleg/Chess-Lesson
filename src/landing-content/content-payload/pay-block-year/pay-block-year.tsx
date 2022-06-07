@@ -1,13 +1,13 @@
 import React from 'react'
+import { Col,Container, Row } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import styled from 'styled-components'
 
+import picture from '../../../assets/section-payload/g.png'
+import LanguagesContext from '../../../common/languages/language-context'
+import { FontSize1rem } from '../../../common/styled-components/font-size.styled'
 import H1 from '../../../ui-library/h1/h1'
 import H3 from '../../../ui-library/h3/h3'
-import picture from '../../../assets/section-payload/g.png'
-import { Link } from 'react-router-dom'
-import { FontSize1rem } from '../../../common/styled-components/font-size.styled'
-import { Container, Row, Col } from 'react-bootstrap'
-import styled from 'styled-components'
-import LanguagesContext from '../../../common/languages/language-context'
 
 const StyledSectionPayblock = styled.div`
   background-color: white;

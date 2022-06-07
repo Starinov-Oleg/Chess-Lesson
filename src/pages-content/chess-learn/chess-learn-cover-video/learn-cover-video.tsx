@@ -1,6 +1,7 @@
-import H1 from '../../../ui-library/h1/h1'
-import picture from '../../../assets/pages/chess-learn/learn-video.jpg'
 import styled from 'styled-components'
+
+import picture from '../../../assets/pages/chess-learn/learn-video.jpg'
+import H1 from '../../../ui-library/h1/h1'
 
 const StyledImg = styled.img`
   width: 100%;

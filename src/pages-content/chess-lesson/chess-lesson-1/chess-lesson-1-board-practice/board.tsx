@@ -1,7 +1,8 @@
 import React from 'react'
-import Square from './square'
-import Knight from './knight-piece'
+
 import BoardSquare from './board-square'
+import Knight from './knight-piece'
+import Square from './square'
 interface BoardProps {
   knightPosition: any
 }

@@ -1,6 +1,7 @@
 import React from 'react'
+import { Col, Container,Row } from 'react-bootstrap'
+
 import Form from './register-form/form'
-import { Col, Row, Container } from 'react-bootstrap'
 
 function onSubmit(data: any) {
   alert(JSON.stringify(data))

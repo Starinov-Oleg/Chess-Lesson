@@ -1,10 +1,11 @@
 import React from 'react'
-import Button from '../button-click/button'
-import Statistic from './statistic-block/statistic-block'
-import Passport from './passport-block/passport-block'
-import photo from '../../assets/pages/chess-play/user.png'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
+
+import photo from '../../assets/pages/chess-play/user.png'
+import Button from '../button-click/button'
+import Passport from './passport-block/passport-block'
+import Statistic from './statistic-block/statistic-block'
 
 //import Logo from '../logo/logo'
 interface CardSocialProps {

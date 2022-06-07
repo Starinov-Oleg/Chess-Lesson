@@ -1,5 +1,6 @@
+import { Col, Container,Row } from 'react-bootstrap'
+
 import Button from '../../../ui-library/button-link/button-link'
-import { Col, Row, Container } from 'react-bootstrap'
 
 function ChessLesson1Practice() {
   return (

@@ -1,5 +1,6 @@
-import H3 from '../../../ui-library/h3/h3'
 import styled from 'styled-components'
+
+import H3 from '../../../ui-library/h3/h3'
 
 interface ItemProps {
   title: string
