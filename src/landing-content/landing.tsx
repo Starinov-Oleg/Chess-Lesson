@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { en, vn } from '../common/languages/language'
 import LanguagesContext from '../common/languages/language-context'
@@ -21,7 +21,9 @@ import SectionProgramm from './content-programm/content-programm'
 function setLocalStorage(key: string, value: any) {
   try {
     window.localStorage.setItem(key, JSON.stringify(value))
-  } catch (e) {}
+  } catch (e) {
+    console.log('error')
+  }
 }
 
 function getLocalStorage(key: string, initialValue: any) {
