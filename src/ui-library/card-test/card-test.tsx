@@ -12,6 +12,20 @@ interface CardTestProps {
 
 const StyledCardTest = styled.div``
 const StyledQuestion = styled.div``
+const StyledTestItem = styled.div``
+const ListItemForm = styled.form`
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+`
+const ListItemBlock = styled.div`
+  padding-right: 1rem;
+  padding-left: 1rem;
+`
+const StyledTestImg = styled.img`
+  display: block;
+  width: 100%;
+`
 const StyledCheckbox = styled.div`
   label {
     padding-right: 1rem;
@@ -24,21 +38,30 @@ const StyledRadio = styled.div`
     padding-left: 1rem;
   }
 `
-const StyledTestItem = styled.div``
 
-function CardTest({ title, description, question, chose_test, lists }: CardTestProps) {
-  const listItems_checkbox = lists.map(list => (
-    <Fragment key={list.id}>
+const ListItemsCheckbox = (props: any) => {
+  const lists = props.lists
+  const listItems = lists.map((list: any) => (
+    <ListItemBlock key={list.id}>
+      {list.list_item_img ? <StyledTestImg src={list.list_item_img} alt='chose for test' /> : null}
       <input type='checkbox' id={list.list_item_label} name={list.list_item_label} value={list.list_item_label} />
       <Label message={list.list_item_label} htmlFor={list.list_item_label} />
-    </Fragment>
+    </ListItemBlock>
   ))
-  const listItems_radio = lists.map(list => (
-    <Fragment key={list.id}>
-      <input type='radio' id={list.list_item_label} name={list.list_item_label} value={list.list_item_label} />
+  return <>{listItems}</>
+}
+const ListItemsRadio = (props: any) => {
+  const lists = props.lists
+  const listItems = lists.map((list: any) => (
+    <ListItemBlock key={list.id}>
+      {list.list_item_img ? <StyledTestImg src={list.list_item_img} alt='chose for test' /> : null}
+      <input type='checkbox' id={list.list_item_label} name={list.list_item_label} value={list.list_item_label} />
       <Label message={list.list_item_label} htmlFor={list.list_item_label} />
-    </Fragment>
+    </ListItemBlock>
   ))
+  return <>{listItems}</>
+}
+function CardTest({ title, description, question, chose_test, lists }: CardTestProps) {
   return (
     <StyledCardTest className={`cardtest`}>
       <H3 message={title} />
@@ -47,11 +70,15 @@ function CardTest({ title, description, question, chose_test, lists }: CardTestP
         <StyledQuestion>{question}</StyledQuestion>
         {chose_test === 'checkbox' ? (
           <StyledCheckbox>
-            <form>{listItems_checkbox}</form>
+            <ListItemForm>
+              <ListItemsCheckbox lists={lists} />
+            </ListItemForm>
           </StyledCheckbox>
         ) : (
           <StyledRadio>
-            <form>{listItems_radio}</form>
+            <ListItemForm>
+              <ListItemsRadio lists={lists} />
+            </ListItemForm>
           </StyledRadio>
         )}
       </StyledTestItem>
