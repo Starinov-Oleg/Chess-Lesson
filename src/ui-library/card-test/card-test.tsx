@@ -9,15 +9,13 @@ interface CardTestProps {
   chose_test: string
   lists: Array<any>
 }
-
-const StyledCardTest = styled.div``
-const StyledQuestion = styled.div``
-const StyledTestItem = styled.div``
-const ListItemForm = styled.form`
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
+const StyledTestDescription = styled.p`
+  font-size: 2rem;
 `
+const StyledCardTest = styled.div``
+const StyledQuestion = styled.h3``
+const StyledTestItem = styled.div``
+
 const ListItemBlock = styled.div`
   padding-right: 1rem;
   padding-left: 1rem;
@@ -27,6 +25,9 @@ const StyledTestImg = styled.img`
   width: 100%;
 `
 const StyledCheckbox = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
   label {
     padding-right: 1rem;
     padding-left: 1rem;
@@ -63,24 +64,22 @@ const ListItemsRadio = (props: any) => {
 }
 function CardTest({ title, description, question, chose_test, lists }: CardTestProps) {
   return (
-    <StyledCardTest className={`cardtest`}>
+    <StyledCardTest>
       <H3 message={title} />
-      <p>{description}</p>
+      <StyledTestDescription>{description}</StyledTestDescription>
       <StyledTestItem>
         <StyledQuestion>{question}</StyledQuestion>
-        {chose_test === 'checkbox' ? (
-          <StyledCheckbox>
-            <ListItemForm>
+        <form>
+          {chose_test === 'checkbox' ? (
+            <StyledCheckbox>
               <ListItemsCheckbox lists={lists} />
-            </ListItemForm>
-          </StyledCheckbox>
-        ) : (
-          <StyledRadio>
-            <ListItemForm>
+            </StyledCheckbox>
+          ) : (
+            <StyledRadio>
               <ListItemsRadio lists={lists} />
-            </ListItemForm>
-          </StyledRadio>
-        )}
+            </StyledRadio>
+          )}
+        </form>
       </StyledTestItem>
     </StyledCardTest>
   )
