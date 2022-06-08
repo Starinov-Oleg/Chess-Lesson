@@ -5,7 +5,7 @@ import styled from 'styled-components'
 interface ButtonProps {
   href: string
   message: string
-  style?: Object
+  style?: { [key: string]: string }
 }
 
 const StyledButton = styled(NavLink)`
