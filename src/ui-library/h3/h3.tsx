@@ -8,6 +8,7 @@ interface H3Props {
   colorNote?: boolean | string
   textAlignLeft?: boolean | string
   colorOrange?: boolean | string
+  children?: React.ReactNode
 }
 interface StyledH3Props {
   primary?: boolean | string
@@ -50,7 +51,7 @@ const StyledH3 = styled.h3<StyledH3Props>`
     `}
 `
 
-function H3({ style, message, primary, colorBlack, colorNote, colorOrange, textAlignLeft }: H3Props) {
+function H3({ style, message, primary, colorBlack, colorNote, colorOrange, textAlignLeft, children }: H3Props) {
   return (
     <StyledH3
       style={style}
@@ -60,6 +61,7 @@ function H3({ style, message, primary, colorBlack, colorNote, colorOrange, textA
       colorOrange={colorOrange}
       textAlignLeft={textAlignLeft}>
       {message}
+      {children}
     </StyledH3>
   )
 }
