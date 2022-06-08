@@ -1,12 +1,13 @@
 import React from 'react'
+import { Col,Container, Row } from 'react-bootstrap'
+import styled from 'styled-components'
+
+import img from '../../assets/section-couch/back.jpg'
+import LanguagesContext from '../../common/languages/language-context'
 import Button from '../../ui-library/button-link/button-link'
 import H1 from '../../ui-library/h1/h1'
 import Ul from '../../ui-library/ul/ul'
 import CouchSay from './couch-say/couch-say'
-import { Container, Row, Col } from 'react-bootstrap'
-import styled from 'styled-components'
-import img from '../../assets/section-couch/back.jpg'
-import LanguagesContext from '../../common/languages/language-context'
 
 /**
  *interface contentCouchingProps {

@@ -1,6 +1,8 @@
-import H3 from '../../../ui-library/h3/h3'
-import Button from '../../../ui-library/button-click/button'
+import React from 'react'
 import styled from 'styled-components'
+
+import Button from '../../../ui-library/button-click/button'
+import H3 from '../../../ui-library/h3/h3'
 
 interface AboutProps {
   message: string

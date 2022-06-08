@@ -1,12 +1,13 @@
 import React from 'react'
+import { Col, Container, Row } from 'react-bootstrap'
+import styled from 'styled-components'
+
+import img from '../../assets/section-baner/baner.jpg'
+import LanguagesContext from '../../common/languages/language-context'
 import ButtonPlay from '../../ui-library/button-play/button-play'
 import H1 from '../../ui-library/h1/h1'
 import H3 from '../../ui-library/h3/h3'
 import BanerItemBlock from './baner-item-block/baner-item-block'
-import { Col, Container, Row } from 'react-bootstrap'
-import styled from 'styled-components'
-import LanguagesContext from '../../common/languages/language-context'
-import img from '../../assets/section-baner/baner.jpg'
 
 const StyledBanerBody = styled.div`
   text-align: left;

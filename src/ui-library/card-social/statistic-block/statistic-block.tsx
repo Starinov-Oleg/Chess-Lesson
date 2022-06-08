@@ -1,6 +1,7 @@
 import React from 'react'
-import Button from '../../button-link/button-link'
 import styled from 'styled-components'
+
+import Button from '../../button-link/button-link'
 
 interface StatisticProps {
   win?: number

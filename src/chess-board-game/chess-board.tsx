@@ -1,8 +1,8 @@
+import { Chess } from 'chess.js'
 import React from 'react'
+import { useState } from 'react'
 //import Board from './board/board'
 import { Chessboard } from 'react-chessboard'
-import { useState } from 'react'
-import { Chess } from 'chess.js'
 import styled from 'styled-components'
 
 const StyledChessBoard = styled.div`

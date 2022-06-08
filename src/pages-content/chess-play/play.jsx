@@ -1,10 +1,11 @@
 import React from 'react'
+import { Col, Container,Row } from 'react-bootstrap'
+
 import ChessBoard from '../../chess-board-game/chess-board'
-import PlayClockTimer from './play-clock-timer/play-clock-timer'
-import PlayProfile from './play-user-profile/play-user-profile'
-import DiedChess from './play-count-died-chess/play-count-died-chess'
 import HomeLink from '../../ui-library/home-link/home-link'
-import { Col, Row, Container } from 'react-bootstrap'
+import PlayClockTimer from './play-clock-timer/play-clock-timer'
+import DiedChess from './play-count-died-chess/play-count-died-chess'
+import PlayProfile from './play-user-profile/play-user-profile'
 
 //import Game from '../../chess-game/game/game'
 function Play(chessplay) {

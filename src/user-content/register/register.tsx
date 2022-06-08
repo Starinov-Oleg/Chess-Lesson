@@ -1,9 +1,10 @@
 import React from 'react'
-import Form from './form/form-register'
+import { Col, Container, Row } from 'react-bootstrap'
+import styled from 'styled-components'
+
 import H1 from '../../ui-library/h1/h1'
 import HomeLink from '../../ui-library/home-link/home-link'
-import styled from 'styled-components'
-import { Col, Container, Row } from 'react-bootstrap'
+import Form from './form/form-register'
 
 function onSubmit(data: any) {
   alert(JSON.stringify(data))

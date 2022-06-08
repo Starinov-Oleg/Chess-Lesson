@@ -1,9 +1,10 @@
+import React, { useEffect,useState } from 'react'
+import { Col, Container,Row } from 'react-bootstrap'
+import styled from 'styled-components'
+
 import Button from '../../../../ui-library/button-link/button-link'
-import React, { useState, useEffect } from 'react'
-import { Col, Row, Container } from 'react-bootstrap'
 import Board from './board'
 import { observe } from './game'
-import styled from 'styled-components'
 
 const StyledChessLesson = styled.div`
   display: flex;

@@ -1,6 +1,7 @@
 import React from 'react'
-import LinkText from '../../../ui-library/link-text/link-text'
 import styled from 'styled-components'
+
+import LinkText from '../../../ui-library/link-text/link-text'
 
 interface BanerCardItemProps {
   headertext: string

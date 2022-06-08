@@ -1,7 +1,8 @@
-import H3 from '../../ui-library/h3/h3'
-import H1 from '../../ui-library/h1/h1'
-import styled from 'styled-components'
 import { Row } from 'react-bootstrap'
+import styled from 'styled-components'
+
+import H1 from '../../ui-library/h1/h1'
+import H3 from '../../ui-library/h3/h3'
 interface CardProps {
   cardItems?: any
   childFriends?: React.ReactNode

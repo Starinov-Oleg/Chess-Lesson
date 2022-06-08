@@ -1,5 +1,5 @@
-import React from 'react'
 import { createSlice } from '@reduxjs/toolkit'
+import React from 'react'
 /*interface BoardGamePiecesInterface {
   key: string;
   piece: string;

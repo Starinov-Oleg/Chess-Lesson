@@ -1,14 +1,15 @@
 import React from 'react'
-import logo from '../../assets/section-learn/logo.png'
-import H1 from '../../ui-library/h1/h1'
-import Button from '../../ui-library/button-register/button-register-auth'
-import ButtonLogin from '../../ui-library/button-login/button-login-auth'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Col,Container, Row } from 'react-bootstrap'
 import styled from 'styled-components'
+
 import imgchess from '../../assets/section-learn/cess.png'
 import imgland from '../../assets/section-learn/land3.jpg'
-import LanguagesContext from '../../common/languages/language-context'
+import logo from '../../assets/section-learn/logo.png'
 import AuthNav from '../../auth/auth-nav'
+import LanguagesContext from '../../common/languages/language-context'
+import ButtonLogin from '../../ui-library/button-login/button-login-auth'
+import Button from '../../ui-library/button-register/button-register-auth'
+import H1 from '../../ui-library/h1/h1'
 const StyledSectionLearn = styled.div`
   background-image: url(${imgchess}), url(${imgland});
   background-position: center;

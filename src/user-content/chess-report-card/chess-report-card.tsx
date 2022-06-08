@@ -1,9 +1,10 @@
-import H3 from '../../ui-library/h3/h3'
 import React from 'react'
 import styled from 'styled-components'
+
+import Button from '../../ui-library/button-click/button'
+import H3 from '../../ui-library/h3/h3'
 import ReportDatepiker from './report-card-datepicker/report-card-datepicker'
 import ReportCardFilter from './report-card-filter/report-card-filter'
-import Button from '../../ui-library/button-click/button'
 import ReportCardPassport from './report-card-passport/report-card-passport'
 
 const StyledChessReportCard = styled.div`

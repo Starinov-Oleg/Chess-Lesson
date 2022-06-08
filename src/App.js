@@ -1,23 +1,29 @@
 import './App.css'
+
 import React, { Suspense } from 'react'
-import Auth0ProviderWithHistory from './auth/auth0-provider-with-history'
-import Landing from './landing-content/landing'
-import WhatIsChessland from './pages-content/what-is-chess-land/what-is-chessland'
-import Pages from './pages-content/pages'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import ChessLandSchool from './pages-content/chess-land-school/chess-land-school'
-import ChessLandCoaches from './pages-content/chess-land-coaches/chess-land-coaches'
-import ChessLearn from './pages-content/chess-learn/chess-land-school'
-import Home from './pages-content/chess-page-home/home'
-import Adventure from './pages-content/chess-adventure/adventure'
-import EventsContainer from './pages-content/chess-events/events-container'
-import ContactContainer from './pages-content/chess-contact/contact-container'
+
+import Auth0ProviderWithHistory from './auth/auth0-provider-with-history'
 import ScrollToTop from './common/scroll-top/scroll'
+import { COLORS } from './common/styled-components/var-colors.styled'
+import Landing from './landing-content/landing'
+import Adventure from './pages-content/chess-adventure/adventure'
+import ContactContainer from './pages-content/chess-contact/contact-container'
+import EventsContainer from './pages-content/chess-events/events-container'
+import ChessLandCoaches from './pages-content/chess-land-coaches/chess-land-coaches'
+import ChessLandSchool from './pages-content/chess-land-school/chess-land-school'
+import ChessLearn from './pages-content/chess-learn/chess-land-school'
 import ChessLesson from './pages-content/chess-lesson/chess-lesson'
 import ChessLesson1 from './pages-content/chess-lesson/chess-lesson-1/chess-lesson-1'
 import ChessLesson1Practice from './pages-content/chess-lesson/chess-lesson-1/chess-lesson-1-board-practice/chess-lesson-1-practice'
+
+import Home from './pages-content/chess-page-home/home'
+import Pages from './pages-content/pages'
+import WhatIsChessland from './pages-content/what-is-chess-land/what-is-chessland'
+
 import ChessLessonTestPage from './pages-content/chess-lesson/chess-lesson-1/chess-lesson-1-test-page/chess-lesson-1-test-page'
 import { COLORS } from './common/styled-components/var-colors.styled'
+
 const Login = React.lazy(() => import('./user-content/login/login'))
 const Register = React.lazy(() => import('./user-content/register/register'))
 const RegisterCouch = React.lazy(() => import('./pages-content/chess-land-coaches/coaches-register/register'))

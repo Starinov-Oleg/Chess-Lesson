@@ -1,7 +1,8 @@
-import CoachBlock from './coaches-block/coaches-block'
-import About from './coaches-about/coaches-about'
 import { Col, Row } from 'react-bootstrap'
 import styled from 'styled-components'
+
+import About from './coaches-about/coaches-about'
+import CoachBlock from './coaches-block/coaches-block'
 
 const StyledChessCochess = styled.div`
   min-height: 100vh;

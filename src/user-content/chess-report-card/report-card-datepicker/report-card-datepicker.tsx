@@ -1,6 +1,7 @@
+import 'react-datepicker/dist/react-datepicker.css'
+
 import React, { useState } from 'react'
 import DatePicker from 'react-datepicker'
-import 'react-datepicker/dist/react-datepicker.css'
 import styled from 'styled-components'
 
 const StyledDatepicker = styled.div`

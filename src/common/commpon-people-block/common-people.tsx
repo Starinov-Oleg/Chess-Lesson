@@ -1,6 +1,7 @@
 import React from 'react'
-import CardSocial from '../../ui-library/card-social/card-social'
 import { Col } from 'react-bootstrap'
+
+import CardSocial from '../../ui-library/card-social/card-social'
 
 interface PeopleContainerProps {
   unfollow?: any

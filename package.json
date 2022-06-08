@@ -66,6 +66,11 @@
   "devDependencies": {
     "@types/chess.js": "^0.13.0",
     "@types/react-datepicker": "^4.3.4",
-    "@types/styled-components": "^5.1.24"
+    "@types/styled-components": "^5.1.24",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "eslint": "^8.17.0",
+    "eslint-plugin-react": "^7.30.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0"
   }
 }

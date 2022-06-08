@@ -1,7 +1,8 @@
 import React from 'react'
-import H3 from '../../ui-library/h3/h3'
-import { Col, Row, Container } from 'react-bootstrap'
+import { Col, Container,Row } from 'react-bootstrap'
 import styled from 'styled-components'
+
+import H3 from '../../ui-library/h3/h3'
 
 const StyledBody = styled.div`
   margin-top: 30px;

@@ -1,18 +1,20 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
 import './index.css'
-import App from './App'
-import reportWebVitals from './reportWebVitals'
 import 'bootstrap/dist/css/bootstrap.css'
-import store from './redux/store.ts'
-import state from './redux/state.ts'
-import { Provider } from 'react-redux'
-import { QueryClient, QueryClientProvider } from 'react-query'
-import { persistQueryClient } from 'react-query/persistQueryClient-experimental'
-import { createWebStoragePersistor } from 'react-query/createWebStoragePersistor-experimental'
+
+import React from 'react'
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 import { TouchBackend } from 'react-dnd-touch-backend'
+import ReactDOM from 'react-dom'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { createWebStoragePersistor } from 'react-query/createWebStoragePersistor-experimental'
+import { persistQueryClient } from 'react-query/persistQueryClient-experimental'
+import { Provider } from 'react-redux'
+
+import App from './App'
+import state from './redux/state.ts'
+import store from './redux/store.ts'
+import reportWebVitals from './reportWebVitals'
 
 const queryClient = new QueryClient({
   defaultOptions: {

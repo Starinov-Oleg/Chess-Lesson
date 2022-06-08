@@ -1,14 +1,15 @@
 import React from 'react'
+import { Col, Container, Row } from 'react-bootstrap'
+import styled from 'styled-components'
+
 import logo from '../../assets/user/login.jpg'
-import Form from './form/form-login'
-import H1 from '../../ui-library/h1/h1'
-import H3 from '../../ui-library/h3/h3'
-import Button from '../../ui-library/button-register/button-register'
-import HomeLink from '../../ui-library/home-link/home-link'
 import { FontSize1rem } from '../../common/styled-components/font-size.styled'
 import AuthService from '../../services/auth.service'
-import styled from 'styled-components'
-import { Col, Container, Row } from 'react-bootstrap'
+import Button from '../../ui-library/button-register/button-register'
+import H1 from '../../ui-library/h1/h1'
+import H3 from '../../ui-library/h3/h3'
+import HomeLink from '../../ui-library/home-link/home-link'
+import Form from './form/form-login'
 
 const StyledLogin = styled.div`
   background-color: #a4c8e7;

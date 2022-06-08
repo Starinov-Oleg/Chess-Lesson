@@ -1,6 +1,6 @@
-import adventure from './adventure.module.css'
-import H1 from '../../ui-library/h1/h1'
 import { Col, Container, Row } from 'react-bootstrap'
+
+import H1 from '../../ui-library/h1/h1'
 function Adventure() {
   return (
     <section className='adventure'>

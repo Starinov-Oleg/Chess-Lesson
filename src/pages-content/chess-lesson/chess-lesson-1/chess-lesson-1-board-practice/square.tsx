@@ -1,5 +1,3 @@
-import React from 'react'
-
 interface Squareprops {
   black: boolean
   children: any

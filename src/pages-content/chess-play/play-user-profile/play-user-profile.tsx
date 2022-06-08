@@ -1,7 +1,8 @@
 import React from 'react'
-import CardSocial from '../../../ui-library/card-social/card-social'
-import picture from '../../../assets/pages/chess-play/user.png'
 import styled from 'styled-components'
+
+import picture from '../../../assets/pages/chess-play/user.png'
+import CardSocial from '../../../ui-library/card-social/card-social'
 
 const StyledPlayProfile = styled.div`
   background-color: aliceblue;

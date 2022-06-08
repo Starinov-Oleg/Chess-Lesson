@@ -1,9 +1,10 @@
-import Button from '../../../ui-library/button-link/button-link'
-import logo from '../../../assets/user/login.jpg'
-import H3 from '../../../ui-library/h3/h3'
 import { Fragment } from 'react'
-import { PaddingVerticalHorizontal } from '../../../common/styled-components/padding-margin.styled'
 import styled from 'styled-components'
+
+import logo from '../../../assets/user/login.jpg'
+import { PaddingVerticalHorizontal } from '../../../common/styled-components/padding-margin.styled'
+import Button from '../../../ui-library/button-link/button-link'
+import H3 from '../../../ui-library/h3/h3'
 interface AboutProps {
   message: string
   messagebutton: string

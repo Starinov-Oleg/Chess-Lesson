@@ -1,5 +1,5 @@
+import { Col, Container,Row } from 'react-bootstrap'
 import styled from 'styled-components'
-import { Col, Row, Container } from 'react-bootstrap'
 
 interface EventItemsProps {
   eventsItems: Object

@@ -1,9 +1,10 @@
 import React from 'react'
+import { Col, Container,Row } from 'react-bootstrap'
 import { Outlet } from 'react-router-dom'
+import styled from 'styled-components'
+
 import Footer from '../main/footer/Footer'
 import Header from './main-pages/Header'
-import { Col, Row, Container } from 'react-bootstrap'
-import styled from 'styled-components'
 
 const StyledPages = styled.div`
   background-color: #a4c8e7;

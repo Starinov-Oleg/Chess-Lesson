@@ -1,14 +1,15 @@
 import React from 'react'
+import { Col,Container, Row } from 'react-bootstrap'
+import styled from 'styled-components'
+
 import school from '../../assets/section-programm/school.jpg'
+import LanguagesContext from '../../common/languages/language-context'
 import Button from '../../ui-library/button-link/button-link'
-import Ul from '../../ui-library/ul/ul'
 import H1 from '../../ui-library/h1/h1'
 import H3 from '../../ui-library/h3/h3'
-import ProgrammExample from './programm-excample/programm-example'
+import Ul from '../../ui-library/ul/ul'
 import ChessReport from './chess-report/chess-report'
-import LanguagesContext from '../../common/languages/language-context'
-import { Container, Row, Col } from 'react-bootstrap'
-import styled from 'styled-components'
+import ProgrammExample from './programm-excample/programm-example'
 /**interface contentProgrammProps {
   contentProgramm: Array<string>
 } */

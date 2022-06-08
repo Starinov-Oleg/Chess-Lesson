@@ -1,6 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
+import styled from 'styled-components'
+
 import img from '../../assets/header/icon.png'
 
 const StyledNav = styled.div`

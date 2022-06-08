@@ -1,10 +1,12 @@
-import Iframe from './chess-learn-video/iframe'
+import React from 'react'
 import { useState } from 'react'
-import Cover from './chess-learn-cover-video/learn-cover-video'
-import About from './chess-learn-about-video/learn-about-video'
-import LinkText from '../../ui-library/link-text/link-text'
-import { Col, Row, Container } from 'react-bootstrap'
+import { Col, Container, Row } from 'react-bootstrap'
 import styled from 'styled-components'
+
+import LinkText from '../../ui-library/link-text/link-text'
+import About from './chess-learn-about-video/learn-about-video'
+import Cover from './chess-learn-cover-video/learn-cover-video'
+import Iframe from './chess-learn-video/iframe'
 
 interface ChessLearnProps {
   learn: any

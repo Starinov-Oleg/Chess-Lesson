@@ -1,6 +1,7 @@
 import React from 'react'
-import { Navigate } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { Navigate } from 'react-router-dom'
+
 import { follow, setUsers, unfollow } from '../../redux/reducer/user.reducer'
 import Play from './play'
 

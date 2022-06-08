@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from 'react'
-import SectionLearn from './content-learn/content-learn'
-import SectionBaner from './content-banner/content-banner'
-import SectionProgramm from './content-programm/content-programm'
-import SectionCouching from './content-couching/content-couching'
-import SectionNews from './content-news/content-news'
-import SectionSafe from './ content-safe/content-safe'
-import SectionPay from './content-payload/content-pay'
-import Header from '../main/header/Header'
-import Footer from '../main/footer/Footer'
-import LanguageButton from '../common/languages/languages-buttons/language-button'
+import React, { useEffect, useState } from 'react'
+
 import { en, vn } from '../common/languages/language'
 import LanguagesContext from '../common/languages/language-context'
+import LanguageButton from '../common/languages/languages-buttons/language-button'
+import Footer from '../main/footer/Footer'
+import Header from '../main/header/Header'
+import SectionSafe from './ content-safe/content-safe'
+import SectionBaner from './content-banner/content-banner'
+import SectionCouching from './content-couching/content-couching'
+import SectionLearn from './content-learn/content-learn'
+import SectionNews from './content-news/content-news'
+import SectionPay from './content-payload/content-pay'
+import SectionProgramm from './content-programm/content-programm'
 
 /**interface LandingProps {
   contentSafe: string[]
@@ -20,7 +21,9 @@ import LanguagesContext from '../common/languages/language-context'
 function setLocalStorage(key: string, value: any) {
   try {
     window.localStorage.setItem(key, JSON.stringify(value))
-  } catch (e) {}
+  } catch (e) {
+    console.log('error')
+  }
 }
 
 function getLocalStorage(key: string, initialValue: any) {

@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from 'react-query'
-import { PostService } from '../api/post-service'
 import { useParams } from 'react-router-dom'
+
+import { PostService } from '../api/post-service'
 
 const useAddPost = () => {
   const { id } = useParams()

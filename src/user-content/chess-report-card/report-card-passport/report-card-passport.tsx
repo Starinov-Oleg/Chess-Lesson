@@ -1,8 +1,9 @@
 import React from 'react'
-import Logo from '../../../ui-library/logo/logo'
-import H3 from '../../../ui-library/h3/h3'
-import { PaddingLeft } from '../../../common/styled-components/padding-margin.styled'
 import styled from 'styled-components'
+
+import { PaddingLeft } from '../../../common/styled-components/padding-margin.styled'
+import H3 from '../../../ui-library/h3/h3'
+import Logo from '../../../ui-library/logo/logo'
 
 const StyledPassportProps = styled.div`
   display: flex;

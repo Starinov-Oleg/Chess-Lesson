@@ -1,6 +1,7 @@
 import React from 'react'
-import H3 from '../../../ui-library/h3/h3'
 import styled from 'styled-components'
+
+import H3 from '../../../ui-library/h3/h3'
 
 const HR = styled.hr`
   color: #ff6b08;

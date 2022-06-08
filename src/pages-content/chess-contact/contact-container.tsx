@@ -1,13 +1,14 @@
+import { useAuth0 } from '@auth0/auth0-react'
 import React from 'react'
-import picture from '../../assets/pages/chess-play/user.png'
-import { useSelector, RootStateOrAny } from 'react-redux'
-import Contact from './contact'
-import Card from '../../ui-library/card/card'
-import CommonPeople from '../../common/commpon-people-block/common-people'
 import { Key } from 'react'
 import { Row } from 'react-bootstrap'
+import { RootStateOrAny,useSelector } from 'react-redux'
+
+import picture from '../../assets/pages/chess-play/user.png'
+import CommonPeople from '../../common/commpon-people-block/common-people'
 import useGetUser from '../../hooks/get-user-hook'
-import { useAuth0 } from '@auth0/auth0-react'
+import Card from '../../ui-library/card/card'
+import Contact from './contact'
 
 function ContactContainerView() {
   const user = useGetUser()
