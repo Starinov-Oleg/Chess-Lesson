@@ -1,5 +1,5 @@
-import React from 'react'
 import styled from 'styled-components'
+
 import H3 from '../h3/h3'
 interface CardTestProps {
   title: string

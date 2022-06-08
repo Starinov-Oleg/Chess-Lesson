@@ -1,5 +1,6 @@
+import { Col, Container,Row } from 'react-bootstrap'
+
 import Button from '../../../../ui-library/button-link/button-link'
-import { Col, Row, Container } from 'react-bootstrap'
 import CardTest from '../../../../ui-library/card-test/card-test'
 import CardTestResult from '../../../../ui-library/card-test/card-test-result'
 function ChessLessonTestPage() {

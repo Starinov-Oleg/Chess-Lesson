@@ -16,13 +16,10 @@ import ChessLearn from './pages-content/chess-learn/chess-land-school'
 import ChessLesson from './pages-content/chess-lesson/chess-lesson'
 import ChessLesson1 from './pages-content/chess-lesson/chess-lesson-1/chess-lesson-1'
 import ChessLesson1Practice from './pages-content/chess-lesson/chess-lesson-1/chess-lesson-1-board-practice/chess-lesson-1-practice'
-
+import ChessLessonTestPage from './pages-content/chess-lesson/chess-lesson-1/chess-lesson-1-test-page/chess-lesson-1-test-page'
 import Home from './pages-content/chess-page-home/home'
 import Pages from './pages-content/pages'
 import WhatIsChessland from './pages-content/what-is-chess-land/what-is-chessland'
-
-import ChessLessonTestPage from './pages-content/chess-lesson/chess-lesson-1/chess-lesson-1-test-page/chess-lesson-1-test-page'
-import { COLORS } from './common/styled-components/var-colors.styled'
 
 const Login = React.lazy(() => import('./user-content/login/login'))
 const Register = React.lazy(() => import('./user-content/register/register'))
