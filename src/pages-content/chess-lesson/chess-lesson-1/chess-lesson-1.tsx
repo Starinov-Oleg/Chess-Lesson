@@ -10,7 +10,6 @@ function ChessLesson1Practice() {
           <div>Lesson1</div>
           <div>Description</div>
           <Button message='Next>>' href='cheslesson1practice' />
-
         </Col>
       </Row>
     </Container>

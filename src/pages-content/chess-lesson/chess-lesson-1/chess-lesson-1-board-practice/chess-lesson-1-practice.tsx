@@ -23,8 +23,8 @@ function ChessLesson1() {
           <div>Practive move piece</div>
           <div>Description</div>
           <StyledChessLesson>
-            <Button message='Back<<' href='/chesslesson/chesslesson1' />
-            <Button message='Next>>' href='#' />
+            <Button message='Back<<' href='chesslesson1' />
+            <Button message='Next>>' href='/chesslesson/chesslesson1/cheslesson1test' />
           </StyledChessLesson>
           <Board knightPosition={knightPosition} />
         </Col>
