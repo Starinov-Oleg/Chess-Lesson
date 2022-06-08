@@ -5,6 +5,7 @@ This project for Chess Club include parts:
 - landing page;
 - chess portal;
 - social connection;
+- interactive lessons;
 - chess board game.
 
 ## Starting

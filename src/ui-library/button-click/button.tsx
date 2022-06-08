@@ -8,6 +8,7 @@ interface ButtonProps {
   onClick?: any
   children?: React.ReactNode
   type?: any
+  disabled?: any
 }
 
 const StyledButton = styled.button`
@@ -35,11 +36,17 @@ const StyledButton = styled.button`
     top: 1px;
     color: white;
   }
+  &:disabled,
+  &[disabled] {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+  }
 `
 
-function Button({ onClick, style, message, title, children, type }: ButtonProps) {
+function Button({ onClick, style, message, title, children, type, disabled }: ButtonProps) {
   return (
-    <StyledButton onClick={onClick} style={style} title={title} type={type}>
+    <StyledButton onClick={onClick} style={style} title={title} type={type} disabled={disabled}>
       {message}
       {children}
     </StyledButton>
