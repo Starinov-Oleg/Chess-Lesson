@@ -1,5 +1,5 @@
-import React, { useEffect,useState } from 'react'
-import { Col, Container,Row } from 'react-bootstrap'
+import React, { useEffect, useState } from 'react'
+import { Col, Container, Row } from 'react-bootstrap'
 import styled from 'styled-components'
 
 import Button from '../../../../ui-library/button-link/button-link'
@@ -15,7 +15,7 @@ const StyledChessLesson = styled.div`
 `
 function ChessLesson1() {
   const [knightPosition, setKnightPosition] = useState([0, 0])
-  useEffect(() => observe((newPosition: any) => setKnightPosition(newPosition)))
+  useEffect(() => observe((newPosition: Array<number>) => setKnightPosition(newPosition)))
   return (
     <Container>
       <Row className='row'>

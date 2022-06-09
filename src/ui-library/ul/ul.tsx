@@ -12,7 +12,7 @@ const StyledUlList = styled.ul`
 `
 function Ul(props: Props) {
   const lists = props.lists
-
+  if (!lists.length) return null
   const listItems = lists.map(list => <li key={list.toString()}>{list}</li>)
   return <StyledUlList style={props.style}>{listItems}</StyledUlList>
 }
