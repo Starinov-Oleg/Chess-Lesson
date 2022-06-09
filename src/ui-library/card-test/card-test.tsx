@@ -8,6 +8,7 @@ interface CardTestProps {
   question: string
   chose_test: string
   lists: Array<any>
+  onChange: any
 }
 const StyledTestDescription = styled.p`
   font-size: 2rem;
@@ -45,7 +46,13 @@ const ListItemsCheckbox = (props: any) => {
   const listItems = lists.map((list: any) => (
     <ListItemBlock key={list.id}>
       {list.list_item_img ? <StyledTestImg src={list.list_item_img} alt='chose for test' /> : null}
-      <input type='checkbox' id={list.list_item_label} name={list.list_item_label} value={list.list_item_label} />
+      <input
+        type='checkbox'
+        id={list.list_item_label}
+        name={list.list_item_label}
+        value={list.list_item_label}
+        onChange={props.onChange}
+      />
       <Label message={list.list_item_label} htmlFor={list.list_item_label} />
     </ListItemBlock>
   ))
@@ -56,13 +63,19 @@ const ListItemsRadio = (props: any) => {
   const listItems = lists.map((list: any) => (
     <ListItemBlock key={list.id}>
       {list.list_item_img ? <StyledTestImg src={list.list_item_img} alt='chose for test' /> : null}
-      <input type='checkbox' id={list.list_item_label} name={list.list_item_label} value={list.list_item_label} />
+      <input
+        type='checkbox'
+        id={list.list_item_label}
+        name={list.list_item_label}
+        value={list.list_item_label}
+        onChange={props.onChange}
+      />
       <Label message={list.list_item_label} htmlFor={list.list_item_label} />
     </ListItemBlock>
   ))
   return <>{listItems}</>
 }
-function CardTest({ title, description, question, chose_test, lists }: CardTestProps) {
+function CardTest({ title, description, question, chose_test, lists, onChange }: CardTestProps) {
   return (
     <StyledCardTest>
       <H3 message={title} />
@@ -72,7 +85,7 @@ function CardTest({ title, description, question, chose_test, lists }: CardTestP
         <form>
           {chose_test === 'checkbox' ? (
             <StyledCheckbox>
-              <ListItemsCheckbox lists={lists} />
+              <ListItemsCheckbox lists={lists} onChange={onChange} />
             </StyledCheckbox>
           ) : (
             <StyledRadio>
