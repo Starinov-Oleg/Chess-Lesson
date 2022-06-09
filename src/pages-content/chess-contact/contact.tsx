@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import H1 from '../../ui-library/h1/h1'
 import H3 from '../../ui-library/h3/h3'
 interface CardProps {
-  cardItems?: any
+  cardItems?: React.ReactNode
   childFriends?: React.ReactNode
   childCouches?: React.ReactNode
 }

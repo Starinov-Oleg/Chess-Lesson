@@ -2,13 +2,18 @@ import styled from 'styled-components'
 
 import H3 from '../h3/h3'
 
-interface CardTestResultProps {}
+interface CardTestResultProps {
+  message_result?: string
+  count?: number
+}
 
 const StyledCardTest = styled.div``
-function CardTestResult({}: CardTestResultProps) {
+function CardTestResult({ message_result, count }: CardTestResultProps) {
   return (
     <StyledCardTest className={`cardtestresult`}>
-     <H3 message={undefined}>Correct answer:<span></span></H3> 
+      <H3 message={message_result}>
+        <span>{count}</span>
+      </H3>
     </StyledCardTest>
   )
 }

@@ -23,22 +23,22 @@ function Board() {
 
   const eventsItems6 = board
     .slice(16, 24)
-    .map((square: { key: any; id: string; style: Object }) => (
+    .map((square: { key: any; id: string; style: { [key: string]: string } }) => (
       <Square onClick={() => handleClick(square.key)} key={square.id} style={square.style} />
     ))
   const eventsItems5 = board
     .slice(24, 32)
-    .map((square: { key: any; id: string; style: Object }) => (
+    .map((square: { key: any; id: string; style: { [key: string]: string } }) => (
       <Square onClick={() => handleClick(square.key)} key={square.id} style={square.style} />
     ))
   const eventsItems4 = board
     .slice(32, 40)
-    .map((square: { key: any; id: string; style: Object }) => (
+    .map((square: { key: any; id: string; style: { [key: string]: string } }) => (
       <Square onClick={() => handleClick(square.key)} key={square.id} style={square.style} />
     ))
   const eventsItems3 = board
     .slice(40, 48)
-    .map((square: { key: any; id: string; style: Object }) => (
+    .map((square: { key: any; id: string; style: { [key: string]: string } }) => (
       <Square onClick={() => handleClick(square.key)} key={square.id} style={square.style} />
     ))
 
@@ -72,7 +72,7 @@ function Board() {
 
               {board
                 .filter((u: { key: string }) => u.key === 'a8')
-                .map((square: { key: string; style: Object }) => (
+                .map((square: { key: string; style: { [key: string]: string } }) => (
                   <Square
                     onClick={() => handleClick(square.key)}
                     key={square.key}
@@ -94,7 +94,7 @@ function Board() {
 
               {board
                 .filter((u: { key: string }) => u.key === 'b8')
-                .map((square: { key: string; style: Object }) => (
+                .map((square: { key: string; style: { [key: string]: string } }) => (
                   <Square
                     onClick={() => handleClick(square.key)}
                     key={square.key}
@@ -115,7 +115,7 @@ function Board() {
                 ))}
               {board
                 .filter((u: { key: string }) => u.key === 'c8')
-                .map((square: { key: string; style: Object }) => (
+                .map((square: { key: string; style: { [key: string]: string } }) => (
                   <Square
                     onClick={() => handleClick(square.key)}
                     key={square.key}
@@ -136,7 +136,7 @@ function Board() {
                 ))}
               {board
                 .filter((u: { key: string }) => u.key === 'd8')
-                .map((square: { key: string; style: Object }) => (
+                .map((square: { key: string; style: { [key: string]: string } }) => (
                   <Square
                     onClick={() => handleClick(square.key)}
                     key={square.key}
@@ -157,7 +157,7 @@ function Board() {
                 ))}
               {board
                 .filter((u: { key: string }) => u.key === 'e8')
-                .map((square: { key: string; style: Object }) => (
+                .map((square: { key: string; style: { [key: string]: string } }) => (
                   <Square
                     onClick={() => handleClick(square.key)}
                     key={square.key}
@@ -178,7 +178,7 @@ function Board() {
                 ))}
               {board
                 .filter((u: { key: string }) => u.key === 'f8')
-                .map((square: { key: string; style: Object }) => (
+                .map((square: { key: string; style: { [key: string]: string } }) => (
                   <Square
                     onClick={() => handleClick(square.key)}
                     key={square.key}
@@ -199,7 +199,7 @@ function Board() {
                 ))}
               {board
                 .filter((u: { key: string }) => u.key === 'g8')
-                .map((square: { key: string; style: Object }) => (
+                .map((square: { key: string; style: { [key: string]: string } }) => (
                   <Square
                     onClick={() => handleClick(square.key)}
                     key={square.key}
@@ -220,7 +220,7 @@ function Board() {
                 ))}
               {board
                 .filter((u: { key: string }) => u.key === 'h8')
-                .map((square: { key: string; style: Object }) => (
+                .map((square: { key: string; style: { [key: string]: string } }) => (
                   <Square
                     onClick={() => handleClick(square.key)}
                     key={square.key}
@@ -244,7 +244,7 @@ function Board() {
               <th>7</th>
               {board
                 .filter((u: { key: string }) => u.key === 'a7')
-                .map((square: { key: string; style: Object }) => (
+                .map((square: { key: string; style: { [key: string]: string } }) => (
                   <Square
                     onClick={() => handleClick(square.key)}
                     key={square.key}
@@ -265,7 +265,7 @@ function Board() {
                 ))}
               {board
                 .filter((u: { key: string }) => u.key === 'b7')
-                .map((square: { key: string; style: Object }) => (
+                .map((square: { key: string; style: { [key: string]: string } }) => (
                   <Square
                     onClick={() => handleClick(square.key)}
                     key={square.key}
@@ -286,7 +286,7 @@ function Board() {
                 ))}
               {board
                 .filter((u: { key: string }) => u.key === 'c7')
-                .map((square: { key: string; style: Object }) => (
+                .map((square: { key: string; style: { [key: string]: string } }) => (
                   <Square
                     onClick={() => handleClick(square.key)}
                     key={square.key}
@@ -307,7 +307,7 @@ function Board() {
                 ))}
               {board
                 .filter((u: { key: string }) => u.key === 'd7')
-                .map((square: { key: string; style: Object }) => (
+                .map((square: { key: string; style: { [key: string]: string } }) => (
                   <Square
                     onClick={() => handleClick(square.key)}
                     key={square.key}
@@ -328,7 +328,7 @@ function Board() {
                 ))}
               {board
                 .filter((u: { key: string }) => u.key === 'e7')
-                .map((square: { key: string; style: Object }) => (
+                .map((square: { key: string; style: { [key: string]: string } }) => (
                   <Square
                     onClick={() => handleClick(square.key)}
                     key={square.key}
@@ -349,7 +349,7 @@ function Board() {
                 ))}
               {board
                 .filter((u: { key: string }) => u.key === 'f7')
-                .map((square: { key: string; style: Object }) => (
+                .map((square: { key: string; style: { [key: string]: string } }) => (
                   <Square
                     onClick={() => handleClick(square.key)}
                     key={square.key}
@@ -370,7 +370,7 @@ function Board() {
                 ))}
               {board
                 .filter((u: { key: string }) => u.key === 'g7')
-                .map((square: { key: string; style: Object }) => (
+                .map((square: { key: string; style: { [key: string]: string } }) => (
                   <Square
                     onClick={() => handleClick(square.key)}
                     key={square.key}
@@ -391,7 +391,7 @@ function Board() {
                 ))}
               {board
                 .filter((u: { key: string }) => u.key === 'h7')
-                .map((square: { key: string; style: Object }) => (
+                .map((square: { key: string; style: { [key: string]: string } }) => (
                   <Square
                     onClick={() => handleClick(square.key)}
                     key={square.key}
@@ -431,7 +431,7 @@ function Board() {
               <th>2</th>
               {board
                 .filter((u: { key: string }) => u.key === 'a2')
-                .map((square: { key: string; style: Object }) => (
+                .map((square: { key: string; style: { [key: string]: string } }) => (
                   <Square
                     onClick={() => handleClick(square.key)}
                     key={square.key}
@@ -452,7 +452,7 @@ function Board() {
                 ))}
               {board
                 .filter((u: { key: string }) => u.key === 'b2')
-                .map((square: { key: string; style: Object }) => (
+                .map((square: { key: string; style: { [key: string]: string } }) => (
                   <Square
                     onClick={() => handleClick(square.key)}
                     key={square.key}
@@ -473,7 +473,7 @@ function Board() {
                 ))}
               {board
                 .filter((u: { key: string }) => u.key === 'c2')
-                .map((square: { key: string; style: Object }) => (
+                .map((square: { key: string; style: { [key: string]: string } }) => (
                   <Square
                     onClick={() => handleClick(square.key)}
                     key={square.key}
@@ -494,7 +494,7 @@ function Board() {
                 ))}
               {board
                 .filter((u: { key: string }) => u.key === 'd2')
-                .map((square: { key: string; style: Object }) => (
+                .map((square: { key: string; style: { [key: string]: string } }) => (
                   <Square
                     onClick={() => handleClick(square.key)}
                     key={square.key}
@@ -515,7 +515,7 @@ function Board() {
                 ))}
               {board
                 .filter((u: { key: string }) => u.key === 'e2')
-                .map((square: { key: string; style: Object }) => (
+                .map((square: { key: string; style: { [key: string]: string } }) => (
                   <Square
                     onClick={() => handleClick(square.key)}
                     key={square.key}
@@ -536,7 +536,7 @@ function Board() {
                 ))}
               {board
                 .filter((u: { key: string }) => u.key === 'f2')
-                .map((square: { key: string; style: Object }) => (
+                .map((square: { key: string; style: { [key: string]: string } }) => (
                   <Square
                     onClick={() => handleClick(square.key)}
                     key={square.key}
@@ -557,7 +557,7 @@ function Board() {
                 ))}
               {board
                 .filter((u: { key: string }) => u.key === 'g2')
-                .map((square: { key: string; style: Object }) => (
+                .map((square: { key: string; style: { [key: string]: string } }) => (
                   <Square
                     onClick={() => handleClick(square.key)}
                     key={square.key}
@@ -578,7 +578,7 @@ function Board() {
                 ))}
               {board
                 .filter((u: { key: string }) => u.key === 'h2')
-                .map((square: { key: string; style: Object }) => (
+                .map((square: { key: string; style: { [key: string]: string } }) => (
                   <Square
                     onClick={() => handleClick(square.key)}
                     key={square.key}
@@ -602,7 +602,7 @@ function Board() {
               <th>1</th>
               {board
                 .filter((u: { key: string }) => u.key === 'a1')
-                .map((square: { key: string; style: Object }) => (
+                .map((square: { key: string; style: { [key: string]: string } }) => (
                   <Square
                     onClick={() => handleClick(square.key)}
                     key={square.key}
@@ -624,7 +624,7 @@ function Board() {
 
               {board
                 .filter((u: { key: string }) => u.key === 'b1')
-                .map((square: { key: string; style: Object }) => (
+                .map((square: { key: string; style: { [key: string]: string } }) => (
                   <Square
                     onClick={() => handleClick(square.key)}
                     key={square.key}
@@ -645,7 +645,7 @@ function Board() {
                 ))}
               {board
                 .filter((u: { key: string }) => u.key === 'c1')
-                .map((square: { key: string; style: Object }) => (
+                .map((square: { key: string; style: { [key: string]: string } }) => (
                   <Square
                     onClick={() => handleClick(square.key)}
                     key={square.key}
@@ -666,7 +666,7 @@ function Board() {
                 ))}
               {board
                 .filter((u: { key: string }) => u.key === 'd1')
-                .map((square: { key: string; style: Object }) => (
+                .map((square: { key: string; style: { [key: string]: string } }) => (
                   <Square
                     onClick={() => handleClick(square.key)}
                     key={square.key}
@@ -687,7 +687,7 @@ function Board() {
                 ))}
               {board
                 .filter((u: { key: string }) => u.key === 'e1')
-                .map((square: { key: string; style: Object }) => (
+                .map((square: { key: string; style: { [key: string]: string } }) => (
                   <Square
                     onClick={() => handleClick(square.key)}
                     key={square.key}
@@ -708,7 +708,7 @@ function Board() {
                 ))}
               {board
                 .filter((u: { key: string }) => u.key === 'f1')
-                .map((square: { key: string; style: Object }) => (
+                .map((square: { key: string; style: { [key: string]: string } }) => (
                   <Square
                     onClick={() => handleClick(square.key)}
                     key={square.key}
@@ -729,7 +729,7 @@ function Board() {
                 ))}
               {board
                 .filter((u: { key: string }) => u.key === 'g1')
-                .map((square: { key: string; style: Object }) => (
+                .map((square: { key: string; style: { [key: string]: string } }) => (
                   <Square
                     onClick={() => handleClick(square.key)}
                     key={square.key}
@@ -750,7 +750,7 @@ function Board() {
                 ))}
               {board
                 .filter((u: { key: string }) => u.key === 'h1')
-                .map((square: { key: string; style: Object }) => (
+                .map((square: { key: string; style: { [key: string]: string } }) => (
                   <Square
                     onClick={() => handleClick(square.key)}
                     key={square.key}

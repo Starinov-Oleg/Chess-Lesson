@@ -8,7 +8,7 @@ interface PayProps {
   body: string
   note?: string | null
   footer: string
-  style?: Object
+  style?: { [key: string]: string }
 }
 const StyledPayItem = styled.div`
   background-color: white;

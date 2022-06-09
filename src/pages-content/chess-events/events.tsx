@@ -1,8 +1,8 @@
-import { Col, Container,Row } from 'react-bootstrap'
+import { Col, Container, Row } from 'react-bootstrap'
 import styled from 'styled-components'
 
 interface EventItemsProps {
-  eventsItems: Object
+  eventsItems: { [key: string]: string }
 }
 const StyledEvents = styled(Container)`
   min-height: 100vh;
