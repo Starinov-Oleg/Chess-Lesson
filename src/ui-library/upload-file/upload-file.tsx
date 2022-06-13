@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 interface UploadProps {
   message: string
-  style?: object
+  style?: { [key: string]: string }
   onChange: any
 }
 const StyledUploadBlock = styled.span`

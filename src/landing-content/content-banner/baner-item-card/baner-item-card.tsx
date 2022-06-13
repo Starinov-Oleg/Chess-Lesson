@@ -8,7 +8,7 @@ interface BanerCardItemProps {
   bodytext: string
   message: string
   href: string
-  style?: Object
+  style?: { [key: string]: string }
   src: any
   alt: string
 }

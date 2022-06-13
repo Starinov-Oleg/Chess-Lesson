@@ -4,7 +4,7 @@ import styled from 'styled-components'
 interface InputProps {
   name: string
   register: any
-  rules: Object
+  rules: { [key: string]: any }
   type: string
 }
 

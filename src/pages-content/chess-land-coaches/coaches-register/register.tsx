@@ -1,11 +1,11 @@
 import React from 'react'
-import { Col, Container,Row } from 'react-bootstrap'
+import { Col, Container, Row } from 'react-bootstrap'
 
 import Form from './register-form/form'
 
 function onSubmit(data: any) {
   alert(JSON.stringify(data))
-  let url = '/'
+  const url = '/'
   window.location.replace(url)
 }
 function RegisterCouch() {

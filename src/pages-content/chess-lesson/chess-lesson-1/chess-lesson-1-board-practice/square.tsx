@@ -1,6 +1,6 @@
 interface Squareprops {
   black: boolean
-  children: any
+  children: React.ReactNode
 }
 export default function Square({ black, children }: Squareprops) {
   const fill = black ? 'black' : 'white'

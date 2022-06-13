@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 interface InitialBoardGameInterface {
   key: string
-  style: Object
+  style: { [key: string]: string }
 }
 const STYLE = 'STYLE'
 const initialState: InitialBoardGameInterface[] = [

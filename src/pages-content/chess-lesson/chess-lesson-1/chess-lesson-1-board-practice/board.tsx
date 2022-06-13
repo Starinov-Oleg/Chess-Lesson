@@ -2,13 +2,13 @@ import React from 'react'
 
 import BoardSquare from './board-square'
 import Knight from './knight-piece'
-import Square from './square'
+
 interface BoardProps {
-  knightPosition: any
+  knightPosition: Array<number>
 }
 
 export default function Board({ knightPosition }: BoardProps) {
-  function renderSquare(i: any, knightPosition: any) {
+  function renderSquare(i: number, knightPosition: Array<number>) {
     const x = i % 8
     const y = Math.floor(i / 8)
     return (
@@ -19,7 +19,7 @@ export default function Board({ knightPosition }: BoardProps) {
       </div>
     )
   }
-  function renderPiece(x: number, y: number, [knightX, knightY]: any) {
+  function renderPiece(x: number, y: number, [knightX, knightY]: Array<number>) {
     if (x === knightX && y === knightY) {
       return <Knight />
     }
