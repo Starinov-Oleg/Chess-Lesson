@@ -36,6 +36,7 @@ function ChessLessonTestPage() {
                 chose_test='checkbox'
                 lists={lists}
                 onChange={checkValue}
+                data-testid='card-test'
               />
               <ButtonClick
                 message='Check'
@@ -45,7 +46,7 @@ function ChessLessonTestPage() {
               />
             </>
           ) : null}
-          {showResults ? <CardTestResult /> : null}
+          {showResults ? <CardTestResult data-testid='card-result' /> : null}
           <br /> <Button message='Back on Lesson page>>' href='/chesslesson' />
         </Col>
       </Row>
