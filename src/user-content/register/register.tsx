@@ -8,7 +8,7 @@ import Form from './form/form-register'
 
 function onSubmit(data: any) {
   alert(JSON.stringify(data))
-  let url = '/'
+  const url = '/'
   window.location.replace(url)
 }
 
@@ -28,7 +28,7 @@ function Register() {
           <Col md={3} xs={12}>
             <HomeLink />
           </Col>
-          <Col  md={3} xs={12}>
+          <Col md={3} xs={12}>
             <H1 message='REGISTER' primary />
           </Col>
         </Row>

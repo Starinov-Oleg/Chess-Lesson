@@ -46,7 +46,9 @@ function ChessLessonTestPage() {
               />
             </>
           ) : null}
-          {showResults ? <CardTestResult data-testid='card-result' /> : null}
+
+          {showResults ? <CardTestResult message_result='Correct answer:' count={100} /> : null}
+
           <br /> <Button message='Back on Lesson page>>' href='/chesslesson' />
         </Col>
       </Row>

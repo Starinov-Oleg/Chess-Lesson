@@ -25,7 +25,7 @@ function Login() {
   function onSubmit(data: any) {
     AuthService.login(data).then(() => {
       JSON.stringify(data)
-      let url = '/pages'
+      const url = '/pages'
       window.location.replace(url)
     })
   }

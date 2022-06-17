@@ -15,7 +15,7 @@ const StyledSquare = styled.div`
   height: 4rem;
 `
 interface SquareProps {
-  style: Object
+  style: { [key: string]: string }
   value?: string
   key: string
   toggle?: string

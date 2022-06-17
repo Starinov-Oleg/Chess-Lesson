@@ -1,4 +1,4 @@
-let knightPosition: any = [0, 0]
+let knightPosition: Array<number> = [0, 0]
 let observer: any = null
 
 function emitChange() {
