@@ -1,7 +1,7 @@
 import React from 'react'
 
+import Knight from '../piece-white-knight/knight-piece'
 import BoardSquare from './board-square'
-import Knight from './knight-piece'
 
 interface BoardProps {
   knightPosition: Array<number>

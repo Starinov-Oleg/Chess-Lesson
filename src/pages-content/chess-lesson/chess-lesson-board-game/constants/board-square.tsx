@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react'
 import { useDrop } from 'react-dnd'
 
-import { ItemTypes } from './constants/ItemTypes'
 import { canMoveKnight,moveKnight } from './game'
+import { ItemTypes } from './ItemTypes'
 import Square from './square'
 export interface BoardSquareProps {
   x: number

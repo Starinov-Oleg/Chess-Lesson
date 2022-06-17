@@ -3,8 +3,8 @@ import { Col, Container, Row } from 'react-bootstrap'
 import styled from 'styled-components'
 
 import Button from '../../../../ui-library/button-link/button-link'
-import Board from './board'
-import { observe } from './game'
+import Board from '../../chess-lesson-board-game/constants/board'
+import { observe } from '../../chess-lesson-board-game/constants/game'
 
 const StyledChessLesson = styled.div`
   display: flex;
