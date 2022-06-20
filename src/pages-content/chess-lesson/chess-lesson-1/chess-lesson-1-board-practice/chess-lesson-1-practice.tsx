@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import styled from 'styled-components'
 
+import { PaddingTop } from '../../../../common/styled-components/padding-margin.styled'
 import Button from '../../../../ui-library/button-link/button-link'
+import H3 from '../../../../ui-library/h3/h3'
 import Board from '../../chess-lesson-board-game/constants/board'
 import { observe } from '../../chess-lesson-board-game/constants/game'
 
@@ -20,7 +22,9 @@ function ChessLesson1() {
     <Container>
       <Row className='row'>
         <Col lg={12} xs={12}>
-          <div>Practive move piece</div>
+          <PaddingTop>
+            <H3 message='Practive move piece' primary />
+          </PaddingTop>
           <div>Description</div>
           <StyledChessLesson>
             <Button message='Back<<' href='chesslesson1' />
