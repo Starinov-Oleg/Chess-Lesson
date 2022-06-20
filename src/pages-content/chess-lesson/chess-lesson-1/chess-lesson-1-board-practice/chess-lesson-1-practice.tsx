@@ -5,8 +5,8 @@ import styled from 'styled-components'
 import { PaddingTop } from '../../../../common/styled-components/padding-margin.styled'
 import Button from '../../../../ui-library/button-link/button-link'
 import H3 from '../../../../ui-library/h3/h3'
-import Board from './board'
-import { observe } from './game'
+import Board from '../../chess-lesson-board-game/constants/board'
+import { observe } from '../../chess-lesson-board-game/constants/game'
 
 const StyledChessLesson = styled.div`
   display: flex;
