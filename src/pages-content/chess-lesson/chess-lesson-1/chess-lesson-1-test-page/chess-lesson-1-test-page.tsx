@@ -13,23 +13,23 @@ function handleSubmit(setShowResults: (active: boolean) => void) {
   setShowResults(true)
   console.log('Form Sent')
 }
-/** 
-function checkValue(e: any, setCheckbox: any) {
+
+function checkValue(
+  e: ChangeEvent<HTMLInputElement>,
+  setCount: React.Dispatch<React.SetStateAction<number>>,
+  count: number
+) {
   const value = e.target.value
-  setCheckbox(value)
   if (value == lists_answer.list_item_label) {
-    alert('it is correct')
-  } else {
-    alert('it is lie')
+    //  setCheckbox(value)
+    setCount(count + 1)
   }
 }
-*/
-
 function ChessLessonTestPage() {
   const [showResults, setShowResults] = useState(false)
   // const [showCheckbox, setCheckbox] = useState()
   const [count, setCount] = useState(0)
-
+  /*
   function checkValue(e: ChangeEvent<HTMLInputElement>) {
     const value = e.target.value
     if (value == lists_answer.list_item_label) {
@@ -37,7 +37,7 @@ function ChessLessonTestPage() {
       setCount(count + 1)
     }
   }
-
+*/
   return (
     <Container>
       <Row className='row'>
@@ -50,7 +50,7 @@ function ChessLessonTestPage() {
                 question='First question?'
                 chose_test='checkbox'
                 lists={lists}
-                onChange={checkValue}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => checkValue(e, setCount, count)}
                 data-testid='card-test'
               />
               <ButtonClick
