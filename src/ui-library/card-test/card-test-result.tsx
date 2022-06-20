@@ -5,7 +5,7 @@ import H3 from '../h3/h3'
 
 interface CardTestResultProps {
   message_result?: string
-  count?: number
+  count?: number | any
 }
 
 const StyledCardTest = styled.div``
