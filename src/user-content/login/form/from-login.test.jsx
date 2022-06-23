@@ -3,7 +3,20 @@ import { BrowserRouter } from 'react-router-dom'
 
 import Button from '../../../ui-library/button-click/button'
 import Form from './form-login'
+
+const mockOnSubmit = jest.fn()
 describe('form render', () => {
+  /**DOM ELEMENT FOR RENDER */
+  beforeEach(() => {
+    render(<Button type='submit' text='submit' />, {
+      wrapper: ({ children }) => (
+        <BrowserRouter>
+          <Form onSubmit={mockOnSubmit}>{children}</Form>
+        </BrowserRouter>
+      ),
+    })
+  })
+
   /**CHECK FORM RENDER */
   it('check form render', () => {
     render(
@@ -14,47 +27,21 @@ describe('form render', () => {
   })
   /** CHECK INPUT RENDER */
   it('check input render', () => {
-    render(
-      <BrowserRouter>
-        <Form onSubmit={undefined} />
-      </BrowserRouter>
-    )
     const textbox = screen.getByRole('textbox')
-
     expect(textbox).toBeInTheDocument()
   })
   it('check label text', () => {
-    render(
-      <BrowserRouter>
-        <Form onSubmit={undefined} />
-      </BrowserRouter>
-    )
     const textbox = screen.getByText('Password')
     const textemail = screen.getByText('Email address')
     expect(textbox && textemail).toBeInTheDocument()
   })
   /**RENDER CHECK BUTTON */
   it('check button', () => {
-    render(
-      <BrowserRouter>
-        <Form onSubmit={undefined} />
-      </BrowserRouter>
-    )
     const button = screen.getByRole('button')
-
     expect(button).toBeInTheDocument()
   })
   /** SHOULD DISPLAY MATCHING ERROR WHEN INVALID PASS AND EMAIL */
   it('should display matching error when invalid password and email', async () => {
-    const mockOnSubmit = jest.fn()
-
-    render(<Button type='submit' text='submit' />, {
-      wrapper: ({ children }) => (
-        <BrowserRouter>
-          <Form onSubmit={mockOnSubmit}>{children}</Form>
-        </BrowserRouter>
-      ),
-    })
     fireEvent.input(screen.getByRole('textbox', { name: /email/i }), {
       target: {
         value: 'test',
@@ -78,14 +65,6 @@ describe('form render', () => {
   /** SHOULD NOT DISPLAY ERROR WHEN VALUE IS VALID*/
 
   it('should not display error when value is valid', async () => {
-    const mockOnSubmit = jest.fn()
-    render(<Button type='submit' text='submit' />, {
-      wrapper: ({ children }) => (
-        <BrowserRouter>
-          <Form onSubmit={mockOnSubmit}>{children}</Form>
-        </BrowserRouter>
-      ),
-    })
     fireEvent.input(screen.getByRole('textbox', { name: /email/i }), {
       target: {
         value: 'test@mail.com',
@@ -108,15 +87,6 @@ describe('form render', () => {
   /** SHOULD DISPLAY REQUIRED ERROR WHEN VALUE IS INVALID*/
 
   it('should display required error when value is invalid', async () => {
-    const mockOnSubmit = jest.fn()
-
-    render(<Button type='submit' text='submit' />, {
-      wrapper: ({ children }) => (
-        <BrowserRouter>
-          <Form onSubmit={mockOnSubmit}>{children}</Form>
-        </BrowserRouter>
-      ),
-    })
     fireEvent.submit(screen.getByRole('button'))
     expect(await screen.findByText('Email not Correct')).toBeInTheDocument()
     expect(await screen.findByText('Empty Field')).toBeInTheDocument()
