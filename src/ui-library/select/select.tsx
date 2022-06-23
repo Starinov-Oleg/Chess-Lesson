@@ -5,6 +5,8 @@ interface Props {
   style?: { [key: string]: string }
   lists: Array<string>
   default_value?: string | number
+  value?: any
+  handleChange?: any
 }
 const StyledSelect = styled.select`
   font-size: 2rem;
@@ -16,7 +18,7 @@ function Select(props: Props) {
   if (!lists.length) return null
 
   return (
-    <StyledSelect defaultValue='defaultvalue'>
+    <StyledSelect defaultValue='defaultvalue' value={props.value} onChange={props.handleChange}>
       <option value='defaultvalue' disabled hidden>
         {props.default_value}
       </option>
