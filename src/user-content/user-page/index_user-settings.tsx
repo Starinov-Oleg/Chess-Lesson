@@ -1,7 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 
-import useGetUser from '../../../hooks/get-user-hook'
+import useGetUser from '../../hooks/get-user-hook'
 
 function Settings() {
   const { id } = useParams()

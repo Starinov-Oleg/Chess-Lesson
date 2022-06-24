@@ -2,8 +2,8 @@ import * as React from 'react'
 import { Accordion, Button,Card, useAccordionButton } from 'react-bootstrap'
 import styled from 'styled-components'
 
-import ButtonToggle from '../../../../ui-library/button-click/button'
-import H3 from '../../../../ui-library/h3/h3'
+import ButtonToggle from '../../../../../ui-library/button-click/button'
+import H3 from '../../../../../ui-library/h3/h3'
 
 interface CustomToggleProps {
   children: any
