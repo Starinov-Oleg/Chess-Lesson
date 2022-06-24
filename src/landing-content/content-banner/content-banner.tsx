@@ -3,8 +3,9 @@ import { Col, Container, Row } from 'react-bootstrap'
 import styled from 'styled-components'
 
 import img from '../../assets/section-baner/baner.jpg'
+import buttonplay from '../../assets/section-baner/play.png'
 import LanguagesContext from '../../common/languages/language-context'
-import ButtonPlay from '../../ui-library/button-play/button-play'
+import Button from '../../ui-library/button-pictures/button-pictures'
 import H1 from '../../ui-library/h1/h1'
 import H3 from '../../ui-library/h3/h3'
 import BanerItemBlock from './baner-item-block/baner-item-block'
@@ -22,6 +23,7 @@ const StyledBanerImg = styled.div`
   //padding-bottom: 6rem;
   margin-top: 2%;
 `
+const buttonpicture = { padding: '40px', borderRadius: '10px' }
 function SectionBaner() {
   const language = React.useContext(LanguagesContext)
   return (
@@ -41,7 +43,7 @@ function SectionBaner() {
           <Col lg={5} xs={12}>
             <StyledBanerImg>
               <H3 message={language.banerimgH3_1.message} primary />
-              <ButtonPlay href='chesslearn' />
+              <Button img={buttonplay} width='20rem' height='1.5rem' href='chesslearn' style={buttonpicture} />
               <H1 message={language.banerimgH3_2.message} primary />
             </StyledBanerImg>
           </Col>
