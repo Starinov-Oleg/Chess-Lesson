@@ -1,17 +1,33 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 
-import ChessReportCard from '../../chess-report-card/chess-report-card'
+import useGetUser from '../../../hooks/get-user-hook'
 
-interface SettingsProps {
-  img: string
-}
-function Settings({ img }: SettingsProps) {
-  return (
-    <div>
-      {img}
-      <ChessReportCard />
-    </div>
-  )
+function Settings() {
+  const { id } = useParams()
+  const user = useGetUser()
+  return user
+    ?.filter((user: any) => user.id === String(id))
+    .map(
+      (
+        user: {
+          group: string
+          name: string
+          followed: boolean
+          avatar: string | number
+          image_profile: string | number
+          body: string
+          length: number
+          spancount: number
+          id: number
+        },
+        index: number
+      ) => (
+        <section key={index}>
+          <div>{user.name}</div>
+        </section>
+      )
+    )
 }
 
 export default Settings

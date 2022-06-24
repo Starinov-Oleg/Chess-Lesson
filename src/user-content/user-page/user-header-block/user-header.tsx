@@ -1,10 +1,12 @@
+import { userInfo } from 'os'
 import React from 'react'
 import styled from 'styled-components'
 
 import cover from '../../../assets/pages/chess-play/cover.jpg'
+import Settings from '../../../assets/user/settings.png'
+import Button from '../../../ui-library/button-pictures/button-pictures'
 import Logo from '../../../ui-library/logo/logo'
 import Upload from '../../../ui-library/upload-file/upload-file'
-
 function onUploadCover(e: any, props: any) {
   if (e.target.files.length) {
     alert('upload')
@@ -43,10 +45,11 @@ const StyledHeaderLogo = styled.div`
   top: 30%;
   left: 5%;
 `
+
 function UserHeader(props: any) {
   const logoButton = { position: 'absolute', top: '0rem', right: '0rem', padding: '5px' }
   const coverButton = { width: 'auto', padding: '0rem', position: 'absolute', right: '1rem', top: '1rem' }
-
+  const settings = { position: 'absolute', top: '1rem', right: '8rem' }
   return (
     <StyledUserHeader>
       <StyledHeaderCover
@@ -55,6 +58,7 @@ function UserHeader(props: any) {
           width: '100%',
         }}>
         <Upload message='add cover' style={coverButton} onChange={onUploadCover} />
+        <Button href={props.user} img={Settings} width='1.5rem' height='1.5rem' style={settings} />
       </StyledHeaderCover>
       <StyledHeaderLogo>
         <Logo src={props.photo} />
