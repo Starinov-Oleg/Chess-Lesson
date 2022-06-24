@@ -1,5 +1,5 @@
 import { format } from 'date-fns'
-import React, { Fragment,useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
@@ -52,7 +52,7 @@ function UserPage() {
   const queryaddpost = useAddPost()
 
   const length = user?.length
-
+  const urlSettings = '/user/' + user + '/post'
   const peopleFriends = user
     ?.filter((user: { group: string }) => user.group === 'friends')
     .map((item: { name: string; avatar: string; key: number; id: number }, index: number) => {
@@ -182,7 +182,12 @@ function UserPage() {
           <Container fluid className='p-0 l-0'>
             <Row>
               <Col md={12} sm={12} xs={12}>
-                <UserHeader cover={user.image_profile} photo={user.avatar} />
+                <UserHeader
+                  cover={user.image_profile}
+                  photo={user.avatar}
+                  urlSettings={urlSettings}
+                  user={'/user/' + user.id + '/settings'}
+                />
                 <Button message='Chess Report Card' onClick={() => setShowResults(!showResults)} />
                 {showResults ? <ChessReportCard /> : null}
               </Col>

@@ -25,6 +25,7 @@ const Login = React.lazy(() => import('./user-content/login/login'))
 const Register = React.lazy(() => import('./user-content/register/register'))
 const RegisterCouch = React.lazy(() => import('./pages-content/chess-land-coaches/coaches-register/register'))
 const User = React.lazy(() => import('./user-content/user-page/user'))
+const Settings = React.lazy(() => import('./user-content/user-page/user-settings/user-settings'))
 const Play = React.lazy(() => import('./pages-content/chess-play/play'))
 const ChatPage = React.lazy(() => import('./user-content/chat-page/chat-page'))
 function App(props) {
@@ -61,6 +62,7 @@ function App(props) {
                 <Route path='chesslesson/chesslesson1/cheslesson1practice' element={<ChessLesson1Practice />} />
                 <Route path='chesslesson/chesslesson1/cheslesson1test' element={<ChessLessonTestPage />} />
                 <Route path='chesslesson' element={<ChessLesson chesslesson={props.state.chesslesson} />} />
+                <Route path='user/:id/settings' element={<Settings />}></Route>
                 <Route path='user/:id/post' element={<User />}></Route>
                 <Route path='chat/:id' element={<ChatPage />}></Route>
               </Route>
