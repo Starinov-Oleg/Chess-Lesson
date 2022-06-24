@@ -32,6 +32,7 @@ function Form({ onSubmit }: FormProps) {
       <Label message='Email address' htmlFor='email' />
       <Input
         name='email'
+        id='email'
         register={register}
         rules={{
           required: true,
@@ -41,12 +42,34 @@ function Form({ onSubmit }: FormProps) {
         }}
         type='email'
       />
-      <ErrorMessage errors={errors} name='email' render={() => <StyledError>Email not Correct</StyledError>} />
-      <Label message='Password' htmlFor='password' />
-      <Input type='password' name='password' register={register} rules={{ required: true }} />
-      <ErrorMessage errors={errors} name='password' render={() => <StyledError>Empty Field</StyledError>} />
 
-      <Button message='SUBMIT' style={button} />
+      <ErrorMessage
+        errors={errors}
+        name='email'
+        render={() => <StyledError role='alert'>Email not Correct</StyledError>}
+      />
+
+      <Label message='Password' htmlFor='password' />
+      <Input
+        id='password'
+        type='password'
+        name='password'
+        register={register}
+        rules={{
+          required: true,
+          minLength: {
+            value: 5,
+            message: 'min length is 5',
+          },
+        }}
+      />
+      <ErrorMessage
+        errors={errors}
+        name='password'
+        render={() => <StyledError role='alert'>Empty Field</StyledError>}
+      />
+
+      <Button message='SUBMIT' style={button} type='submit' />
     </StyledLoginForm>
   )
 }
