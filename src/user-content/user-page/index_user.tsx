@@ -12,13 +12,13 @@ import useDeletePost from '../../hooks/post-delete-hook'
 import usePost from '../../hooks/post-hook'
 import Button from '../../ui-library/button-click/button'
 import ChessReportCard from '../chess-report-card/chess-report-card'
-import UserProfile from './use-profile/user-profile'
-import AddPost from './user-action/add-post/add-post'
-import FilterPost from './user-action/filter-search-post/filter-post'
-import SearchPost from './user-action/filter-search-post/search-post'
-import ActionItem from './user-actionline-item/action-line'
-import UserHeader from './user-header-block/user-header'
-import UserPeopleBlock from './user-people-block/user-people-block'
+import AddPost from './user-index/user-action/add-post/add-post'
+import FilterPost from './user-index/user-action/filter-search-post/filter-post'
+import SearchPost from './user-index/user-action/filter-search-post/search-post'
+import ActionItem from './user-index/user-actionline-item/action-line'
+import Competition from './user-index/user-competition/Competition'
+import UserHeader from './user-index/user-header-block/user-header'
+import UserPeopleBlock from './user-index/user-people-block/user-people-block'
 const StyledActionBlock = styled.div`
   margin-top: 3%;
   border-radius: 10px;
@@ -194,7 +194,7 @@ function UserPage() {
             </Row>
             <Row>
               <Col md={12} xl={6} sm={12} xs={12}>
-                <UserProfile messagename={user.name} />
+                <Competition messagename={user.name} />
                 <UserPeopleBlock
                   spanlength={length}
                   spancount={peopleFriends?.length}

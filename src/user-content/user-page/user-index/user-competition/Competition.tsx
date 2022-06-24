@@ -1,15 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import H3 from '../../../ui-library/h3/h3'
+import H3 from '../../../../ui-library/h3/h3'
 
 const StyledProfileText = styled.div`
   text-align: left;
 `
-interface UserProfileProps {
+interface CompetitionProps {
   messagename: any
 }
-function UserProfile({ messagename }: UserProfileProps) {
+function Competition({ messagename }: CompetitionProps) {
   return (
     <StyledProfileText>
       <H3 message={messagename} />
@@ -19,4 +19,4 @@ function UserProfile({ messagename }: UserProfileProps) {
   )
 }
 
-export default UserProfile
+export default Competition

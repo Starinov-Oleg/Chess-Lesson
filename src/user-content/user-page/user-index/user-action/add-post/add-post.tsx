@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap'
 import { useForm } from 'react-hook-form'
 import styled from 'styled-components'
 
-import Button from '../../../../ui-library/button-click/button'
+import Button from '../../../../../ui-library/button-click/button'
 
 interface AddPostProps {
   onClick?: any

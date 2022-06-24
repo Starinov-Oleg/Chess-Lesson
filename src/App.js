@@ -24,8 +24,8 @@ import WhatIsChessland from './pages-content/what-is-chess-land/what-is-chesslan
 const Login = React.lazy(() => import('./user-content/login/login'))
 const Register = React.lazy(() => import('./user-content/register/register'))
 const RegisterCouch = React.lazy(() => import('./pages-content/chess-land-coaches/coaches-register/register'))
-const User = React.lazy(() => import('./user-content/user-page/user'))
-const Settings = React.lazy(() => import('./user-content/user-page/user-settings/user-settings'))
+const User = React.lazy(() => import('./user-content/user-page/index_user'))
+const Settings = React.lazy(() => import('./user-content/user-page/index_user-settings'))
 const Play = React.lazy(() => import('./pages-content/chess-play/play'))
 const ChatPage = React.lazy(() => import('./user-content/chat-page/chat-page'))
 function App(props) {
