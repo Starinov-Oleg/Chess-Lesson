@@ -1,5 +1,5 @@
 import { format } from 'date-fns'
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
@@ -39,20 +39,23 @@ const handleDeleteFalse = (setIsOpen: any) => {
 }
 
 function UserPage() {
+  const user = useGetUser()
   const { id } = useParams()
+
   const [showResults, setShowResults] = useState(false)
   const [post, setPost] = useState<any[] | undefined>([])
   const [isOpen, setIsOpen] = useState({ show: false, id: null })
   const [text, setText] = useState<any | undefined>(undefined)
   const [search, setSearch] = useState('')
   const [searchResult, setSearchResult] = useState<any[] | undefined>([])
-  const user = useGetUser()
+
   const querypost = usePost(id)
   const querydeletepost = useDeletePost(id)
   const queryaddpost = useAddPost()
-
   const length = user?.length
   const urlSettings = '/user/' + user + '/post'
+  const thisuser = user?.find(user => user.id === id)
+
   const peopleFriends = user
     ?.filter((user: { group: string }) => user.group === 'friends')
     .map((item: { name: string; avatar: string; key: number; id: number }, index: number) => {
@@ -161,79 +164,62 @@ function UserPage() {
       )
     })
 
-  return user
-    ?.filter((user: any) => user.id === String(id))
-    .map(
-      (
-        user: {
-          group: string
-          name: string
-          followed: boolean
-          avatar: string | number
-          image_profile: string | number
-          body: string
-          length: number
-          spancount: number
-          id: number
-        },
-        index: number
-      ) => (
-        <section key={index}>
-          <Container fluid className='p-0 l-0'>
-            <Row>
-              <Col md={12} sm={12} xs={12}>
-                <UserHeader
-                  cover={user.image_profile}
-                  photo={user.avatar}
-                  urlSettings={urlSettings}
-                  user={'/user/' + user.id + '/settings'}
+  return (
+    <section>
+      <Container fluid className='p-0 l-0'>
+        <Row>
+          <Col md={12} sm={12} xs={12}>
+            <UserHeader
+              cover={thisuser.image_profile}
+              photo={thisuser.avatar}
+              urlSettings={urlSettings}
+              user={`/user/${id}/settings`}
+            />
+            <Button message='Chess Report Card' onClick={() => setShowResults(!showResults)} />
+            {showResults ? <ChessReportCard /> : null}
+          </Col>
+        </Row>
+        <Row>
+          <Col md={12} xl={6} sm={12} xs={12}>
+            <Competition messagename={thisuser.name} />
+            <UserPeopleBlock
+              spanlength={length}
+              spancount={peopleFriends?.length}
+              childFriends={<Row>{peopleFriends}</Row>}
+              childCouches={<Row>{peopleCouches}</Row>}
+            />
+          </Col>
+          <Col md={12} xl={6} sm={12} xs={12}>
+            <StyledActionBlock>
+              <StyledSearchFilterBlock>
+                <SearchPost onChange={(e: any) => searchItems(e.target.value)} />
+                <FilterPost
+                  onClickData={() => {
+                    sortDataPost()
+                  }}
                 />
-                <Button message='Chess Report Card' onClick={() => setShowResults(!showResults)} />
-                {showResults ? <ChessReportCard /> : null}
-              </Col>
-            </Row>
-            <Row>
-              <Col md={12} xl={6} sm={12} xs={12}>
-                <Competition messagename={user.name} />
-                <UserPeopleBlock
-                  spanlength={length}
-                  spancount={peopleFriends?.length}
-                  childFriends={<Row>{peopleFriends}</Row>}
-                  childCouches={<Row>{peopleCouches}</Row>}
-                />
-              </Col>
-              <Col md={12} xl={6} sm={12} xs={12}>
-                <StyledActionBlock>
-                  <StyledSearchFilterBlock>
-                    <SearchPost onChange={(e: any) => searchItems(e.target.value)} />
-                    <FilterPost
-                      onClickData={() => {
-                        sortDataPost()
-                      }}
-                    />
-                  </StyledSearchFilterBlock>
-                  <AddPost
-                    onClick={() => {
-                      queryaddpost.mutate(text)
-                      setText('')
-                    }}
-                    onChange={(event: { target: { value: any } }) => {
-                      setText(event.target.value)
-                    }}
-                    value={text}
-                    name='body'
-                    onReset={(event: { target: { value: any } }) => {
-                      setText('')
-                    }}
-                  />
-                  {search.length > 1 ? postListSearchComponent : postListComponent}
-                </StyledActionBlock>
-              </Col>
-            </Row>
-          </Container>
-        </section>
-      )
-    )
+              </StyledSearchFilterBlock>
+              <AddPost
+                onClick={() => {
+                  queryaddpost.mutate(text)
+                  setText('')
+                }}
+                onChange={(event: { target: { value: any } }) => {
+                  setText(event.target.value)
+                }}
+                value={text}
+                name='body'
+                onReset={(event: { target: { value: any } }) => {
+                  setText('')
+                }}
+              />
+              {search.length > 1 ? postListSearchComponent : postListComponent}
+            </StyledActionBlock>
+          </Col>
+        </Row>
+      </Container>
+    </section>
+  )
 }
 
 export default UserPage

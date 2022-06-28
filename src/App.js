@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Auth0ProviderWithHistory from './auth/auth0-provider-with-history'
 import ScrollToTop from './common/scroll-top/scroll'
 import { COLORS } from './common/styled-components/var-colors.styled'
+import useGetUser from './hooks/get-user-hook'
 import Landing from './landing-content/landing'
 import Adventure from './pages-content/chess-adventure/adventure'
 import ContactContainer from './pages-content/chess-contact/contact-container'
@@ -29,6 +30,8 @@ const Settings = React.lazy(() => import('./user-content/user-page/index_user-se
 const Play = React.lazy(() => import('./pages-content/chess-play/play'))
 const ChatPage = React.lazy(() => import('./user-content/chat-page/chat-page'))
 function App(props) {
+  const user = useGetUser()
+
   return (
     <BrowserRouter>
       <Auth0ProviderWithHistory>
@@ -63,7 +66,12 @@ function App(props) {
                 <Route path='chesslesson/chesslesson1/cheslesson1test' element={<ChessLessonTestPage />} />
                 <Route path='chesslesson' element={<ChessLesson chesslesson={props.state.chesslesson} />} />
                 <Route path='user/:id/settings' element={<Settings />}></Route>
-                <Route path='user/:id/post' element={<User />}></Route>
+                <Route
+                  path='user/:id/post'
+                  element={<User />}
+                  render={({ match }) => (
+                    <User user={user.find(user => String(user.id) === String(match.params.id))} />
+                  )}></Route>
                 <Route path='chat/:id' element={<ChatPage />}></Route>
               </Route>
               <Route path='/play' element={<Play chessplay={props.state.chessplay} />} />
@@ -86,3 +94,5 @@ function App(props) {
 }
 
 export default App
+
+/** render for User component - solve on time... need fix. For fetch data when empty cashe  */

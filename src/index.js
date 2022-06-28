@@ -19,8 +19,8 @@ import reportWebVitals from './reportWebVitals'
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      refetchOnWindowFocus: false,
-      refetchOnMount: false,
+      refetchOnWindowFocus: true,
+      refetchOnMount: true,
       cacheTime: 1000 * 60 * 60 * 24,
     },
   },
@@ -30,6 +30,7 @@ const queryClient = new QueryClient({
   },
   */
 })
+
 const localStoragePersistor = createWebStoragePersistor({ storage: window.localStorage })
 persistQueryClient({
   queryClient,
