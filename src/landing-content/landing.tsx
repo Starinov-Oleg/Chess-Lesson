@@ -43,7 +43,7 @@ function Landing(/*props: LandingProps*/) {
     <>
       <Header />
       <LanguageButton onClick={() => setLanguage(en)} onClickVn={() => setLanguage(vn)} language={language.language} />
-      <LanguagesContext.Provider value={getLocalStorage('language', en)}>
+      <LanguagesContext.Provider value={language}>
         <SectionLearn />
         <SectionBaner />
         <SectionSafe /*contentSafe={props.contentSafe} */ />
