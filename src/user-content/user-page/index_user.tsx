@@ -4,7 +4,8 @@ import { Col, Container, Row } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
-import CommonPeople from '../../common/commpon-people-block/common-people'
+import Couches from '../../common/commpon-people-block/couch-people'
+import Friends from '../../common/commpon-people-block/friends-people'
 import Popup from '../../common/popup-message/popup-message'
 import useGetUser from '../../hooks/get-user-hook'
 import useAddPost from '../../hooks/post-add-hook'
@@ -52,20 +53,11 @@ function UserPage() {
   const querypost = usePost(id)
   const querydeletepost = useDeletePost(id)
   const queryaddpost = useAddPost()
-  const length = user?.length
-  const urlSettings = '/user/' + user + '/post'
-  const thisuser = user?.find(user => user.id === id)
 
-  const peopleFriends = user
-    ?.filter((user: { group: string }) => user.group === 'friends')
-    .map((item: { name: string; avatar: string; key: number; id: number }, index: number) => {
-      return <CommonPeople fullname={item.name} avatar={item.avatar} key={index} user={item.id} />
-    })
-  const peopleCouches = user
-    ?.filter((user: { group: string }) => user.group === 'couch')
-    .map((item: { name: string; avatar: string; key: number; id: number }, index: number) => {
-      return <CommonPeople fullname={item.name} avatar={item.avatar} key={index} user={item.id} />
-    })
+  const urlSettings = `/user/${id}/settings`
+  const thisuser = user?.find(user => user.id === id)
+  const length = user?.length
+  const peopleFriends = user?.filter((user: { group: string }) => user.group === 'friends').length
 
   const sortDataPost = () => {
     setPost(querypost?.sort((a, b) => (a.item > b.item ? 1 : -1)))
@@ -169,12 +161,7 @@ function UserPage() {
       <Container fluid className='p-0 l-0'>
         <Row>
           <Col md={12} sm={12} xs={12}>
-            <UserHeader
-              cover={thisuser.image_profile}
-              photo={thisuser.avatar}
-              urlSettings={urlSettings}
-              user={`/user/${id}/settings`}
-            />
+            <UserHeader cover={thisuser.image_profile} photo={thisuser.avatar} user={urlSettings} />
             <Button message='Chess Report Card' onClick={() => setShowResults(!showResults)} />
             {showResults ? <ChessReportCard /> : null}
           </Col>
@@ -184,11 +171,12 @@ function UserPage() {
             <Competition messagename={thisuser.name} />
             <UserPeopleBlock
               spanlength={length}
-              spancount={peopleFriends?.length}
-              childFriends={<Row>{peopleFriends}</Row>}
-              childCouches={<Row>{peopleCouches}</Row>}
+              spancount={peopleFriends}
+              childFriends={<Friends />}
+              childCouches={<Couches />}
             />
           </Col>
+
           <Col md={12} xl={6} sm={12} xs={12}>
             <StyledActionBlock>
               <StyledSearchFilterBlock>
