@@ -6,9 +6,9 @@ import CardSocial from '../../ui-library/card-social/card-social'
 interface PeopleContainerProps {
   unfollow?: any
   follow?: any
-  fullname?: any
-  avatar?: any
-  user?: any
+  fullname: string
+  avatar: string
+  user?: number
   followed?: any
 }
 function CommonPeople({ fullname, followed, unfollow, follow, avatar, user }: PeopleContainerProps) {

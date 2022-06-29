@@ -32,7 +32,7 @@ const StyledSpan = styled.span`
 interface ButtonProps {
   onClick: () => void
   onClickVn: () => void
-  language: any
+  language: string
 }
 
 function LanguageButton({ onClick, onClickVn, language }: ButtonProps) {

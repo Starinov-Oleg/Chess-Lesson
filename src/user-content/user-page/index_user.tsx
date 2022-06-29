@@ -1,4 +1,3 @@
-import { format } from 'date-fns'
 import React, { useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
@@ -8,7 +7,7 @@ import Couches from '../../common/commpon-people-block/couch-people'
 import Friends from '../../common/commpon-people-block/friends-people'
 import useGetUser from '../../hooks/get-user-hook'
 import useAddPost from '../../hooks/post-add-hook'
-import useDeletePost from '../../hooks/post-delete-hook'
+//import useDeletePost from '../../hooks/post-delete-hook'
 import usePost from '../../hooks/post-hook'
 import Button from '../../ui-library/button-click/button'
 import ChessReportCard from '../chess-report-card/chess-report-card'
@@ -34,13 +33,13 @@ function UserPage() {
   const { id } = useParams()
 
   const [showResults, setShowResults] = useState(false)
-  const [post, setPost] = useState<any[] | undefined>([])
-  const [text, setText] = useState<any | undefined>(undefined)
+  const [, setPost] = useState<string[] | undefined>([])
+  const [text, setText] = useState<string | undefined>(undefined)
   const [search, setSearch] = useState('')
-  const [searchResult, setSearchResult] = useState<any[] | undefined>([])
+  const [searchResult, setSearchResult] = useState<string[] | undefined>([])
 
   const querypost = usePost(id)
-  const querydeletepost = useDeletePost(id)
+  //const querydeletepost = useDeletePost(id)
   const queryaddpost = useAddPost()
 
   const urlSettings = `/user/${id}/settings`
@@ -49,10 +48,10 @@ function UserPage() {
   const peopleFriends = user?.filter((user: { group: string }) => user.group === 'friends').length
 
   const sortDataPost = () => {
-    setPost(querypost?.sort((a, b) => (a.item > b.item ? 1 : -1)))
+    setPost(querypost?.sort((a: { item: number }, b: { item: number }) => (a.item > b.item ? 1 : -1)))
   }
 
-  const searchItems = (searchValue: any) => {
+  const searchItems = (searchValue: string) => {
     setSearch(searchValue)
     if (search !== '') {
       const filteredData = querypost?.filter((item: { [s: string]: unknown } | ArrayLike<unknown>) => {
@@ -88,7 +87,7 @@ function UserPage() {
           <Col md={12} xl={6} sm={12} xs={12}>
             <StyledActionBlock>
               <StyledSearchFilterBlock>
-                <SearchPost onChange={(e: any) => searchItems(e.target.value)} />
+                <SearchPost onChange={(e: React.ChangeEvent<HTMLInputElement>) => searchItems(e.target.value)} />
                 <FilterPost
                   onClickData={() => {
                     sortDataPost()
@@ -100,13 +99,13 @@ function UserPage() {
                   queryaddpost.mutate(text)
                   setText('')
                 }}
-                onChange={(event: { target: { value: any } }) => {
+                onChange={(event: { target: { value: string } }) => {
                   setText(event.target.value)
                 }}
                 value={text}
                 name='body'
-                onReset={(event: { target: { value: any } }) => {
-                  setText('')
+                onReset={(event: { target: { value: undefined } }) => {
+                  setText(event.target.value)
                 }}
               />
               {search.length > 1 ? (
