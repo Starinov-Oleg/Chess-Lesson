@@ -8,7 +8,7 @@ const useAddPost = () => {
 
   const queryClient = useQueryClient()
 
-  return useMutation((text: any) => PostService.addPostId(id, text), {
+  return useMutation((text: string | undefined) => PostService.addPostId(id, text), {
     onSettled: () => {
       queryClient.invalidateQueries('articles')
     },

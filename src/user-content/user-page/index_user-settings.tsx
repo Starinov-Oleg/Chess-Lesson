@@ -57,11 +57,11 @@ function Settings() {
   const { id } = useParams()
   const user = useGetUser()
   const [startDate, setStartDate] = useState<Date | null>(new Date('2014/02/08'))
-  const [endDate, setEndDate] = useState<Date | null>(new Date('2014/02/10'))
-  const [text, setText] = useState<any | undefined>(undefined)
+  const [endDate] = useState<Date | null>(new Date('2014/02/10'))
+  const [, setText] = useState<string | undefined>(undefined)
   const queryaddpost = useAddPost()
   return user
-    ?.filter((user: any) => user.id === String(id))
+    ?.filter((user: { [key: string]: string }) => user.id === String(id))
     .map(
       (
         user: {
@@ -85,10 +85,10 @@ function Settings() {
               type='text'
               value={user.name}
               onClick={() => {
-                queryaddpost.mutate(text)
+                queryaddpost.mutate(user.name)
                 setText('')
               }}
-              onChange={(event: { target: { value: any } }) => {
+              onChange={(event: { target: { value: string } }) => {
                 setText(event.target.value)
               }}
             />

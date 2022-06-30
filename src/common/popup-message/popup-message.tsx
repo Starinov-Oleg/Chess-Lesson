@@ -5,7 +5,7 @@ interface PopupProps {
   content: any
   content_title: string
   content_body: string
-  id: any
+  id: number
 }
 
 const StyledPopupBox = styled.div`
