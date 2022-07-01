@@ -9,6 +9,7 @@ import styled from 'styled-components'
 import useAddPost from '../../hooks/change-user-name-hook'
 import useGetUser from '../../hooks/get-user-hook'
 import Button from '../../ui-library/button-click/button'
+import LinkBack from '../../ui-library/button-link/button-link'
 import H3 from '../../ui-library/h3/h3'
 const StyledSettingGeneralBlock = styled.div`
   text-align: left;
@@ -67,6 +68,7 @@ function Settings() {
   const thisuser = user?.find(user => user.id === id)
   const { handleSubmit } = useForm()
   const [text, setText] = useState(thisuser.name)
+  const urlBack = `/user/${id}/post`
   return (
     <section>
       <StyledSettingGeneralBlock>
@@ -102,6 +104,7 @@ function Settings() {
             </StyledFlexItem>
           </StyledDatepicker>
         </div>
+        <LinkBack message='Back' href={urlBack} />
       </StyledSettingGeneralBlock>
     </section>
   )
