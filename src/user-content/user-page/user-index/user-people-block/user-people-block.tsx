@@ -16,6 +16,9 @@ const StyledUserPeople = styled.div`
   border-radius: 10px;
   border: 1px solid #ff6b08;
 `
+const StyledUserMargin = styled.div`
+  margin: 1%;
+`
 function UserPeopleBlock({ spanlength, spancount, childFriends, childCouches }: UserPeopleBlockProps) {
   return (
     <StyledUserPeople>
@@ -28,11 +31,11 @@ function UserPeopleBlock({ spanlength, spancount, childFriends, childCouches }: 
         <div>
           Friends:<span>{spancount}</span>
         </div>
-        {childFriends}
+        <StyledUserMargin>{childFriends}</StyledUserMargin>
       </div>
       <div>
         <H3 message='Couches' primary />
-        {childCouches}
+        <StyledUserMargin>{childCouches}</StyledUserMargin>
       </div>
     </StyledUserPeople>
   )
