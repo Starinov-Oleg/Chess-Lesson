@@ -1,13 +1,14 @@
 import 'react-datepicker/dist/react-datepicker.css'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import DatePicker from 'react-datepicker'
 import { useForm } from 'react-hook-form'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
-import useAddPost from '../../hooks/change-user-name-hook'
+import useChangeName from '../../hooks/change-user-name-hook'
 import useGetUser from '../../hooks/get-user-hook'
+import useDeleteUser from '../../hooks/user-delete-hook'
 import Button from '../../ui-library/button-click/button'
 import LinkBack from '../../ui-library/button-link/button-link'
 import H3 from '../../ui-library/h3/h3'
@@ -63,8 +64,8 @@ function Settings() {
   const user = useGetUser()
   const [startDate, setStartDate] = useState<Date | null>(new Date('2014/02/08'))
   const [endDate] = useState<Date | null>(new Date('2014/02/10'))
-
-  const queryaddpost = useAddPost()
+  const querydeleteuser = useDeleteUser(id)
+  const queryaddpost = useChangeName()
   const thisuser = user?.find(user => user.id === id)
   const { handleSubmit } = useForm()
   const [text, setText] = useState(thisuser.name)
@@ -105,6 +106,14 @@ function Settings() {
           </StyledDatepicker>
         </div>
         <LinkBack message='Back' href={urlBack} />
+        <Button
+          message='Delete profile'
+          onClick={() => {
+            querydeleteuser.mutate(thisuser.id)
+            const url = '/pages'
+            window.location.replace(url)
+          }}
+        />
       </StyledSettingGeneralBlock>
     </section>
   )
