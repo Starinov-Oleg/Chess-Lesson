@@ -2,12 +2,15 @@ import 'react-datepicker/dist/react-datepicker.css'
 
 import { useState } from 'react'
 import DatePicker from 'react-datepicker'
+import { useForm } from 'react-hook-form'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
-import useAddPost from '../../hooks/change-user-name-hook'
+import useChangeName from '../../hooks/change-user-name-hook'
 import useGetUser from '../../hooks/get-user-hook'
+import useDeleteUser from '../../hooks/user-delete-hook'
 import Button from '../../ui-library/button-click/button'
+import LinkBack from '../../ui-library/button-link/button-link'
 import H3 from '../../ui-library/h3/h3'
 const StyledSettingGeneralBlock = styled.div`
   text-align: left;
@@ -31,6 +34,9 @@ const StyledInput = styled.input`
   }
   :disabled {
     border: 0;
+  }
+  :focus::placeholder {
+    color: transparent;
   }
 `
 const StyledDatepicker = styled.div`
@@ -58,70 +64,59 @@ function Settings() {
   const user = useGetUser()
   const [startDate, setStartDate] = useState<Date | null>(new Date('2014/02/08'))
   const [endDate] = useState<Date | null>(new Date('2014/02/10'))
-  const [, setText] = useState<string | undefined>(undefined)
-  const queryaddpost = useAddPost()
-  return user
-    ?.filter((user: { [key: string]: string }) => user.id === String(id))
-    .map(
-      (
-        user: {
-          group: string
-          name: string
-          followed: boolean
-          avatar: string | number
-          image_profile: string | number
-          body: string
-          length: number
-          spancount: number
-          id: number
-        },
-        index: number
-      ) => (
-        <section key={index}>
-          <StyledSettingGeneralBlock>
-            <H3 message='Setting' />
-            <p>Settings for personal view</p>
-            <StyledInput
-              type='text'
-              value={user.name}
-              onClick={() => {
-                queryaddpost.mutate(user.name)
-                setText('')
-              }}
-              onChange={(event: { target: { value: string } }) => {
-                setText(event.target.value)
-              }}
-            />
-            <div>
-              <p>Data Birthday:</p>
-              <StyledDatepicker>
-                <StyledFlexItem>
-                  <DatePicker
-                    selected={startDate}
-                    onChange={date => setStartDate(date)}
-                    selectsStart
-                    startDate={startDate}
-                    endDate={endDate}
-                  />
-                </StyledFlexItem>
-              </StyledDatepicker>
-            </div>
-          </StyledSettingGeneralBlock>
-          <Button message='SUBMIT' />
-        </section>
-      )
-    )
+  const querydeleteuser = useDeleteUser(id)
+  const queryaddpost = useChangeName()
+  const thisuser = user?.find(user => user.id === id)
+  const { handleSubmit } = useForm()
+  const [text, setText] = useState(thisuser.name)
+  const urlBack = `/user/${id}/post`
+  return (
+    <section>
+      <StyledSettingGeneralBlock>
+        <H3 message='Setting' />
+        <p>Settings for personal view</p>
+        <p>Name:</p>
+        <form
+          onSubmit={handleSubmit(() => {
+            queryaddpost.mutate(text)
+          })}>
+          <StyledInput
+            value={text}
+            onChange={(event: { target: { value: any } }) => {
+              setText(event.target.value)
+            }}
+            name='name'
+            //placeholder={thisuser.name}
+            required
+          />
+          <Button message='CHANGE NAME' />
+        </form>
+        <div>
+          <p>Data Birthday:</p>
+          <StyledDatepicker>
+            <StyledFlexItem>
+              <DatePicker
+                selected={startDate}
+                onChange={date => setStartDate(date)}
+                selectsStart
+                startDate={startDate}
+                endDate={endDate}
+              />
+            </StyledFlexItem>
+          </StyledDatepicker>
+        </div>
+        <LinkBack message='Back' href={urlBack} />
+        <Button
+          message='Delete profile'
+          onClick={() => {
+            querydeleteuser.mutate(thisuser.id)
+            const url = '/pages'
+            window.location.replace(url)
+          }}
+        />
+      </StyledSettingGeneralBlock>
+    </section>
+  )
 }
 
 export default Settings
-
-/***
-             <div contentEditable='true' onInput={e => (user.id, e.currentTarget.textContent)}>
-              {user.name}
-            </div>
-TO DO:
-* public name for all people can be editable;
-* private name impossible editable;
-* add BD to database and dispaly it;
-
- */
