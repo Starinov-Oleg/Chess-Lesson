@@ -6,8 +6,12 @@ import { useForm } from 'react-hook-form'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
+import PictureCalendarBlock from '../../assets/user-settings/calendar_block.png'
 import PicturesName from '../../assets/user-settings/change_name.png'
 import Pictures from '../../assets/user-settings/delete_user.png'
+import PicturesEmailBlock from '../../assets/user-settings/email_block.png'
+import PicturesNameBlock from '../../assets/user-settings/name_block.png'
+import PicturesPasswordBlock from '../../assets/user-settings/password_block.png'
 import useChangeName from '../../hooks/change-user-name-hook'
 import useGetUser from '../../hooks/get-user-hook'
 import useDeleteUser from '../../hooks/user-delete-hook'
@@ -31,6 +35,7 @@ const StyledInput = styled.input`
   background: none;
   font-size: 1.5rem;
   font-family: 'Mochiy';
+
   @media screen and (max-width: 768px) {
     font-size: 0.7rem;
   }
@@ -61,6 +66,37 @@ const StyledFlexItem = styled.div`
     border-color: var(--global-var-color-orange);
   }
 `
+const StyledGeneralBlock = styled.div`
+  display: flex;
+  gap: 1rem;
+  button {
+    margin-top: 0.3rem;
+  }
+`
+const StyledForm = styled.form`
+  display: flex;
+  gap: 1rem;
+  button {
+    margin-top: 1.7rem;
+  }
+`
+const StyledTextTitle = styled.p`
+  margin-top: 1rem;
+  font-size: 2rem;
+`
+const StyledSection = styled.section`
+  background-color: #fafaf6;
+  padding-bottom: 1rem;
+`
+const StyledSectionBlock = styled.div`
+  background-color: white;
+  border-radius: 10px;
+  margin: 1rem;
+`
+const StyledDisplayMessage = styled.div`
+  margin-top: 1.7rem;
+  color: #ff6b08;
+`
 function Settings() {
   const { id } = useParams()
   const user = useGetUser()
@@ -74,11 +110,12 @@ function Settings() {
   const urlBack = `/user/${id}/post`
 
   return (
-    <section>
+    <StyledSection>
       {querydeleteuser.isSuccess ? <>{window.location.replace('/pages')}</> : null}
       <StyledSettingGeneralBlock>
-        <div>
-          <H3 message='Setting' />
+        <StyledGeneralBlock>
+          <H3 message='Settings' />
+          <H3 message={thisuser.realName} primary />
           <ButtonPicture
             button_click_link
             width='1.5rem'
@@ -88,14 +125,18 @@ function Settings() {
               querydeleteuser.mutate(thisuser.id)
             }}
           />
-        </div>
-        <div>
-          <p>Settings for personal view</p>
-          <p>Nickname:</p>
-          <form
+        </StyledGeneralBlock>
+        <LinkBack message='Back' href={urlBack} />
+        <StyledSectionBlock>
+          <StyledTextTitle>
+            <img src={PicturesNameBlock} />
+            Settings for personal view
+          </StyledTextTitle>
+          <StyledForm
             onSubmit={handleSubmit(() => {
               querychangename.mutate(text)
             })}>
+            <StyledTextTitle>Nickname:</StyledTextTitle>
             <StyledInput
               value={text}
               onChange={(event: { target: { value: any } }) => {
@@ -105,15 +146,16 @@ function Settings() {
               //placeholder={thisuser.name}
               required
             />
-            {querychangename.isSuccess ? <div>Name change success!</div> : null}
+            {querychangename.isSuccess ? <StyledDisplayMessage>Name change success!</StyledDisplayMessage> : null}
             <ButtonPicture button_click_link width='1.5rem' height='1.5rem' img={PicturesName} />
-          </form>
-          <p>Real Name:</p>
-          <H3 message={thisuser.realName} />
-        </div>
+          </StyledForm>
+        </StyledSectionBlock>
 
-        <div>
-          <p>Setting for Data Birthday</p>
+        <StyledSectionBlock>
+          <StyledTextTitle>
+            <img src={PictureCalendarBlock} />
+            Setting for Data Birthday
+          </StyledTextTitle>
           <StyledDatepicker>
             <StyledFlexItem>
               <DatePicker
@@ -125,17 +167,22 @@ function Settings() {
               />
             </StyledFlexItem>
           </StyledDatepicker>
-        </div>
-        <div>
-          <p>Setting for change e-mail</p>
+        </StyledSectionBlock>
+        <StyledSectionBlock>
+          <StyledTextTitle>
+            <img src={PicturesEmailBlock} />
+            Setting for change e-mail
+          </StyledTextTitle>
           <H3 message={thisuser.email} />
-        </div>
-        <div>
-          <p>Change password</p>
-        </div>
-        <LinkBack message='Back' href={urlBack} />
+        </StyledSectionBlock>
+        <StyledSectionBlock>
+          <StyledTextTitle>
+            <img src={PicturesPasswordBlock} />
+            Change password
+          </StyledTextTitle>
+        </StyledSectionBlock>
       </StyledSettingGeneralBlock>
-    </section>
+    </StyledSection>
   )
 }
 
@@ -143,4 +190,5 @@ export default Settings
 
 /** Make button disabled or anything when not empty name or when not focus on input and check was name change or not ;
  * add portal for message
+ * maybe need add timer for message disappear
  */
