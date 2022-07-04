@@ -12,6 +12,7 @@ import Pictures from '../../assets/user-settings/delete_user.png'
 import PicturesEmailBlock from '../../assets/user-settings/email_block.png'
 import PicturesNameBlock from '../../assets/user-settings/name_block.png'
 import PicturesPasswordBlock from '../../assets/user-settings/password_block.png'
+import useChangeBirthData from '../../hooks/change-user-birthdata-hook'
 import useChangeName from '../../hooks/change-user-name-hook'
 import useGetUser from '../../hooks/get-user-hook'
 import useDeleteUser from '../../hooks/user-delete-hook'
@@ -100,11 +101,11 @@ const StyledDisplayMessage = styled.div`
 function Settings() {
   const { id } = useParams()
   const user = useGetUser()
-  const [startDate, setStartDate] = useState<Date | null>(new Date('2014/02/08'))
-  const [endDate] = useState<Date | null>(new Date('2014/02/10'))
+  const thisuser = user?.find(user => user.id === id)
+  const [startDate, setStartDate] = useState<Date | null>(new Date(`${thisuser.data_birth}`))
   const querydeleteuser = useDeleteUser(id)
   const querychangename = useChangeName()
-  const thisuser = user?.find(user => user.id === id)
+  const querychangebirthdata = useChangeBirthData()
   const { handleSubmit } = useForm()
   const [text, setText] = useState(thisuser.name)
   const urlBack = `/user/${id}/post`
@@ -154,17 +155,26 @@ function Settings() {
         <StyledSectionBlock>
           <StyledTextTitle>
             <img src={PictureCalendarBlock} />
-            Setting for Data Birthday
+            Setting for Data Birthday {thisuser.data_birth}
           </StyledTextTitle>
           <StyledDatepicker>
             <StyledFlexItem>
-              <DatePicker
-                selected={startDate}
-                onChange={date => setStartDate(date)}
-                selectsStart
-                startDate={startDate}
-                endDate={endDate}
-              />
+              <StyledForm
+                onSubmit={handleSubmit(() => {
+                  querychangebirthdata.mutate(startDate)
+                })}>
+                <DatePicker
+                  selected={startDate}
+                  onChange={date => setStartDate(date)}
+                  selectsStart
+                  startDate={startDate}
+                  maxDate={new Date()}
+                />
+                {querychangebirthdata.isSuccess ? (
+                  <StyledDisplayMessage>Data Birth change success!</StyledDisplayMessage>
+                ) : null}
+                <ButtonPicture button_click_link width='1.5rem' height='1.5rem' img={PicturesName} />
+              </StyledForm>
             </StyledFlexItem>
           </StyledDatepicker>
         </StyledSectionBlock>
