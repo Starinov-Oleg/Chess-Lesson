@@ -6,11 +6,13 @@ import { useForm } from 'react-hook-form'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
+import PicturesName from '../../assets/user-settings/change_name.png'
+import Pictures from '../../assets/user-settings/delete_user.png'
 import useChangeName from '../../hooks/change-user-name-hook'
 import useGetUser from '../../hooks/get-user-hook'
 import useDeleteUser from '../../hooks/user-delete-hook'
-import Button from '../../ui-library/button-click/button'
 import LinkBack from '../../ui-library/button-link/button-link'
+import ButtonPicture from '../../ui-library/button-pictures/button-pictures'
 import H3 from '../../ui-library/h3/h3'
 const StyledSettingGeneralBlock = styled.div`
   text-align: left;
@@ -65,20 +67,26 @@ function Settings() {
   const [startDate, setStartDate] = useState<Date | null>(new Date('2014/02/08'))
   const [endDate] = useState<Date | null>(new Date('2014/02/10'))
   const querydeleteuser = useDeleteUser(id)
-  const queryaddpost = useChangeName()
+  const querychangename = useChangeName()
   const thisuser = user?.find(user => user.id === id)
   const { handleSubmit } = useForm()
   const [text, setText] = useState(thisuser.name)
   const urlBack = `/user/${id}/post`
+
   return (
     <section>
+      {querydeleteuser.isSuccess ? (
+        <>{window.location.replace('/pages')}</>
+      ) : (
+        <H3 message='Anything happend. Can not delete profile!' />
+      )}
       <StyledSettingGeneralBlock>
         <H3 message='Setting' />
         <p>Settings for personal view</p>
         <p>Name:</p>
         <form
           onSubmit={handleSubmit(() => {
-            queryaddpost.mutate(text)
+            querychangename.mutate(text)
           })}>
           <StyledInput
             value={text}
@@ -89,7 +97,8 @@ function Settings() {
             //placeholder={thisuser.name}
             required
           />
-          <Button message='CHANGE NAME' />
+          {querychangename.isSuccess ? <div>Name change success!</div> : null}
+          <ButtonPicture button_click_link width='1.5rem' height='1.5rem' img={PicturesName} />
         </form>
         <div>
           <p>Data Birthday:</p>
@@ -106,12 +115,14 @@ function Settings() {
           </StyledDatepicker>
         </div>
         <LinkBack message='Back' href={urlBack} />
-        <Button
-          message='Delete profile'
+
+        <ButtonPicture
+          button_click_link
+          width='1.5rem'
+          height='1.5rem'
+          img={Pictures}
           onClick={() => {
             querydeleteuser.mutate(thisuser.id)
-            const url = '/pages'
-            window.location.replace(url)
           }}
         />
       </StyledSettingGeneralBlock>
@@ -120,3 +131,7 @@ function Settings() {
 }
 
 export default Settings
+
+/** Make button disabled or anything when not empty name or when not focus on input and check was name change or not ;
+ * add portal for message
+ */
