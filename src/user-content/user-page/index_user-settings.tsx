@@ -75,33 +75,45 @@ function Settings() {
 
   return (
     <section>
-      {querydeleteuser.isSuccess ? (
-        <>{window.location.replace('/pages')}</>
-      ) : (
-        <H3 message='Anything happend. Can not delete profile!' />
-      )}
+      {querydeleteuser.isSuccess ? <>{window.location.replace('/pages')}</> : null}
       <StyledSettingGeneralBlock>
-        <H3 message='Setting' />
-        <p>Settings for personal view</p>
-        <p>Name:</p>
-        <form
-          onSubmit={handleSubmit(() => {
-            querychangename.mutate(text)
-          })}>
-          <StyledInput
-            value={text}
-            onChange={(event: { target: { value: any } }) => {
-              setText(event.target.value)
-            }}
-            name='name'
-            //placeholder={thisuser.name}
-            required
-          />
-          {querychangename.isSuccess ? <div>Name change success!</div> : null}
-          <ButtonPicture button_click_link width='1.5rem' height='1.5rem' img={PicturesName} />
-        </form>
         <div>
-          <p>Data Birthday:</p>
+          <H3 message='Setting' />
+          <ButtonPicture
+            button_click_link
+            width='1.5rem'
+            height='1.5rem'
+            img={Pictures}
+            onClick={() => {
+              querydeleteuser.mutate(thisuser.id)
+            }}
+          />
+        </div>
+        <div>
+          <p>Settings for personal view</p>
+          <p>Nickname:</p>
+          <form
+            onSubmit={handleSubmit(() => {
+              querychangename.mutate(text)
+            })}>
+            <StyledInput
+              value={text}
+              onChange={(event: { target: { value: any } }) => {
+                setText(event.target.value)
+              }}
+              name='name'
+              //placeholder={thisuser.name}
+              required
+            />
+            {querychangename.isSuccess ? <div>Name change success!</div> : null}
+            <ButtonPicture button_click_link width='1.5rem' height='1.5rem' img={PicturesName} />
+          </form>
+          <p>Real Name:</p>
+          <H3 message={thisuser.realName} />
+        </div>
+
+        <div>
+          <p>Setting for Data Birthday</p>
           <StyledDatepicker>
             <StyledFlexItem>
               <DatePicker
@@ -114,17 +126,14 @@ function Settings() {
             </StyledFlexItem>
           </StyledDatepicker>
         </div>
+        <div>
+          <p>Setting for change e-mail</p>
+          <H3 message={thisuser.email} />
+        </div>
+        <div>
+          <p>Change password</p>
+        </div>
         <LinkBack message='Back' href={urlBack} />
-
-        <ButtonPicture
-          button_click_link
-          width='1.5rem'
-          height='1.5rem'
-          img={Pictures}
-          onClick={() => {
-            querydeleteuser.mutate(thisuser.id)
-          }}
-        />
       </StyledSettingGeneralBlock>
     </section>
   )
