@@ -7,9 +7,9 @@ import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
 import PictureCalendarBlock from '../../assets/user-settings/calendar_block.png'
-import PicturesName from '../../assets/user-settings/change_name.png'
 import Pictures from '../../assets/user-settings/delete_user.png'
 import PicturesEmailBlock from '../../assets/user-settings/email_block.png'
+import PictureFix from '../../assets/user-settings/fix.png'
 import PicturesNameBlock from '../../assets/user-settings/name_block.png'
 import PicturesPasswordBlock from '../../assets/user-settings/password_block.png'
 import useChangeBirthData from '../../hooks/change-user-birthdata-hook'
@@ -20,10 +20,7 @@ import useDeleteUser from '../../hooks/user-delete-hook'
 import LinkBack from '../../ui-library/button-link/button-link'
 import ButtonPicture from '../../ui-library/button-pictures/button-pictures'
 import H3 from '../../ui-library/h3/h3'
-const StyledSettingGeneralBlock = styled.div`
-  text-align: left;
-  padding-top: 1rem;
-`
+
 const StyledInput = styled.input`
   border: none;
   display: inline-block;
@@ -49,9 +46,27 @@ const StyledInput = styled.input`
   }
 `
 
-const StyledFlexItem = styled.div`
-  padding: 0.5rem;
+const StyledTextTitle = styled.p`
+  font-size: 2rem;
+`
+
+const StyledDisplayMessage = styled.p`
+  margin-top: 1.7rem;
+  color: #ff6b08;
+  img {
+    padding: 0.5rem;
+  }
+`
+
+const StyledSection = styled.section`
+  background-color: #fafaf6;
+  padding-bottom: 1rem;
+  text-align: left;
+`
+const StyledFlex = styled.div`
   display: flex;
+  padding: 1rem;
+  gap: 1rem;
   .react-datepicker-wrapper {
     width: inherit;
   }
@@ -69,41 +84,20 @@ const StyledFlexItem = styled.div`
     background-color: #f2bd9f;
     border-color: var(--global-var-color-orange);
   }
+
   button {
-    margin-left: 1.7rem;
+    margin-top: 0.4rem;
+  }
+  h3 {
+    padding-top: 1rem;
   }
 `
-const StyledGeneralBlock = styled.div`
-  display: flex;
-  gap: 1rem;
-  button {
-    margin-top: 0.3rem;
-  }
-`
-const StyledForm = styled.form``
-const StyledTextTitle = styled.p`
-  margin-top: 1rem;
-  font-size: 2rem;
-`
-const StyledSection = styled.section`
-  background-color: #fafaf6;
-  padding-bottom: 1rem;
-`
-const StyledSectionBlock = styled.div`
+const StyledFormBlock = styled.div`
   background-color: white;
   border-radius: 10px;
+  margin-top: 1rem;
 `
-const StyledDisplayMessage = styled.p`
-  margin-top: 1.7rem;
-  color: #ff6b08;
-`
-const StyledFlexFormItem = styled.div`
-  display: flex;
-  gap: 1rem;
-  button {
-    margin-top: 1.7rem;
-  }
-`
+
 function Settings() {
   const { id } = useParams()
   const user = useGetUser()
@@ -117,11 +111,13 @@ function Settings() {
   const [text, setText] = useState(thisuser.name)
   const [email, setEmail] = useState(thisuser.email)
   const urlBack = `/user/${id}/post`
+  const styled = { marginTop: '1.4rem' }
+
   return (
-    <StyledSection>
+    <>
       {querydeleteuser.isSuccess ? <>{window.location.replace('/pages')}</> : null}
-      <StyledSettingGeneralBlock>
-        <StyledGeneralBlock>
+      <StyledSection>
+        <StyledFlex>
           <H3 message='Settings' />
           <H3 message={thisuser.realName} primary />
           <ButtonPicture
@@ -129,43 +125,52 @@ function Settings() {
             width='1.5rem'
             height='1.5rem'
             img={Pictures}
+            style={styled}
             onClick={() => {
               querydeleteuser.mutate(thisuser.id)
             }}
           />
-        </StyledGeneralBlock>
-        <LinkBack message='Back' href={urlBack} />
-        <StyledSectionBlock>
-          <StyledTextTitle>
-            <img src={PicturesNameBlock} />
-            Settings for personal view
-          </StyledTextTitle>
+
+          <LinkBack message='Back' href={urlBack} />
+        </StyledFlex>
+
+        <div>
           {querychangename.isSuccess || querychangebirthdata.isSuccess || querychangeemail.isSuccess ? (
             <StyledDisplayMessage>Change success!</StyledDisplayMessage>
           ) : null}
-          <StyledForm
-            onSubmit={handleSubmit(() => {
-              querychangename.mutate(text)
-              querychangebirthdata.mutate(startDate)
-            })}>
-            <StyledFlexFormItem>
-              <StyledTextTitle>Nickname:</StyledTextTitle>
+        </div>
+
+        <form
+          onSubmit={handleSubmit(() => {
+            querychangename.mutate(text)
+            querychangebirthdata.mutate(startDate)
+            querychangeemail.mutate(email)
+          })}>
+          <StyledFormBlock>
+            <StyledTextTitle>
+              <img src={PicturesNameBlock} />
+              Settings for Nickname
+            </StyledTextTitle>
+            <StyledFlex>
               <StyledInput
                 value={text}
-                onChange={(event: { target: { value: any } }) => {
+                onChange={(event: { target: { value: string } }) => {
                   setText(event.target.value)
                 }}
                 name='name'
                 //placeholder={thisuser.name}
                 required
+                type='text'
               />
-              <ButtonPicture button_click_link width='1.5rem' height='1.5rem' img={PicturesName} />
-            </StyledFlexFormItem>
+              <ButtonPicture button_click_link width='1.5rem' height='1.5rem' img={PictureFix} />
+            </StyledFlex>
+          </StyledFormBlock>
+          <StyledFormBlock>
             <StyledTextTitle>
               <img src={PictureCalendarBlock} />
               Setting for Data Birthday {thisuser.data_birth}
             </StyledTextTitle>
-            <StyledFlexItem>
+            <StyledFlex>
               <DatePicker
                 selected={startDate}
                 onChange={date => setStartDate(date)}
@@ -173,41 +178,35 @@ function Settings() {
                 startDate={startDate}
                 maxDate={new Date()}
               />
-              <ButtonPicture button_click_link width='1.5rem' height='1.5rem' img={PictureCalendarBlock} />
-            </StyledFlexItem>
-          </StyledForm>
-        </StyledSectionBlock>
-        <StyledSectionBlock>
-          <StyledForm
-            onSubmit={handleSubmit(() => {
-              querychangeemail.mutate(email)
-            })}>
-            <StyledFlexFormItem>
-              <StyledTextTitle>
-                <img src={PicturesEmailBlock} />
-                Setting for change e-mail:
-              </StyledTextTitle>
+              <ButtonPicture button_click_link width='1.5rem' height='1.5rem' img={PictureFix} />
+            </StyledFlex>
+          </StyledFormBlock>
+          <StyledFormBlock>
+            <StyledTextTitle>
+              <img src={PicturesEmailBlock} />
+              Setting for change e-mail:
+            </StyledTextTitle>
+            <StyledFlex>
               <StyledInput
                 value={email}
-                onChange={(event: { target: { value: any } }) => {
+                onChange={(event: { target: { value: string } }) => {
                   setEmail(event.target.value)
                 }}
                 name='email'
                 type='email'
                 required
               />
-              <ButtonPicture button_click_link width='1.5rem' height='1.5rem' img={PicturesName} />
-            </StyledFlexFormItem>
-          </StyledForm>
-        </StyledSectionBlock>
-        <StyledSectionBlock>
-          <StyledTextTitle>
-            <img src={PicturesPasswordBlock} />
-            Change password
-          </StyledTextTitle>
-        </StyledSectionBlock>
-      </StyledSettingGeneralBlock>
-    </StyledSection>
+              <ButtonPicture button_click_link width='1.5rem' height='1.5rem' img={PictureFix} />
+            </StyledFlex>
+          </StyledFormBlock>
+        </form>
+
+        <StyledTextTitle>
+          <img src={PicturesPasswordBlock} />
+          Change password
+        </StyledTextTitle>
+      </StyledSection>
+    </>
   )
 }
 
