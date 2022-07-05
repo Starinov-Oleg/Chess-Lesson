@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, Container,Row } from 'react-bootstrap'
+import { Col, Container, Row } from 'react-bootstrap'
 import { Outlet } from 'react-router-dom'
 import styled from 'styled-components'
 
@@ -14,8 +14,8 @@ const StyledPages = styled.div`
 `
 const StyledColOutlet = styled(Col)`
   background-color: white;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  // padding-left: 1rem;
+  // padding-right: 1rem;
   min-height: 100vh;
 `
 const StyleFlex = styled.div`
