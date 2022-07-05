@@ -13,6 +13,7 @@ import PicturesEmailBlock from '../../assets/user-settings/email_block.png'
 import PicturesNameBlock from '../../assets/user-settings/name_block.png'
 import PicturesPasswordBlock from '../../assets/user-settings/password_block.png'
 import useChangeBirthData from '../../hooks/change-user-birthdata-hook'
+import useChangeEmail from '../../hooks/change-user-email-hook'
 import useChangeName from '../../hooks/change-user-name-hook'
 import useGetUser from '../../hooks/get-user-hook'
 import useDeleteUser from '../../hooks/user-delete-hook'
@@ -111,8 +112,10 @@ function Settings() {
   const querydeleteuser = useDeleteUser(id)
   const querychangename = useChangeName()
   const querychangebirthdata = useChangeBirthData()
+  const querychangeemail = useChangeEmail()
   const { handleSubmit } = useForm()
   const [text, setText] = useState(thisuser.name)
+  const [email, setEmail] = useState(thisuser.email)
   const urlBack = `/user/${id}/post`
   return (
     <StyledSection>
@@ -137,7 +140,7 @@ function Settings() {
             <img src={PicturesNameBlock} />
             Settings for personal view
           </StyledTextTitle>
-          {querychangename.isSuccess || querychangebirthdata.isSuccess ? (
+          {querychangename.isSuccess || querychangebirthdata.isSuccess || querychangeemail.isSuccess ? (
             <StyledDisplayMessage>Change success!</StyledDisplayMessage>
           ) : null}
           <StyledForm
@@ -175,11 +178,27 @@ function Settings() {
           </StyledForm>
         </StyledSectionBlock>
         <StyledSectionBlock>
-          <StyledTextTitle>
-            <img src={PicturesEmailBlock} />
-            Setting for change e-mail
-          </StyledTextTitle>
-          <H3 message={thisuser.email} />
+          <StyledForm
+            onSubmit={handleSubmit(() => {
+              querychangeemail.mutate(email)
+            })}>
+            <StyledFlexFormItem>
+              <StyledTextTitle>
+                <img src={PicturesEmailBlock} />
+                Setting for change e-mail:
+              </StyledTextTitle>
+              <StyledInput
+                value={email}
+                onChange={(event: { target: { value: any } }) => {
+                  setEmail(event.target.value)
+                }}
+                name='email'
+                type='email'
+                required
+              />
+              <ButtonPicture button_click_link width='1.5rem' height='1.5rem' img={PicturesName} />
+            </StyledFlexFormItem>
+          </StyledForm>
         </StyledSectionBlock>
         <StyledSectionBlock>
           <StyledTextTitle>
@@ -197,4 +216,5 @@ export default Settings
 /** Make button disabled or anything when not empty name or when not focus on input and check was name change or not ;
  * add portal for message
  * maybe need add timer for message disappear
+ * fix one component for form with props
  */
