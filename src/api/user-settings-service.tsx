@@ -14,6 +14,16 @@ export const UserSettingsService = {
   async removeUserId(id: number | never) {
     return axios.delete<string[] | undefined>(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${id}`)
   },
+  async changeUserBirthData(id: string | undefined, data: Date | null) {
+    return axios
+      .put(`https://62622400d5bd12ff1e78dbfd.mockapi.io/api/users/${id}`, {
+        data_birth: data,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .then(res => res.data)
+  },
 }
 
 /**

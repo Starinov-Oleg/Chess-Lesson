@@ -1,6 +1,6 @@
 import 'react-datepicker/dist/react-datepicker.css'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import DatePicker from 'react-datepicker'
 import { useForm } from 'react-hook-form'
 import { useParams } from 'react-router-dom'
@@ -12,6 +12,7 @@ import Pictures from '../../assets/user-settings/delete_user.png'
 import PicturesEmailBlock from '../../assets/user-settings/email_block.png'
 import PicturesNameBlock from '../../assets/user-settings/name_block.png'
 import PicturesPasswordBlock from '../../assets/user-settings/password_block.png'
+import useChangeBirthData from '../../hooks/change-user-birthdata-hook'
 import useChangeName from '../../hooks/change-user-name-hook'
 import useGetUser from '../../hooks/get-user-hook'
 import useDeleteUser from '../../hooks/user-delete-hook'
@@ -46,24 +47,29 @@ const StyledInput = styled.input`
     color: transparent;
   }
 `
-const StyledDatepicker = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`
+
 const StyledFlexItem = styled.div`
   padding: 0.5rem;
-  DatePicker {
+  display: flex;
+  .react-datepicker-wrapper {
+    width: inherit;
+  }
+  .react-datepicker__input-container input {
     background-color: var(--global-var-color-orange);
     border-radius: 5px;
     border-color: var(--global-var-color-orange);
     font-family: var(--global-var-font-mocha);
     color: var(--global-var-color-white);
+    width: auto;
   }
-  DatePicker:hover,
-  DatePicker:active,
-  DatePicker:visited {
+  .react-datepicker__input-container input:hover,
+  .react-datepicker__input-container input:active,
+  .react-datepicker__input-container input:visited {
     background-color: #f2bd9f;
     border-color: var(--global-var-color-orange);
+  }
+  button {
+    margin-left: 1.7rem;
   }
 `
 const StyledGeneralBlock = styled.div`
@@ -73,13 +79,7 @@ const StyledGeneralBlock = styled.div`
     margin-top: 0.3rem;
   }
 `
-const StyledForm = styled.form`
-  display: flex;
-  gap: 1rem;
-  button {
-    margin-top: 1.7rem;
-  }
-`
+const StyledForm = styled.form``
 const StyledTextTitle = styled.p`
   margin-top: 1rem;
   font-size: 2rem;
@@ -91,24 +91,29 @@ const StyledSection = styled.section`
 const StyledSectionBlock = styled.div`
   background-color: white;
   border-radius: 10px;
-  margin: 1rem;
 `
-const StyledDisplayMessage = styled.div`
+const StyledDisplayMessage = styled.p`
   margin-top: 1.7rem;
   color: #ff6b08;
+`
+const StyledFlexFormItem = styled.div`
+  display: flex;
+  gap: 1rem;
+  button {
+    margin-top: 1.7rem;
+  }
 `
 function Settings() {
   const { id } = useParams()
   const user = useGetUser()
-  const [startDate, setStartDate] = useState<Date | null>(new Date('2014/02/08'))
-  const [endDate] = useState<Date | null>(new Date('2014/02/10'))
+  const thisuser = user?.find(user => user.id === id)
+  const [startDate, setStartDate] = useState<Date | null>(new Date(`${thisuser.data_birth}`))
   const querydeleteuser = useDeleteUser(id)
   const querychangename = useChangeName()
-  const thisuser = user?.find(user => user.id === id)
+  const querychangebirthdata = useChangeBirthData()
   const { handleSubmit } = useForm()
   const [text, setText] = useState(thisuser.name)
   const urlBack = `/user/${id}/post`
-
   return (
     <StyledSection>
       {querydeleteuser.isSuccess ? <>{window.location.replace('/pages')}</> : null}
@@ -132,41 +137,42 @@ function Settings() {
             <img src={PicturesNameBlock} />
             Settings for personal view
           </StyledTextTitle>
+          {querychangename.isSuccess || querychangebirthdata.isSuccess ? (
+            <StyledDisplayMessage>Change success!</StyledDisplayMessage>
+          ) : null}
           <StyledForm
             onSubmit={handleSubmit(() => {
               querychangename.mutate(text)
+              querychangebirthdata.mutate(startDate)
             })}>
-            <StyledTextTitle>Nickname:</StyledTextTitle>
-            <StyledInput
-              value={text}
-              onChange={(event: { target: { value: any } }) => {
-                setText(event.target.value)
-              }}
-              name='name'
-              //placeholder={thisuser.name}
-              required
-            />
-            {querychangename.isSuccess ? <StyledDisplayMessage>Name change success!</StyledDisplayMessage> : null}
-            <ButtonPicture button_click_link width='1.5rem' height='1.5rem' img={PicturesName} />
-          </StyledForm>
-        </StyledSectionBlock>
-
-        <StyledSectionBlock>
-          <StyledTextTitle>
-            <img src={PictureCalendarBlock} />
-            Setting for Data Birthday
-          </StyledTextTitle>
-          <StyledDatepicker>
+            <StyledFlexFormItem>
+              <StyledTextTitle>Nickname:</StyledTextTitle>
+              <StyledInput
+                value={text}
+                onChange={(event: { target: { value: any } }) => {
+                  setText(event.target.value)
+                }}
+                name='name'
+                //placeholder={thisuser.name}
+                required
+              />
+              <ButtonPicture button_click_link width='1.5rem' height='1.5rem' img={PicturesName} />
+            </StyledFlexFormItem>
+            <StyledTextTitle>
+              <img src={PictureCalendarBlock} />
+              Setting for Data Birthday {thisuser.data_birth}
+            </StyledTextTitle>
             <StyledFlexItem>
               <DatePicker
                 selected={startDate}
                 onChange={date => setStartDate(date)}
                 selectsStart
                 startDate={startDate}
-                endDate={endDate}
+                maxDate={new Date()}
               />
+              <ButtonPicture button_click_link width='1.5rem' height='1.5rem' img={PictureCalendarBlock} />
             </StyledFlexItem>
-          </StyledDatepicker>
+          </StyledForm>
         </StyledSectionBlock>
         <StyledSectionBlock>
           <StyledTextTitle>
