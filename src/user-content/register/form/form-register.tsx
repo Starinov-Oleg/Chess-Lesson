@@ -11,6 +11,8 @@ interface FormProps {
   onSubmit: any
   value: any
   onChange: any
+  valuePass: any
+  onChangePass: any
 }
 const StyledError = styled.p`
   color: #c25e1b;
@@ -22,7 +24,7 @@ const StyledFormAlign = styled.form`
   text-align: left;
   padding: 1rem;
 `
-function Form({ onSubmit, value, onChange }: FormProps) {
+function Form({ onSubmit, value, onChange, valuePass, onChangePass }: FormProps) {
   const {
     register,
     handleSubmit,
@@ -54,7 +56,14 @@ function Form({ onSubmit, value, onChange }: FormProps) {
         </Col>
         <Col md={6} xs={12}>
           <Label message='Password' htmlFor='password' />
-          <Input type='password' name='password' register={register} rules={{ required: true }} />
+          <Input
+            type='password'
+            name='password'
+            register={register}
+            rules={{ required: true }}
+            onChange={onChangePass}
+            value={valuePass}
+          />
           <ErrorMessage errors={errors} name='password' render={() => <StyledError>Empty Field</StyledError>} />
         </Col>
         <StyledButtonAling>

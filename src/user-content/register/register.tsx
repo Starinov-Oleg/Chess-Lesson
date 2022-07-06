@@ -23,8 +23,8 @@ const StyledRegisterContainer = styled(Container)`
 `
 function Register() {
   const { handleSubmit } = useForm()
-  const [text, setText] = useState('')
-  const [textpass, setPass] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const queryaddemail = useAddUser()
 
   return (
@@ -44,11 +44,15 @@ function Register() {
             </Row>
             <Form
               onSubmit={handleSubmit(() => {
-                queryaddemail.mutate(text)
+                queryaddemail.mutate({ email, password })
               })}
-              value={text}
+              value={email}
+              valuePass={password}
               onChange={(event: { target: { value: string } }) => {
-                setText(event.target.value)
+                setEmail(event.target.value)
+              }}
+              onChangePass={(event: { target: { value: string } }) => {
+                setPassword(event.target.value)
               }}
             />
           </StyledRegisterContainer>

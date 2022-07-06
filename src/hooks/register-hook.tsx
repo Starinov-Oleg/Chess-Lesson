@@ -5,7 +5,7 @@ import { UserService } from '../api/user-service'
 const useAddUser = () => {
   const queryClient = useQueryClient()
 
-  return useMutation((text: string | undefined) => UserService.adduser(text), {
+  return useMutation((data: any) => UserService.adduser(data), {
     onSettled: () => {
       queryClient.invalidateQueries('users')
     },
