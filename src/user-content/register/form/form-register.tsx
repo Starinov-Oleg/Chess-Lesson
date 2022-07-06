@@ -13,6 +13,8 @@ interface FormProps {
   onChange: any
   valuePass: any
   onChangePass: any
+  valueName: any
+  onChangeName: any
 }
 const StyledError = styled.p`
   color: #c25e1b;
@@ -24,7 +26,7 @@ const StyledFormAlign = styled.form`
   text-align: left;
   padding: 1rem;
 `
-function Form({ onSubmit, value, onChange, valuePass, onChangePass }: FormProps) {
+function Form({ onSubmit, value, onChange, valuePass, onChangePass, valueName, onChangeName }: FormProps) {
   const {
     register,
     handleSubmit,
@@ -53,6 +55,16 @@ function Form({ onSubmit, value, onChange, valuePass, onChangePass }: FormProps)
             }}
           />
           <ErrorMessage errors={errors} name='email' render={() => <StyledError>Email not Correct</StyledError>} />
+          <Label message='Add your nickname' htmlFor='name' />
+          <Input
+            type='text'
+            name='name'
+            register={register}
+            rules={{ required: true }}
+            onChange={onChangeName}
+            value={valueName}
+          />
+          <ErrorMessage errors={errors} name='name' render={() => <StyledError>Empty Field</StyledError>} />
         </Col>
         <Col md={6} xs={12}>
           <Label message='Password' htmlFor='password' />
