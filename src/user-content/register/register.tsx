@@ -26,6 +26,7 @@ function Register() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [name, setName] = useState('')
+  const [realName, setRealName] = useState('')
   const queryaddemail = useAddUser()
 
   return (
@@ -45,11 +46,12 @@ function Register() {
             </Row>
             <Form
               onSubmit={handleSubmit(() => {
-                queryaddemail.mutate({ email, password, name })
+                queryaddemail.mutate({ email, password, name, realName })
               })}
               value={email}
               valuePass={password}
               valueName={name}
+              valueRealName={realName}
               onChange={(event: { target: { value: string } }) => {
                 setEmail(event.target.value)
               }}
@@ -58,6 +60,9 @@ function Register() {
               }}
               onChangeName={(event: { target: { value: string } }) => {
                 setName(event.target.value)
+              }}
+              onChangeRealName={(event: { target: { value: string } }) => {
+                setRealName(event.target.value)
               }}
             />
           </StyledRegisterContainer>
