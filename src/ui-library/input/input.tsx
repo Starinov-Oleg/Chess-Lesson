@@ -7,6 +7,8 @@ interface InputProps {
   rules: { [key: string]: any }
   type: string
   id?: any
+  value?: any
+  onChange?: any
 }
 
 const StyledInput = styled.input`
@@ -26,7 +28,7 @@ const StyledInput = styled.input`
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 `
 
-function Input({ name, register, rules, type, id }: InputProps) {
+function Input({ name, register, rules, type, id, value, onChange }: InputProps) {
   return (
     <StyledInput
       /*  type={props.type} className={input.input}  aria-describedby={props.aria_describedby} 
@@ -35,7 +37,9 @@ function Input({ name, register, rules, type, id }: InputProps) {
             onChange={props.onChange}*/
       {...register(name, rules)}
       type={type}
+      value={value}
       id={id}
+      onChange={onChange}
     />
   )
 }

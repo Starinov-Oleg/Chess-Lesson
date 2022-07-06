@@ -9,6 +9,8 @@ import Input from '../../../ui-library/input/input'
 import Label from '../../../ui-library/label/label'
 interface FormProps {
   onSubmit: any
+  value: any
+  onChange: any
 }
 const StyledError = styled.p`
   color: #c25e1b;
@@ -20,7 +22,7 @@ const StyledFormAlign = styled.form`
   text-align: left;
   padding: 1rem;
 `
-function Form({ onSubmit }: FormProps) {
+function Form({ onSubmit, value, onChange }: FormProps) {
   const {
     register,
     handleSubmit,
@@ -40,6 +42,8 @@ function Form({ onSubmit }: FormProps) {
             name='email'
             type='email'
             register={register}
+            onChange={onChange}
+            value={value}
             rules={{
               required: true,
               pattern:
