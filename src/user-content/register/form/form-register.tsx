@@ -15,6 +15,8 @@ interface FormProps {
   onChangePass: any
   valueName: any
   onChangeName: any
+  valueRealName: any
+  onChangeRealName: any
 }
 const StyledError = styled.p`
   color: #c25e1b;
@@ -26,7 +28,17 @@ const StyledFormAlign = styled.form`
   text-align: left;
   padding: 1rem;
 `
-function Form({ onSubmit, value, onChange, valuePass, onChangePass, valueName, onChangeName }: FormProps) {
+function Form({
+  onSubmit,
+  value,
+  onChange,
+  valuePass,
+  onChangePass,
+  valueName,
+  onChangeName,
+  valueRealName,
+  onChangeRealName,
+}: FormProps) {
   const {
     register,
     handleSubmit,
@@ -41,6 +53,17 @@ function Form({ onSubmit, value, onChange, valuePass, onChangePass, valueName, o
     <StyledFormAlign onSubmit={handleSubmit(onSubmit)}>
       <Row>
         <Col md={6} xs={12}>
+          <Label message='Real Name' htmlFor='realName' />
+          <p>This name will display only in private settings and user can not see him</p>
+          <Input
+            type='text'
+            name='realName'
+            register={register}
+            rules={{ required: true }}
+            onChange={onChangeRealName}
+            value={valueRealName}
+          />
+          <ErrorMessage errors={errors} name='realName' render={() => <StyledError>Empty Field</StyledError>} />
           <Label message='Email address' htmlFor='email' />
           <Input
             name='email'
