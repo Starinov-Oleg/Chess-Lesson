@@ -1,6 +1,9 @@
+import 'react-datepicker/dist/react-datepicker.css'
+
 import { ErrorMessage } from '@hookform/error-message'
 import * as React from 'react'
 import { Col, Row } from 'react-bootstrap'
+import DatePicker from 'react-datepicker'
 import { useForm } from 'react-hook-form'
 import styled from 'styled-components'
 
@@ -9,14 +12,17 @@ import Input from '../../../ui-library/input/input'
 import Label from '../../../ui-library/label/label'
 interface FormProps {
   onSubmit: any
-  value: any
+  value: string
   onChange: any
-  valuePass: any
+  valuePass: string
   onChangePass: any
-  valueName: any
+  valueName: string
   onChangeName: any
-  valueRealName: any
+  valueRealName: string
   onChangeRealName: any
+  selected: any
+  onChangeData: any
+
 }
 const StyledError = styled.p`
   color: #c25e1b;
@@ -38,6 +44,9 @@ function Form({
   onChangeName,
   valueRealName,
   onChangeRealName,
+  selected,
+  onChangeData,
+
 }: FormProps) {
   const {
     register,
@@ -90,6 +99,16 @@ function Form({
           <ErrorMessage errors={errors} name='name' render={() => <StyledError>Empty Field</StyledError>} />
         </Col>
         <Col md={6} xs={12}>
+          <Label message='Chose Data Birtday' htmlFor='data_birth' />
+          <DatePicker
+            selected={selected}
+            onChange={onChangeData}
+            selectsStart
+            maxDate={new Date()}
+            dateFormat='dd/MM/yyyy'
+          />
+          <ErrorMessage errors={errors} name='data_birth' render={() => <StyledError>Empty Field</StyledError>} />
+
           <Label message='Password' htmlFor='password' />
           <Input
             type='password'
@@ -109,3 +128,5 @@ function Form({
   )
 }
 export default Form
+
+/**datepicker use in few components - report cart, register, settigns */

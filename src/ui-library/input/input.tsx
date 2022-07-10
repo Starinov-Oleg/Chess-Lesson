@@ -6,8 +6,8 @@ interface InputProps {
   register: any
   rules: { [key: string]: any }
   type: string
-  id?: any
-  value?: any
+  id?: number | string
+  value?: string
   onChange?: any
 }
 

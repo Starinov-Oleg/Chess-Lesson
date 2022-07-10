@@ -27,6 +27,8 @@ function Register() {
   const [password, setPassword] = useState('')
   const [name, setName] = useState('')
   const [realName, setRealName] = useState('')
+  const [startDate, setStartDate] = useState<Date | null>(new Date())
+
   const queryaddemail = useAddUser()
 
   return (
@@ -46,12 +48,13 @@ function Register() {
             </Row>
             <Form
               onSubmit={handleSubmit(() => {
-                queryaddemail.mutate({ email, password, name, realName })
+                queryaddemail.mutate({ email, password, name, realName, startDate })
               })}
               value={email}
               valuePass={password}
               valueName={name}
               valueRealName={realName}
+              selected={startDate}
               onChange={(event: { target: { value: string } }) => {
                 setEmail(event.target.value)
               }}
@@ -64,6 +67,7 @@ function Register() {
               onChangeRealName={(event: { target: { value: string } }) => {
                 setRealName(event.target.value)
               }}
+              onChangeData={(date: React.SetStateAction<Date | null>) => setStartDate(date)}
             />
           </StyledRegisterContainer>
         </StyledRegister>
