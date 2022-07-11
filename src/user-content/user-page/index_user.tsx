@@ -1,12 +1,11 @@
 import { format } from 'date-fns'
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
 import Couches from '../../common/commpon-people-block/couch-people'
 import Friends from '../../common/commpon-people-block/friends-people'
-import Popup from '../../common/popup-message/popup-message'
 import useGetUser from '../../hooks/get-user-hook'
 import useAddPost from '../../hooks/post-add-hook'
 import useDeletePost from '../../hooks/post-delete-hook'
@@ -14,9 +13,10 @@ import usePost from '../../hooks/post-hook'
 import Button from '../../ui-library/button-click/button'
 import ChessReportCard from '../chess-report-card/chess-report-card'
 import AddPost from './user-index/user-action/add-post/add-post'
+import ActionPostLineSearch from './user-index/user-action/filter-search-post/action-post-search'
 import FilterPost from './user-index/user-action/filter-search-post/filter-post'
 import SearchPost from './user-index/user-action/filter-search-post/search-post'
-import ActionItem from './user-index/user-actionline-item/action-line'
+import ActionPostLine from './user-index/user-actionline-item/posts-line/action-post-line'
 import Competition from './user-index/user-competition/Competition'
 import UserHeader from './user-index/user-header-block/user-header'
 import UserPeopleBlock from './user-index/user-people-block/user-people-block'
@@ -29,23 +29,12 @@ const StyledSearchFilterBlock = styled.div`
   padding: 1rem;
 `
 
-const togglePopupDelete = (id: any, userId: any | never, setIsOpen: any) => {
-  setIsOpen({ show: true, id })
-}
-const handleDeleteFalse = (setIsOpen: any) => {
-  setIsOpen({
-    show: false,
-    id: null,
-  })
-}
-
 function UserPage() {
   const user = useGetUser()
   const { id } = useParams()
 
   const [showResults, setShowResults] = useState(false)
   const [post, setPost] = useState<any[] | undefined>([])
-  const [isOpen, setIsOpen] = useState({ show: false, id: null })
   const [text, setText] = useState<any | undefined>(undefined)
   const [search, setSearch] = useState('')
   const [searchResult, setSearchResult] = useState<any[] | undefined>([])
@@ -74,87 +63,6 @@ function UserPage() {
       setSearchResult(querypost)
     }
   }
-
-  const postListComponent = querypost
-    ?.filter((querypost: any) => querypost.userId === String(id))
-    .map((item: { body: string | undefined; createdAt: any; id: number; userId: number }, index: number) => {
-      return (
-        <Fragment key={index}>
-          <ActionItem
-            body={item.body}
-            data={format(new Date(item.createdAt), 'dd/MM/yyyy')}
-            onClick={() => {
-              togglePopupDelete(item.id, item.userId, setIsOpen)
-            }}
-            id={item.id}
-          />
-
-          {isOpen.id === item.id && (
-            <Popup
-              id={item.id}
-              content_title='Delete Post'
-              content_body='Post will deleted. This action is irreversible.'
-              content={
-                <>
-                  <Button
-                    message='Delete'
-                    onClick={() => {
-                      querydeletepost.mutate(item.id)
-                    }}
-                  />
-                  <Button
-                    message='Canchel'
-                    onClick={() => {
-                      handleDeleteFalse(setIsOpen)
-                    }}
-                  />
-                </>
-              }
-            />
-          )}
-        </Fragment>
-      )
-    })
-  const postListSearchComponent = searchResult
-    ?.filter((querypost: any) => querypost.userId === String(id))
-    .map((item: { body: string | undefined; createdAt: any; id: number; userId: number }, index: number) => {
-      return (
-        <Fragment key={index}>
-          <ActionItem
-            body={item.body}
-            data={format(new Date(item.createdAt), 'dd/MM/yyyy')}
-            onClick={() => {
-              togglePopupDelete(item.id, item.userId, setIsOpen)
-            }}
-            id={item.id}
-          />
-
-          {isOpen.id === item.id && (
-            <Popup
-              id={item.id}
-              content_title='Delete Post'
-              content_body='Post will deleted. This action is irreversible.'
-              content={
-                <>
-                  <Button
-                    message='Delete'
-                    onClick={() => {
-                      querydeletepost.mutate(item.id)
-                    }}
-                  />
-                  <Button
-                    message='Canchel'
-                    onClick={() => {
-                      handleDeleteFalse(setIsOpen)
-                    }}
-                  />
-                </>
-              }
-            />
-          )}
-        </Fragment>
-      )
-    })
 
   return (
     <section>
@@ -201,7 +109,11 @@ function UserPage() {
                   setText('')
                 }}
               />
-              {search.length > 1 ? postListSearchComponent : postListComponent}
+              {search.length > 1 ? (
+                <ActionPostLineSearch id={id} searchResult={searchResult} />
+              ) : (
+                <ActionPostLine id={id} />
+              )}
             </StyledActionBlock>
           </Col>
         </Row>
@@ -220,4 +132,7 @@ export default UserPage
         ...post,
       })),
   })
+
+
+
  */
